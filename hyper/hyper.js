@@ -121,7 +121,11 @@ module.exports = {
         bell: 'SOUND',
 
         // if true, selected text will automatically be copied to the clipboard
-        copyOnSelect: false
+        copyOnSelect: false,
+
+        base16: {
+            scheme: 'macintosh'
+        }
 
         // if true, on right click selected text will be copied or pasted if no
         // selection is present (true by default on Windows)
@@ -134,15 +138,10 @@ module.exports = {
     },
 
     // a list of plugins to fetch and install from npm
-    // format: [@org/]project[#version]
-    // examples:
-    //   `hyperpower`
-    //   `@company/project`
-    //   `project#1.0.1`
-    plugins: [// "hyperterm-one-dark",
-    "hyperlinks", // "nord-hyper",
-    // "nord-light"
-    "hypercwd"],
+    // things I sometimes install:
+    //   nord-hyper
+    //   hyperline
+    plugins: ["hypercwd", "hypersixteen"],
 
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
