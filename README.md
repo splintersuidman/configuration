@@ -5,9 +5,9 @@ Theme for zsh: [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme).
 
 Terminal program: [Hyper](https://hyper.is).
 
-Terminal theme: [hypersixteen](https://github.com/winneon/hypersixteen) with selected theme `macintosh`.
+Terminal theme: [Nord](https://github.com/arcticicestudio/nord-hyper).
 
-![Demo](/demo.png)
+![Terminal demo](/terminal-demo.png)
 
 ## Window manager
 
@@ -15,10 +15,10 @@ Terminal theme: [hypersixteen](https://github.com/winneon/hypersixteen) with sel
 
 ## Menu bar (replacement)
 
-[Übersicht](http://tracesof.net/uebersicht/) with [koekeishiya's nerdbar](https://github.com/koekeishiya/nerdbar.widget)
+[Übersicht](http://tracesof.net/uebersicht/) with (a modified version of) [koekeishiya's nerdbar](https://github.com/koekeishiya/nerdbar.widget).
 
 ## Editor
 
 [Visual Studio Code](https://code.visualstudio.com)
 
-Theme: [One Spacegrey](https://github.com/splintah/theme-one-spacegrey) (my own theme).
+Theme: [Nord](https://github.com/arcticicestudio/nord-visual-studio-code).
