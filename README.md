@@ -22,3 +22,5 @@ Terminal theme: [Nord](https://github.com/arcticicestudio/nord-hyper).
 [Visual Studio Code](https://code.visualstudio.com)
 
 Theme: [Nord](https://github.com/arcticicestudio/nord-visual-studio-code).
+
+![Editor demo](/editor-demo.png)
