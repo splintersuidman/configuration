@@ -23,10 +23,10 @@ module.exports = {
         cursorBlink: true,
 
         // color of the text
-        foregroundColor: 'rgb(255, 255, 255)',
+        foregroundColor: 'rgba(255, 255, 255, 1)',
 
         // terminal background color
-        backgroundColor: 'rgb(0, 0, 0)',
+        backgroundColor: 'rgba(20, 20, 20, 1)',
 
         // border color (window, tabs)
         borderColor: 'rgba(33, 33, 33, 0.8)',
@@ -60,7 +60,7 @@ module.exports = {
         // the full list. if you're going to provide the full color palette,
         // including the 6 x 6 color cubes and the grayscale map, just provide
         // an array here instead of a color map object
-        colors: {
+        /* colors: {
             black: '#000000',
             red: '#ff0000',
             green: '#33ff00',
@@ -77,7 +77,7 @@ module.exports = {
             lightMagenta: '#cc00ff',
             lightCyan: '#00ffff',
             lightWhite: '#ffffff'
-        },
+        }, */
 
 
         // BEGIN NORD COLORS
@@ -101,7 +101,34 @@ module.exports = {
         },
         cursorColor: '#D8DEE9',
         foregroundColor: '#D8DEE9',
+        backgroundColor: 'rgba(20, 20, 20, 1)',
+        borderColor: 'rgba(33, 33, 33, 0.8)',
         // END NORD COLORS
+
+        // SPRING NIGHT
+        /* colors: {
+            black: '#000000',
+            red: '#fd8489',
+            green: '#a9dd9d',
+            yellow: '#fedf81',
+            blue: '#a8d2eb',
+            magenta: '#e7d5ff',
+            cyan: '#a8d2eb',
+            white: '#fffeeb',
+            lightBlack: '#808080',
+            lightRed: '#fb8965',
+            lightGreen: '#a9dd9d',
+            lightYellow: '#fedf81',
+            lightBlue: '#a8d2eb',
+            lightMagenta: '#e7d5ff',
+            lightCyan: '#a8d2eb',
+            lightWhite: '#ffffff'
+        },
+        cursorColor: '#fffeeb',
+        foregroundColor: '#fffeeb',
+        backgroundColor: '#334152',
+        borderColor: '#3a4b5c', */
+        // END SPRING NIGHT
 
         // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
         // if left empty, your system's login shell will be used by default
@@ -124,7 +151,7 @@ module.exports = {
         copyOnSelect: false,
 
         base16: {
-            scheme: 'macintosh'
+            scheme: 'default'
         }
 
         // if true, on right click selected text will be copied or pasted if no
@@ -141,7 +168,7 @@ module.exports = {
     // things I sometimes install:
     //   nord-hyper
     //   hyperline
-    plugins: ["hypercwd", "hypersixteen"],
+    plugins: ["hypercwd", "hyperlinks", "nord-hyper" /* "hypersixteen" */],
 
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
