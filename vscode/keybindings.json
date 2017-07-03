@@ -1,0 +1,28 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "cmd+q",
+    "command": "workbench.action.quit"
+  },
+  {
+    "key": "cmd+q",
+    "command": "-workbench.action.quit"
+  },
+  {
+    "key": "cmd+k cmd+z",
+    "command": "workbench.action.toggleZenMode"
+  },
+  {
+    "key": "cmd+k z",
+    "command": "-workbench.action.toggleZenMode"
+  },
+  {
+    "key": "shift+cmd+,",
+    "command": "workbench.action.openWorkspaceSettings"
+  },
+  {
+    "key": "alt+w",
+    "command": "-gitlens.diffLineWithWorking",
+    "when": "editorTextFocus && gitlens:isTracked"
+  }
+]
