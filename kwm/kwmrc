@@ -34,3 +34,5 @@ kwmc rule owner="Finder" properties={role="AXDialog"}
 kwmc rule owner="Finder" role="AXDialog" properties={float="true"}
 kwmc rule owner="System Preferences" properties={float="true"}
 kwmc rule owner="VirtualBoxVM" properties={float="true"}
+kwmc rule owner="Kap" properties{float="true"}
+kwmc rule owner="iMovie" properties={float="true"}
