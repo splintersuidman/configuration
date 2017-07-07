@@ -15,8 +15,8 @@ source ~/dotfiles/zsh/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle git
-antigen bundle ruby
-antigen bundle golang
+# antigen bundle ruby
+# antigen bundle golang
 antigen bundle node
 antigen bundle python
 antigen bundle osx
@@ -56,7 +56,10 @@ alias kwm="brew services restart kwm"
 
 # Aliases {{{
 alias zshrc="vi ~/.zshrc"
-alias ip="echo 'Public ip: $(curl -s https://4.ifcfg.me/)\nLocal ip: $(ifconfig | sed -En "s/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p")'"
+ip () {
+  echo "Public ip: $(curl -s https://4.ifcfg.me/)"
+  echo "Local ip: $(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')"
+}
 alias ls="ls -Gp"
 alias vi="nvim"
 alias vim="nvim"
