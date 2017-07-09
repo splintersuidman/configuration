@@ -160,6 +160,7 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
 
     hyperTabs: {
+      trafficButtons: true,
       tabIconsColored: true
     }
   },
@@ -168,7 +169,7 @@ module.exports = {
   // things I sometimes install:
   //   nord-hyper
   //   hyperline
-  plugins: ['hypercwd', 'hyperlinks', 'nord-hyper', 'hyper-tabs-enhanced' /*, 'hyperline' */],
+  plugins: ['hypercwd', 'hyperlinks', 'nord-hyper', 'hyper-tabs-enhanced'],
 
 
   // in development, you can create a directory under
