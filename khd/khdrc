@@ -1,0 +1,14 @@
+# Move windows
+ctrl + cmd - up     : kwmc window -s north
+ctrl + cmd - right  : kwmc window -s east
+ctrl + cmd - down   : kwmc window -s south
+ctrl + cmd - left   : kwmc window -s west
+
+# Focus windows
+shift + cmd - up    : kwmc window -f north
+shift + cmd - right : kwmc window -f east
+shift + cmd - down  : kwmc window -f south
+shift + cmd - left  : kwmc window -f west
+
+# Rotate windows
+ctrl + cmd - r      : kwmc tree rotate 90

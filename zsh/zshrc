@@ -23,6 +23,7 @@ antigen bundle osx
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
 
 # antigen theme robbyrussell
 # antigen theme
@@ -48,10 +49,6 @@ export ZSH_THEME_TERM_TAB_TITLE_IDLE="%~"
 # Lang {{{
 export LC_ALL="nl_NL"
 export LANG=nl_NL.UTF-8
-# }}}
-
-# kwm {{{
-alias kwm="brew services restart kwm"
 # }}}
 
 # Aliases {{{
