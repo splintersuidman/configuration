@@ -67,7 +67,8 @@
     "files.associations": {
         "kwmrc": "shellscript",
         "zshrc": "shellscript",
-        "antigenrc": "shellscript"
+        "antigenrc": "shellscript",
+        "khdrc": "shellscript"
     },
     "files.autoSave": "off",
     "files.insertFinalNewline": true,
