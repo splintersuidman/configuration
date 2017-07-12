@@ -87,7 +87,7 @@
     "sync.gist": "9115ef5de87715c9b65b703a86e2f924",
     "sync.host": "",
     "sync.lastDownload": "",
-    "sync.lastUpload": "2017-06-25T17:49:29.284Z",
+    "sync.lastUpload": "2017-07-12T15:43:28.122Z",
     "sync.pathPrefix": "",
     "sync.quietSync": false,
     "telemetry.enableTelemetry": false,
@@ -105,5 +105,8 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
-    "workbench.welcome.enabled": false
+    "workbench.welcome.enabled": false,
+    "sync.askGistName": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false
 }

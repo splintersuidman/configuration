@@ -3,7 +3,9 @@
 ## Terminal
 Theme for zsh: [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme).
 
-Terminal program: [Hyper](https://hyper.is).
+Terminal emulator: [Hyper](https://hyper.is).
+
+Font: [Fira Code](https://github.com/tonsky/FiraCode)
 
 Terminal theme: [Nord](https://github.com/arcticicestudio/nord-hyper).
 
@@ -15,11 +17,15 @@ Terminal theme: [Nord](https://github.com/arcticicestudio/nord-hyper).
 
 ## Menu bar (replacement)
 
-[Übersicht](http://tracesof.net/uebersicht/) with (a modified version of) [koekeishiya's nerdbar](https://github.com/koekeishiya/nerdbar.widget).
+[Übersicht](http://tracesof.net/uebersicht/) with my [nerdbar](https://github.com/splintah/nerdbar.widget).
+
+Font: [Fira Code](https://github.com/tonsky/FiraCode)
 
 ## Editor
 
 [Visual Studio Code](https://code.visualstudio.com)
+
+Font: [Fira Code](https://github.com/tonsky/FiraCode)
 
 Theme: [Nord](https://github.com/arcticicestudio/nord-visual-studio-code).
 
