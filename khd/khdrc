@@ -12,3 +12,10 @@ shift + cmd - left  : kwmc window -f west
 
 # Rotate windows
 ctrl + cmd - r      : kwmc tree rotate 90
+
+# Change split-ratio
+ctrl + alt - up     : kwmc window -c expand 0.05 north
+ctrl + alt - right  : kwmc window -c expand 0.05 east
+ctrl + alt - down   : kwmc window -c reduce 0.05 north
+ctrl + alt - left   : kwmc window -c reduce 0.05 east
+

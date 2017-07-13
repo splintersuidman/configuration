@@ -1,0 +1,55 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim " required
+call vundle#begin()               " required
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Add plugins here
+Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bling/vim-airline'
+Plugin 'paradigm/vim-multicursor'
+Plugin 'townk/vim-autoclose'
+Plugin 'arcticicestudio/nord-vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+" call plug#begin('~/.vim/plugged')
+
+
+" Initialize plugin system
+" call plug#end()
+
+let base16colorspace=256  " Access colors present in 256 colorspace
+
+" Airline config
+let g:airline_detect_modified=1
+
+set tabstop=2
+set softtabstop=2 expandtab
+set shiftwidth=2
+
+syntax on
+filetype plugin indent on
+colo nord
+
+set cul
+set number
+set relativenumber
+set numberwidth=3
+set tabstop=2
+set guicursor+=n:ver30-Cursor/lCursor
+
+" Habit breaking, habit making
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
+

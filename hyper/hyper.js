@@ -36,10 +36,10 @@ module.exports = {
 
     // custom css to embed in the terminal window
     termCSS: `
-      /* .unicode-node {
+      .unicode-node {
           position: relative !important;
           width: 1.15em;
-      } */
+      }
       * {
           font-variant-ligatures: normal;
       }

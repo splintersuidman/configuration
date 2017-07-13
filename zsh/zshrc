@@ -50,8 +50,8 @@ export ZSH_THEME_TERM_TAB_TITLE_IDLE="%~"
 # }}}
 
 # Lang {{{
-export LC_ALL="nl_NL"
-export LANG=nl_NL.UTF-8
+export LC_ALL="en_GB"
+export LANG=en_GB.UTF-8
 # }}}
 
 # Aliases {{{
