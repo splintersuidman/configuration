@@ -19,7 +19,7 @@ source ~/dotfiles/zsh/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 # antigen bundle ruby
-# antigen bundle golang
+antigen bundle golang
 antigen bundle node
 antigen bundle python
 antigen bundle osx

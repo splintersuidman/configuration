@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 14,
+    fontSize: 12,
 
     // font family with optional fallbacks
     fontFamily: `
@@ -9,12 +9,12 @@ module.exports = {
       'Roboto Mono for Powerline',
       'Roboto Mono',
       'Source Code Pro',
-      'Fira Code',
-      Menlo,
+       Menlo,
+      'GohuFont',
       'DejaVu Sans Mono',
-      Consolas,
+       Consolas,
       'Lucida Console',
-      monospace`,
+       monospace`,
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248, 28, 229, 1)',
 
@@ -36,10 +36,10 @@ module.exports = {
 
     // custom css to embed in the terminal window
     termCSS: `
-      .unicode-node {
+      /* .unicode-node {
           position: relative !important;
           width: 1.15em;
-      }
+      } */
       * {
           font-variant-ligatures: normal;
       }

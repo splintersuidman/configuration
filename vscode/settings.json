@@ -6,6 +6,11 @@
         "javascript",
         "javascriptreact"
     ],
+    "better-comments.alertColor": "#BF616A",
+    "better-comments.highlightColor": "#A3BE8C",
+    "better-comments.questionColor": "#88C0D0",
+    "better-comments.removedColor": "#3B4252",
+    "better-comments.todoColor": "#EBCB8B",
     "code-runner.executorMap": {
         "ahk": "autohotkey",
         "applescript": "osascript",
@@ -51,7 +56,7 @@
     "editor.cursorBlinking": "smooth",
     "editor.fontFamily": "Fira Code, Roboto Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
-    "editor.fontSize": 14,
+    "editor.fontSize": 12,
     "editor.minimap.renderCharacters": false,
     "editor.quickSuggestions": {
         "comments": true,
@@ -61,26 +66,43 @@
     "editor.renderControlCharacters": true,
     "editor.renderIndentGuides": true,
     "editor.renderWhitespace": "all",
-    "editor.tabSize": 2,
+    "editor.tabSize": 4,
     "editor.wordWrap": "on",
     "extensions.autoUpdate": true,
     "files.associations": {
-        "kwmrc": "shellscript",
-        "zshrc": "shellscript",
         "antigenrc": "shellscript",
-        "khdrc": "shellscript"
+        "khdrc": "shellscript",
+        "kwmrc": "shellscript",
+        "zshrc": "shellscript"
     },
     "files.autoSave": "off",
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "git.enableSmartCommit": true,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
     "less.colorDecorators.enable": false,
     "material-icon-theme.showUpdateMessage": false,
     "python.formatting.formatOnSave": true,
     "python.linting.enabled": false,
+    "rust.cargoPath": "/Users/splinter/.cargo/bin",
+    "rust.mode": "rls",
+    "rust.racerPath": "/Users/splinter/.cargo/bin/racer",
+    "rust.rls": {
+        "args": [
+            "run",
+            "nightly",
+            "rls"
+        ],
+        "executable": "/Users/splinter/.cargo/bin/rustup",
+        "useRustfmt": true
+    },
+    "rust.rustfmtPath": "/Users/splinter/.cargo/bin/rustfmt",
+    "rust.rustsymPath": "/Users/splinter/.cargo/bin/rustsym",
     "scss.colorDecorators.enable": false,
     "swift.path.sourcekite": "/Users/splinter/.sourcekite/.build/debug/sourcekite",
     "sync.anonymousGist": false,
+    "sync.askGistName": false,
     "sync.autoDownload": false,
     "sync.autoUpload": false,
     "sync.forceDownload": false,
@@ -96,6 +118,7 @@
     "terminal.integrated.cursorStyle": "block",
     "terminal.integrated.fontFamily": "",
     "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.fontSize": 12,
     "typescript.check.tscVersion": false,
     "vsicons.dontShowNewVersionMessage": true,
     "vsicons.projectDetection.autoReload": true,
@@ -104,9 +127,6 @@
     "workbench.colorTheme": "Nord",
     "workbench.iconTheme": "vscode-icons",
     "workbench.sideBar.location": "left",
-    "workbench.statusBar.visible": true,
-    "workbench.welcome.enabled": false,
-    "sync.askGistName": false,
-    "gitlens.codeLens.enabled": false,
-    "gitlens.codeLens.recentChange.enabled": false
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.visible": true
 }

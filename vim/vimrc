@@ -9,11 +9,16 @@ call vundle#begin()               " required
 Plugin 'VundleVim/Vundle.vim'
 
 " Add plugins here
-Plugin 'chriskempson/base16-vim'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'chriskempson/base16-vim'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
-Plugin 'paradigm/vim-multicursor'
 Plugin 'townk/vim-autoclose'
+Plugin 'pangloss/vim-javascript'
+" Plugin 'sindresorhus/vim-xo'
+" Plugin 'prettier/prettier'
+Plugin 'scrooloose/syntastic'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'lilydjwg/colorizer'
 Plugin 'arcticicestudio/nord-vim'
 
 " All of your Plugins must be added before the following line
@@ -31,6 +36,10 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 
 " Airline config
 let g:airline_detect_modified=1
+let g:airline_powerline_fonts=1
+
+" Javascript config
+let g:javascript_plugin_jsdoc = 1
 
 set tabstop=2
 set softtabstop=2 expandtab
@@ -44,7 +53,6 @@ set cul
 set number
 set relativenumber
 set numberwidth=3
-set tabstop=2
 set guicursor+=n:ver30-Cursor/lCursor
 
 " Habit breaking, habit making

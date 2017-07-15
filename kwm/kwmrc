@@ -17,15 +17,15 @@ kwmc config mouse-drag on
 kwmc config mouse-drag mod ctrl+shift
 kwmc config optimal-ratio 1.618
 
-kwmc config border focused on
-kwmc config border focused size 4
-kwmc config border focused color 0x7F81A1C1
-kwmc config border focused radius 6
+# kwmc config border focused on
+# kwmc config border focused size 4
+# kwmc config border focused color 0x7F81A1C1
+# kwmc config border focused radius 6
 
-kwmc config border marked on
-kwmc config border marked size 4
-kwmc config border marked color 0xBF81A1C1
-kwmc config border marked radius 6
+# kwmc config border marked on
+# kwmc config border marked size 4
+# kwmc config border marked color 0xBF81A1C1
+# kwmc config border marked radius 6
 
 kwmc rule owner="Steam" properties={float="true"}
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
