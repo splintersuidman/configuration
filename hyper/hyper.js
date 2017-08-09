@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 14,
 
     // font family with optional fallbacks
     fontFamily: `
@@ -10,7 +10,6 @@ module.exports = {
       'Roboto Mono',
       'Source Code Pro',
        Menlo,
-      'GohuFont',
       'DejaVu Sans Mono',
        Consolas,
       'Lucida Console',
@@ -40,9 +39,9 @@ module.exports = {
           position: relative !important;
           width: 1.15em;
       } */
-      * {
-          font-variant-ligatures: normal;
-      }
+      /* * {
+           font-variant-ligatures: normal;
+      } */
     `,
 
     // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
@@ -79,7 +78,6 @@ module.exports = {
         lightWhite: '#ffffff'
     }, */
 
-
     // BEGIN NORD COLORS
     colors: {
       black: '#3B4252',
@@ -89,7 +87,7 @@ module.exports = {
       blue: '#81A1C1',
       magenta: '#B48EAD',
       cyan: '#88C0D0',
-      white: '#d0d0d0',
+      white: '#D0D0D0',
       lightBlack: '#808080',
       lightRed: '#BF616A',
       lightGreen: '#A3BE8C',
@@ -97,38 +95,13 @@ module.exports = {
       lightBlue: '#81A1C1',
       lightMagenta: '#B48EAD',
       lightCyan: '#88C0D0',
-      lightWhite: '#ffffff'
+      lightWhite: '#FFFFFF'
     },
     cursorColor: '#D8DEE9',
     foregroundColor: '#D8DEE9',
-    backgroundColor: 'rgba(20, 20, 20, 1)',
-    borderColor: 'rgba(33, 33, 33, 0.8)',
+    backgroundColor: 'rgba(47, 52, 64, 1)',
+    borderColor: '#rgba(47, 52, 64, 1)',
     // END NORD COLORS
-
-    // SPRING NIGHT
-    /* colors: {
-        black: '#000000',
-        red: '#fd8489',
-        green: '#a9dd9d',
-        yellow: '#fedf81',
-        blue: '#a8d2eb',
-        magenta: '#e7d5ff',
-        cyan: '#a8d2eb',
-        white: '#fffeeb',
-        lightBlack: '#808080',
-        lightRed: '#fb8965',
-        lightGreen: '#a9dd9d',
-        lightYellow: '#fedf81',
-        lightBlue: '#a8d2eb',
-        lightMagenta: '#e7d5ff',
-        lightCyan: '#a8d2eb',
-        lightWhite: '#ffffff'
-    },
-    cursorColor: '#fffeeb',
-    foregroundColor: '#fffeeb',
-    backgroundColor: '#334152',
-    borderColor: '#3a4b5c', */
-    // END SPRING NIGHT
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
@@ -160,7 +133,7 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
 
     hyperTabs: {
-      trafficButtons: true,
+      trafficButtons: false,
       tabIconsColored: true
     }
   },

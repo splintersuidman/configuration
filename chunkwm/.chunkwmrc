@@ -1,0 +1,74 @@
+#!/bin/bash
+
+chunkc plugin_dir /usr/local/opt/chunkwm/share/chunkwm_plugins
+chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm_plugins
+
+chunkc core::hotload 1
+
+# Tiling {{
+chunkc set global_desktop_mode           bsp
+
+chunkc set bsp_spawn_left                0
+chunkc set bsp_optimal_ratio             1.618
+chunkc set bsp_split_mode                optimal
+chunkc set bsp_split_ratio               0.5
+# }}
+
+# Padding {{
+chunkc set global_desktop_offset_top     20
+chunkc set global_desktop_offset_bottom  20
+chunkc set global_desktop_offset_left    20
+chunkc set global_desktop_offset_right   20
+chunkc set global_desktop_offset_gap     10
+
+chunkc set desktop_padding_step_size     10.0
+chunkc set desktop_gap_step_size         5.0
+# }}
+
+# Non-global settings {{
+# 1   web
+# 2   code
+# 3   term
+# 4-7 other things
+# 8   float
+chunkc set 1_desktop_mode                monocle
+chunkc set 1_desktop_offset_top          10
+chunkc set 1_desktop_offset_bottom       10
+chunkc set 1_desktop_offset_left         10
+chunkc set 1_desktop_offset_right        10
+chunkc set 2_desktop_mode                monocle
+chunkc set 8_desktop_mode                float
+# }}
+
+# Interaction settings {{
+chunkc set window_focus_cycle            monitor
+chunkc set focus_follows_mouse           1
+chunkc set mouse_follows_focus           1
+chunkc set window_float_next             0
+chunkc set window_float_center           1
+chunkc set window_region_locked          1
+
+chunkc set mouse-drag                    1
+chunkc set mouse-drag mod                fn
+
+chunkc set window_float_topmost          0
+# }}
+
+# Border settings {{
+chunkc set focused_border_width          4
+chunkc set focused_border_radius         4
+chunkc set focused_border_color          0x7F81A1C1
+
+chunkc set focused_border_skip_floating  1
+# }}
+
+# Plugins {{
+chunkc core::load tiling.so
+chunkc core::load ffm.so
+# chunkc core::load border.so
+# }}
+
+# Program-specific settings {{
+chunkc tiling::rule --owner \"System Preferences\" --state tile
+chunkc tiling::rule --owner Finder --name Copy --state float
+# }}

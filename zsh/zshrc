@@ -50,7 +50,7 @@ export ZSH_THEME_TERM_TAB_TITLE_IDLE="%~"
 # }}}
 
 # Lang {{{
-export LC_ALL="en_GB"
+export LC_ALL="en_GB.UTF-8"
 export LANG=en_GB.UTF-8
 # }}}
 
@@ -63,11 +63,13 @@ ip () {
 alias ls="ls -Gp"
 alias vi="nvim"
 alias vim="nvim"
+alias scrot="screencapture -t png"
+alias now="now --public"
 # }}}
 
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # Paths {{{
 export GOPATH=~/code/go
-export PATH=~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin
+export PATH=$PATH:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin
 # }}}

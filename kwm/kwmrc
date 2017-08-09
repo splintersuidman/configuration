@@ -5,6 +5,17 @@ kwmc config spawn right
 kwmc config padding 40 40 20 20
 kwmc config gap 10 10
 
+kwmc config space 0 1 name web
+kwmc config space 0 2 name code
+kwmc config space 0 3 name term
+kwmc config space 0 4 name 4
+kwmc config space 0 5 name 5
+kwmc config space 0 6 name 6
+kwmc config space 0 7 name 7
+kwmc config space 0 8 name float
+
+kwmc config space 0 8 mode float
+
 kwmc config float-non-resizable on
 kwmc config focus-follows-mouse on
 kwmc config mouse-follows-focus on
