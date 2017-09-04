@@ -7,45 +7,45 @@
 # shift + alt + cmd - left       : kwmc window -s west
 
 # # Focus windows
-# ctrl + cmd - up        : kwmc window -f north
-# ctrl + cmd - right     : kwmc window -f east
-# ctrl + cmd - down      : kwmc window -f south
-# ctrl + cmd - left      : kwmc window -f west
+# ctrl + cmd - up                : kwmc window -f north
+# ctrl + cmd - right             : kwmc window -f east
+# ctrl + cmd - down              : kwmc window -f south
+# ctrl + cmd - left              : kwmc window -f west
 
 # # Rotate windows
-# ctrl + cmd - r         : kwmc tree rotate 270
-# ctrl + cmd + shift - r : kwmc tree rotate 90
+# ctrl + cmd - r                 : kwmc tree rotate 270
+# ctrl + cmd + shift - r         : kwmc tree rotate 90
 
 # # Change split-ratio
-# ctrl + alt - up        : kwmc window -c expand 0.05 north && kwmc window -c reduce 0.05 south
-# ctrl + alt - right     : kwmc window -c expand 0.05 east  && kwmc window -c reduce 0.05 west
-# ctrl + alt - down      : kwmc window -c expand 0.05 south && kwmc window -c reduce 0.05 north
-# ctrl + alt - left      : kwmc window -c expand 0.05 west  && kwmc window -c reduce 0.05 east
+# ctrl + alt - up                : kwmc window -c expand 0.05 north && kwmc window -c reduce 0.05 south
+# ctrl + alt - right             : kwmc window -c expand 0.05 east  && kwmc window -c reduce 0.05 west
+# ctrl + alt - down              : kwmc window -c expand 0.05 south && kwmc window -c reduce 0.05 north
+# ctrl + alt - left              : kwmc window -c expand 0.05 west  && kwmc window -c reduce 0.05 east
 
 ### }}
 
 ### chunkwm {{
 
 # Move windows
-alt + cmd - up         : chunkc tiling::window --swap north
-alt + cmd - right      : chunkc tiling::window --swap east
-alt + cmd - down       : chunkc tiling::window --swap south
-alt + cmd - left       : chunkc tiling::window --swap west
+shift + alt + cmd - up    : chunkc tiling::window --swap north
+shift + alt + cmd - right : chunkc tiling::window --swap east
+shift + alt + cmd - down  : chunkc tiling::window --swap south
+shift + alt + cmd - left  : chunkc tiling::window --swap west
 
 # Focus windows
-ctrl + cmd - up        : chunkc tiling::window --focus north
-ctrl + cmd - right     : chunkc tiling::window --focus east
-ctrl + cmd - down      : chunkc tiling::window --focus south
-ctrl + cmd - left      : chunkc tiling::window --focus west
+ctrl + cmd - up           : chunkc tiling::window --focus north
+ctrl + cmd - right        : chunkc tiling::window --focus east
+ctrl + cmd - down         : chunkc tiling::window --focus south
+ctrl + cmd - left         : chunkc tiling::window --focus west
 
 # Rotate windows
-ctrl + cmd - r         : chunkc tiling::desktop --rotate 270
-ctrl + cmd + shift - r : chunkc tiling::desktop --rotate 90
+ctrl + cmd - r            : chunkc tiling::desktop --rotate 270
+ctrl + cmd + shift - r    : chunkc tiling::desktop --rotate 90
 
 # Change split-ratio
-ctrl + alt - up        : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
-ctrl + alt - right     : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
-ctrl + alt - down      : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
-ctrl + alt - left      : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
+ctrl + alt - up           : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south
+ctrl + alt - right        : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west
+ctrl + alt - down         : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north
+ctrl + alt - left         : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east
 
 ### }}
