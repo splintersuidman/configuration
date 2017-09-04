@@ -3,23 +3,17 @@
 ## Terminal
 Theme for zsh: [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme).
 
-Terminal emulator: [Hyper](https://hyper.is).
+Terminal emulator: [iTerm2](https://github.com/DrabWeb/iTerm2) (DrabWeb fork with no title bar and rounded corners).
 
 Font: [Fira Code](https://github.com/tonsky/FiraCode)
 
-Terminal theme: [Nord](https://github.com/arcticicestudio/nord-hyper).
+Terminal theme: [Nord](https://github.com/arcticicestudio).
 
 ![Terminal demo](/terminal-demo.png)
 
 ## Window manager
 
 [kwm](https://github.com/koekeishiya/kwm)
-
-## Menu bar (replacement)
-
-[Übersicht](http://tracesof.net/uebersicht/) with my [nerdbar](https://github.com/splintah/nerdbar.widget).
-
-Font: [Fira Code](https://github.com/tonsky/FiraCode)
 
 ## Editor
 
@@ -28,5 +22,3 @@ Font: [Fira Code](https://github.com/tonsky/FiraCode)
 Font: [Fira Code](https://github.com/tonsky/FiraCode)
 
 Theme: [Nord](https://github.com/arcticicestudio/nord-visual-studio-code).
-
-![Editor demo](/editor-demo.png)
