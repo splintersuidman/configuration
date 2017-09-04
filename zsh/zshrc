@@ -66,6 +66,7 @@ alias now="now --public"
 alias cr="cargo run"
 alias cb="cargo build"
 alias fuck="sudo !!"
+alias watch1="watch -t -d -n 1"
 # }}}
 
 # Functions {{{
