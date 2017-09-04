@@ -2,7 +2,7 @@
 
 chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins
 
-ccchunkc core::hotload 1
+chunkc core::hotload 1
 
 # Tiling {{
 chunkc set global_desktop_mode           bsp
