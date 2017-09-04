@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 14,
+    fontSize: 12,
 
     // font family with optional fallbacks
     fontFamily: `
@@ -99,8 +99,8 @@ module.exports = {
     },
     cursorColor: '#D8DEE9',
     foregroundColor: '#D8DEE9',
-    backgroundColor: 'rgba(47, 52, 64, 1)',
-    borderColor: '#rgba(47, 52, 64, 1)',
+    backgroundColor: '#2E3440',
+    borderColor: '#2E3440',
     // END NORD COLORS
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -139,9 +139,6 @@ module.exports = {
   },
 
   // a list of plugins to fetch and install from npm
-  // things I sometimes install:
-  //   nord-hyper
-  //   hyperline
   plugins: ['hypercwd', 'hyperlinks', 'nord-hyper', 'hyper-tabs-enhanced'],
 
 

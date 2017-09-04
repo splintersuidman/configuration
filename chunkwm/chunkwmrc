@@ -1,9 +1,8 @@
 #!/bin/bash
 
-chunkc plugin_dir /usr/local/opt/chunkwm/share/chunkwm_plugins
-chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm_plugins
+chunkc core::plugin_dir /usr/local/opt/chunkwm/share/chunkwm/plugins
 
-chunkc core::hotload 1
+ccchunkc core::hotload 1
 
 # Tiling {{
 chunkc set global_desktop_mode           bsp
@@ -55,15 +54,15 @@ chunkc set window_float_topmost          0
 # }}
 
 # Border settings {{
-chunkc set focused_border_width          4
-chunkc set focused_border_radius         4
-chunkc set focused_border_color          0x7F81A1C1
+# chunkc set focused_border_width          4
+# chunkc set focused_border_radius         4
+# chunkc set focused_border_color          0x7F81A1C1
 
-chunkc set focused_border_skip_floating  1
+# chunkc set focused_border_skip_floating  1
 
-chunkc set preselect_border_width        4
-chunkc set preselect_border_radius       4
-chunkc set preselect_border_color        0x7F81A1C1
+# chunkc set preselect_border_width        4
+# chunkc set preselect_border_radius       4
+# chunkc set preselect_border_color        0x7F81A1C1
 # }}
 
 # Plugins {{

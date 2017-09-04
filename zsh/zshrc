@@ -2,12 +2,14 @@ autoload -Uz compinit
 compinit
 
 # Spaceship settings
-SPACESHIP_PROMPT_SYMBOL=➜
+# SPACESHIP_PROMPT_SYMBOL=➜
+SPACESHIP_PROMPT_SYMBOL=❯
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_PROMPT_SEPARATE_LINE=true
 SPACESHIP_PROMPT_PREFIXES_SHOW=true
 SPACESHIP_PROMPT_SUFFIXES_SHOW=true
 SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
+SOBOLE_THEME_MODE="dark"
 
 HISTSIZE=1000
 SAVEHIST=1000
@@ -29,7 +31,7 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
 # antigen theme robbyrussell
-# antigen theme
+# antigen theme sobolevn/sobole-zsh-theme
 antigen theme denysdovhan/spaceship-zsh-theme spaceship
 
 antigen apply
@@ -56,20 +58,31 @@ export LANG=en_GB.UTF-8
 
 # Aliases {{{
 alias zshrc="vi ~/.zshrc"
-ip () {
-  echo "Public ip: $(curl -4fNs ipinfo.io/ip)"
-  echo "Local ip: $(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')"
-}
 alias ls="ls -Gp"
 alias vi="nvim"
 alias vim="nvim"
 alias scrot="screencapture -t png"
 alias now="now --public"
+alias cr="cargo run"
+alias cb="cargo build"
+alias fuck="sudo !!"
+# }}}
+
+# Functions {{{
+ip () {
+  echo "Public ip: $(curl -4fNs ipinfo.io/ip)"
+  echo "Local ip: $(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')"
+}
+texpreview () {
+  # Open the pdf file in Skim.
+  # Skim auto-reloads (after enabling it) the pdf file after build.
+  open -a "Skim" "$@"
+}
 # }}}
 
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # Paths {{{
 export GOPATH=~/code/go
-export PATH=$PATH:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin
+export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin/
 # }}}

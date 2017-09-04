@@ -24,5 +24,37 @@
     "key": "alt+w",
     "command": "-gitlens.diffLineWithWorking",
     "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
+    "key": "alt+cmd+j",
+    "command": "workbench.action.toggleStatusbarVisibility"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "gitlens.diffWithWorking",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "shift+alt+w",
+    "command": "-gitlens.diffWithWorking",
+    "when": "editorTextFocus && gitlens:isTracked"
+  },
+  {
+    "key": "alt+w",
+    "command": "extension.htmlTagWrap",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+w",
+    "command": "-extension.htmlTagWrap",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+enter",
+    "command": "-r.runSourcewithEcho"
   }
 ]
