@@ -114,5 +114,6 @@
   ],
   "cSpell.enabled": false,
   "cSpell.allowCompoundWords": true,
-  "cSpell.showStatus": false
+  "cSpell.showStatus": false,
+  "gitlens.blame.line.enabled": false
 }

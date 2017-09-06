@@ -9,11 +9,9 @@ Font: [Fira Code](https://github.com/tonsky/FiraCode)
 
 Terminal theme: [Nord](https://github.com/arcticicestudio).
 
-![Terminal demo](/terminal-demo.png)
-
 ## Window manager
 
-[kwm](https://github.com/koekeishiya/kwm)
+[chunkwm](https://github.com/koekeishiya/chunkwm)
 
 ## Editor
 
