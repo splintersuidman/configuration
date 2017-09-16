@@ -1,7 +1,7 @@
 {
   "editor.cursorBlinking": "smooth",
   "editor.emptySelectionClipboard": true,
-  "editor.fontFamily": "Fira Code, Fantasque Sans Mono, Iosevka, Roboto Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "Fira Code, Roboto Mono, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 12,
   "editor.minimap.enabled": false,
@@ -27,15 +27,9 @@
     "javascript",
     "javascriptreact"
   ],
-  "better-comments.alertColor": "#BF616A",
-  "better-comments.highlightColor": "#A3BE8C",
-  "better-comments.questionColor": "#88C0D0",
-  "better-comments.removedColor": "#3B4252",
-  "better-comments.todoColor": "#EBCB8B",
   "code-runner.runInTerminal": false,
   "code-runner.showRunIconInEditorTitleMenu": false,
   "color-highlight.markRuler": false,
-  "css.colorDecorators.enable": false,
   "files.associations": {
     ".chunkwmrc": "shellscript",
     "antigenrc": "shellscript",
@@ -56,8 +50,6 @@
   "git.enableSmartCommit": true,
   "gitlens.codeLens.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
-  "json.colorDecorators.enable": true,
-  "less.colorDecorators.enable": false,
   "prettier.cssEnable": [],
   "prettier.graphqlEnable": [],
   "prettier.javascriptEnable": [],
@@ -66,7 +58,6 @@
   "python.formatting.formatOnSave": true,
   "python.linting.enabled": false,
   "rust.build_lib": true,
-  "scss.colorDecorators.enable": false,
   "swift.path.sourcekite": "/Users/splinter/.sourcekite/.build/debug/sourcekite",
   "sync.anonymousGist": false,
   "sync.askGistName": false,
@@ -76,7 +67,7 @@
   "sync.gist": "9115ef5de87715c9b65b703a86e2f924",
   "sync.host": "",
   "sync.lastDownload": "",
-  "sync.lastUpload": "2017-08-30T14:51:36.994Z",
+  "sync.lastUpload": "2017-09-06T19:04:49.232Z",
   "sync.pathPrefix": "",
   "sync.quietSync": false,
   "telemetry.enableTelemetry": false,
@@ -115,5 +106,26 @@
   "cSpell.enabled": false,
   "cSpell.allowCompoundWords": true,
   "cSpell.showStatus": false,
-  "gitlens.blame.line.enabled": false
+  "gitlens.blame.line.enabled": false,
+  "c-cpp-flylint.flexelint.enable": false,
+  "c-cpp-flylint.run": "onType",
+  "c-cpp-flylint.cppcheck.enable": true,
+  "auto-comment-blocks.languages": [
+    "c",
+    "cpp",
+    "objective-c",
+    "objective-cpp",
+    "csharp",
+    "css",
+    "java",
+    "scss",
+    "groovy",
+    "php"
+  ],
+  "editor.formatOnSave": false,
+  "cSpell.userWords": [
+    "Suidman"
+  ],
+  "c-cpp-flylint.language": "c",
+  "telemetry.enableCrashReporter": false
 }

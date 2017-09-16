@@ -73,4 +73,3 @@ autocmd BufWritePost,FileWritePost *.tex :silent !pdflatex -synctex=1 -file-line
 " noremap <Down> <NOP>
 " noremap <Left> <NOP>
 " noremap <Right> <NOP>
-

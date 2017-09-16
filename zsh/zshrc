@@ -1,7 +1,11 @@
 autoload -Uz compinit
 compinit
 
-# Spaceship settings
+HISTSIZE=1000
+SAVEHIST=1000
+HYPHEN_INSENSITIVE="true"
+
+# Theme settings {{{
 # SPACESHIP_PROMPT_SYMBOL=➜
 SPACESHIP_PROMPT_SYMBOL=❯
 SPACESHIP_PROMPT_ADD_NEWLINE=true
@@ -11,10 +15,7 @@ SPACESHIP_PROMPT_SUFFIXES_SHOW=true
 SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
 SPACESHIP_USER_SHOW=true
 SOBOLE_THEME_MODE="dark"
-
-HISTSIZE=1000
-SAVEHIST=1000
-HYPHEN_INSENSITIVE="true"
+# }}}
 
 ### Antigen {{{
 source ~/dotfiles/zsh/antigen/antigen.zsh
@@ -33,6 +34,7 @@ antigen bundle zsh-users/zsh-completions
 
 # antigen theme robbyrussell
 # antigen theme sobolevn/sobole-zsh-theme
+# antigen theme sorin
 antigen theme denysdovhan/spaceship-zsh-theme spaceship
 
 antigen apply
@@ -79,6 +81,9 @@ texpreview () {
   # Open the pdf file in Skim.
   # Skim auto-reloads (after enabling it) the pdf file after build.
   open -a "Skim" "$@"
+}
+function macfeh() {
+  open -b "drabweb.macfeh" "$@"
 }
 # }}}
 

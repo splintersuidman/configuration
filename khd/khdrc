@@ -26,11 +26,14 @@
 
 ### chunkwm {{
 
+# Open terminal (kitty)
+alt + cmd - t : open -na /Applications/Kitty.app
+
 # Move windows
-shift + ctrl - up    : chunkc tiling::window --warp north
-shift + ctrl - right : chunkc tiling::window --warp east
-shift + ctrl - down  : chunkc tiling::window --warp south
-shift + ctrl - left  : chunkc tiling::window --warp west
+alt + cmd - up    : chunkc tiling::window --warp north
+alt + cmd - right : chunkc tiling::window --warp east
+alt + cmd - down  : chunkc tiling::window --warp south
+alt + cmd - left  : chunkc tiling::window --warp west
 
 # Focus windows
 ctrl + cmd - up    : chunkc tiling::window --focus north
@@ -56,7 +59,12 @@ alt + ctrl + shift - down : chunkc tiling::desktop --padding inc
 alt + ctrl + shift - up   : chunkc tiling::desktop --padding dec
 
 # Send window to desktop
-alt + cmd - right : chunkc tiling::window --send-to-desktop next
-alt + cmd - left  : chunkc tiling::window --send-to-desktop prev
+ctrl + shift - right : chunkc tiling::window --send-to-desktop next
+ctrl + shift - left  : chunkc tiling::window --send-to-desktop prev
+
+# alt - h : ~/code/c/projects/move-mouse/move-mouse -m -20 0
+# alt - j : ~/code/c/projects/move-mouse/move-mouse -m 0 -20
+# alt - k : ~/code/c/projects/move-mouse/move-mouse -m 0 20
+# alt - l : ~/code/c/projects/move-mouse/move-mouse -m 20 0
 
 ### }}
