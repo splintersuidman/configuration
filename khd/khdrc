@@ -1,33 +1,7 @@
-### kwm {{
-
-# # Move windows
-# shift + alt + cmd - up    : kwmc window -s north
-# shift + alt + cmd - right : kwmc window -s east
-# shift + alt + cmd - down  : kwmc window -s south
-# shift + alt + cmd - left  : kwmc window -s west
-
-# # Focus windows
-# ctrl + cmd - up    : kwmc window -f north
-# ctrl + cmd - right : kwmc window -f east
-# ctrl + cmd - down  : kwmc window -f south
-# ctrl + cmd - left  : kwmc window -f west
-
-# # Rotate windows
-# ctrl + cmd - r         : kwmc tree rotate 270
-# ctrl + cmd + shift - r : kwmc tree rotate 90
-
-# # Change split-ratio
-# ctrl + alt - up    : kwmc window -c expand 0.05 north && kwmc window -c reduce 0.05 south
-# ctrl + alt - right : kwmc window -c expand 0.05 east  && kwmc window -c reduce 0.05 west
-# ctrl + alt - down  : kwmc window -c expand 0.05 south && kwmc window -c reduce 0.05 north
-# ctrl + alt - left  : kwmc window -c expand 0.05 west  && kwmc window -c reduce 0.05 east
-
-### }}
-
 ### chunkwm {{
 
 # Open terminal (kitty)
-alt + cmd - t : open -na /Applications/Kitty.app
+alt - space : open -na /Applications/Kitty.app
 
 # Move windows
 alt + cmd - up    : chunkc tiling::window --warp north
@@ -58,13 +32,26 @@ shift + ctrl - f : chunkc tiling::desktop --toggle offset
 alt + ctrl + shift - down : chunkc tiling::desktop --padding inc
 alt + ctrl + shift - up   : chunkc tiling::desktop --padding dec
 
-# Send window to desktop
-ctrl + shift - right : chunkc tiling::window --send-to-desktop next
-ctrl + shift - left  : chunkc tiling::window --send-to-desktop prev
+# Change gap
+alt + ctrl + shift - left  : chunkc tiling::desktop --gap dec
+alt + ctrl + shift - right : chunkc tiling::desktop --gap inc
 
-# alt - h : ~/code/c/projects/move-mouse/move-mouse -m -20 0
-# alt - j : ~/code/c/projects/move-mouse/move-mouse -m 0 -20
-# alt - k : ~/code/c/projects/move-mouse/move-mouse -m 0 20
-# alt - l : ~/code/c/projects/move-mouse/move-mouse -m 20 0
+# Equalize windows
+cmd - 0x18 : chunkc tiling::desktop --equalize
+
+# Insertion points
+ctrl + alt + cmd - up    : chunkc tiling::window --use-insertion-point north
+ctrl + alt + cmd - right : chunkc tiling::window --use-insertion-point east
+ctrl + alt + cmd - down  : chunkc tiling::window --use-insertion-point south
+ctrl + alt + cmd - left  : chunkc tiling::window --use-insertion-point west
+
+# Send window to desktop
+ctrl + shift - right : chunkc tiling::window --send-to-desktop next; khd -p "ctrl - right"
+ctrl + shift - left  : chunkc tiling::window --send-to-desktop prev; khd -p "ctrl - left"
+
+# alt - h : ~/scripts/move-mouse -m -20 0
+# alt - j : ~/scripts/move-mouse -m 0 -20
+# alt - k : ~/scripts/move-mouse -m 0 20
+# alt - l : ~/scripts/move-mouse -m 20 0
 
 ### }}

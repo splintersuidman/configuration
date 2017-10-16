@@ -9,9 +9,8 @@ call vundle#begin()               " required
 Plugin 'VundleVim/Vundle.vim'
 
 " Add plugins here
-" Plugin 'chriskempson/base16-vim'
-Plugin 'scrooloose/nerdtree'
-" Plugin 'kien/ctrlp.vim'
+Plugin 'chriskempson/base16-vim'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 Plugin 'townk/vim-autoclose'
@@ -26,6 +25,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'lilydjwg/colorizer'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'ayu-theme/ayu-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,19 +54,24 @@ let g:multi_cursor_next_key='<C-d>'
 " Javascript config
 let g:javascript_plugin_jsdoc=1
 
+" set statusline=%f%m\ %y\ %4l/%L
+
+set termguicolors
+let ayucolor="dark"
+
 set tabstop=4
 set softtabstop=4 expandtab
 set shiftwidth=4
 
 syntax on
 filetype plugin indent on
-colo nord
+colo ayu
 
 set cul
 set number
 set relativenumber
 set numberwidth=3
-set guicursor+=n:ver30-Cursor/lCursor
+" set guicursor+=n:ver30-Cursor/lCursor
 
 " Compile tex on save
 autocmd BufWritePost,FileWritePost *.tex :silent !pdflatex -synctex=1 -file-line-error -output-directory="$(dirname % | sed 's, ,\\ ,g')" "$(% | sed 's, ,\\ ,g')" "$(echo % | sed 's, ,\\ ,g')"

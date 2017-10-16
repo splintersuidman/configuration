@@ -5,18 +5,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 HYPHEN_INSENSITIVE="true"
 
-# Theme settings {{{
-# SPACESHIP_PROMPT_SYMBOL=➜
-SPACESHIP_PROMPT_SYMBOL=❯
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-SPACESHIP_PROMPT_SEPARATE_LINE=true
-SPACESHIP_PROMPT_PREFIXES_SHOW=true
-SPACESHIP_PROMPT_SUFFIXES_SHOW=true
-SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
-SPACESHIP_USER_SHOW=true
-SOBOLE_THEME_MODE="dark"
-# }}}
-
 ### Antigen {{{
 source ~/dotfiles/zsh/antigen/antigen.zsh
 
@@ -35,12 +23,42 @@ antigen bundle zsh-users/zsh-completions
 # antigen theme robbyrussell
 # antigen theme sobolevn/sobole-zsh-theme
 # antigen theme sorin
-antigen theme denysdovhan/spaceship-zsh-theme spaceship
+# antigen theme denysdovhan/spaceship-zsh-theme spaceship
 
 antigen apply
 ### }}}
 
-### User configuration
+# Theme settings {{{
+# SPACESHIP_PROMPT_SYMBOL=➜
+SPACESHIP_PROMPT_SYMBOL=❯
+SPACESHIP_PROMPT_ADD_NEWLINE=true
+SPACESHIP_PROMPT_SEPARATE_LINE=true
+SPACESHIP_PROMPT_PREFIXES_SHOW=true
+SPACESHIP_PROMPT_SUFFIXES_SHOW=true
+SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
+SPACESHIP_USER_SHOW=true
+SPACESHIP_TIME_SHOW=false
+SOBOLE_THEME_MODE="dark"
+ZSH_THEME_GIT_PROMPT_ADDED="+"
+ZSH_THEME_GIT_PROMPT_RENAMED="»"
+ZSH_THEME_GIT_PROMPT_MODIFIED="!"
+ZSH_THEME_GIT_PROMPT_DELETED="✘"
+ZSH_THEME_GIT_PROMPT_UNMERGED="="
+ZSH_THEME_GIT_PROMPT_UNTRACKED="?"
+ZSH_THEME_GIT_PROMPT_AHEAD="⇡"
+ZSH_THEME_GIT_PROMPT_BEHIND="⇣"
+# }}}
+
+local ret_status="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})"
+PS1='%{$fg_bold[blue]%}Splintah %{$fg_no_bold[cyan]%}%c%{$reset_color%} ${ret_status}:: '
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}✗"
+ZSH_THEME_GIT_PROMPT_CLEAN=" "
+
+# RPS1='$(git_prompt_info)%{$fg[blue]%}%T%{$reset_color%}'
+RPS1='$(git_prompt_info)%{$reset_color%}'
 
 # Python {{{
 # okay, this works, but it is probably very ugly, but I'm happy
@@ -62,6 +80,7 @@ export LANG=en_GB.UTF-8
 # Aliases {{{
 alias zshrc="vi ~/.zshrc"
 alias ls="ls -Gp"
+alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias scrot="screencapture -t png"
@@ -70,6 +89,7 @@ alias cr="cargo run"
 alias cb="cargo build"
 alias fuck="sudo !!"
 alias watch1="watch -t -d -n 1"
+alias love="open -na love"
 # }}}
 
 # Functions {{{
@@ -91,5 +111,7 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # Paths {{{
 export GOPATH=~/code/go
-export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin/
+export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin/:~/.local/bin
 # }}}
+
+clear
