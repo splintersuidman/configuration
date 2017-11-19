@@ -1,7 +1,8 @@
 ### chunkwm {{
 
 # Open terminal (kitty)
-alt - space : open -na /Applications/Kitty.app
+alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty --session ~/dotfiles/kitty/default-session
+alt - space : open -na /Applications/Alacritty.app/
 
 # Move windows
 alt + cmd - up    : chunkc tiling::window --warp north
@@ -14,6 +15,10 @@ ctrl + cmd - up    : chunkc tiling::window --focus north
 ctrl + cmd - right : chunkc tiling::window --focus east
 ctrl + cmd - down  : chunkc tiling::window --focus south
 ctrl + cmd - left  : chunkc tiling::window --focus west
+
+# Focus monitors
+ctrl + cmd + shift - left  : chunkc tiling::monitor -f prev
+ctrl + cmd + shift - right : chunkc tiling::monitor -f next
 
 # Rotate windows
 ctrl + cmd - r         : chunkc tiling::desktop --rotate 270
@@ -46,8 +51,8 @@ ctrl + alt + cmd - down  : chunkc tiling::window --use-insertion-point south
 ctrl + alt + cmd - left  : chunkc tiling::window --use-insertion-point west
 
 # Send window to desktop
-ctrl + shift - right : chunkc tiling::window --send-to-desktop next; khd -p "ctrl - right"
-ctrl + shift - left  : chunkc tiling::window --send-to-desktop prev; khd -p "ctrl - left"
+ctrl + shift - right : chunkc tiling::window --send-to-desktop next && khd -p "ctrl - right"
+ctrl + shift - left  : chunkc tiling::window --send-to-desktop prev && khd -p "ctrl - left"
 
 # alt - h : ~/scripts/move-mouse -m -20 0
 # alt - j : ~/scripts/move-mouse -m 0 -20

@@ -5,7 +5,7 @@ module.exports = {
 
     // font family with optional fallbacks
     fontFamily: `
-      'Fira Code',
+      'FiraCode-Retina',
       'Roboto Mono for Powerline',
       'Roboto Mono',
       'Source Code Pro',
@@ -79,7 +79,7 @@ module.exports = {
     }, */
 
     // BEGIN NORD COLORS
-    colors: {
+    /* colors: {
       black: '#3B4252',
       red: '#BF616A',
       green: '#A3BE8C',
@@ -100,7 +100,7 @@ module.exports = {
     cursorColor: '#D8DEE9',
     foregroundColor: '#D8DEE9',
     backgroundColor: '#2E3440',
-    borderColor: '#2E3440',
+    borderColor: '#2E3440', */
     // END NORD COLORS
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -135,11 +135,13 @@ module.exports = {
     hyperTabs: {
       trafficButtons: false,
       tabIconsColored: true
-    }
+    },
+
+    updateChannel: 'canary'
   },
 
   // a list of plugins to fetch and install from npm
-  plugins: ['hypercwd', 'hyperlinks', 'nord-hyper', 'hyper-tabs-enhanced'],
+  plugins: ['hypercwd', 'hyperlinks', /* 'nord-hyper' */, 'hyper-tabs-enhanced', 'hyper-ayu-mirage'],
 
 
   // in development, you can create a directory under

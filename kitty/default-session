@@ -1,0 +1,4 @@
+launch tmux -u2
+layout tall
+cd ~
+

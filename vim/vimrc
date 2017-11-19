@@ -9,31 +9,36 @@ call vundle#begin()               " required
 Plugin 'VundleVim/Vundle.vim'
 
 " Add plugins here
-Plugin 'chriskempson/base16-vim'
-" Plugin 'scrooloose/nerdtree'
+" Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 Plugin 'townk/vim-autoclose'
 Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 " Plugin 'sindresorhus/vim-xo'
 " Plugin 'prettier/prettier'
-Plugin 'lervag/vimtex'
-Plugin 'scrooloose/syntastic'
+" Plugin 'lervag/vimtex'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'lilydjwg/colorizer'
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'flazz/vim-colorschemes'
+" Plugin 'lilydjwg/colorizer'
+" Plugin 'arcticicestudio/nord-vim'
+" Plugin 'flazz/vim-colorschemes'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'neovimhaskell/haskell-vim'
 Plugin 'ayu-theme/ayu-vim'
+Plugin 'AfterColors.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+filetype plugin on
 
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 " call plug#begin('~/.vim/plugged')
@@ -44,9 +49,15 @@ filetype plugin indent on    " required
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
 " Airline config
 let g:airline_detect_modified=1
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 
 " Multicursor config
 let g:multi_cursor_next_key='<C-d>'
@@ -54,10 +65,17 @@ let g:multi_cursor_next_key='<C-d>'
 " Javascript config
 let g:javascript_plugin_jsdoc=1
 
+" Racer config
+set hidden
+let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+
 " set statusline=%f%m\ %y\ %4l/%L
 
-set termguicolors
-let ayucolor="dark"
+if has("termguicolors")
+    set termguicolors
+endif
+let ayucolor="mirage"
 
 set tabstop=4
 set softtabstop=4 expandtab
@@ -72,9 +90,10 @@ set number
 set relativenumber
 set numberwidth=3
 " set guicursor+=n:ver30-Cursor/lCursor
+" set mouse=a
 
 " Compile tex on save
-autocmd BufWritePost,FileWritePost *.tex :silent !pdflatex -synctex=1 -file-line-error -output-directory="$(dirname % | sed 's, ,\\ ,g')" "$(% | sed 's, ,\\ ,g')" "$(echo % | sed 's, ,\\ ,g')"
+" autocmd BufWritePost,FileWritePost *.tex :silent !pdflatex -synctex=1 -file-line-error -output-directory="$(dirname % | sed 's, ,\\ ,g')" "$(% | sed 's, ,\\ ,g')" "$(echo % | sed 's, ,\\ ,g')"
 " autocmd BufWritePost,FileWritePost *.tex :silent !local file="$(echo % | sed 's, ,\\ ,g')" && pdflatex -synctex=1 -file-line-error -output-directory="$(dirname $file)" $file
 
 " Habit breaking, habit making

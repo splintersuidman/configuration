@@ -8,8 +8,7 @@ HYPHEN_INSENSITIVE="true"
 ### Antigen {{{
 source ~/dotfiles/zsh/antigen/antigen.zsh
 
-antigen use oh-my-zsh
-antigen bundle git
+antigen use oh-my-zsh antigen bundle git
 # antigen bundle ruby
 antigen bundle golang
 antigen bundle node
@@ -20,6 +19,8 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 
+antigen bundle wookayin/anybar-zsh
+
 # antigen theme robbyrussell
 # antigen theme sobolevn/sobole-zsh-theme
 # antigen theme sorin
@@ -27,6 +28,10 @@ antigen bundle zsh-users/zsh-completions
 
 antigen apply
 ### }}}
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
+# Don't underline paths (!)
+ZSH_HIGHLIGHT_STYLES[path]='fg=white'
 
 # Theme settings {{{
 # SPACESHIP_PROMPT_SYMBOL=➜
@@ -77,19 +82,24 @@ export LC_ALL="en_GB.UTF-8"
 export LANG=en_GB.UTF-8
 # }}}
 
+# Editors {{{
+export EDITOR=nvim
+export VISUAL=nvim
+# }}}
+
 # Aliases {{{
 alias zshrc="vi ~/.zshrc"
 alias ls="ls -Gp"
 alias v="nvim"
 alias vi="nvim"
-alias vim="nvim"
+# alias vim="nvim"
 alias scrot="screencapture -t png"
-alias now="now --public"
 alias cr="cargo run"
 alias cb="cargo build"
 alias fuck="sudo !!"
 alias watch1="watch -t -d -n 1"
 alias love="open -na love"
+alias code="code-insiders"
 # }}}
 
 # Functions {{{
@@ -110,8 +120,9 @@ function macfeh() {
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # Paths {{{
-export GOPATH=~/code/go
-export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin/:~/.local/bin
+export GOPATH=~/.go
+export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin/:~/.local/bin:/Applications/kitty.app/Contents/MacOS
 # }}}
 
+cd ~
 clear
