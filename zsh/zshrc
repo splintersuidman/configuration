@@ -1,3 +1,5 @@
+fpath+=~/.zfunc
+
 autoload -Uz compinit
 compinit
 
@@ -33,29 +35,9 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
 # Don't underline paths (!)
 ZSH_HIGHLIGHT_STYLES[path]='fg=white'
 
-# Theme settings {{{
-# SPACESHIP_PROMPT_SYMBOL=➜
-SPACESHIP_PROMPT_SYMBOL=❯
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-SPACESHIP_PROMPT_SEPARATE_LINE=true
-SPACESHIP_PROMPT_PREFIXES_SHOW=true
-SPACESHIP_PROMPT_SUFFIXES_SHOW=true
-SPACESHIP_PROMPT_DEFAULT_PREFIX="via "
-SPACESHIP_USER_SHOW=true
-SPACESHIP_TIME_SHOW=false
-SOBOLE_THEME_MODE="dark"
-ZSH_THEME_GIT_PROMPT_ADDED="+"
-ZSH_THEME_GIT_PROMPT_RENAMED="»"
-ZSH_THEME_GIT_PROMPT_MODIFIED="!"
-ZSH_THEME_GIT_PROMPT_DELETED="✘"
-ZSH_THEME_GIT_PROMPT_UNMERGED="="
-ZSH_THEME_GIT_PROMPT_UNTRACKED="?"
-ZSH_THEME_GIT_PROMPT_AHEAD="⇡"
-ZSH_THEME_GIT_PROMPT_BEHIND="⇣"
-# }}}
-
 local ret_status="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})"
-PS1='%{$fg_bold[blue]%}Splintah %{$fg_no_bold[cyan]%}%c%{$reset_color%} ${ret_status}:: '
+#      Blue fg                  Italic on           Cyan foreground    CWD Reset fg      Italic off          Ret status
+PS1="%{$fg_bold[blue]%}Splinter $(echo -e '\e[3m')%{$fg_no_bold[cyan]%}%c%{$reset_color%}$(echo -e '\e[23m') ${ret_status}:: "
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
@@ -66,7 +48,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN=" "
 RPS1='$(git_prompt_info)%{$reset_color%}'
 
 # Python {{{
-# okay, this works, but it is probably very ugly, but I'm happy
 alias setpython3path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python3.6/site-packages/"
 alias setpython2path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python2.7/site-packages/"
 unset PYTHONPATH
@@ -89,7 +70,7 @@ export VISUAL=nvim
 
 # Aliases {{{
 alias zshrc="vi ~/.zshrc"
-alias ls="ls -Gp"
+# alias ls="ls -Gp"
 alias v="nvim"
 alias vi="nvim"
 # alias vim="nvim"
@@ -100,6 +81,8 @@ alias fuck="sudo !!"
 alias watch1="watch -t -d -n 1"
 alias love="open -na love"
 alias code="code-insiders"
+alias :q="exit"
+alias ls="exa -GF"
 # }}}
 
 # Functions {{{
@@ -112,7 +95,7 @@ texpreview () {
   # Skim auto-reloads (after enabling it) the pdf file after build.
   open -a "Skim" "$@"
 }
-function macfeh() {
+function macfeh () {
   open -b "drabweb.macfeh" "$@"
 }
 # }}}
@@ -120,9 +103,7 @@ function macfeh() {
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 # Paths {{{
+export RUST_SRC_PATH=/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src
 export GOPATH=~/.go
 export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin/:~/.local/bin:/Applications/kitty.app/Contents/MacOS
 # }}}
-
-cd ~
-clear
