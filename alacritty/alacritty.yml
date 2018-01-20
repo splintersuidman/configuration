@@ -44,19 +44,19 @@ font:
   normal:
     family: Fira Code
     # Style can be specified to pick a specific face.
-    # style: Regular
+    style: Regular
 
   # The bold font face
   bold:
     family: Fira Code
     # Style can be specified to pick a specific face.
-    # style: Bold
+    style: Bold
 
   # The italic font face
   italic:
     family: Fira Code
     # Style can be specified to pick a specific face.
-    # style: Italic
+    style: Italic
 
   # Point size of the font
   size: 13.0
@@ -77,7 +77,7 @@ font:
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
-  use_thin_strokes: true
+  use_thin_strokes: false
 
 # Should display the render timer
 render_timer: false
@@ -90,35 +90,35 @@ custom_cursor_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x212733'
-    foreground: '0xD9D7CE'
+    background: '0x1d2021'
+    foreground: '0xebdbb2'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x000000'
-    cursor: '0xD9D7CE'
+    text: '0x282828'
+    cursor: '0xfbf1c7'
 
   # Normal colors
   normal:
-    black:   '0x1d242c'
-    red:     '0xf07178'
-    green:   '0xbae67e'
-    yellow:  '0xffcc66'
-    blue:    '0x36a3d9'
-    magenta: '0xd4bfff'
-    cyan:    '0x95e6cb'
-    white:   '0xc7c7c7'
+    black:   '0x282828'
+    red:     '0xcc241d'
+    green:   '0x98971a'
+    yellow:  '0xd79921'
+    blue:    '0x458588'
+    magenta: '0xb16286'
+    cyan:    '0x689d6a'
+    white:   '0xa89984'
 
   # Bright colors
   bright:
-    black:   '0x686868'
-    red:     '0xf07178'
-    green:   '0xcbe645'
-    yellow:  '0xffdf80'
-    blue:    '0x6871ff'
-    magenta: '0xff77ff'
-    cyan:    '0xa6fde1'
-    white:   '0xffffff'
+    black:   '0x928374'
+    red:     '0xfb4934'
+    green:   '0xb8bb26'
+    yellow:  '0xfabd2f'
+    blue:    '0x83a598'
+    magenta: '0xd3869b'
+    cyan:    '0x8ec07c'
+    white:   '0xebdbb2'
 
   # Dim colors (Optional)
   dim:
@@ -130,7 +130,6 @@ colors:
 ￼   magenta: '0xcc99cc'
 ￼   cyan:    '0x66cccc'
 ￼   white:   '0xdddddd'
-
 
 # Visual Bell
 #
@@ -158,7 +157,6 @@ visual_bell:
   animation: EaseOutExpo
   duration: 0
 
-
 # Mouse bindings
 #
 # Currently doesn't support modifiers. Both the `mouse` and `action` fields must
@@ -185,6 +183,17 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 hide_cursor_when_typing: false
+
+# Style of the cursor
+#
+# Values for 'cursor_style':
+# - Block
+# - Underline
+# - Beam
+cursor_style: Block
+
+# Live config reload (changes require restart)
+live_config_reload: true
 
 # Shell
 #

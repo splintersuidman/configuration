@@ -1,20 +1,30 @@
-### chunkwm {{
-
 # Open terminal (kitty)
-alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty --session ~/dotfiles/kitty/default-session
-alt - space : open -na /Applications/Alacritty.app/
+alt - space : /Applications/kitty.app/Contents/MacOS/kitty --session ~/dotfiles/kitty/default-session --single-instance
+alt + cmd - space : open -na /Applications/Alacritty.app/
+
+### chunkwm {{
 
 # Move windows
 alt + cmd - up    : chunkc tiling::window --warp north
 alt + cmd - right : chunkc tiling::window --warp east
 alt + cmd - down  : chunkc tiling::window --warp south
 alt + cmd - left  : chunkc tiling::window --warp west
+## Vim keys
+alt + shift - k : chunkc tiling::window --warp north
+alt + shift - l : chunkc tiling::window --warp east
+alt + shift - j : chunkc tiling::window --warp south
+alt + shift - h : chunkc tiling::window --warp west
 
 # Focus windows
 ctrl + cmd - up    : chunkc tiling::window --focus north
 ctrl + cmd - right : chunkc tiling::window --focus east
 ctrl + cmd - down  : chunkc tiling::window --focus south
 ctrl + cmd - left  : chunkc tiling::window --focus west
+## Vim keys
+alt - k : chunkc tiling::window --focus north
+alt - l : chunkc tiling::window --focus east
+alt - j : chunkc tiling::window --focus south
+alt - h : chunkc tiling::window --focus west
 
 # Focus monitors
 ctrl + cmd + shift - left  : chunkc tiling::monitor -f prev
@@ -25,38 +35,33 @@ ctrl + cmd - r         : chunkc tiling::desktop --rotate 270
 ctrl + cmd + shift - r : chunkc tiling::desktop --rotate 90
 
 # Change split-ratio
-alt + ctrl - up    : chunkc tiling::window -r 0.05 -e north tiling::window -r -0.05 -e south
-alt + ctrl - right : chunkc tiling::window -r 0.05 -e east  tiling::window -r -0.05 -e west
-alt + ctrl - down  : chunkc tiling::window -r 0.05 -e south tiling::window -r -0.05 -e north
-alt + ctrl - left  : chunkc tiling::window -r 0.05 -e west  tiling::window -r -0.05 -e east
+alt + ctrl - k : chunkc tiling::window -r 0.05 -e north tiling::window -r -0.05 -e south
+alt + ctrl - l : chunkc tiling::window -r 0.05 -e east  tiling::window -r -0.05 -e west
+alt + ctrl - j : chunkc tiling::window -r 0.05 -e south tiling::window -r -0.05 -e north
+alt + ctrl - h : chunkc tiling::window -r 0.05 -e west  tiling::window -r -0.05 -e east
 
 # Fullscreen
 shift + ctrl - f : chunkc tiling::desktop --toggle offset
 
 # Change padding
-alt + ctrl + shift - down : chunkc tiling::desktop --padding inc
-alt + ctrl + shift - up   : chunkc tiling::desktop --padding dec
+alt + ctrl + shift - j : chunkc tiling::desktop --padding inc
+alt + ctrl + shift - k : chunkc tiling::desktop --padding dec
 
 # Change gap
-alt + ctrl + shift - left  : chunkc tiling::desktop --gap dec
-alt + ctrl + shift - right : chunkc tiling::desktop --gap inc
+alt + ctrl + shift - h : chunkc tiling::desktop --gap dec
+alt + ctrl + shift - l : chunkc tiling::desktop --gap inc
 
 # Equalize windows
 cmd - 0x18 : chunkc tiling::desktop --equalize
 
 # Insertion points
-ctrl + alt + cmd - up    : chunkc tiling::window --use-insertion-point north
-ctrl + alt + cmd - right : chunkc tiling::window --use-insertion-point east
-ctrl + alt + cmd - down  : chunkc tiling::window --use-insertion-point south
-ctrl + alt + cmd - left  : chunkc tiling::window --use-insertion-point west
+ctrl + alt + cmd - k : chunkc tiling::window --use-insertion-point north
+ctrl + alt + cmd - l : chunkc tiling::window --use-insertion-point east
+ctrl + alt + cmd - j : chunkc tiling::window --use-insertion-point south
+ctrl + alt + cmd - h : chunkc tiling::window --use-insertion-point west
 
 # Send window to desktop
-ctrl + shift - right : chunkc tiling::window --send-to-desktop next && khd -p "ctrl - right"
-ctrl + shift - left  : chunkc tiling::window --send-to-desktop prev && khd -p "ctrl - left"
-
-# alt - h : ~/scripts/move-mouse -m -20 0
-# alt - j : ~/scripts/move-mouse -m 0 -20
-# alt - k : ~/scripts/move-mouse -m 0 20
-# alt - l : ~/scripts/move-mouse -m 20 0
+ctrl + shift - l : chunkc tiling::window --send-to-desktop next && khd -p "ctrl - right"
+ctrl + shift - h : chunkc tiling::window --send-to-desktop prev && khd -p "ctrl - left"
 
 ### }}

@@ -84,5 +84,17 @@
   {
     "key": "ctrl+cmd+left",
     "command": "-workbench.action.moveEditorToPreviousGroup"
+  },
+  {
+    "key": "cmd+pagedown",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "cmd+pageup",
+    "command": "workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "cmd+1",
+    "command": "-workbench.action.focusFirstEditorGroup"
   }
 ]

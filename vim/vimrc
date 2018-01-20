@@ -1,103 +1,167 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible " be iMproved, required
+filetype off     " required
 
-" set the runtime path to include Vundle and initialize
+" ------
+" Vundle
+" ------
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim " required
 call vundle#begin()               " required
 
-" let Vundle manage Vundle, required
+" Let Vundle manage Vundle, required.
 Plugin 'VundleVim/Vundle.vim'
 
-" Add plugins here
-" Plugin 'chriskempson/base16-vim'
+" -------
+" Plugins
+" -------
+" Easy editing
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 Plugin 'townk/vim-autoclose'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'airblade/vim-gitgutter'
+" Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'mattn/emmet-vim'
+
+" Aesthetics
+Plugin 'mhinz/vim-startify'
+
+" Autocompletion
+if !has("gvim")
+    Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+
+" Rust
 Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'sebastianmarkow/deoplete-rust'
+
+" Language support
+Plugin 'lervag/vimtex'
+" Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'neovimhaskell/haskell-vim'
 Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
+Plugin 'kchmck/vim-coffee-script'
+
+" Linters
 " Plugin 'sindresorhus/vim-xo'
 " Plugin 'prettier/prettier'
-" Plugin 'lervag/vimtex'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'kchmck/vim-coffee-script'
-" Plugin 'lilydjwg/colorizer'
-" Plugin 'arcticicestudio/nord-vim'
-" Plugin 'flazz/vim-colorschemes'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'neovimhaskell/haskell-vim'
+
+" Colour theme
 Plugin 'ayu-theme/ayu-vim'
-Plugin 'AfterColors.vim'
+Plugin 'morhetz/gruvbox'
+" Plugin 'flazz/vim-colorschemes'
+" Plugin 'chriskempson/base16-vim'
+" Plugin 'arcticicestudio/nord-vim'
+Plugin 'AfterColors.vim'    " used for changing the background color to None, to improve speed in alacritty.
+Plugin 'lilydjwg/colorizer'
+
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()           " required
+filetype plugin indent on   " required
 filetype plugin on
 
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-" call plug#begin('~/.vim/plugged')
+let base16colorspace=256    " Access colors present in 256 colorspace
+let t_Co = 256              " Use 256 colors in terminal
 
-
-" Initialize plugin system
-" call plug#end()
-
-let base16colorspace=256  " Access colors present in 256 colorspace
-
+" ---------------
+" NERDTree config
+" ---------------
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
+" --------------
 " Airline config
+" --------------
 let g:airline_detect_modified=1
-let g:airline_powerline_fonts=0
+let g:airline_powerline_fonts=1
 
+" ------------------
 " Multicursor config
+" ------------------
 let g:multi_cursor_next_key='<C-d>'
 
-" Javascript config
-let g:javascript_plugin_jsdoc=1
-
+" ------------
 " Racer config
+" ------------
 set hidden
 let g:racer_cmd = "~/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
-" set statusline=%f%m\ %y\ %4l/%L
+" ---------------
+" Deoplete config
+" ---------------
+let g:deoplete#enable_at_startup = 1
 
+" --------------------
+" Deoplete Rust config
+" --------------------
+let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='~/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+
+let g:python_host_prog = "/usr/local/bin/python2.7"
+let g:python3_host_prog = "/usr/local/bin/python3"
+
+" ---------------
+" Startify config
+" ---------------
+let g:startify_bookmarks = ['~/.vimrc', '~/.zshrc', '~/dotfiles']
+" let g:startify_custom_header = system('figlet -c neovim')
+let g:startify_custom_header = map(split(system('figlet -f slant neovim'), '\n'), '"   ". v:val') + ['','']
+
+" Make sure guicolors are used when available
 if has("termguicolors")
     set termguicolors
 endif
 let ayucolor="mirage"
 
+" Tab settings
 set tabstop=4
 set softtabstop=4 expandtab
 set shiftwidth=4
 
+" Syntax settings
 syntax on
 filetype plugin indent on
-colo ayu
+colo gruvbox
+set background=dark
+let t_ZH="^[[3m"
+let t_ZR="^[[23m"
+highlight Comment cterm=italic
 
+" Line number settings
 set cul
 set number
 set relativenumber
 set numberwidth=3
-" set guicursor+=n:ver30-Cursor/lCursor
-" set mouse=a
 
-" Compile tex on save
-" autocmd BufWritePost,FileWritePost *.tex :silent !pdflatex -synctex=1 -file-line-error -output-directory="$(dirname % | sed 's, ,\\ ,g')" "$(% | sed 's, ,\\ ,g')" "$(echo % | sed 's, ,\\ ,g')"
-" autocmd BufWritePost,FileWritePost *.tex :silent !local file="$(echo % | sed 's, ,\\ ,g')" && pdflatex -synctex=1 -file-line-error -output-directory="$(dirname $file)" $file
+" Scroll settings
+set so=3
+
+" Wrap settings
+set wrap lbr
+noremap  <buffer> <silent> k gk
+noremap  <buffer> <silent> j gj
+noremap  <buffer> <silent> 0 g0
+noremap  <buffer> <silent> $ g$<Paste>
 
 " Habit breaking, habit making
 " noremap <Up> <NOP>
 " noremap <Down> <NOP>
 " noremap <Left> <NOP>
 " noremap <Right> <NOP>
+

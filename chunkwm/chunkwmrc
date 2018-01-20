@@ -4,6 +4,8 @@ chunkc core::plugin_dir ~/.chunkwm_plugins
 
 chunkc core::hotload 1
 
+chunkc core::log_level debug
+
 # Tiling {{
 chunkc set global_desktop_mode           bsp
 
@@ -39,13 +41,9 @@ chunkc set 1_desktop_offset_right        10
 chunkc set 2_desktop_mode                monocle
 chunkc set 2_desktop_offset_gap          10
 
-chunkc set 3_desktop_mode                bsp
-chunkc set 3_desktop_offset_top          50
-chunkc set 3_desktop_offset_bottom       50
-chunkc set 3_desktop_offset_left         50
-chunkc set 3_desktop_offset_right        50
+chunkc set 3_desktop_mode                monocle
 
-chunkc set 6_desktop_mode                float
+chunkc set 5_desktop_mode                float
 # Monitor 2
 chunkc set 7_desktop_mode                monocle
 chunkc set 8_desktop_mode                monocle
@@ -72,13 +70,13 @@ chunkc set window_use_cgs_move 0
 # Border settings {{
 chunkc set focused_border_width          6
 chunkc set focused_border_radius         4
-chunkc set focused_border_color          0xffd9d7ce
+chunkc set focused_border_color          0xffebdbb2
 
 chunkc set focused_border_skip_floating  1
 
 chunkc set preselect_border_width        8
 chunkc set preselect_border_radius       0
-chunkc set preselect_border_color        0xffd9d7ce
+chunkc set preselect_border_color        0xffebdbb2
 # }}
 
 # Blur {{

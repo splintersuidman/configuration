@@ -1,9 +1,33 @@
 {
+  "editor.fontFamily": "FiraCode-Retina, Iosevka, Iosevka Expanded, Fantasque Sans Mono, SF Mono, Roboto Mono, Source Code Pro, Menlo, Monaco, Courier New, monospace",
+  "editor.fontSize": 12,
+  "C_Cpp.intelliSenseEngine": "Tag Parser",
+  "auto-close-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "php",
+    "javascript",
+    "javascriptreact"
+  ],
+  "c-cpp-flylint.cppcheck.enable": true,
+  "c-cpp-flylint.flexelint.enable": false,
+  "c-cpp-flylint.language": "c",
+  "c-cpp-flylint.run": "onType",
+  "cSpell.allowCompoundWords": true,
+  "cSpell.enabled": false,
+  "cSpell.enabledLanguageIds": [
+    "latex"
+  ],
+  "cSpell.language": "nl",
+  "cSpell.showStatus": false,
+  "code-runner.runInTerminal": false,
+  "code-runner.showRunIconInEditorTitleMenu": false,
+  "color-highlight.enable": false,
+  "color-highlight.markRuler": false,
   "editor.cursorBlinking": "smooth",
   "editor.emptySelectionClipboard": true,
-  "editor.fontFamily": "FiraCode-Regular, Iosevka Expanded, Fantasque Sans Mono, Roboto Mono, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "editor.fontSize": 12,
+  "editor.formatOnSave": false,
   "editor.lineHeight": 0,
   "editor.lineNumbers": "on",
   "editor.minimap.enabled": false,
@@ -20,18 +44,33 @@
     80
   ],
   "editor.tabSize": 4,
+  // "editor.tokenColorCustomizations": {
+  //   "textMateRules": [
+  //     {
+  //       "name": "Comment",
+  //       "scope": "comment",
+  //       "settings": {
+  //         "fontStyle": "italic"
+  //       }
+  //     },
+  //     {
+  //       "name": "Keyword",
+  //       "scope": "keyword",
+  //       "settings": {
+  //         "fontStyle": "italic"
+  //       }
+  //     },
+  //     {
+  //       "name": "Operator keyword",
+  //       "scope": "keyword.operator",
+  //       "settings": {
+  //         "fontStyle": ""
+  //       }
+  //     }
+  //   ]
+  // },
   "editor.wordWrap": "on",
   "extensions.autoUpdate": true,
-  "auto-close-tag.activationOnLanguage": [
-    "html",
-    "xml",
-    "php",
-    "javascript",
-    "javascriptreact"
-  ],
-  "code-runner.runInTerminal": false,
-  "code-runner.showRunIconInEditorTitleMenu": false,
-  "color-highlight.markRuler": false,
   "files.associations": {
     ".chunkwmrc": "shellscript",
     "antigenrc": "shellscript",
@@ -50,8 +89,23 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.enableSmartCommit": true,
+  "gitlens.blame.line.enabled": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
+  "latex-workshop.latex.toolchain": [
+    {
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-recorder",
+        "\"%DOC%.tex\""
+      ],
+      "command": "/Library/TeX/texbin/pdflatex"
+    }
+  ],
+  "lua.format.lineWidth": 80,
+  "lövelauncher.path": "open -na love",
   "prettier.cssEnable": [],
   "prettier.graphqlEnable": [],
   "prettier.javascriptEnable": [],
@@ -59,8 +113,11 @@
   "prettier.typescriptEnable": [],
   "python.formatting.formatOnSave": true,
   "python.linting.enabled": false,
-  "rust.build_lib": null,
+  "python.pythonPath": "python3",
   "rust.build_bin": null,
+  "rust.build_lib": null,
+  "rust.goto_def_racer_fallback": true,
+  "rust.show_warnings": true,
   "swift.path.sourcekite": "/Users/splinter/.sourcekite/.build/debug/sourcekite",
   "sync.anonymousGist": false,
   "sync.askGistName": false,
@@ -69,64 +126,20 @@
   "sync.forceDownload": false,
   "sync.gist": "9115ef5de87715c9b65b703a86e2f924",
   "sync.host": "",
-  "sync.lastDownload": "",
-  "sync.lastUpload": "2017-10-09T18:50:08.329Z",
+  "sync.lastDownload": "2017-10-09T18:50:08.329Z",
+  "sync.lastUpload": "2017-09-06T19:04:49.232Z",
   "sync.pathPrefix": "",
   "sync.quietSync": false,
+  "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.external.osxExec": "kitty.app",
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.cursorStyle": "block",
-  "terminal.integrated.fontFamily": "",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.fontFamily": "Fira Code",
   "terminal.integrated.fontSize": 12,
-  "vsicons.dontShowNewVersionMessage": true,
-  "vsicons.projectDetection.autoReload": true,
-  "window.zoomLevel": 0,
-  "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Nord",
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.sideBar.location": "left",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.statusBar.visible": true,
-  "zenMode.hideTabs": false,
-  "latex-workshop.latex.toolchain": [
-    {
-      "command": "/Library/TeX/texbin/pdflatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-recorder",
-        "\"%DOC%.tex\""
-      ]
-    }
-  ],
-  "cSpell.language": "nl",
-  "cSpell.enabledLanguageIds": [
-    "latex"
-  ],
-  "cSpell.enabled": false,
-  "cSpell.allowCompoundWords": true,
-  "cSpell.showStatus": false,
-  "gitlens.blame.line.enabled": false,
-  "c-cpp-flylint.flexelint.enable": false,
-  "c-cpp-flylint.run": "onType",
-  "c-cpp-flylint.cppcheck.enable": true,
-  "editor.formatOnSave": false,
-  "c-cpp-flylint.language": "c",
-  "telemetry.enableCrashReporter": false,
-  "lövelauncher.path": "open -na love",
-  "lua.format.lineWidth": 80,
-  "C_Cpp.intelliSenseEngine": "Tag Parser",
-  "rust.show_warnings": true,
-  "rust.goto_def_racer_fallback": true,
-  "window.title": "${rootName} :: ${activeEditorShort}",
-  "todohighlight.isEnable": true,
-  "todohighlight.isCaseSensitive": false,
-  "todohighlight.keywordsPattern": "(TODO|NOTE|FIXME|CHANGED|IDEA|HACK|BUG|QUESTION)(\\(+.*\\)+)*:",
   "todohighlight.defaultStyle": {
-    "color": "#81a1c1",
-    "backgroundColor": "rgba(0, 0, 0, 0)"
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "color": "#81a1c1"
   },
   "todohighlight.include": [
     "**/*.js",
@@ -144,5 +157,31 @@
     "**/*.m",
     "**/*.mm",
     "**/*.tex"
-  ]
+  ],
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.isEnable": true,
+  "todohighlight.keywordsPattern": "(TODO|NOTE|FIXME|CHANGED|IDEA|HACK|BUG|QUESTION)(\\(+.*\\)+)*:",
+  "vim.enableNeovim": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "vsicons.projectDetection.autoReload": true,
+  "window.title": "${rootName} :: ${activeEditorShort}",
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": true,
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.statusBar.visible": true,
+  "zenMode.hideTabs": false,
+  "explorer.confirmDragAndDrop": false,
+  "haskelly.buttons.quickcheck": false,
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "go.formatTool": "gofmt",
+  "go.liveErrors": {
+    "enabled": true,
+    "delay": 500
+  },
+  "git.confirmSync": false,
+  "python.linting.pylintEnabled": false,
+  "vim.cmdLineInitialColon": true
 }

@@ -1,0 +1,65 @@
+### Hacker {{{
+# # The foreground color
+foreground       #00FF00
+
+# The background color
+background       #000000
+
+# The foreground for selections
+selection_foreground #00CC00
+
+# The background for selections
+selection_background #222222
+
+# The cursor color
+cursor           #00FF00
+
+# The color for the border of the active window
+active_border_color #00FF00
+
+
+# The color for the border of inactive windows
+inactive_border_color #004400
+
+# Tab-bar colors
+active_tab_foreground #000000
+active_tab_background #00FF00
+inactive_tab_foreground #00ff00
+inactive_tab_background #000000
+
+
+# The 16 terminal colors. There are 8 basic colors, each color has a dull and
+# bright version.
+
+# black
+color0   #000000
+color8   #222222
+
+# red
+color1   #33FF00
+color9   #66FF00
+
+# green
+color2   #00DD00
+color10  #00FF00
+
+# yellow
+color3   #00FF44
+color11  #00FF88
+
+# blue
+color4   #00FF33
+color12  #00FF66
+
+# magenta
+color5   #44FF44
+color13  #88FF88
+
+# cyan
+color6   #33FF66
+color14  #66FFBB
+
+# white
+color7   #00AA00
+color15  #00FF00
+### }}}
