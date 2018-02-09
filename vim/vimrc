@@ -34,6 +34,8 @@ Plugin 'mhinz/vim-startify'
 " Autocompletion
 if !has("gvim")
     Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plugin 'Shouge/deoplete.nvim'
 endif
 
 " Rust
@@ -43,6 +45,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'sebastianmarkow/deoplete-rust'
 
 " Language support
+Plugin 'arakashic/chromatica.nvim'
+Plugin 'cespare/vim-toml'
 Plugin 'lervag/vimtex'
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'neovimhaskell/haskell-vim'
@@ -95,14 +99,21 @@ let g:multi_cursor_next_key='<C-d>'
 " Racer config
 " ------------
 set hidden
-let g:racer_cmd = "~/.cargo/bin/racer"
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
+" -----------------
+" Chromatica config
+" -----------------
+let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
+let g:chromatica#enable_at_startup=1
+
 " ---------------
+" -----------------
 " Deoplete config
 " ---------------
 let g:deoplete#enable_at_startup = 1
@@ -110,8 +121,8 @@ let g:deoplete#enable_at_startup = 1
 " --------------------
 " Deoplete Rust config
 " --------------------
-let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='~/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+let g:deoplete#sources#rust#racer_binary='$HOME/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='$HOME/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
 let g:python_host_prog = "/usr/local/bin/python2.7"
 let g:python3_host_prog = "/usr/local/bin/python3"
@@ -120,7 +131,6 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 " Startify config
 " ---------------
 let g:startify_bookmarks = ['~/.vimrc', '~/.zshrc', '~/dotfiles']
-" let g:startify_custom_header = system('figlet -c neovim')
 let g:startify_custom_header = map(split(system('figlet -f slant neovim'), '\n'), '"   ". v:val') + ['','']
 
 " Make sure guicolors are used when available
@@ -158,6 +168,10 @@ noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$<Paste>
+
+if has('nvim')
+    tnoremap <Esc> <c-\><c-n>
+endif
 
 " Habit breaking, habit making
 " noremap <Up> <NOP>

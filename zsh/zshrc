@@ -36,8 +36,10 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
 ZSH_HIGHLIGHT_STYLES[path]='fg=white'
 
 local ret_status="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})"
-#      Blue fg                  Italic on           Cyan foreground    CWD Reset fg      Italic off          Ret status
-PS1="%{$fg_bold[blue]%}Splinter $(echo -e '\e[3m')%{$fg_no_bold[cyan]%}%c%{$reset_color%}$(echo -e '\e[23m') ${ret_status}:: "
+# #      Blue fg                  Italic on           Cyan foreground    CWD Reset fg      Italic off          Ret status
+# PS1="%{$fg_bold[blue]%}Splinter $(echo -e '\e[3m')%{$fg_no_bold[cyan]%}%c%{$reset_color%}$(echo -e '\e[23m') ${ret_status}:: "
+#      Blue fg                  Cyan foreground    CWD Reset fg         Ret status
+PS1="%{$fg_bold[blue]%}Splinter %{$fg_no_bold[cyan]%}%c%{$reset_color%} ${ret_status}::%{$reset_color%} "
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
@@ -45,7 +47,8 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" "
 
 # RPS1='$(git_prompt_info)%{$fg[blue]%}%T%{$reset_color%}'
-RPS1='$(git_prompt_info)%{$reset_color%}'
+# RPS1='$(git_prompt_info)%{$reset_color%}'
+RPS1=""
 
 # Python {{{
 alias setpython3path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python3.6/site-packages/"
@@ -80,9 +83,9 @@ alias cb="cargo build"
 alias fuck="sudo !!"
 alias watch1="watch -t -d -n 1"
 alias love="open -na love"
-alias code="code-insiders"
+# alias code="code-insiders"
 alias :q="exit"
-alias ls="exa -GF"
+alias ls="exa -F"
 # }}}
 
 # Functions {{{
@@ -105,5 +108,5 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 # Paths {{{
 export RUST_SRC_PATH=/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src
 export GOPATH=~/.go
-export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin/:~/.local/bin:/Applications/kitty.app/Contents/MacOS
+export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin:~/.local/bin:/Applications/kitty.app/Contents/MacOS:~/.flutter-installation/bin:$GOPATH/bin
 # }}}

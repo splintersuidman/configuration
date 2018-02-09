@@ -135,9 +135,9 @@ module.exports = {
     hyperTabs: {
       trafficButtons: false,
       tabIconsColored: true
-    },
+    }
 
-    updateChannel: 'canary'
+    // updateChannel: 'canary'
   },
 
   // a list of plugins to fetch and install from npm

@@ -27,11 +27,6 @@ chunkc set desktop_gap_step_size         5.0
 # }}
 
 # Non-global settings {{
-# Monitor 1
-# 1   web
-# 2   code
-# 3   term
-# 6   float
 chunkc set 1_desktop_mode                monocle
 chunkc set 1_desktop_offset_top          10
 chunkc set 1_desktop_offset_bottom       10
@@ -41,17 +36,13 @@ chunkc set 1_desktop_offset_right        10
 chunkc set 2_desktop_mode                monocle
 chunkc set 2_desktop_offset_gap          10
 
-chunkc set 3_desktop_mode                monocle
-
-chunkc set 5_desktop_mode                float
-# Monitor 2
-chunkc set 7_desktop_mode                monocle
-chunkc set 8_desktop_mode                monocle
+chunkc set 6_desktop_mode                monocle
+chunkc set 7_desktop_mode                float
 # }}
 
 # Interaction settings {{
 chunkc set window_focus_cycle            monitor
-chunkc set focus_follows_mouse           1
+chunkc set focus_follows_mouse           intrinsic
 chunkc set mouse_follows_focus           1
 chunkc set window_float_next             0
 chunkc set window_float_center           1
@@ -69,7 +60,7 @@ chunkc set window_use_cgs_move 0
 
 # Border settings {{
 chunkc set focused_border_width          6
-chunkc set focused_border_radius         4
+chunkc set focused_border_radius         0
 chunkc set focused_border_color          0xffebdbb2
 
 chunkc set focused_border_skip_floating  1
@@ -79,8 +70,18 @@ chunkc set preselect_border_radius       0
 chunkc set preselect_border_color        0xffebdbb2
 # }}
 
+# chwm-sa settings {[
+chunkc set window_float_topmost          0
+chunkc set window_fade_inactive          1
+chunkc set window_fade_alpha             0.75
+chunkc set window_fade_duration          0.15
+chunkc set window_use_cgs_move           1
+# }}
+
 # Blur {{
 chunkc set wallpaper                     ~/Pictures/A3MuFbJ.jpg
+# chunkc set 1_wallpaper                   ~/Pictures/HighSierra.jpg
+# chunkc set 5_wallpaper                   ~/Pictures/HighSierra.jpg
 chunkc set wallpaper_mode                fill
 chunkc set wallpaper_blur                5.0
 # chunkc set wallpaper_tmp_path            /tmp/
@@ -89,26 +90,27 @@ chunkc set wallpaper_blur                5.0
 # Plugins {{
 chunkc core::load tiling.so
 chunkc core::load ffm.so
-# chunkc core::load border.so
-# chunkc core::load blur.so
+chunkc core::load border.so
+chunkc core::load blur.so
+chunkc core::load purify.so
 # }}
 
 # Program-specific settings {{
-chunkc tiling::rule --owner kitty --state tile
+chunkc tiling::rule --owner kitty --role AXWindow --subrole AXDialog --state tile
 chunkc tiling::rule --owner alacritty --state tile
 chunkc tiling::rule --owner \"System Preferences\" --state tile
-chunkc tiling::rule --owner Finder --name Copy --state float
+chunkc tiling::rule --owner Finder --name Kopiëren --state float
 chunkc tiling::rule --owner macfeh --state float
 chunkc tiling::rule --owner Kap --state float
 chunkc tiling::rule --owner Emacs --state tile
 chunkc tiling::rule --owner Firefox --role AXWindow
-chunkc tiling::rule --owner FirefoxDeveloperEdition --role AXWindow
 chunkc tiling::rule --owner \"Code - Insiders\" --state tile
 chunkc tiling::rule --owner \"Visual Studio Community\" --state tile
-chunkc tiling::rule --owner Spotify --desktop 10
-
-# chunkc border::rule --owner Spotify --color 0xff1db954
-# chunkc border::rule --owner Firefox --ignore 1
-# chunkc border::rule --owner Skim --ignore 1
-# chunkc border::rule --owner kitty --radius 0
+chunkc tiling::rule --owner Spotify --desktop 6
 # }}
+
+# Start chwm-sa
+~/scripts/chwm-sa-inject
+
+# For debugging / plugin development
+echo "chunkwm startup" > /dev/stderr

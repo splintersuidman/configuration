@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "FiraCode-Retina, Iosevka, Iosevka Expanded, Fantasque Sans Mono, SF Mono, Roboto Mono, Source Code Pro, Menlo, Monaco, Courier New, monospace",
+  "editor.fontFamily": "FiraCode-Retina, Iosevka, Iosevka Expanded, IBM Plex Mono, Fantasque Sans Mono, SF Mono, Roboto Mono, Source Code Pro, Menlo, Monaco, Courier New, monospace",
   "editor.fontSize": 12,
   "C_Cpp.intelliSenseEngine": "Tag Parser",
   "auto-close-tag.activationOnLanguage": [
@@ -41,34 +41,9 @@
   "editor.renderIndentGuides": true,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [
-    80
+    100
   ],
   "editor.tabSize": 4,
-  // "editor.tokenColorCustomizations": {
-  //   "textMateRules": [
-  //     {
-  //       "name": "Comment",
-  //       "scope": "comment",
-  //       "settings": {
-  //         "fontStyle": "italic"
-  //       }
-  //     },
-  //     {
-  //       "name": "Keyword",
-  //       "scope": "keyword",
-  //       "settings": {
-  //         "fontStyle": "italic"
-  //       }
-  //     },
-  //     {
-  //       "name": "Operator keyword",
-  //       "scope": "keyword.operator",
-  //       "settings": {
-  //         "fontStyle": ""
-  //       }
-  //     }
-  //   ]
-  // },
   "editor.wordWrap": "on",
   "extensions.autoUpdate": true,
   "files.associations": {
@@ -84,7 +59,8 @@
     "**/.git": true,
     "**/.hg": true,
     "**/.svn": true,
-    "**/CVS": true
+    "**/CVS": true,
+    "**/*.rs.bk": true
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
@@ -94,14 +70,13 @@
   "gitlens.codeLens.recentChange.enabled": false,
   "latex-workshop.latex.toolchain": [
     {
+      "command": "pdflatex",
       "args": [
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "-recorder",
-        "\"%DOC%.tex\""
-      ],
-      "command": "/Library/TeX/texbin/pdflatex"
+        "%DOC%"
+      ]
     }
   ],
   "lua.format.lineWidth": 80,
@@ -126,7 +101,7 @@
   "sync.forceDownload": false,
   "sync.gist": "9115ef5de87715c9b65b703a86e2f924",
   "sync.host": "",
-  "sync.lastDownload": "2017-10-09T18:50:08.329Z",
+  "sync.lastDownload": "2018-01-21T17:59:41.312Z",
   "sync.lastUpload": "2017-09-06T19:04:49.232Z",
   "sync.pathPrefix": "",
   "sync.quietSync": false,
@@ -139,7 +114,7 @@
   "terminal.integrated.fontSize": 12,
   "todohighlight.defaultStyle": {
     "backgroundColor": "rgba(0, 0, 0, 0)",
-    "color": "#81a1c1"
+    "color": "#fb4934"
   },
   "todohighlight.include": [
     "**/*.js",
@@ -183,5 +158,36 @@
   },
   "git.confirmSync": false,
   "python.linting.pylintEnabled": false,
-  "vim.cmdLineInitialColon": true
+  "vim.cmdLineInitialColon": true,
+  "editor.cursorStyle": "line",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": true,
+    "suppressResultsExplorerNotice": false,
+    "suppressUpdateNotice": true,
+    "suppressWelcomeNotice": false
+  },
+  "editor.autoIndent": true,
+  "editor.detectIndentation": true,
+  "rust-client.updateOnStartup": false,
+  "vim.foldfix": true,
+  "bracketPairColorizer.consecutivePairColors": [
+    "()",
+    "[]",
+    "{}",
+    [
+      "#8ec07c",
+      "#b16286",
+      "#458588"
+    ],
+    "Red"
+  ],
+  "editor.accessibilitySupport": "off",
+  "vim.easymotion": true,
+  "vim.disableExtension": false,
+  "vim.easymotionMarkerFontFamily": "Fira Code"
 }

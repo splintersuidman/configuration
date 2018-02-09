@@ -40,6 +40,11 @@ alt + ctrl - l : chunkc tiling::window -r 0.05 -e east  tiling::window -r -0.05 
 alt + ctrl - j : chunkc tiling::window -r 0.05 -e south tiling::window -r -0.05 -e north
 alt + ctrl - h : chunkc tiling::window -r 0.05 -e west  tiling::window -r -0.05 -e east
 
+# Desktop layout
+alt + ctrl - b : chunkc tiling::desktop --layout bsp
+alt + ctrl - m : chunkc tiling::desktop --layout monocle
+alt + ctrl - f : chunkc tiling::desktop --layout float
+
 # Fullscreen
 shift + ctrl - f : chunkc tiling::desktop --toggle offset
 
