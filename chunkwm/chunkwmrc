@@ -4,6 +4,7 @@ chunkc core::plugin_dir ~/.chunkwm_plugins
 
 chunkc core::hotload 1
 
+chunkc core::log_file  /tmp/chunkwm.log
 chunkc core::log_level debug
 
 # Tiling {{
@@ -71,9 +72,9 @@ chunkc set preselect_border_color        0xffebdbb2
 # }}
 
 # chwm-sa settings {[
-chunkc set window_float_topmost          0
+chunkc set window_float_topmost          1
 chunkc set window_fade_inactive          1
-chunkc set window_fade_alpha             0.75
+chunkc set window_fade_alpha             0.85
 chunkc set window_fade_duration          0.15
 chunkc set window_use_cgs_move           1
 # }}
@@ -100,6 +101,7 @@ chunkc tiling::rule --owner kitty --role AXWindow --subrole AXDialog --state til
 chunkc tiling::rule --owner alacritty --state tile
 chunkc tiling::rule --owner \"System Preferences\" --state tile
 chunkc tiling::rule --owner Finder --name Kopiëren --state float
+chunkc tiling::rule --owner Finder --name Verwijderen --state float
 chunkc tiling::rule --owner macfeh --state float
 chunkc tiling::rule --owner Kap --state float
 chunkc tiling::rule --owner Emacs --state tile

@@ -48,12 +48,23 @@ ZSH_THEME_GIT_PROMPT_CLEAN=" "
 
 # RPS1='$(git_prompt_info)%{$fg[blue]%}%T%{$reset_color%}'
 # RPS1='$(git_prompt_info)%{$reset_color%}'
-RPS1=""
+generate_rps1 () {
+    git symbolic-ref HEAD &>/dev/null
+    if [ $? -ne 0 ]; then
+        return
+    fi
+    git branch &>/dev/null
+    if [ $? = 0 ]; then
+        echo "[%{$fg_bold[green]%}${$(git symbolic-ref HEAD)#refs/heads/}%{$reset_color%}]"
+    fi
+}
+RPS1='$(generate_rps1)'
 
 # Python {{{
 alias setpython3path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python3.6/site-packages/"
 alias setpython2path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python2.7/site-packages/"
-unset PYTHONPATH
+# unset PYTHONPATH
+setpython3path
 # }}}
 
 # Terminal title theme {{{
@@ -83,7 +94,6 @@ alias cb="cargo build"
 alias fuck="sudo !!"
 alias watch1="watch -t -d -n 1"
 alias love="open -na love"
-# alias code="code-insiders"
 alias :q="exit"
 alias ls="exa -F"
 # }}}
@@ -97,6 +107,9 @@ texpreview () {
   # Open the pdf file in Skim.
   # Skim auto-reloads (after enabling it) the pdf file after build.
   open -a "Skim" "$@"
+}
+code () {
+    open -a Visual\ Studio\ Code "$@"
 }
 function macfeh () {
   open -b "drabweb.macfeh" "$@"

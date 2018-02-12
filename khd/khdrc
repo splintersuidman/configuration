@@ -1,30 +1,22 @@
 # Open terminal (kitty)
-alt - space : /Applications/kitty.app/Contents/MacOS/kitty --session ~/dotfiles/kitty/default-session --single-instance
-alt + cmd - space : open -na /Applications/Alacritty.app/
+alt - space : /Applications/kitty.app/Contents/MacOS/kitty\
+              --session ~/dotfiles/kitty/default-session --single-instance
+alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty\
+                    --session ~/dotfiles/kitty/default-session
 
 ### chunkwm {{
 
 # Move windows
-alt + cmd - up    : chunkc tiling::window --warp north
-alt + cmd - right : chunkc tiling::window --warp east
-alt + cmd - down  : chunkc tiling::window --warp south
-alt + cmd - left  : chunkc tiling::window --warp west
-## Vim keys
-alt + shift - k : chunkc tiling::window --warp north
-alt + shift - l : chunkc tiling::window --warp east
-alt + shift - j : chunkc tiling::window --warp south
-alt + shift - h : chunkc tiling::window --warp west
+alt + cmd - h : chunkc tiling::window --warp west
+alt + cmd - j : chunkc tiling::window --warp south
+alt + cmd - k : chunkc tiling::window --warp north
+alt + cmd - l : chunkc tiling::window --warp east
 
 # Focus windows
-ctrl + cmd - up    : chunkc tiling::window --focus north
-ctrl + cmd - right : chunkc tiling::window --focus east
-ctrl + cmd - down  : chunkc tiling::window --focus south
-ctrl + cmd - left  : chunkc tiling::window --focus west
-## Vim keys
+alt - h : chunkc tiling::window --focus west
+alt - j : chunkc tiling::window --focus south
 alt - k : chunkc tiling::window --focus north
 alt - l : chunkc tiling::window --focus east
-alt - j : chunkc tiling::window --focus south
-alt - h : chunkc tiling::window --focus west
 
 # Focus monitors
 ctrl + cmd + shift - left  : chunkc tiling::monitor -f prev
@@ -35,10 +27,10 @@ ctrl + cmd - r         : chunkc tiling::desktop --rotate 270
 ctrl + cmd + shift - r : chunkc tiling::desktop --rotate 90
 
 # Change split-ratio
-alt + ctrl - k : chunkc tiling::window -r 0.05 -e north tiling::window -r -0.05 -e south
-alt + ctrl - l : chunkc tiling::window -r 0.05 -e east  tiling::window -r -0.05 -e west
-alt + ctrl - j : chunkc tiling::window -r 0.05 -e south tiling::window -r -0.05 -e north
-alt + ctrl - h : chunkc tiling::window -r 0.05 -e west  tiling::window -r -0.05 -e east
+alt + ctrl - h : chunkc tiling::window -r 0.025 -e west  tiling::window -r -0.025 -e east
+alt + ctrl - j : chunkc tiling::window -r 0.025 -e south tiling::window -r -0.025 -e north
+alt + ctrl - k : chunkc tiling::window -r 0.025 -e north tiling::window -r -0.025 -e south
+alt + ctrl - l : chunkc tiling::window -r 0.025 -e east  tiling::window -r -0.025 -e west
 
 # Desktop layout
 alt + ctrl - b : chunkc tiling::desktop --layout bsp
@@ -60,13 +52,38 @@ alt + ctrl + shift - l : chunkc tiling::desktop --gap inc
 cmd - 0x18 : chunkc tiling::desktop --equalize
 
 # Insertion points
+ctrl + alt + cmd - h : chunkc tiling::window --use-insertion-point west
+ctrl + alt + cmd - j : chunkc tiling::window --use-insertion-point south
 ctrl + alt + cmd - k : chunkc tiling::window --use-insertion-point north
 ctrl + alt + cmd - l : chunkc tiling::window --use-insertion-point east
-ctrl + alt + cmd - j : chunkc tiling::window --use-insertion-point south
-ctrl + alt + cmd - h : chunkc tiling::window --use-insertion-point west
 
 # Send window to desktop
 ctrl + shift - l : chunkc tiling::window --send-to-desktop next && khd -p "ctrl - right"
 ctrl + shift - h : chunkc tiling::window --send-to-desktop prev && khd -p "ctrl - left"
 
+# 'Tile' floating windows.
+ctrl + alt - up     : chunkc tiling::window --grid-layout 1:1:0:0:1:1
+ctrl + alt - left   : chunkc tiling::window --grid-layout 1:2:0:0:1:1
+ctrl + alt - right  : chunkc tiling::window --grid-layout 1:2:1:0:1:1
+
+# Floating and sticking.
+ctrl + alt - s : chunkc tiling::window --toggle sticky;\
+                 chunkc tiling::window --grid-layout 5:5:0:0:6:2
+ctrl + alt - t : chunkc tiling::window --toggle float;\
+                 chunkc tiling::window --grid-layout 4:4:1:1:2:2
+ctrl + alt + shift - t : chunkc tiling::window --toggle sticky;\
+                         chunkc tiling::window --grid-layout 4:4:1:1:2:2
+
 ### }}
+
+# Vim for non-terminal apps. {{
+ctrl - h ![kitty] : khd -p "- left"
+ctrl - j ![kitty] : khd -p "- down"
+ctrl - k ![kitty] : khd -p "- up"
+ctrl - l ![kitty] : khd -p "- right"
+
+cmd + ctrl - h ![kitty] : khd -p "cmd - left"
+cmd + ctrl - j ![kitty] : khd -p "cmd - down"
+cmd + ctrl - k ![kitty] : khd -p "cmd - up"
+cmd + ctrl - l ![kitty] : khd -p "cmd - right"
+# }}

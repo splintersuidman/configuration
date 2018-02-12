@@ -1,88 +1,158 @@
-set nocompatible " be iMproved, required
-filetype off     " required
+" --------
+" Vim-plug
+" --------
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" ------
-" Vundle
-" ------
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim " required
-call vundle#begin()               " required
-
-" Let Vundle manage Vundle, required.
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " -------
 " Plugins
 " -------
 " Easy editing
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'bling/vim-airline'
-Plugin 'townk/vim-autoclose'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'airblade/vim-gitgutter'
-" Plugin 'nathanaelkane/vim-indent-guides'
-" Plugin 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'bling/vim-airline'
+Plug 'townk/vim-autoclose'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'mattn/emmet-vim'
 
 " Aesthetics
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Autocompletion
-if !has("gvim")
-    Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
 else
-    Plugin 'Shouge/deoplete.nvim'
+    Plug 'Shouge/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" Rust
-Plugin 'rust-lang/rust.vim'
-Plugin 'racer-rust/vim-racer'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'sebastianmarkow/deoplete-rust'
-
 " Language support
-Plugin 'arakashic/chromatica.nvim'
-Plugin 'cespare/vim-toml'
-Plugin 'lervag/vimtex'
-" Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'neovimhaskell/haskell-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
+" C
+Plug 'arakashic/chromatica.nvim'
+" Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'vim-syntastic/syntastic', { 'for': 'rust' }
+Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+" (La)TeX
+Plug 'lervag/vimtex', { 'for': 'tex' }
+" Plug 'LaTeX-Box-Team/LaTeX-Box'
+" Haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+" JavaScript
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+" Go
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 " Linters
-" Plugin 'sindresorhus/vim-xo'
-" Plugin 'prettier/prettier'
+" Plug 'sindresorhus/vim-xo'
+" Plug 'prettier/prettier'
 
 " Colour theme
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'morhetz/gruvbox'
-" Plugin 'flazz/vim-colorschemes'
-" Plugin 'chriskempson/base16-vim'
-" Plugin 'arcticicestudio/nord-vim'
-Plugin 'AfterColors.vim'    " used for changing the background color to None, to improve speed in alacritty.
-Plugin 'lilydjwg/colorizer'
+" Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/seoul256.vim'
+Plug 'vim-scripts/AfterColors.vim'
+" Plug 'flazz/vim-colorschemes'
+" Plug 'chriskempson/base16-vim'
+" Plug 'arcticicestudio/nord-vim'
+Plug 'lilydjwg/colorizer'
 
 
-" All of your Plugins must be added before the following line
-call vundle#end()           " required
-filetype plugin indent on   " required
-filetype plugin on
+" All of your Plugs must be added before the following line
+call plug#end()
 
 let base16colorspace=256    " Access colors present in 256 colorspace
 let t_Co = 256              " Use 256 colors in terminal
 
-" ---------------
-" NERDTree config
-" ---------------
+" -------
+" Keymaps
+" -------
+nmap <F8> :TagbarToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
+
+" --------------------
+" NERDCommenter config
+" --------------------
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
+
+" -------------
+" Tagbar config
+" -------------
+let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits',
+        \'i:impls,trait implementations',
+    \]
+\}
+let g:tagbar_type_objc = {
+    \ 'ctagstype' : 'ObjectiveC',
+    \ 'kinds'     : [
+        \ 'i:interface',
+        \ 'I:implementation',
+        \ 'p:Protocol',
+        \ 'm:Object_method',
+        \ 'c:Class_method',
+        \ 'v:Global_variable',
+        \ 'F:Object field',
+        \ 'f:function',
+        \ 'p:property',
+        \ 't:type_alias',
+        \ 's:type_structure',
+        \ 'e:enumeration',
+        \ 'M:preprocessor_macro',
+    \ ],
+    \ 'sro'        : ' ',
+    \ 'kind2scope' : {
+        \ 'i' : 'interface',
+        \ 'I' : 'implementation',
+        \ 'p' : 'Protocol',
+        \ 's' : 'type_structure',
+        \ 'e' : 'enumeration'
+    \ },
+    \ 'scope2kind' : {
+        \ 'interface'      : 'i',
+        \ 'implementation' : 'I',
+        \ 'Protocol'       : 'p',
+        \ 'type_structure' : 's',
+        \ 'enumeration'    : 'e'
+    \ }
+\ }
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+\ }
 
 " --------------
 " Airline config
@@ -99,7 +169,7 @@ let g:multi_cursor_next_key='<C-d>'
 " Racer config
 " ------------
 set hidden
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let g:racer_cmd = "/Users/splinter/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
@@ -113,16 +183,16 @@ let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
 let g:chromatica#enable_at_startup=1
 
 " ---------------
-" -----------------
 " Deoplete config
 " ---------------
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
+let g:deoplete#disable_auto_complete=1
 
 " --------------------
 " Deoplete Rust config
 " --------------------
-let g:deoplete#sources#rust#racer_binary='$HOME/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='$HOME/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
 let g:python_host_prog = "/usr/local/bin/python2.7"
 let g:python3_host_prog = "/usr/local/bin/python3"
@@ -137,7 +207,6 @@ let g:startify_custom_header = map(split(system('figlet -f slant neovim'), '\n')
 if has("termguicolors")
     set termguicolors
 endif
-let ayucolor="mirage"
 
 " Tab settings
 set tabstop=4
@@ -147,11 +216,12 @@ set shiftwidth=4
 " Syntax settings
 syntax on
 filetype plugin indent on
+filetype plugin on
 colo gruvbox
+let g:gruvbox_contrast_dark='hard'
 set background=dark
 let t_ZH="^[[3m"
 let t_ZR="^[[23m"
-highlight Comment cterm=italic
 
 " Line number settings
 set cul
@@ -163,7 +233,8 @@ set numberwidth=3
 set so=3
 
 " Wrap settings
-set wrap lbr
+" set wrap lbr
+set nowrap
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
@@ -171,11 +242,9 @@ noremap  <buffer> <silent> $ g$<Paste>
 
 if has('nvim')
     tnoremap <Esc> <c-\><c-n>
+	inoremap <Esc> <Esc><Esc>
 endif
 
-" Habit breaking, habit making
-" noremap <Up> <NOP>
-" noremap <Down> <NOP>
-" noremap <Left> <NOP>
-" noremap <Right> <NOP>
+" Reload khd config on save.
+au BufWritePost .khdrc !khd -e reload
 

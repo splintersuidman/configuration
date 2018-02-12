@@ -93,7 +93,7 @@
   "rust.build_lib": null,
   "rust.goto_def_racer_fallback": true,
   "rust.show_warnings": true,
-  "swift.path.sourcekite": "/Users/splinter/.sourcekite/.build/debug/sourcekite",
+  "swift.path.sourcekite": "~/.sourcekite/.build/debug",
   "sync.anonymousGist": false,
   "sync.askGistName": false,
   "sync.autoDownload": false,
@@ -102,7 +102,7 @@
   "sync.gist": "9115ef5de87715c9b65b703a86e2f924",
   "sync.host": "",
   "sync.lastDownload": "2018-01-21T17:59:41.312Z",
-  "sync.lastUpload": "2017-09-06T19:04:49.232Z",
+  "sync.lastUpload": "2018-02-10T16:33:43.056Z",
   "sync.pathPrefix": "",
   "sync.quietSync": false,
   "telemetry.enableCrashReporter": false,
@@ -142,7 +142,7 @@
   "window.title": "${rootName} :: ${activeEditorShort}",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.iconTheme": "vscode-icons",
   "workbench.sideBar.location": "left",
   "workbench.startupEditor": "newUntitledFile",
@@ -189,5 +189,5 @@
   "editor.accessibilitySupport": "off",
   "vim.easymotion": true,
   "vim.disableExtension": false,
-  "vim.easymotionMarkerFontFamily": "Fira Code"
+  "vim.easymotionMarkerFontFamily": "Fira Code",
 }
