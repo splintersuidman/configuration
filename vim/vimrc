@@ -1,3 +1,19 @@
+"      ________ ++     ________
+"     /VVVVVVVV\++++  /VVVVVVVV\
+"     \VVVVVVVV/++++++\VVVVVVVV/
+"      |VVVVVV|++++++++/VVVVV/'
+"      |VVVVVV|++++++/VVVVV/'
+"     +|VVVVVV|++++/VVVVV/'+
+"   +++|VVVVVV|++/VVVVV/'+++++
+" +++++|VVVVVV|/VVVVV/'+++++++++
+"   +++|VVVVVVVVVVV/'+++++++++
+"     +|VVVVVVVVV/'+++++++++
+"      |VVVVVVV/'+++++++++
+"      |VVVVV/'+++++++++
+"      |VVV/'+++++++++
+"      'V/'   ++++++
+"               ++
+
 " --------
 " Vim-plug
 " --------
@@ -17,28 +33,31 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 Plug 'bling/vim-airline'
 Plug 'townk/vim-autoclose'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'terryma/vim-smooth-scroll'
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " Aesthetics
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Autocompletion
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
-else
-    Plug 'Shouge/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" Plug '~/.vim/bundle/YouCompleteMe'
+" if has('nvim')
+"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
+" else
+"     Plug 'Shouge/deoplete.nvim'
+"     Plug 'roxma/nvim-yarp'
+"     Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
 " Language support
 " C
@@ -71,6 +90,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'vim-scripts/AfterColors.vim'
 " Plug 'flazz/vim-colorschemes'
 " Plug 'chriskempson/base16-vim'
+Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
 " Plug 'arcticicestudio/nord-vim'
 Plug 'lilydjwg/colorizer'
 
@@ -163,7 +183,7 @@ let g:airline_powerline_fonts=1
 " ------------------
 " Multicursor config
 " ------------------
-let g:multi_cursor_next_key='<C-d>'
+" let g:multi_cursor_next_key='<C-d>'
 
 " ------------
 " Racer config
@@ -201,7 +221,17 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 " Startify config
 " ---------------
 let g:startify_bookmarks = ['~/.vimrc', '~/.zshrc', '~/dotfiles']
-let g:startify_custom_header = map(split(system('figlet -f slant neovim'), '\n'), '"   ". v:val') + ['','']
+" let g:startify_custom_header = map(split(system('figlet -f slant neovim'), '\n'), '"   ". v:val') + ['','']
+" The vim logo taken from this file.
+let g:startify_custom_header = map(split(system('sed -n 1,15p ~/.vimrc | cut -c 3-'), '\n'), '"    " . v:val') + ['','']
+
+" -------------
+" Smooth scroll
+" -------------
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 " Make sure guicolors are used when available
 if has("termguicolors")
@@ -230,7 +260,7 @@ set relativenumber
 set numberwidth=3
 
 " Scroll settings
-set so=3
+" set so=3
 
 " Wrap settings
 " set wrap lbr
@@ -242,7 +272,7 @@ noremap  <buffer> <silent> $ g$<Paste>
 
 if has('nvim')
     tnoremap <Esc> <c-\><c-n>
-	inoremap <Esc> <Esc><Esc>
+    inoremap <Esc> <Esc><Esc>
 endif
 
 " Reload khd config on save.

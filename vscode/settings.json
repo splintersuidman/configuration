@@ -29,7 +29,6 @@
   "editor.fontLigatures": true,
   "editor.formatOnSave": false,
   "editor.lineHeight": 0,
-  "editor.lineNumbers": "on",
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.quickSuggestions": {
@@ -86,7 +85,6 @@
   "prettier.javascriptEnable": [],
   "prettier.jsonEnable": [],
   "prettier.typescriptEnable": [],
-  "python.formatting.formatOnSave": true,
   "python.linting.enabled": false,
   "python.pythonPath": "python3",
   "rust.build_bin": null,
@@ -190,4 +188,14 @@
   "vim.easymotion": true,
   "vim.disableExtension": false,
   "vim.easymotionMarkerFontFamily": "Fira Code",
+  "vim.easymotionMarkerFontSize": "12",
+  "vim.easymotionMarkerHeight": 12,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "editor.lineNumbers": "on",
+  "[haskell]": {
+    "editor.renderIndentGuides": false,
+    "editor.tabSize": 2,
+  },
+  "workbench.tips.enabled": false,
 }

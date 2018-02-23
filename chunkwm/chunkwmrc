@@ -4,7 +4,9 @@ chunkc core::plugin_dir ~/.chunkwm_plugins
 
 chunkc core::hotload 1
 
-chunkc core::log_file  /tmp/chunkwm.log
+# Debugging
+# chunkc core::log_file  /tmp/chunkwm.log
+chunkc core::log_file  stdout
 chunkc core::log_level debug
 
 # Tiling {{
@@ -51,12 +53,6 @@ chunkc set window_region_locked          1
 
 chunkc set mouse-drag                    1
 chunkc set mouse-drag mod                fn
-
-chunkc set window_float_topmost          1
-chunkc set window_fade_inactive          1
-chunkc set window_fade_alpha             0.50
-chunkc set window_fade_duration          0.25
-chunkc set window_use_cgs_move 0
 # }}
 
 # Border settings {{
@@ -72,8 +68,8 @@ chunkc set preselect_border_color        0xffebdbb2
 # }}
 
 # chwm-sa settings {[
-chunkc set window_float_topmost          1
-chunkc set window_fade_inactive          1
+chunkc set window_float_topmost          0
+chunkc set window_fade_inactive          0
 chunkc set window_fade_alpha             0.85
 chunkc set window_fade_duration          0.15
 chunkc set window_use_cgs_move           1
@@ -91,7 +87,7 @@ chunkc set wallpaper_blur                5.0
 # Plugins {{
 chunkc core::load tiling.so
 chunkc core::load ffm.so
-chunkc core::load border.so
+# chunkc core::load border.so
 chunkc core::load blur.so
 chunkc core::load purify.so
 # }}
@@ -104,6 +100,7 @@ chunkc tiling::rule --owner Finder --name Kopiëren --state float
 chunkc tiling::rule --owner Finder --name Verwijderen --state float
 chunkc tiling::rule --owner macfeh --state float
 chunkc tiling::rule --owner Kap --state float
+chunkc tiling::rule --owner \"IntelliJ IDEA\" --state float
 chunkc tiling::rule --owner Emacs --state tile
 chunkc tiling::rule --owner Firefox --role AXWindow
 chunkc tiling::rule --owner \"Code - Insiders\" --state tile

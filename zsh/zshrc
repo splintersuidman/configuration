@@ -11,22 +11,11 @@ HYPHEN_INSENSITIVE="true"
 source ~/dotfiles/zsh/antigen/antigen.zsh
 
 antigen use oh-my-zsh antigen bundle git
-# antigen bundle ruby
-antigen bundle golang
-antigen bundle node
-antigen bundle python
 antigen bundle osx
 
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
-
-antigen bundle wookayin/anybar-zsh
-
-# antigen theme robbyrussell
-# antigen theme sobolevn/sobole-zsh-theme
-# antigen theme sorin
-# antigen theme denysdovhan/spaceship-zsh-theme spaceship
 
 antigen apply
 ### }}}
@@ -37,9 +26,9 @@ ZSH_HIGHLIGHT_STYLES[path]='fg=white'
 
 local ret_status="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})"
 # #      Blue fg                  Italic on           Cyan foreground    CWD Reset fg      Italic off          Ret status
-# PS1="%{$fg_bold[blue]%}Splinter $(echo -e '\e[3m')%{$fg_no_bold[cyan]%}%c%{$reset_color%}$(echo -e '\e[23m') ${ret_status}:: "
+# PS1="%{$fg_bold[blue]%}Splintah $(echo -e '\e[3m')%{$fg_no_bold[cyan]%}%c%{$reset_color%}$(echo -e '\e[23m') ${ret_status}:: "
 #      Blue fg                  Cyan foreground    CWD Reset fg         Ret status
-PS1="%{$fg_bold[blue]%}Splinter %{$fg_no_bold[cyan]%}%c%{$reset_color%} ${ret_status}::%{$reset_color%} "
+PS1="%{$fg_bold[blue]%}Splintah %{$fg_no_bold[cyan]%}$(echo '\033[3m')%c$(echo '\033[m')%{$reset_color%} ${ret_status}::%{$reset_color%} "
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
@@ -63,8 +52,8 @@ RPS1='$(generate_rps1)'
 # Python {{{
 alias setpython3path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python3.6/site-packages/"
 alias setpython2path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python2.7/site-packages/"
-# unset PYTHONPATH
-setpython3path
+unset PYTHONPATH
+# setpython3path
 # }}}
 
 # Terminal title theme {{{
@@ -121,5 +110,6 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 # Paths {{{
 export RUST_SRC_PATH=/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src
 export GOPATH=~/.go
-export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin:~/.local/bin:/Applications/kitty.app/Contents/MacOS:~/.flutter-installation/bin:$GOPATH/bin
+export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin:~/.local/bin:/Applications/kitty.app/Contents/MacOS:~/.flutter-installation/bin:$GOPATH/bin:/usr/local/opt/python/libexec/bin:~/.local/bin
 # }}}
+

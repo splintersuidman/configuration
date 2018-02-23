@@ -1,8 +1,9 @@
 # Open terminal (kitty)
-alt - space : /Applications/kitty.app/Contents/MacOS/kitty\
-              --session ~/dotfiles/kitty/default-session --single-instance
+# alt - space : /Applications/kitty.app/Contents/MacOS/kitty\
+#               --session ~/dotfiles/kitty/default-session --single-instance
+alt - space : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty\
-                    --session ~/dotfiles/kitty/default-session
+                    --session ~/dotfiles/kitty/default-session -d ~
 
 ### chunkwm {{
 
@@ -56,6 +57,10 @@ ctrl + alt + cmd - h : chunkc tiling::window --use-insertion-point west
 ctrl + alt + cmd - j : chunkc tiling::window --use-insertion-point south
 ctrl + alt + cmd - k : chunkc tiling::window --use-insertion-point north
 ctrl + alt + cmd - l : chunkc tiling::window --use-insertion-point east
+
+# Switch desktops
+ctrl + cmd - l : khd -p "ctrl - right"
+ctrl + cmd - h : khd -p "ctrl - left"
 
 # Send window to desktop
 ctrl + shift - l : chunkc tiling::window --send-to-desktop next && khd -p "ctrl - right"
