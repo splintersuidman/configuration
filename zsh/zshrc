@@ -7,36 +7,33 @@ HISTSIZE=1000
 SAVEHIST=1000
 HYPHEN_INSENSITIVE="true"
 
-### Antigen {{{
-source ~/dotfiles/zsh/antigen/antigen.zsh
+# zprezto {{{
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+# }}}
 
-antigen use oh-my-zsh antigen bundle git
-antigen bundle osx
+# Theme {{{
+#  0 black
+#  1 red
+#  2 green
+#  3 yellow
+#  4 blue
+#  5 magenta
+#  6 cyan
+#  7 white
+#  8 bright black
+#  9 bright red
+# 10 bright green
+# 11 bright yellow
+# 12 bright blue
+# 13 bright magenta
+# 14 bright cyan
+# 15 bright white
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
+local ret_status="%(?:%F{2}:%F{1})"
+PS1="%B%F{4}Splintah%b %F{6}%c%F{7} %B${ret_status}::%b%F{7} "
 
-antigen apply
-### }}}
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root line)
-# Don't underline paths (!)
-ZSH_HIGHLIGHT_STYLES[path]='fg=white'
-
-local ret_status="%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})"
-# #      Blue fg                  Italic on           Cyan foreground    CWD Reset fg      Italic off          Ret status
-# PS1="%{$fg_bold[blue]%}Splintah $(echo -e '\e[3m')%{$fg_no_bold[cyan]%}%c%{$reset_color%}$(echo -e '\e[23m') ${ret_status}:: "
-#      Blue fg                  Cyan foreground    CWD Reset fg         Ret status
-PS1="%{$fg_bold[blue]%}Splintah %{$fg_no_bold[cyan]%}$(echo '\033[3m')%c$(echo '\033[m')%{$reset_color%} ${ret_status}::%{$reset_color%} "
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[red]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN=" "
-
-# RPS1='$(git_prompt_info)%{$fg[blue]%}%T%{$reset_color%}'
-# RPS1='$(git_prompt_info)%{$reset_color%}'
 generate_rps1 () {
     git symbolic-ref HEAD &>/dev/null
     if [ $? -ne 0 ]; then
@@ -44,10 +41,11 @@ generate_rps1 () {
     fi
     git branch &>/dev/null
     if [ $? = 0 ]; then
-        echo "[%{$fg_bold[green]%}${$(git symbolic-ref HEAD)#refs/heads/}%{$reset_color%}]"
+        echo "[%B%F{2}${$(git symbolic-ref HEAD)#refs/heads/}%F{7}%b]"
     fi
 }
 RPS1='$(generate_rps1)'
+# }}}
 
 # Python {{{
 alias setpython3path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python3.6/site-packages/"
@@ -73,7 +71,6 @@ export VISUAL=nvim
 
 # Aliases {{{
 alias zshrc="vi ~/.zshrc"
-# alias ls="ls -Gp"
 alias v="nvim"
 alias vi="nvim"
 # alias vim="nvim"
@@ -98,6 +95,7 @@ texpreview () {
   open -a "Skim" "$@"
 }
 code () {
+    # Open VS Code manually, i.e. without their shell script that requires python 2.
     open -a Visual\ Studio\ Code "$@"
 }
 function macfeh () {
@@ -110,6 +108,6 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 # Paths {{{
 export RUST_SRC_PATH=/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src
 export GOPATH=~/.go
-export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin:/Users/splinter/.cargo/bin:/Library/TeX/texbin:~/.local/bin:/Applications/kitty.app/Contents/MacOS:~/.flutter-installation/bin:$GOPATH/bin:/usr/local/opt/python/libexec/bin:~/.local/bin
+export PATH=$PATH:~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin::/Library/TeX/texbin:~/.local/bin:/Applications/kitty.app/Contents/MacOS:~/.flutter-installation/bin:$GOPATH/bin:/usr/local/opt/python/libexec/bin:~/.local/bin:~/.cargo/bin
 # }}}
 
