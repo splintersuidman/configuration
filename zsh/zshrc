@@ -54,11 +54,6 @@ unset PYTHONPATH
 # setpython3path
 # }}}
 
-# Terminal title theme {{{
-export ZSH_THEME_TERM_TITLE_IDLE="%~"
-export ZSH_THEME_TERM_TAB_TITLE_IDLE="%~"
-# }}}
-
 # Lang {{{
 export LC_ALL="en_GB.UTF-8"
 export LANG=en_GB.UTF-8
@@ -70,7 +65,7 @@ export VISUAL=nvim
 # }}}
 
 # Aliases {{{
-alias zshrc="vi ~/.zshrc"
+alias ga="git add"
 alias v="nvim"
 alias vi="nvim"
 # alias vim="nvim"
@@ -97,9 +92,6 @@ texpreview () {
 code () {
     # Open VS Code manually, i.e. without their shell script that requires python 2.
     open -a Visual\ Studio\ Code "$@"
-}
-function macfeh () {
-  open -b "drabweb.macfeh" "$@"
 }
 # }}}
 
