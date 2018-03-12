@@ -1,6 +1,4 @@
 # Open terminal (kitty)
-# alt - space : /Applications/kitty.app/Contents/MacOS/kitty\
-#               --session ~/dotfiles/kitty/default-session --single-instance
 alt - space : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty\
                     --session ~/dotfiles/kitty/default-session -d ~
@@ -61,6 +59,10 @@ ctrl + alt + cmd - l : chunkc tiling::window --use-insertion-point east
 # Switch desktops
 ctrl + cmd - l : khd -p "ctrl - right"
 ctrl + cmd - h : khd -p "ctrl - left"
+# NOTE(splintah): 0x0A is the §/± key on my keyboard.
+#                 I never use this key, so:
+      - 0x0A : khd -p "ctrl - right"
+shift - 0x0A : khd -p "ctrl - left"
 
 # Send window to desktop
 ctrl + shift - l : chunkc tiling::window --send-to-desktop next && khd -p "ctrl - right"
@@ -82,13 +84,8 @@ ctrl + alt + shift - t : chunkc tiling::window --toggle sticky;\
 ### }}
 
 # Vim for non-terminal apps. {{
-ctrl - h ![kitty] : khd -p "- left"
-ctrl - j ![kitty] : khd -p "- down"
-ctrl - k ![kitty] : khd -p "- up"
-ctrl - l ![kitty] : khd -p "- right"
-
-cmd + ctrl - h ![kitty] : khd -p "cmd - left"
-cmd + ctrl - j ![kitty] : khd -p "cmd - down"
-cmd + ctrl - k ![kitty] : khd -p "cmd - up"
-cmd + ctrl - l ![kitty] : khd -p "cmd - right"
+ctrl - h ![kitty, Alacritty] : khd -p "- left"
+ctrl - j ![kitty, Alacritty] : khd -p "- down"
+ctrl - k ![kitty, Alacritty] : khd -p "- up"
+ctrl - l ![kitty, Alacritty] : khd -p "- right"
 # }}

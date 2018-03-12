@@ -89,11 +89,12 @@ chunkc core::load tiling.so
 chunkc core::load ffm.so
 # chunkc core::load border.so
 chunkc core::load blur.so
-chunkc core::load purify.so
+# chunkc core::load purify.so
 # }}
 
 # Program-specific settings {{
 chunkc tiling::rule --owner kitty --role AXWindow --subrole AXDialog --state tile
+chunkc tiling::rule --owner Safari --state tile --subrole AXStandardWindow
 chunkc tiling::rule --owner alacritty --state tile
 chunkc tiling::rule --owner \"System Preferences\" --state tile
 chunkc tiling::rule --owner Finder --name Kopiëren --state float

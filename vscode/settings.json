@@ -100,7 +100,7 @@
   "sync.gist": "9115ef5de87715c9b65b703a86e2f924",
   "sync.host": "",
   "sync.lastDownload": "2018-01-21T17:59:41.312Z",
-  "sync.lastUpload": "2018-02-10T16:33:43.056Z",
+  "sync.lastUpload": "2018-03-11T11:51:09.565Z",
   "sync.pathPrefix": "",
   "sync.quietSync": false,
   "telemetry.enableCrashReporter": false,
@@ -198,4 +198,8 @@
     "editor.tabSize": 2,
   },
   "workbench.tips.enabled": false,
+  "rust.cfg_test": true,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "workbench.statusBar.feedback.visible": false
 }

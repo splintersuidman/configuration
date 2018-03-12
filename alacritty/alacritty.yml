@@ -44,7 +44,7 @@ font:
   normal:
     family: Fira Code
     # Style can be specified to pick a specific face.
-    style: Regular
+    style: Retina
 
   # The bold font face
   bold:
@@ -77,7 +77,7 @@ font:
   # OS X only: use thin stroke font rendering. Thin strokes are suitable
   # for retina displays, but for non-retina you probably want this set to
   # false.
-  use_thin_strokes: false
+  use_thin_strokes: true
 
 # Should display the render timer
 render_timer: false

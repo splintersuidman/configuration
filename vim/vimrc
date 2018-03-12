@@ -50,7 +50,7 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Autocompletion
-" Plug '~/.vim/bundle/YouCompleteMe'
+Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
 " if has('nvim')
 "     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
 " else
@@ -61,7 +61,11 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 
 " Language support
 " C
-Plug 'arakashic/chromatica.nvim'
+if has('nvim')
+    Plug 'arakashic/chromatica.nvim'
+endif
+" Objective-C / Cocoa
+Plug 'msanders/cocoa.vim'
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
@@ -87,7 +91,9 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
-Plug 'vim-scripts/AfterColors.vim'
+if has('nvim')
+    Plug 'vim-scripts/AfterColors.vim'
+endif
 " Plug 'flazz/vim-colorschemes'
 " Plug 'chriskempson/base16-vim'
 Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
