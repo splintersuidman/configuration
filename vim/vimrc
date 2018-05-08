@@ -16,7 +16,7 @@
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
-filetype plugin indent on    " required
+filetype plugin indent on     " required
 
 " --------
 " Vim-plug
@@ -96,7 +96,7 @@ endif
 " Plug 'chriskempson/base16-vim'
 " Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
 " Plug 'arcticicestudio/nord-vim'
-" Plug 'lilydjwg/colorizer'
+Plug 'lilydjwg/colorizer'
 " Plug 'dylanaraps/wal.vim'
 
 
