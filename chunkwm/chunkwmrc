@@ -40,7 +40,6 @@ chunkc set 2_desktop_mode                monocle
 chunkc set 2_desktop_offset_gap          10
 
 chunkc set 6_desktop_mode                monocle
-chunkc set 7_desktop_mode                float
 # }}
 
 # Interaction settings {{
@@ -106,11 +105,11 @@ chunkc tiling::rule --owner Emacs --state tile
 chunkc tiling::rule --owner Firefox --role AXWindow
 chunkc tiling::rule --owner \"Code - Insiders\" --state tile
 chunkc tiling::rule --owner \"Visual Studio Community\" --state tile
-chunkc tiling::rule --owner Spotify --desktop 6
+chunkc tiling::rule --owner Spotify --desktop 7
 # }}
 
 # Start chwm-sa
 ~/scripts/chwm-sa-inject
 
 # For debugging / plugin development
-echo "chunkwm startup" > /dev/stderr
+# echo "chunkwm startup" > /dev/stderr
