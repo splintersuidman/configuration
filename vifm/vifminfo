@@ -1,0 +1,272 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/Users/splinter/
+	..
+1499888699
+'b
+	/Users/splinter/bin/
+	..
+1499888699
+'h
+	/Users/splinter/
+	..
+1499888699
+'z
+	/Users/splinter/.config/vifm
+	..
+1499888699
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/Users/splinter/Documents
+	Duvel-Mastery-Astro-P.xcf
+18
+d/Users/splinter
+	Applications
+1
+d/Users/splinter/Applications
+	..
+0
+d/Users/splinter
+	Applications
+1
+d/Users/splinter/Applications
+	..
+0
+d/Users/splinter
+	code
+17
+d/Users/splinter/code
+	..
+0
+d/Users/splinter
+	code
+17
+d/Users/splinter/code
+	c
+3
+d/Users/splinter/code/c
+	projects
+1
+d/Users/splinter/code/c/projects
+	ascii-table
+2
+d/Users/splinter/code/c/projects/ascii-table
+	ascii-table.c
+3
+d/Users/splinter/School/ANW/Biologie
+	..
+0
+d/Users/splinter/chunkwm/src
+	core
+4
+d/Users/splinter/chunkwm/src/core
+	dispatch
+1
+d/Users/splinter/chunkwm/src/core/dispatch
+	..
+0
+d/Users/splinter/chunkwm/src/core
+	..
+0
+d/Users/splinter/chunkwm/src
+	plugins
+5
+d/Users/splinter/chunkwm/src/plugins
+	bar
+1
+d/Users/splinter/chunkwm/src/plugins/bar
+	..
+0
+d/Users/splinter/chunkwm/src/plugins
+	tiling
+6
+d/Users/splinter/chunkwm/src/plugins/tiling
+	examples
+1
+d/Users/splinter/chunkwm/src/plugins/tiling/examples
+	..
+0
+d/Users/splinter/chunkwm/src/plugins/tiling
+	..
+0
+d/Users/splinter/chunkwm/src/plugins
+	..
+0
+d/Users/splinter/chunkwm/src
+	common
+3
+d/Users/splinter/chunkwm/src/common
+	accessibility
+1
+d/Users/splinter/chunkwm/src/common/accessibility
+	display.h
+3
+d/Users/splinter
+	Pictures
+11
+d/Users/splinter/Pictures
+	xj2tjuuhd9m-paul-earle.jpg
+20
+d/Users/splinter/chunkwm/src/plugins/blur
+	set-wallpaper.m
+11
+d/Users/splinter/chunkwm/src/plugins
+	..
+0
+d/Users/splinter/chunkwm/src
+	..
+0
+d/Users/splinter/chunkwm
+	..
+0
+d/Users/splinter
+	Downloads
+5
+d/Users/splinter/Downloads
+	gnustep-base-1.25.0
+11
+d/Users/splinter/Downloads/gnustep-base-1.25.0
+	NSCharacterSets
+4
+d/Users/splinter/Downloads
+	CF-1151.16
+1
+d/Users/splinter/Downloads/CF-1151.16
+	Examples
+1
+d/Users/splinter/Downloads/CF-1151.16/Examples
+	plconvert.c
+1
+d/Users/splinter/Downloads/CF-1151.16
+	Examples
+1
+d/Users/splinter/Downloads
+	CF-1151.16
+2
+d/Users/splinter
+	Downloads
+6
+d/Users
+	splinter
+2
+d/Users/splinter
+	code
+23
+d/Users/splinter/code
+	informatica-olympiade
+13
+d/Users/splinter/code/informatica-olympiade
+	finale-prep
+3
+d/Users/splinter/code
+	informatica-olympiade
+13
+d/Users/splinter
+	Desktop
+4
+d/Users/splinter/Desktop
+	pleinen-pas
+4
+d/Users/splinter
+	Desktop
+4
+d/Users/splinter/Desktop
+	pleinen-pas
+4
+d/Users/splinter/Desktop/pleinen-pas
+	pleinen.pas
+3
+d/Users/splinter/Desktop
+	pleinen-pas
+4
+d/Users/splinter/Desktop/pleinen-pas
+	pleinen.pas
+3
+d/Users/splinter/Desktop
+	pleinen-pas
+4
+d/Users/splinter
+	Desktop
+4
+d/Users
+	splinter
+2
+d/Users/splinter
+	AppcodeProjects
+1
+d/Users
+	splinter
+2
+d/Users/splinter
+	AppcodeProjects
+1
+d/Users/splinter/.config/vifm
+	colors
+1
+d/Users/splinter/.config/vifm/colors
+	Default.vifm
+1
+d/Users/splinter/.config/vifm
+	colors
+1
+d/Users/splinter/.config/vifm/colors
+	Default.vifm
+1
+d/Users/splinter/.config/vifm
+	vifmrc
+5
+d
+
+# Right window history (oldest to newest):
+D/Users/splinter
+	GitHub
+6
+D/Users/splinter/GitHub
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:!lld
+:!make
+:!ls ~/.chunkwm_plugins
+::q
+:edit
+:help
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
