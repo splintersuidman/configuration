@@ -14,6 +14,10 @@
 "      'V/'   ++++++
 "               ++
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
+filetype plugin indent on    " required
+
 " --------
 " Vim-plug
 " --------
@@ -29,7 +33,7 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 " -------
 " Easy editing
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -40,26 +44,21 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'terryma/vim-smooth-scroll'
+" Plug 'terryma/vim-smooth-scroll'
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'mattn/emmet-vim'
 Plug 'editorconfig/editorconfig-vim'
 
 " Aesthetics
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
 " Autocompletion
 Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
-" if has('nvim')
-"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugs' }
-" else
-"     Plug 'Shouge/deoplete.nvim'
-"     Plug 'roxma/nvim-yarp'
-"     Plug 'roxma/vim-hug-neovim-rpc'
-" endif
 
 " Language support
+Plug 'vim-syntastic/syntastic'
 " C
 if has('nvim')
     Plug 'arakashic/chromatica.nvim'
@@ -69,11 +68,10 @@ Plug 'msanders/cocoa.vim'
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'vim-syntastic/syntastic', { 'for': 'rust' }
 Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 " (La)TeX
-Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 " Plug 'LaTeX-Box-Team/LaTeX-Box'
 " Haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
@@ -90,15 +88,16 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " Colour theme
 " Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
-Plug 'junegunn/seoul256.vim'
+" Plug 'junegunn/seoul256.vim'
 if has('nvim')
     Plug 'vim-scripts/AfterColors.vim'
 endif
 " Plug 'flazz/vim-colorschemes'
 " Plug 'chriskempson/base16-vim'
-Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
+" Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
 " Plug 'arcticicestudio/nord-vim'
-Plug 'lilydjwg/colorizer'
+" Plug 'lilydjwg/colorizer'
+" Plug 'dylanaraps/wal.vim'
 
 
 " All of your Plugs must be added before the following line
@@ -208,11 +207,23 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
 let g:chromatica#enable_at_startup=1
 
-" ---------------
-" Deoplete config
-" ---------------
-let g:deoplete#enable_at_startup=1
-let g:deoplete#disable_auto_complete=1
+" -----------
+" Rust config
+" -----------
+let g:rustfmt_autosave = 1
+let g:syntastic_rust_checkers = ['cargo']
+
+" ----------------
+" Syntastic config
+" ----------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " --------------------
 " Deoplete Rust config
@@ -220,8 +231,10 @@ let g:deoplete#disable_auto_complete=1
 let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
-let g:python_host_prog = "/usr/local/bin/python2.7"
-let g:python3_host_prog = "/usr/local/bin/python3"
+" --------------------
+" YouCompleteMe config
+" --------------------
+let g:ycm_auto_trigger=0
 
 " ---------------
 " Startify config
@@ -234,10 +247,10 @@ let g:startify_custom_header = map(split(system('sed -n 1,15p ~/.vimrc | cut -c 
 " -------------
 " Smooth scroll
 " -------------
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+" noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+" noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+" noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 " Make sure guicolors are used when available
 if has("termguicolors")
@@ -258,6 +271,8 @@ let g:gruvbox_contrast_dark='hard'
 set background=dark
 let t_ZH="^[[3m"
 let t_ZR="^[[23m"
+let g:limelight_conceal_ctermfg = 'gray'
+" let g:limelight_conceal_guifg = 'DarkGray'
 
 " Line number settings
 set cul
@@ -268,19 +283,28 @@ set numberwidth=3
 " Scroll settings
 " set so=3
 
+" Mouse settings
+set mouse=nv " Normal and Visual
+
 " Wrap settings
-" set wrap lbr
-set nowrap
+set wrap lbr
+" set nowrap
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$<Paste>
+
+" NOTE: The § is just below esc, and is easier to reach.
+inoremap § <Esc>
 
 if has('nvim')
     tnoremap <Esc> <c-\><c-n>
     inoremap <Esc> <Esc><Esc>
 endif
 
-" Reload khd config on save.
+let g:python_host_prog = "/usr/local/bin/python2.7"
+let g:python3_host_prog = "/usr/local/bin/python3"
+
+" Reload khd config on write.
 au BufWritePost .khdrc !khd -e reload
 
