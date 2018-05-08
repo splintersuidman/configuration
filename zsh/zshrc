@@ -82,6 +82,7 @@ alias :q="exit"
 alias ls="exa -F"
 alias ll="ls -lh"
 alias la="ll -a"
+alias rm="safe-rm"
 # }}}
 
 # Functions {{{
@@ -105,6 +106,6 @@ if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 # Paths {{{
 export RUST_SRC_PATH=/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src
 export GOPATH=~/.go
-export PATH=~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin::/Library/TeX/texbin:~/.local/bin:/Applications/kitty.app/Contents/MacOS:~/.flutter-installation/bin:$GOPATH/bin:/usr/local/opt/python/libexec/bin:~/.local/bin:~/.cargo/bin:/Users/splinter/miniconda3/bin:$PATH
+export PATH=~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin::/Library/TeX/texbin:~/.local/bin:~/.flutter-installation/bin:$GOPATH/bin:/usr/local/opt/python/libexec/bin:~/.local/bin:~/.cargo/bin:/Users/splinter/miniconda3/bin:$PATH
 # }}}
 
