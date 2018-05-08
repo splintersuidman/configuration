@@ -1,13 +1,29 @@
 {
-  "editor.fontFamily": "FiraCode-Retina, Iosevka, Iosevka Expanded, IBM Plex Mono, Fantasque Sans Mono, SF Mono, Roboto Mono, Source Code Pro, Menlo, Monaco, Courier New, monospace",
-  "editor.fontSize": 12,
   "C_Cpp.intelliSenseEngine": "Tag Parser",
+  "[haskell]": {
+    "editor.renderIndentGuides": false,
+    "editor.tabSize": 2
+  },
+  "[rust]": {
+    "editor.formatOnSave": true
+  },
   "auto-close-tag.activationOnLanguage": [
     "html",
     "xml",
     "php",
     "javascript",
     "javascriptreact"
+  ],
+  "bracketPairColorizer.consecutivePairColors": [
+    "()",
+    "[]",
+    "{}",
+    [
+      "#8ec07c",
+      "#b16286",
+      "#458588"
+    ],
+    "Red"
   ],
   "c-cpp-flylint.cppcheck.enable": true,
   "c-cpp-flylint.flexelint.enable": false,
@@ -24,12 +40,20 @@
   "code-runner.showRunIconInEditorTitleMenu": false,
   "color-highlight.enable": false,
   "color-highlight.markRuler": false,
+  "discord.showElapsedTime": false,
+  "editor.accessibilitySupport": "off",
+  "editor.autoIndent": true,
   "editor.cursorBlinking": "smooth",
+  "editor.cursorStyle": "line",
+  "editor.detectIndentation": true,
   "editor.emptySelectionClipboard": true,
+  "editor.fontFamily": "FiraCode-Retina, Iosevka, Iosevka Expanded, IBM Plex Mono, Fantasque Sans Mono, SF Mono, Roboto Mono, Source Code Pro, Menlo, Monaco, Courier New, monospace",
   "editor.fontLigatures": true,
+  "editor.fontSize": 12,
   "editor.formatOnSave": false,
   "editor.lineHeight": 0,
-  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "on",
+  "editor.minimap.enabled": true,
   "editor.minimap.renderCharacters": false,
   "editor.quickSuggestions": {
     "comments": true,
@@ -42,8 +66,11 @@
   "editor.rulers": [
     100
   ],
+  "editor.snippetSuggestions": "inline",
+  "editor.tabCompletion": true,
   "editor.tabSize": 4,
   "editor.wordWrap": "on",
+  "explorer.confirmDragAndDrop": false,
   "extensions.autoUpdate": true,
   "files.associations": {
     ".chunkwmrc": "shellscript",
@@ -54,28 +81,48 @@
   },
   "files.autoSave": "off",
   "files.exclude": {
+    "**/*.rs.bk": true,
     "**/.DS_Store": true,
     "**/.git": true,
     "**/.hg": true,
     "**/.svn": true,
     "**/CVS": true,
-    "**/*.rs.bk": true
+    "**/*.dSYM": true,
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
   "git.enableSmartCommit": true,
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": true,
+    "suppressResultsExplorerNotice": false,
+    "suppressUpdateNotice": true,
+    "suppressWelcomeNotice": false
+  },
   "gitlens.blame.line.enabled": false,
   "gitlens.codeLens.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
+  "go.formatTool": "gofmt",
+  "go.liveErrors": {
+    "delay": 500,
+    "enabled": true
+  },
+  "haskelly.buttons.quickcheck": false,
+  "java.errors.incompleteClasspath.severity": "ignore",
   "latex-workshop.latex.toolchain": [
     {
-      "command": "pdflatex",
       "args": [
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
         "%DOC%"
-      ]
+      ],
+      "command": "pdflatex"
     }
   ],
   "lua.format.lineWidth": 80,
@@ -85,11 +132,28 @@
   "prettier.javascriptEnable": [],
   "prettier.jsonEnable": [],
   "prettier.typescriptEnable": [],
+  "python.autoComplete.addBrackets": true,
   "python.linting.enabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pylintEnabled": false,
   "python.pythonPath": "python3",
+  "rust-client.updateOnStartup": false,
+  "rust.all_targets": true,
   "rust.build_bin": null,
   "rust.build_lib": null,
+  "rust.cfg_test": true,
   "rust.goto_def_racer_fallback": true,
+  "rust.mode": "rls",
+  "rust.racer_completion": true,
+  "rust.rls": {
+    "useRustfmt": true,
+    "revealOutputChannelOn": "never"
+  },
+  "rust.rustup": {
+    "nightlyToolchain": "nightly-x86_64-apple-darwin",
+    "toolchain": "nightly-x86_64-apple-darwin"
+  },
   "rust.show_warnings": true,
   "swift.path.sourcekite": "~/.sourcekite/.build/debug",
   "sync.anonymousGist": false,
@@ -103,6 +167,8 @@
   "sync.lastUpload": "2018-03-11T11:51:09.565Z",
   "sync.pathPrefix": "",
   "sync.quietSync": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.external.osxExec": "kitty.app",
@@ -134,72 +200,85 @@
   "todohighlight.isCaseSensitive": true,
   "todohighlight.isEnable": true,
   "todohighlight.keywordsPattern": "(TODO|NOTE|FIXME|CHANGED|IDEA|HACK|BUG|QUESTION)(\\(+.*\\)+)*:",
+  "vim.cmdLineInitialColon": true,
+  "vim.disableExtension": false,
+  "vim.easymotion": true,
+  "vim.easymotionMarkerFontFamily": "Fira Code",
+  "vim.easymotionMarkerFontSize": "12",
+  "vim.easymotionMarkerHeight": 12,
   "vim.enableNeovim": true,
+  "vim.foldfix": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
   "vsicons.dontShowNewVersionMessage": true,
   "vsicons.projectDetection.autoReload": true,
   "window.title": "${rootName} :: ${activeEditorShort}",
   "window.zoomLevel": 0,
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorTheme": "Railgun",
   "workbench.iconTheme": "vscode-icons",
   "workbench.sideBar.location": "left",
-  "workbench.startupEditor": "newUntitledFile",
+  "workbench.startupEditor": "welcomePage",
+  "workbench.statusBar.feedback.visible": false,
   "workbench.statusBar.visible": true,
-  "zenMode.hideTabs": false,
-  "explorer.confirmDragAndDrop": false,
-  "haskelly.buttons.quickcheck": false,
-  "java.errors.incompleteClasspath.severity": "ignore",
-  "go.formatTool": "gofmt",
-  "go.liveErrors": {
-    "enabled": true,
-    "delay": 500
-  },
-  "git.confirmSync": false,
-  "python.linting.pylintEnabled": false,
-  "vim.cmdLineInitialColon": true,
-  "editor.cursorStyle": "line",
-  "gitlens.advanced.messages": {
-    "suppressCommitHasNoPreviousCommitWarning": false,
-    "suppressCommitNotFoundWarning": false,
-    "suppressFileNotUnderSourceControlWarning": false,
-    "suppressGitVersionWarning": false,
-    "suppressLineUncommittedWarning": false,
-    "suppressNoRepositoryWarning": true,
-    "suppressResultsExplorerNotice": false,
-    "suppressUpdateNotice": true,
-    "suppressWelcomeNotice": false
-  },
-  "editor.autoIndent": true,
-  "editor.detectIndentation": true,
-  "rust-client.updateOnStartup": false,
-  "vim.foldfix": true,
-  "bracketPairColorizer.consecutivePairColors": [
-    "()",
-    "[]",
-    "{}",
-    [
-      "#8ec07c",
-      "#b16286",
-      "#458588"
-    ],
-    "Red"
-  ],
-  "editor.accessibilitySupport": "off",
-  "vim.easymotion": true,
-  "vim.disableExtension": false,
-  "vim.easymotionMarkerFontFamily": "Fira Code",
-  "vim.easymotionMarkerFontSize": "12",
-  "vim.easymotionMarkerHeight": 12,
-  "vim.hlsearch": true,
-  "vim.incsearch": true,
-  "editor.lineNumbers": "on",
-  "[haskell]": {
-    "editor.renderIndentGuides": false,
-    "editor.tabSize": 2,
-  },
   "workbench.tips.enabled": false,
-  "rust.cfg_test": true,
-  "sync.removeExtensions": true,
-  "sync.syncExtensions": true,
-  "workbench.statusBar.feedback.visible": false
+  "zenMode.hideTabs": false,
+  "lldb.executable": "/usr/bin/lldb",
+  "clang.diagnostic.delay": 1500,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex",
+      "tools": ["xelatex"]
+    },
+    {
+      "name": "latexmk",
+      "tools": [
+        "latexmk"
+      ]
+    },
+    {
+      "name": "pdflatex -> bibtex -> pdflatex*2",
+      "tools": [
+        "pdflatex",
+        "bibtex",
+        "pdflatex",
+        "pdflatex"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "%DOCFILE%"
+      ]
+    }
+  ],
+  "latex-workshop.message.update.show": false,
+  "[pascal]": {
+    "editor.tabSize": 2
+  },
+  "omnipascal.freePascalSourcePath": "/usr/local/bin"
 }
