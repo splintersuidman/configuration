@@ -61,12 +61,19 @@ ctrl + cmd - l : khd -p "ctrl - right"
 ctrl + cmd - h : khd -p "ctrl - left"
 # NOTE(splintah): 0x0A is the §/± key on my keyboard.
 #                 I never use this key, so:
-      - 0x0A : khd -p "ctrl - right"
-shift - 0x0A : khd -p "ctrl - left"
+#       - 0x0A : khd -p "ctrl - right"
+# shift - 0x0A : khd -p "ctrl - left"
 
 # Send window to desktop
 ctrl + shift - l : chunkc tiling::window --send-to-desktop next && khd -p "ctrl - right"
 ctrl + shift - h : chunkc tiling::window --send-to-desktop prev && khd -p "ctrl - left"
+ctrl + shift - 1 : chunkc tiling::window --send-to-desktop 1
+ctrl + shift - 2 : chunkc tiling::window --send-to-desktop 2
+ctrl + shift - 3 : chunkc tiling::window --send-to-desktop 3
+ctrl + shift - 4 : chunkc tiling::window --send-to-desktop 4
+ctrl + shift - 5 : chunkc tiling::window --send-to-desktop 5
+ctrl + shift - 6 : chunkc tiling::window --send-to-desktop 6
+ctrl + shift - 7 : chunkc tiling::window --send-to-desktop 7
 
 # 'Tile' floating windows.
 ctrl + alt - up     : chunkc tiling::window --grid-layout 1:1:0:0:1:1
@@ -84,8 +91,8 @@ ctrl + alt + shift - t : chunkc tiling::window --toggle sticky;\
 ### }}
 
 # Vim for non-terminal apps. {{
-ctrl - h ![kitty, Alacritty] : khd -p "- left"
-ctrl - j ![kitty, Alacritty] : khd -p "- down"
-ctrl - k ![kitty, Alacritty] : khd -p "- up"
-ctrl - l ![kitty, Alacritty] : khd -p "- right"
+ctrl - h ![kitty, Alacritty, Code] : khd -p "- left"
+ctrl - j ![kitty, Alacritty, Code] : khd -p "- down"
+ctrl - k ![kitty, Alacritty, Code] : khd -p "- up"
+ctrl - l ![kitty, Alacritty, Code] : khd -p "- right"
 # }}
