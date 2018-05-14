@@ -1,5 +1,8 @@
 # splintah's dotfiles
 
+![Terminal](terminal.png)
+![Browser](browser.png)
+
 ## Terminal
 - Theme for zsh: my own, see `zshrc`.
 - Terminal emulator: [kitty](https://github.com/kovidgoyal/kitty) by [kovidgoyal](https://github.com/kovidgoyal)
