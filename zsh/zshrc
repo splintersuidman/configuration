@@ -1,3 +1,4 @@
+# vim: shiftwidth=2
 fpath+=~/.zfunc
 
 autoload -Uz compinit
@@ -35,14 +36,14 @@ local ret_status="%(?:%F{2}:%F{1})"
 PS1="%B%F{4}%n%b %F{6}%c%F{7} %B${ret_status}::%b%F{7} "
 
 generate_rps1 () {
-    git symbolic-ref HEAD &>/dev/null
-    if [ $? -ne 0 ]; then
-        return
-    fi
-    git branch &>/dev/null
-    if [ $? = 0 ]; then
-        echo "[%B%F{2}${$(git symbolic-ref HEAD)#refs/heads/}%F{7}%b]"
-    fi
+  git symbolic-ref HEAD &>/dev/null
+  if [ $? -ne 0 ]; then
+    return
+  fi
+  git branch &>/dev/null
+  if [ $? = 0 ]; then
+    echo "[%B%F{2}${$(git symbolic-ref HEAD)#refs/heads/}%F{7}%b]"
+  fi
 }
 RPS1='$(generate_rps1)'
 # }}}
@@ -90,14 +91,17 @@ ip () {
   echo "Public ip: $(curl -4fNs ipinfo.io/ip)"
   echo "Local ip: $(ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p')"
 }
-texpreview () {
-  # Open the pdf file in Skim.
-  # Skim auto-reloads (after enabling it) the pdf file after build.
-  open -a "Skim" "$@"
+pdf () {
+  # Open a pdf with mupdf.
+  /Applications/mupdf.app/Contents/MacOS/mupdf $@ &!
+}
+copy () {
+  # Copy text to the clipboard.
+  echo "$@" | pbcopy
 }
 code () {
-    # Open VS Code manually, i.e. without their shell script that requires python 2.
-    open -a Visual\ Studio\ Code "$@"
+  # Open VS Code manually, i.e. without their shell script that requires python 2.
+  open -a Visual\ Studio\ Code "$@"
 }
 # }}}
 
