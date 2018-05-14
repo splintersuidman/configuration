@@ -12,3 +12,9 @@
 ## Editor
 - Neovim
 - Theme: [Gruvbox](https://github.com/morhetz/gruvbox)
+
+## Browser
+- [qutebrowser](https://qutebrowser.org)
+
+## File manager
+- [ranger](https://ranger.github.io)
