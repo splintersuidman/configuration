@@ -33,12 +33,11 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 " -------
 " Easy editing
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 " Plug 'terryma/vim-multiple-cursors'
-Plug 'bling/vim-airline'
 Plug 'townk/vim-autoclose'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'easymotion/vim-easymotion'
@@ -47,10 +46,12 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 " Plug 'terryma/vim-smooth-scroll'
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'mattn/emmet-vim'
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 
 " Aesthetics
 " Plug 'mhinz/vim-startify'
+" Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
@@ -58,13 +59,13 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
 
 " Language support
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 " C
 if has('nvim')
-    Plug 'arakashic/chromatica.nvim'
+    Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp'] }
 endif
 " Objective-C / Cocoa
-Plug 'msanders/cocoa.vim'
+Plug 'msanders/cocoa.vim', { 'for': 'obj' }
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
@@ -76,8 +77,8 @@ Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 " Haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " JavaScript
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " Go
 Plug 'fatih/vim-go', { 'for': 'go' }
 
@@ -182,8 +183,28 @@ let g:tagbar_type_markdown = {
 " --------------
 " Airline config
 " --------------
-let g:airline_detect_modified=1
-let g:airline_powerline_fonts=1
+" let g:airline_detect_modified=1
+" let g:airline_powerline_fonts=1
+
+" ----------------
+" lightline config
+" ----------------
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype', ] ],
+      \ },
+      \ }
+
+" To add Syntastic support:
+" \ 'component_function': {
+" \   'syntastic': 'SyntasticStatusLineFlag',
+" \ }
 
 " ------------------
 " Multicursor config
@@ -217,13 +238,15 @@ let g:syntastic_rust_checkers = ['cargo']
 " Syntastic config
 " ----------------
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_cpp_gcc_args = "-std=c++11 -Wall -Wextra"
 
 " --------------------
 " Deoplete Rust config
@@ -289,10 +312,10 @@ set mouse=nv " Normal and Visual
 " Wrap settings
 set wrap lbr
 " set nowrap
-noremap  <buffer> <silent> k gk
-noremap  <buffer> <silent> j gj
-noremap  <buffer> <silent> 0 g0
-noremap  <buffer> <silent> $ g$<Paste>
+" noremap  <buffer> <silent> k gk
+" noremap  <buffer> <silent> j gj
+" noremap  <buffer> <silent> 0 g0
+" noremap  <buffer> <silent> $ g$<Paste>
 
 " NOTE: The § is just below esc, and is easier to reach.
 inoremap § <Esc>
