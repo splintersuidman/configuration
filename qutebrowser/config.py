@@ -148,3 +148,22 @@ c.auto_save.session = True
 # Fonts.
 c.fonts.tabs = '11pt Fira Code'
 c.fonts.monospace = 'Fira Code'
+
+# Search engines.
+c.url.searchengines = {
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'ddg':     'https://duckduckgo.com/?q={}',
+    'w':       'https://nl.wikipedia.org/w/index.php?search={}&title=Speciaal:Zoeken',
+    'we':      'https://en.wikipedia.org/w/index.php?search={}&title=Special:Search',
+    'wikt':    'https://nl.wiktionary.org/?search={}',
+    'yt':      'https://www.youtube.com/results?search_query={}',
+    'genius':  'https://genius.com/search?q={}',
+}
+
+# Keybindings.
+# Clear cookies on current site.
+config.bind('cc', 'jseval document.cookie.split(";").forEach(function(c) {'
+                  'document.cookie = c.replace(/^ +/, "").replace(/=.*/, "'
+                  '=;expires=" + new Date().toUTCString() + ";path=/"); });'
+                  '"Cookies cleared."')
+
