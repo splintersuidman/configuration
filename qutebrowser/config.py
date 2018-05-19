@@ -55,11 +55,11 @@ c.colors.completion.item.selected.bg = '#8ec07c'
 
 # Top border color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.item.selected.border.top = '#1d2021'
+c.colors.completion.item.selected.border.top = '#282828'
 
 # Bottom border color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.border.bottom = '#1d2021'
+c.colors.completion.item.selected.border.bottom = '#282828'
 
 # Foreground color of the matched text in the completion.
 # Type: QssColor
@@ -71,7 +71,7 @@ c.colors.statusbar.normal.fg = '#d5c4a1'
 
 # Background color of the statusbar.
 # Type: QssColor
-c.colors.statusbar.normal.bg = '#1d2021'
+c.colors.statusbar.normal.bg = '#282828'
 
 # Foreground color of the statusbar in command mode.
 # Type: QssColor
@@ -79,7 +79,7 @@ c.colors.statusbar.command.fg = '#d4c5a1'
 
 # Background color of the statusbar in command mode.
 # Type: QssColor
-c.colors.statusbar.command.bg = '#1d2021'
+c.colors.statusbar.command.bg = '#282828'
 
 # Default foreground color of the URL in the statusbar.
 # Type: QssColor
@@ -105,7 +105,7 @@ c.colors.statusbar.url.warn.fg = '#fabd2f'
 
 # Background color of the tab bar.
 # Type: QtColor
-c.colors.tabs.bar.bg = '#1d2021'
+c.colors.tabs.bar.bg = '#282828'
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
@@ -113,7 +113,7 @@ c.colors.tabs.odd.fg = '#928374'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = '#1d2021'
+c.colors.tabs.odd.bg = '#282828'
 
 # Foreground color of unselected even tabs.
 # Type: QtColor
@@ -121,7 +121,7 @@ c.colors.tabs.even.fg = '#928374'
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = '#1d2021'
+c.colors.tabs.even.bg = '#282828'
 
 # Foreground color of selected odd tabs.
 # Type: QtColor
@@ -129,7 +129,7 @@ c.colors.tabs.selected.odd.fg = '#d5c4a1'
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#333333'
+c.colors.tabs.selected.odd.bg = '#1d2021'
 
 # Foreground color of selected even tabs.
 # Type: QtColor
@@ -137,7 +137,7 @@ c.colors.tabs.selected.even.fg = '#d5c4a1'
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#333333'
+c.colors.tabs.selected.even.bg = '#1d2021'
 
 # Position of the tab bar.
 c.tabs.position = 'bottom'
@@ -146,17 +146,39 @@ c.tabs.position = 'bottom'
 c.auto_save.session = True
 
 # Fonts.
-c.fonts.tabs = '11pt Fira Code'
-c.fonts.monospace = 'Fira Code'
+font = 'curie'
+size = '12pt'
+size_font = '{} {}'.format(size, font)
+
+c.fonts.completion.entry    = size_font
+c.fonts.completion.category = size_font
+c.fonts.debug_console       = size_font
+c.fonts.downloads           = size_font
+c.fonts.hints               = size_font
+c.fonts.keyhint             = size_font
+c.fonts.messages.error      = size_font
+c.fonts.messages.info       = size_font
+c.fonts.messages.warning    = size_font
+c.fonts.prompts             = size_font
+c.fonts.statusbar           = size_font
+c.fonts.tabs                = size_font
+c.fonts.monospace           = font
 
 # Search engines.
 c.url.searchengines = {
+    # Default search: DuckDuckGo search.
     'DEFAULT': 'https://duckduckgo.com/?q={}',
+    # DuckDuckGo search.
     'ddg':     'https://duckduckgo.com/?q={}',
+    # Wikipedia search (Nederlands).
     'w':       'https://nl.wikipedia.org/w/index.php?search={}&title=Speciaal:Zoeken',
+    # Wikipedia search (English).
     'we':      'https://en.wikipedia.org/w/index.php?search={}&title=Special:Search',
+    # Wikitionary search for definitions (Nederlands).
     'wikt':    'https://nl.wiktionary.org/?search={}',
+    # YouTube search for videos.
     'yt':      'https://www.youtube.com/results?search_query={}',
+    # Genius search for lyrics.
     'genius':  'https://genius.com/search?q={}',
 }
 
@@ -166,4 +188,7 @@ config.bind('cc', 'jseval document.cookie.split(";").forEach(function(c) {'
                   'document.cookie = c.replace(/^ +/, "").replace(/=.*/, "'
                   '=;expires=" + new Date().toUTCString() + ";path=/"); });'
                   '"Cookies cleared."')
-
+# Close window.
+config.bind('cw', 'close')
+# Open private window.
+config.bind('wp', 'open --private')

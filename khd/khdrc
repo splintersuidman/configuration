@@ -1,7 +1,6 @@
 # Open terminal (kitty)
 alt - space : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty\
-                    --session ~/dotfiles/kitty/default-session -d ~
+alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty -d ~
 
 ### chunkwm {{
 
@@ -18,8 +17,10 @@ alt - k : chunkc tiling::window --focus north
 alt - l : chunkc tiling::window --focus east
 
 # Focus monitors
-ctrl + cmd + shift - left  : chunkc tiling::monitor -f prev
-ctrl + cmd + shift - right : chunkc tiling::monitor -f next
+# NOTE(splintah): h and l are switched, since the last monitor to be
+# added (for me on the right of my laptop) has a higher id.
+ctrl + cmd + shift - l : chunkc tiling::monitor -f prev
+ctrl + cmd + shift - h : chunkc tiling::monitor -f next
 
 # Rotate windows
 ctrl + cmd - r         : chunkc tiling::desktop --rotate 270

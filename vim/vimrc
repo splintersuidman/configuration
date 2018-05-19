@@ -59,10 +59,10 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
 
 " Language support
-" Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic', { 'on': 'Syntastic' }
 " C
 if has('nvim')
-    Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp'] }
+    Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp', 'objc'] }
 endif
 " Objective-C / Cocoa
 Plug 'msanders/cocoa.vim', { 'for': 'obj' }
@@ -111,7 +111,7 @@ let t_Co = 256              " Use 256 colors in terminal
 " Keymaps
 " -------
 nmap <F8> :TagbarToggle<CR>
-nmap <F7> :NERDTreeToggle<CR>
+" nmap <F7> :NERDTreeToggle<CR>
 
 " --------------------
 " NERDCommenter config
@@ -191,7 +191,7 @@ let g:tagbar_type_markdown = {
 " ----------------
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ],
@@ -290,15 +290,16 @@ syntax on
 filetype plugin indent on
 filetype plugin on
 colo gruvbox
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_italicize_comments=1
 set background=dark
-let t_ZH="^[[3m"
-let t_ZR="^[[23m"
+set t_ZH=[3m
+set t_ZR=[23m
 let g:limelight_conceal_ctermfg = 'gray'
 " let g:limelight_conceal_guifg = 'DarkGray'
 
 " Line number settings
-set cul
+set cursorline
 set number
 set relativenumber
 set numberwidth=3
