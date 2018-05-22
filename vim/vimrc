@@ -262,10 +262,15 @@ let g:ycm_auto_trigger=0
 " ---------------
 " Startify config
 " ---------------
-let g:startify_bookmarks = ['~/.vimrc', '~/.zshrc', '~/dotfiles']
+" let g:startify_bookmarks = ['~/.vimrc', '~/.zshrc', '~/dotfiles']
 " let g:startify_custom_header = map(split(system('figlet -f slant neovim'), '\n'), '"   ". v:val') + ['','']
 " The vim logo taken from this file.
-let g:startify_custom_header = map(split(system('sed -n 1,15p ~/.vimrc | cut -c 3-'), '\n'), '"    " . v:val') + ['','']
+" let g:startify_custom_header = map(split(system('sed -n 1,15p ~/.vimrc | cut -c 3-'), '\n'), '"    " . v:val') + ['','']
+
+" ---------------
+" Markdown config
+" ---------------
+autocmd FileType markdown :hi markdownItalic gui=italic
 
 " -------------
 " Smooth scroll
@@ -280,6 +285,10 @@ if has("termguicolors")
     set termguicolors
 endif
 
+" Set italics escape sequences.
+set t_ZH=[3m
+set t_ZR=[23m
+
 " Tab settings
 set tabstop=4
 set softtabstop=4 expandtab
@@ -291,10 +300,9 @@ filetype plugin indent on
 filetype plugin on
 colo gruvbox
 let g:gruvbox_contrast_dark='medium'
-let g:gruvbox_italicize_comments=1
+" let g:gruvbox_italicize_comments=1
 set background=dark
-set t_ZH=[3m
-set t_ZR=[23m
+highlight Comment gui=italic
 let g:limelight_conceal_ctermfg = 'gray'
 " let g:limelight_conceal_guifg = 'DarkGray'
 
@@ -331,4 +339,3 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 
 " Reload khd config on write.
 au BufWritePost .khdrc !khd -e reload
-

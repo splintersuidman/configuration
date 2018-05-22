@@ -77,8 +77,6 @@ chunkc set window_use_cgs_move           1
 
 # Blur {{
 chunkc set wallpaper                     ~/Pictures/A3MuFbJ.jpg
-# chunkc set 1_wallpaper                   ~/Pictures/HighSierra.jpg
-# chunkc set 5_wallpaper                   ~/Pictures/HighSierra.jpg
 chunkc set wallpaper_mode                fill
 chunkc set wallpaper_blur                5.0
 # chunkc set wallpaper_tmp_path            /tmp/
@@ -93,20 +91,20 @@ chunkc core::load blur.so
 # }}
 
 # Program-specific settings {{
-chunkc tiling::rule --owner kitty --role AXWindow --subrole AXDialog --state tile
-chunkc tiling::rule --owner Safari --state tile --subrole AXStandardWindow
-chunkc tiling::rule --owner alacritty --state tile
-chunkc tiling::rule --owner \"System Preferences\" --state tile
-chunkc tiling::rule --owner Finder --name Kopiëren --state float
-chunkc tiling::rule --owner Finder --name Verwijderen --state float
-chunkc tiling::rule --owner macfeh --state float
-chunkc tiling::rule --owner Kap --state float
-chunkc tiling::rule --owner \"IntelliJ IDEA\" --state float
-chunkc tiling::rule --owner Emacs --state tile
-chunkc tiling::rule --owner Firefox --role AXWindow
-chunkc tiling::rule --owner \"Code - Insiders\" --state tile
-chunkc tiling::rule --owner \"Visual Studio Community\" --state tile
-chunkc tiling::rule --owner Spotify --desktop 7
+chunkc tiling::rule --owner kitty --role AXWindow --subrole AXDialog --state tile &
+chunkc tiling::rule --owner Safari --state tile --subrole AXStandardWindow &
+chunkc tiling::rule --owner alacritty --state tile &
+chunkc tiling::rule --owner \"System Preferences\" --state tile &
+chunkc tiling::rule --owner Finder --name Kopiëren --state float &
+chunkc tiling::rule --owner Finder --name Verwijderen --state float &
+chunkc tiling::rule --owner macfeh --state float &
+chunkc tiling::rule --owner Kap --state float &
+chunkc tiling::rule --owner \"IntelliJ IDEA\" --state float &
+chunkc tiling::rule --owner Emacs --state tile &
+chunkc tiling::rule --owner Firefox --role AXWindow &
+chunkc tiling::rule --owner \"Code - Insiders\" --state tile &
+chunkc tiling::rule --owner \"Visual Studio Community\" --state tile &
+chunkc tiling::rule --owner Spotify --desktop 7 &
 # }}
 
 # Start chwm-sa

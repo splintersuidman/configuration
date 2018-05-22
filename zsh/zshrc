@@ -66,7 +66,7 @@ export VISUAL=nvim
 # }}}
 
 # GPG fix
-export GPG_TTY=$(tty)
+# export GPG_TTY=$(tty)
 
 # Aliases {{{
 alias ga="git add"
