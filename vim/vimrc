@@ -62,14 +62,14 @@ Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
 Plug 'vim-syntastic/syntastic', { 'on': 'Syntastic' }
 " C
 if has('nvim')
-    Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp', 'objc'] }
+    Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
 endif
 " Objective-C / Cocoa
-Plug 'msanders/cocoa.vim', { 'for': 'obj' }
+Plug 'msanders/cocoa.vim', { 'for': 'objc' }
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
+" Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+" Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 " (La)TeX
 Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
@@ -89,7 +89,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " Colour theme
 " Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
-" Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/seoul256.vim'
 if has('nvim')
     Plug 'vim-scripts/AfterColors.vim'
 endif
@@ -215,28 +215,32 @@ let g:lightline = {
 " Racer config
 " ------------
 set hidden
-let g:racer_cmd = "/Users/splinter/.cargo/bin/racer"
+let g:racer_cmd = "~/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
-au FileType rust nmap gd <Plug>(rust-def)
-au FileType rust nmap gs <Plug>(rust-def-split)
-au FileType rust nmap gx <Plug>(rust-def-vertical)
-au FileType rust nmap <leader>gd <Plug>(rust-doc)
+" au FileType rust nmap gd <Plug>(rust-def)
+" au FileType rust nmap gs <Plug>(rust-def-split)
+" au FileType rust nmap gx <Plug>(rust-def-vertical)
+" au FileType rust nmap <leader>gd <Plug>(rust-doc)
+au FileType rust nmap gd :YcmCompleter GoTo<CR>
 
 " -----------------
 " Chromatica config
 " -----------------
 let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
 " let g:chromatica#enable_at_startup=1
-au FileType c ChromaticaStart
-au FileType cpp ChromaticaStart
-au FileType objc ChromaticaStart
-au FileType objcpp ChromaticaStart
+if has('nvim')
+  au FileType c ChromaticaStart
+  au FileType cpp ChromaticaStart
+  au FileType objc ChromaticaStart
+  au FileType objcpp ChromaticaStart
+endif
 
 " -----------
 " Rust config
 " -----------
 let g:rustfmt_autosave = 1
 let g:syntastic_rust_checkers = ['cargo']
+let g:ycm_rust_src_path = '~/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
 " ----------------
 " Syntastic config
@@ -249,19 +253,21 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
 
 let g:syntastic_cpp_gcc_args = "-std=c++11 -Wall -Wextra"
 
 " --------------------
 " Deoplete Rust config
 " --------------------
-let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+" let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
+" let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
 " --------------------
 " YouCompleteMe config
 " --------------------
-let g:ycm_auto_trigger=0
+let g:ycm_auto_trigger=1
+let g:ycm_key_list_stop_completion = ['<C-y>']
 
 " ---------------
 " Startify config
@@ -284,8 +290,19 @@ autocmd FileType markdown :hi markdownItalic gui=italic
 " noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 " noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
+" ---------------
+" Terminal config
+" ---------------
+if has('neovim')
+  autocmd TermOpen * setlocal scrollback=2500
+endif
+
+" Copy/paste from/to system clipboard
+noremap <C-c> "+y
+noremap <C-p> "+P
+
 " Make sure guicolors are used when available
-if has("termguicolors")
+if has('termguicolors')
     set termguicolors
 endif
 
@@ -325,10 +342,10 @@ set mouse=nv " Normal and Visual
 " Wrap settings
 set wrap lbr
 " set nowrap
-" noremap  <buffer> <silent> k gk
-" noremap  <buffer> <silent> j gj
-" noremap  <buffer> <silent> 0 g0
-" noremap  <buffer> <silent> $ g$<Paste>
+noremap  <buffer> <silent> k gk
+noremap  <buffer> <silent> j gj
+noremap  <buffer> <silent> 0 g0
+noremap  <buffer> <silent> $ g$<Paste>
 
 " NOTE: The § is just below esc, and is easier to reach.
 inoremap § <Esc>
