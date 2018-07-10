@@ -2,6 +2,9 @@
 alt - space : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty -d ~
 
+# Use capslock as escape.
+- capslock : khd -p "- escape"
+
 ### chunkwm {{
 
 # Move windows
@@ -16,11 +19,15 @@ alt - j : chunkc tiling::window --focus south
 alt - k : chunkc tiling::window --focus north
 alt - l : chunkc tiling::window --focus east
 
+# Ctrl - s for some keybindings.
+ctrl - s        : khd -e "mode activate ctrls"
+ctrls - escape  : khd -e "mode activate default"
+
 # Focus monitors
 # NOTE(splintah): h and l are switched, since the last monitor to be
 # added (for me on the right of my laptop) has a higher id.
-ctrl + cmd + shift - l : chunkc tiling::monitor -f prev
-ctrl + cmd + shift - h : chunkc tiling::monitor -f next
+ctrls - l : chunkc tiling::monitor -f prev && khd -e "mode activate default"
+ctrls - h : chunkc tiling::monitor -f next && khd -e "mode activate default"
 
 # Rotate windows
 ctrl + cmd - r         : chunkc tiling::desktop --rotate 270
@@ -58,8 +65,8 @@ ctrl + alt + cmd - k : chunkc tiling::window --use-insertion-point north
 ctrl + alt + cmd - l : chunkc tiling::window --use-insertion-point east
 
 # Switch desktops
-ctrl + cmd - l : khd -p "ctrl - right"
-ctrl + cmd - h : khd -p "ctrl - left"
+ctrl + cmd - l -> : khd -p "ctrl - right"
+ctrl + cmd - h -> : khd -p "ctrl - left"
 # NOTE(splintah): 0x0A is the §/± key on my keyboard.
 #                 I never use this key, so:
 #       - 0x0A : khd -p "ctrl - right"

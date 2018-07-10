@@ -33,7 +33,7 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 " -------
 " Easy editing
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -111,7 +111,7 @@ let t_Co = 256              " Use 256 colors in terminal
 " Keymaps
 " -------
 nmap <F8> :TagbarToggle<CR>
-" nmap <F7> :NERDTreeToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
 
 " --------------------
 " NERDCommenter config
@@ -226,7 +226,11 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 " Chromatica config
 " -----------------
 let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
-let g:chromatica#enable_at_startup=1
+" let g:chromatica#enable_at_startup=1
+au FileType c ChromaticaStart
+au FileType cpp ChromaticaStart
+au FileType objc ChromaticaStart
+au FileType objcpp ChromaticaStart
 
 " -----------
 " Rust config

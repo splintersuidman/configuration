@@ -180,6 +180,8 @@ c.url.searchengines = {
     'yt':      'https://www.youtube.com/results?search_query={}',
     # Genius search for lyrics.
     'genius':  'https://genius.com/search?q={}',
+    # Reddit go to subreddit.
+    'r/':      'https://reddit.com/r/{}',
 }
 
 # Keybindings.
