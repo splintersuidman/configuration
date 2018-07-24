@@ -65,8 +65,8 @@ ctrl + alt + cmd - k : chunkc tiling::window --use-insertion-point north
 ctrl + alt + cmd - l : chunkc tiling::window --use-insertion-point east
 
 # Switch desktops
-ctrl + cmd - l -> : khd -p "ctrl - right"
-ctrl + cmd - h -> : khd -p "ctrl - left"
+ctrl + cmd - l : khd -p "ctrl - right"
+ctrl + cmd - h : khd -p "ctrl - left"
 # NOTE(splintah): 0x0A is the §/± key on my keyboard.
 #                 I never use this key, so:
 #       - 0x0A : khd -p "ctrl - right"

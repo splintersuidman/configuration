@@ -81,6 +81,8 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 " Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " Go
 Plug 'fatih/vim-go', { 'for': 'go' }
+" Elvish
+Plug 'huiyiqun/elvish.vim'
 
 " Linters
 " Plug 'sindresorhus/vim-xo'
@@ -89,6 +91,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " Colour theme
 " Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
 Plug 'junegunn/seoul256.vim'
 if has('nvim')
     Plug 'vim-scripts/AfterColors.vim'
@@ -99,7 +102,6 @@ endif
 " Plug 'arcticicestudio/nord-vim'
 Plug 'lilydjwg/colorizer'
 " Plug 'dylanaraps/wal.vim'
-
 
 " All of your Plugs must be added before the following line
 call plug#end()
@@ -191,7 +193,7 @@ let g:tagbar_type_markdown = {
 " ----------------
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ],
@@ -294,7 +296,7 @@ autocmd FileType markdown :hi markdownItalic gui=italic
 " Terminal config
 " ---------------
 if has('neovim')
-  autocmd TermOpen * setlocal scrollback=2500
+  autocmd TermOpen * setlocal scrollback=1000
 endif
 
 " Copy/paste from/to system clipboard
@@ -319,9 +321,12 @@ set shiftwidth=4
 syntax on
 filetype plugin indent on
 filetype plugin on
-colo gruvbox
-let g:gruvbox_contrast_dark='medium'
-" let g:gruvbox_italicize_comments=1
+" Gruvbox
+  " colo gruvbox
+  " let g:gruvbox_contrast_dark='medium'
+" Dracula
+  colo dracula
+
 set background=dark
 highlight Comment gui=italic
 let g:limelight_conceal_ctermfg = 'gray'

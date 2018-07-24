@@ -36,108 +36,119 @@ c.url.start_pages = 'https://duckduckgo.com'
 # Type: Bool
 c.window.hide_decoration = True
 
+black  = '#282a46'
+grey   = '#44475a'
+white  = '#f8f8f2'
+cyan   = '#8be9fd'
+green  = '#50fa7b'
+orange = '#ffb86c'
+pink   = '#ff79c6'
+purple = '#bd93f9'
+red    = '#ff5555'
+yellow = '#f1fa8c'
+
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 # Type: List of QtColor, or QtColor
-c.colors.completion.fg = '#d5c4a1'
+c.colors.completion.fg = purple
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
-c.colors.completion.odd.bg = '#333333'
+c.colors.completion.odd.bg = black
 
 # Background color of the completion widget for even rows.
 # Type: QssColor
-c.colors.completion.even.bg = '#333333'
+c.colors.completion.even.bg = black
 
 # Background color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.bg = '#8ec07c'
+c.colors.completion.item.selected.bg = pink
 
 # Top border color of the completion widget category headers.
 # Type: QssColor
-c.colors.completion.item.selected.border.top = '#282828'
+c.colors.completion.item.selected.border.top = black
 
 # Bottom border color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.border.bottom = '#282828'
+c.colors.completion.item.selected.border.bottom = black
 
 # Foreground color of the matched text in the completion.
 # Type: QssColor
-c.colors.completion.match.fg = '#fb4934'
+c.colors.completion.match.fg = purple
 
 # Foreground color of the statusbar.
 # Type: QssColor
-c.colors.statusbar.normal.fg = '#d5c4a1'
+c.colors.statusbar.normal.fg = white
 
 # Background color of the statusbar.
 # Type: QssColor
-c.colors.statusbar.normal.bg = '#282828'
+c.colors.statusbar.normal.bg = black
 
 # Foreground color of the statusbar in command mode.
 # Type: QssColor
-c.colors.statusbar.command.fg = '#d4c5a1'
+c.colors.statusbar.command.fg = white
 
 # Background color of the statusbar in command mode.
 # Type: QssColor
-c.colors.statusbar.command.bg = '#282828'
+c.colors.statusbar.command.bg = black
 
 # Default foreground color of the URL in the statusbar.
 # Type: QssColor
-c.colors.statusbar.url.fg = '#d5c4a1'
+c.colors.statusbar.url.fg = white
 
 # Foreground color of the URL in the statusbar on error.
 # Type: QssColor
-c.colors.statusbar.url.error.fg = '#fb4934'
+c.colors.statusbar.url.error.fg = red
 
 # Foreground color of the URL in the statusbar on successful load
 # (http).
 # Type: QssColor
-c.colors.statusbar.url.success.http.fg = '#83a598'
+c.colors.statusbar.url.success.http.fg = cyan
 
 # Foreground color of the URL in the statusbar on successful load
 # (https).
 # Type: QssColor
-c.colors.statusbar.url.success.https.fg = '#8ec07c'
+c.colors.statusbar.url.success.https.fg = green
 
 # Foreground color of the URL in the statusbar when there's a warning.
 # Type: QssColor
-c.colors.statusbar.url.warn.fg = '#fabd2f'
+c.colors.statusbar.url.warn.fg = yellow
 
 # Background color of the tab bar.
 # Type: QtColor
-c.colors.tabs.bar.bg = '#282828'
+c.colors.tabs.bar.bg = black
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.fg = '#928374'
+c.colors.tabs.odd.fg = grey
 
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = '#282828'
+c.colors.tabs.odd.bg = black
 
 # Foreground color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.fg = '#928374'
+c.colors.tabs.even.fg = grey
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = '#282828'
+c.colors.tabs.even.bg = black
 
 # Foreground color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.fg = '#d5c4a1'
+c.colors.tabs.selected.odd.fg = white
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#1d2021'
+c.colors.tabs.selected.odd.bg = black
 
 # Foreground color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.fg = '#d5c4a1'
+c.colors.tabs.selected.even.fg = white
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#1d2021'
+c.colors.tabs.selected.even.bg = black
 
 # Position of the tab bar.
 c.tabs.position = 'bottom'
