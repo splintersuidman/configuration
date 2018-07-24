@@ -14,6 +14,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 # }}}
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+
 # Theme {{{
 #  0 black
 #  1 red
@@ -32,8 +34,10 @@ fi
 # 14 bright cyan
 # 15 bright white
 
+setopt prompt_subst
+
 local ret_status="%(?:%F{2}:%F{1})"
-PS1="%F{4}%n %F{6}%c%F{7} %B${ret_status}::%b%F{7} "
+PS1="%F{4}%c%F{7} %B${ret_status}::%b%F{7} "
 
 generate_rps1 () {
   git symbolic-ref HEAD &>/dev/null
@@ -105,10 +109,4 @@ code () {
 }
 # }}}
 
-if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
-
-# Paths {{{
-export RUST_SRC_PATH=/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src
-export GOPATH=~/.go
-export PATH=~/scripts:~/.swiftenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin:/opt/local/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:~/.swiftenv/shims:~/.miniconda3/bin::/Library/TeX/texbin:~/.local/bin:~/.flutter-installation/bin:$GOPATH/bin:/usr/local/opt/python/libexec/bin:~/.local/bin:~/.cargo/bin:/Users/splinter/miniconda3/bin:$PATH
-# }}}
+# if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
