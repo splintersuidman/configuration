@@ -46,7 +46,27 @@ generate_rps1 () {
   fi
   git branch &>/dev/null
   if [ $? = 0 ]; then
-    echo "[%B%F{2}${$(git symbolic-ref HEAD)#refs/heads/}%F{7}%b]"
+    local GIT_PROMPT=""
+    GIT_PROMPT=$GIT_PROMPT"[%B%F{5}"
+
+    local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
+    local NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
+
+    # Branch
+    GIT_PROMPT=$GIT_PROMPT"${$(git symbolic-ref HEAD)#refs/heads/}"
+
+    # Ahead
+    if [ "$NUM_AHEAD" -gt 0 ]; then
+      GIT_PROMPT=$GIT_PROMPT" %F{2}$NUM_AHEAD+"
+    fi
+
+    # Behind
+    if [ "$NUM_BEHIND" -gt 0 ]; then
+      GIT_PROMPT=$GIT_PROMPT" %F{1}$NUM_AHEAD-"
+    fi
+
+    GIT_PROMPT=$GIT_PROMPT"%F{7}%b]"
+    echo "$GIT_PROMPT"
   fi
 }
 RPS1='$(generate_rps1)'
