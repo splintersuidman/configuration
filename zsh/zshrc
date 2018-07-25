@@ -89,9 +89,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 # }}}
 
-# GPG fix
-export GPG_TTY=$(tty)
-
 # Aliases {{{
 alias ga="git add"
 alias md="mkdir -p"
