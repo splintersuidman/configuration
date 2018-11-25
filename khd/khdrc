@@ -1,11 +1,15 @@
+# vim:foldmethod=marker
+
 # Open terminal (kitty)
 alt - space : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty -d ~
+# alt + cmd - space : /Applications/kitty.app/Contents/MacOS/kitty -d ~
+alt + cmd - space : sh -c "zsh ~/scripts/run.sh"
 
 # Use capslock as escape.
-- capslock : khd -p "- escape"
+# NOTE(splintah): capslock is mapped to escape in System Preferences, since that removes the delay.
+# - capslock : khd -p "- escape"
 
-### chunkwm {{
+# chunkwm {{{
 
 # Move windows
 alt + cmd - h : chunkc tiling::window --warp west
@@ -25,7 +29,7 @@ ctrls - escape  : khd -e "mode activate default"
 
 # Focus monitors
 # NOTE(splintah): h and l are switched, since the last monitor to be
-# added (for me on the right of my laptop) has a higher id.
+# added (for me on the left of my laptop) has a higher id.
 ctrls - l : chunkc tiling::monitor -f prev && khd -e "mode activate default"
 ctrls - h : chunkc tiling::monitor -f next && khd -e "mode activate default"
 
@@ -96,11 +100,23 @@ ctrl + alt - t : chunkc tiling::window --toggle float;\
 ctrl + alt + shift - t : chunkc tiling::window --toggle sticky;\
                          chunkc tiling::window --grid-layout 4:4:1:1:2:2
 
-### }}
+### }}}
 
-# Vim for non-terminal apps. {{
+# Vim for non-terminal apps. {{{
+
 ctrl - h ![kitty, Alacritty, Code] : khd -p "- left"
 ctrl - j ![kitty, Alacritty, Code] : khd -p "- down"
 ctrl - k ![kitty, Alacritty, Code] : khd -p "- up"
 ctrl - l ![kitty, Alacritty, Code] : khd -p "- right"
-# }}
+
+# }}}
+
+# Some function keys for external (non-Apple) keyboard. {{{
+
+- f13 : khd -p "- play"
+ctrl - f14 : khd -p "- volume_down"
+ctrl - f15 : khd -p "- volume_up"
+# 'Context-menu' key between Super and Ctrl.
+# - 0x6e : khd -p "- play"
+
+# }}}

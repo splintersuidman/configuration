@@ -14,7 +14,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 # }}}
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
 # Theme {{{
 #  0 black
@@ -37,7 +37,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 setopt prompt_subst
 
 local ret_status="%(?:%F{2}:%F{1})"
-PS1="%F{4}%c%F{7} %B${ret_status}::%b%F{7} "
+PS1="%F{4}%c%F{7} %B${ret_status}::%b%F{15} "
 
 generate_rps1 () {
   git symbolic-ref HEAD &>/dev/null
@@ -47,7 +47,7 @@ generate_rps1 () {
   git branch &>/dev/null
   if [ $? = 0 ]; then
     local GIT_PROMPT=""
-    GIT_PROMPT=$GIT_PROMPT"[%B%F{5}"
+    GIT_PROMPT=$GIT_PROMPT"[%B%F{4}"
 
     local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
     local NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
@@ -114,7 +114,7 @@ ip () {
 }
 pdf () {
   # Open a pdf with mupdf.
-  /Applications/mupdf.app/Contents/MacOS/mupdf $@ &!
+  /Applications/mupdf.app/Contents/MacOS/mupdf -I $@ &!
 }
 copy () {
   # Copy text to the clipboard.
@@ -124,6 +124,12 @@ code () {
   # Open VS Code manually, i.e. without their shell script that requires python 2.
   open -a Visual\ Studio\ Code "$@"
 }
+ed () {
+  # Change ed's prompt to ": ".
+  command ed -p":" "$@" ;
+}
 # }}}
 
 # if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -47,6 +47,7 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'mattn/emmet-vim'
 " Plug 'editorconfig/editorconfig-vim'
+Plug '/usr/local/opt/fzf'
 
 " Aesthetics
 " Plug 'mhinz/vim-startify'
@@ -54,12 +55,20 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' } " Rust
 
 " Autocompletion
-Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+" Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
 
 " Language support
-Plug 'vim-syntastic/syntastic', { 'on': 'Syntastic' }
+Plug 'vim-syntastic/syntastic', { 'for': [] }
 " C
 if has('nvim')
     Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
@@ -69,13 +78,15 @@ Plug 'msanders/cocoa.vim', { 'for': 'objc' }
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-" Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 " (La)TeX
 Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
 " Plug 'LaTeX-Box-Team/LaTeX-Box'
 " Haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" Plug 'eagletmt/ghcmod-vim'
 " JavaScript
 " Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 " Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
@@ -83,6 +94,20 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 " Elvish
 Plug 'huiyiqun/elvish.vim'
+" Pascal
+" Plug 'rkennedy/vim-delphi'
+" LLVM
+" Plug 'Superbil/llvm.vim'
+" augroup filetype
+"   au! BufRead,BufNewFile *.ll set filetype=llvm
+" augroup END
+" Brainfuck (of course)
+Plug 'kmyk/brainfuck-highlight.vim'
+" Org mode
+Plug 'jceb/vim-orgmode'
+
+" Formatting
+" Plug 'sbdchd/neoformat'
 
 " Linters
 " Plug 'sindresorhus/vim-xo'
@@ -94,7 +119,7 @@ Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
 Plug 'junegunn/seoul256.vim'
 if has('nvim')
-    Plug 'vim-scripts/AfterColors.vim'
+  Plug 'vim-scripts/AfterColors.vim'
 endif
 " Plug 'flazz/vim-colorschemes'
 " Plug 'chriskempson/base16-vim'
@@ -114,6 +139,11 @@ let t_Co = 256              " Use 256 colors in terminal
 " -------
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
+
+" ---------------
+" NERDTree config
+" ---------------
+let g:NERDTreeDirArrows=0
 
 " --------------------
 " NERDCommenter config
@@ -193,7 +223,7 @@ let g:tagbar_type_markdown = {
 " ----------------
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ],
@@ -213,6 +243,40 @@ let g:lightline = {
 " ------------------
 " let g:multi_cursor_next_key='<C-d>'
 
+" -------------
+" vimtex config
+" -------------
+let g:vimtex_compiler_latexmk = {
+    \ 'backend' : 'nvim',
+    \ 'background' : 1,
+    \ 'build_dir' : '',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-xelatex',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+let g:vimtex_compiler_latexmk_engines = {
+    \ '_'                : '-xelatex',
+    \ 'pdflatex'         : '-pdf',
+    \ 'lualatex'         : '-lualatex',
+    \ 'xelatex'          : '-xelatex',
+    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+    \ 'context (luatex)' : '-pdf -pdflatex=context',
+    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+    \}
+
+" ----------
+" TeX config
+" ----------
+" Create environment of the text on the current line.
+au FileType tex nmap <leader>te :normal! YPI\begin{<esc>A}<esc>jI\end{<esc>A}<esc>O
+
 " ------------
 " Racer config
 " ------------
@@ -228,7 +292,7 @@ au FileType rust nmap gd :YcmCompleter GoTo<CR>
 " -----------------
 " Chromatica config
 " -----------------
-let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
+let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
 " let g:chromatica#enable_at_startup=1
 if has('nvim')
   au FileType c ChromaticaStart
@@ -237,12 +301,33 @@ if has('nvim')
   au FileType objcpp ChromaticaStart
 endif
 
+" --------------
+" Haskell config
+" --------------
+au FileType haskell nmap <silent> <leader>ti :GhcModInfo<CR>
+au FileType haskell nmap <silent> <leader>tw :GhcModTypeInsert<CR>
+au FileType haskell nmap <silent> <leader>ts :GhcModSplitFunCase<CR>
+au FileType haskell nmap <silent> <leader>tq :GhcModType<CR>
+au FileType haskell nmap <silent> <leader>te :GhcModTypeClear<CR>
+au FileType haskell nmap <silent> <leader>hl :GhcModLint<CR>
+au FileType haskell set shiftwidth=2
+au FileType haskell set tabstop=2
+au FileType haskell set softtabstop=2
+let g:neoformat_enabled_haskell = ['brittany']
+" au FileType haskell set shiftwidth=4
+" au FileType haskell set softtabstop=4
+
 " -----------
 " Rust config
 " -----------
 let g:rustfmt_autosave = 1
 let g:syntastic_rust_checkers = ['cargo']
 let g:ycm_rust_src_path = '~/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+
+" ---------
+" Go config
+" ---------
+au BufWritePre *.go GoFmt
 
 " ----------------
 " Syntastic config
@@ -259,11 +344,19 @@ let g:syntastic_enable_signs = 1
 
 let g:syntastic_cpp_gcc_args = "-std=c++11 -Wall -Wextra"
 
+" ---------------
+" Deoplete config
+" ---------------
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
+call deoplete#custom#var('clangx', 'default_c_options', '')
+call deoplete#custom#var('clangx', 'default_cpp_options', '')
+
 " --------------------
 " Deoplete Rust config
 " --------------------
-" let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
-" let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
 " --------------------
 " YouCompleteMe config
@@ -313,19 +406,23 @@ set t_ZH=[3m
 set t_ZR=[23m
 
 " Tab settings
-set tabstop=4
-set softtabstop=4 expandtab
+set tabstop=8
+set expandtab
+set softtabstop=4
 set shiftwidth=4
+set shiftround
+
+au FileType make set noexpandtab
 
 " Syntax settings
 syntax on
-filetype plugin indent on
+" filetype plugin indent on
 filetype plugin on
 " Gruvbox
-  " colo gruvbox
-  " let g:gruvbox_contrast_dark='medium'
+  colo gruvbox
+  let g:gruvbox_contrast_dark='medium'
 " Dracula
-  colo dracula
+  " colo dracula
 
 set background=dark
 highlight Comment gui=italic

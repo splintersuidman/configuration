@@ -44,7 +44,7 @@ font:
   normal:
     family: Fira Code
     # Style can be specified to pick a specific face.
-    style: Retina
+    style: Regular
 
   # The bold font face
   bold:
