@@ -109,6 +109,15 @@ ctrl - j ![kitty, Alacritty, Code] : khd -p "- down"
 ctrl - k ![kitty, Alacritty, Code] : khd -p "- up"
 ctrl - l ![kitty, Alacritty, Code] : khd -p "- right"
 
+      - h    [Skim] : khd -p "- left"
+      - j    [Skim] : khd -p "- down"
+      - k    [Skim] : khd -p "- up"
+      - l    [Skim] : khd -p "- right"
+      - g    [Skim] : khd -p "cmd - up"
+shift - g    [Skim] : khd -p "cmd - down"
+shift - 0x18 [Skim] : khd -p "cmd + shift - 0x18"
+      - 0x1b [Skim] : khd -p "cmd - 0x1b"
+
 # }}}
 
 # Some function keys for external (non-Apple) keyboard. {{{
