@@ -1,3 +1,4 @@
+" vim:foldmethod=marker
 "      ________ ++     ________
 "     /VVVVVVVV\++++  /VVVVVVVV\
 "     \VVVVVVVV/++++++\VVVVVVVV/
@@ -18,9 +19,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin indent on     " required
 
-" --------
-" Vim-plug
-" --------
+" Vim-plug {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -28,11 +27,11 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+" }}}
 
-" -------
-" Plugins
-" -------
-" Easy editing
+" Plugins {{{
+
+" Easy editing {{{
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -48,16 +47,19 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 " Plug 'mattn/emmet-vim'
 " Plug 'editorconfig/editorconfig-vim'
 Plug '/usr/local/opt/fzf'
+Plug 'https://gitlab.com/Lenovsky/nuake.git'
+" }}}
 
-" Aesthetics
+" Aesthetics {{{
 " Plug 'mhinz/vim-startify'
 " Plug 'bling/vim-airline'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' } " Rust
+" }}}
 
-" Autocompletion
+" Autocompletion {{{
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -66,8 +68,9 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 " Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
+" }}}
 
-" Language support
+" Language support {{{
 Plug 'vim-syntastic/syntastic', { 'for': [] }
 " C
 if has('nvim')
@@ -105,19 +108,22 @@ Plug 'huiyiqun/elvish.vim'
 Plug 'kmyk/brainfuck-highlight.vim'
 " Org mode
 Plug 'jceb/vim-orgmode'
+" }}}
 
-" Formatting
+" Formatting {{{
 " Plug 'sbdchd/neoformat'
+" }}}
 
-" Linters
+" Linters {{{
 " Plug 'sindresorhus/vim-xo'
 " Plug 'prettier/prettier'
+" }}}
 
-" Colour theme
+" Colour theme {{{
 " Plug 'ayu-theme/ayu-vim'
 Plug 'morhetz/gruvbox'
 Plug 'dracula/vim'
-Plug 'junegunn/seoul256.vim'
+" Plug 'junegunn/seoul256.vim'
 if has('nvim')
   Plug 'vim-scripts/AfterColors.vim'
 endif
@@ -127,36 +133,42 @@ endif
 " Plug 'arcticicestudio/nord-vim'
 Plug 'lilydjwg/colorizer'
 " Plug 'dylanaraps/wal.vim'
+" }}}
 
 " All of your Plugs must be added before the following line
 call plug#end()
 
-let base16colorspace=256    " Access colors present in 256 colorspace
-let t_Co = 256              " Use 256 colors in terminal
+" }}}
 
-" -------
-" Keymaps
-" -------
+" Keymaps {{{
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
+nnoremap <F4> :Nuake<CR>
+inoremap <F4> <C-\><C-n>:Nuake<CR>
+tnoremap <F4> <C-\><C-n>:Nuake<CR>
 
-" ---------------
-" NERDTree config
-" ---------------
+" Copy/paste from/to system clipboard
+noremap <C-c> "+y
+noremap <C-p> "+P
+
+" NOTE: The § is just below esc, and is easier to reach.
+" NOTE: The capslock key should also be mapped to escape.
+inoremap § <Esc>
+" }}}
+
+" NERDTree {{{
 let g:NERDTreeDirArrows=0
+" }}}
 
-" --------------------
-" NERDCommenter config
-" --------------------
+" NERDCommenter {{{
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
+" }}}
 
-" -------------
-" Tagbar config
-" -------------
+" Tagbar {{{
 let g:tagbar_type_rust = {
     \ 'ctagstype' : 'rust',
     \ 'kinds' : [
@@ -211,16 +223,14 @@ let g:tagbar_type_markdown = {
         \ 'k:Heading_L3'
     \ ]
 \ }
+" }}}
 
-" --------------
-" Airline config
-" --------------
+" Airline {{{
 " let g:airline_detect_modified=1
 " let g:airline_powerline_fonts=1
+" }}}
 
-" ----------------
-" lightline config
-" ----------------
+" Lightline {{{
 set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
@@ -237,15 +247,13 @@ let g:lightline = {
 " \ 'component_function': {
 " \   'syntastic': 'SyntasticStatusLineFlag',
 " \ }
+" }}}
 
-" ------------------
-" Multicursor config
-" ------------------
+" Multicursor {{{
 " let g:multi_cursor_next_key='<C-d>'
+" }}}
 
-" -------------
-" vimtex config
-" -------------
+" vimtex {{{
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
@@ -270,16 +278,14 @@ let g:vimtex_compiler_latexmk_engines = {
     \ 'context (luatex)' : '-pdf -pdflatex=context',
     \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
     \}
+" }}}
 
-" ----------
-" TeX config
-" ----------
+" TeX {{{
 " Create environment of the text on the current line.
 au FileType tex nmap <leader>te :normal! YPI\begin{<esc>A}<esc>jI\end{<esc>A}<esc>O
+" }}}
 
-" ------------
-" Racer config
-" ------------
+" Racer {{{
 set hidden
 let g:racer_cmd = "~/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
@@ -288,10 +294,9 @@ let g:racer_experimental_completer = 1
 " au FileType rust nmap gx <Plug>(rust-def-vertical)
 " au FileType rust nmap <leader>gd <Plug>(rust-doc)
 au FileType rust nmap gd :YcmCompleter GoTo<CR>
+" }}}
 
-" -----------------
-" Chromatica config
-" -----------------
+" Chromatica {{{
 let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
 " let g:chromatica#enable_at_startup=1
 if has('nvim')
@@ -300,10 +305,9 @@ if has('nvim')
   au FileType objc ChromaticaStart
   au FileType objcpp ChromaticaStart
 endif
+" }}}
 
-" --------------
-" Haskell config
-" --------------
+" Haskell {{{
 au FileType haskell nmap <silent> <leader>ti :GhcModInfo<CR>
 au FileType haskell nmap <silent> <leader>tw :GhcModTypeInsert<CR>
 au FileType haskell nmap <silent> <leader>ts :GhcModSplitFunCase<CR>
@@ -314,24 +318,25 @@ au FileType haskell set shiftwidth=2
 au FileType haskell set tabstop=2
 au FileType haskell set softtabstop=2
 let g:neoformat_enabled_haskell = ['brittany']
-" au FileType haskell set shiftwidth=4
-" au FileType haskell set softtabstop=4
+" }}}
 
-" -----------
-" Rust config
-" -----------
+" Rust {{{
 let g:rustfmt_autosave = 1
 let g:syntastic_rust_checkers = ['cargo']
 let g:ycm_rust_src_path = '~/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
-" ---------
-" Go config
-" ---------
-au BufWritePre *.go GoFmt
+" Deoplete Rust {{{
+let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+" }}}
 
-" ----------------
-" Syntastic config
-" ----------------
+" }}}
+
+" Go {{{
+au BufWritePre *.go GoFmt
+" }}}
+
+" Syntastic {{{
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -343,58 +348,67 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs = 1
 
 let g:syntastic_cpp_gcc_args = "-std=c++11 -Wall -Wextra"
+" }}}
 
-" ---------------
-" Deoplete config
-" ---------------
+" Deoplete {{{
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
 call deoplete#custom#var('clangx', 'default_c_options', '')
 call deoplete#custom#var('clangx', 'default_cpp_options', '')
+" }}}
 
-" --------------------
-" Deoplete Rust config
-" --------------------
-let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
-
-" --------------------
-" YouCompleteMe config
-" --------------------
+" YouCompleteMe {{{
 let g:ycm_auto_trigger=1
 let g:ycm_key_list_stop_completion = ['<C-y>']
+" }}}
 
-" ---------------
-" Startify config
-" ---------------
+" Startify {{{
 " let g:startify_bookmarks = ['~/.vimrc', '~/.zshrc', '~/dotfiles']
 " let g:startify_custom_header = map(split(system('figlet -f slant neovim'), '\n'), '"   ". v:val') + ['','']
 " The vim logo taken from this file.
 " let g:startify_custom_header = map(split(system('sed -n 1,15p ~/.vimrc | cut -c 3-'), '\n'), '"    " . v:val') + ['','']
+" }}}
 
-" ---------------
-" Markdown config
-" ---------------
+" Markdown {{{
 autocmd FileType markdown :hi markdownItalic gui=italic
+" }}}
 
-" -------------
-" Smooth scroll
-" -------------
+" Makefile {{{
+au FileType make set noexpandtab
+" }}}
+
+" Khdrc {{{
+" Reload khd config on write.
+au BufWritePost .khdrc !khd -e reload
+" }}}
+
+" Smooth scroll {{{
 " noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 " noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 " noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 " noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+" }}}
 
-" ---------------
-" Terminal config
-" ---------------
+" Terminal {{{
 if has('neovim')
   autocmd TermOpen * setlocal scrollback=1000
-endif
 
-" Copy/paste from/to system clipboard
-noremap <C-c> "+y
-noremap <C-p> "+P
+  tnoremap <Esc> <c-\><c-n>
+  inoremap <Esc> <Esc><Esc>
+endif
+" }}}
+
+" Tab {{{
+set tabstop=8
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+" }}}
+
+" Syntax highlighting {{{
+let base16colorspace=256    " Access colors present in 256 colorspace
+let t_Co = 256              " Use 256 colors in terminal
 
 " Make sure guicolors are used when available
 if has('termguicolors')
@@ -405,16 +419,6 @@ endif
 set t_ZH=[3m
 set t_ZR=[23m
 
-" Tab settings
-set tabstop=8
-set expandtab
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-
-au FileType make set noexpandtab
-
-" Syntax settings
 syntax on
 " filetype plugin indent on
 filetype plugin on
@@ -428,37 +432,33 @@ set background=dark
 highlight Comment gui=italic
 let g:limelight_conceal_ctermfg = 'gray'
 " let g:limelight_conceal_guifg = 'DarkGray'
+" }}}
 
-" Line number settings
+" Line number {{{
 set cursorline
 set number
 set relativenumber
 set numberwidth=3
+" }}}
 
-" Scroll settings
+" Scroll {{{
 " set so=3
+" }}}
 
-" Mouse settings
+" Mouse {{{
 set mouse=nv " Normal and Visual
+" }}}
 
-" Wrap settings
+" Wrap {{{
 set wrap lbr
 " set nowrap
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$<Paste>
+" }}}
 
-" NOTE: The § is just below esc, and is easier to reach.
-inoremap § <Esc>
-
-if has('nvim')
-    tnoremap <Esc> <c-\><c-n>
-    inoremap <Esc> <Esc><Esc>
-endif
-
+" Python {{{
 let g:python_host_prog = "/usr/local/bin/python2.7"
 let g:python3_host_prog = "/usr/local/bin/python3"
-
-" Reload khd config on write.
-au BufWritePost .khdrc !khd -e reload
+" }}}
