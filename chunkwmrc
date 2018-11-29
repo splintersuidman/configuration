@@ -1,4 +1,5 @@
 #!/bin/bash
+# vim:foldmethod=marker
 
 chunkc core::plugin_dir ~/.chunkwm_plugins
 
@@ -9,16 +10,16 @@ chunkc core::hotload 1
 chunkc core::log_file  stdout
 chunkc core::log_level debug
 
-# Tiling {{
+# Tiling {{{
 chunkc set global_desktop_mode           bsp
 
 chunkc set bsp_spawn_left                0
 chunkc set bsp_optimal_ratio             1.618
 chunkc set bsp_split_mode                optimal
 chunkc set bsp_split_ratio               0.5
-# }}
+# }}}
 
-# Padding {{
+# Padding {{{
 chunkc set global_desktop_offset_top     20
 chunkc set global_desktop_offset_bottom  20
 chunkc set global_desktop_offset_left    20
@@ -27,9 +28,9 @@ chunkc set global_desktop_offset_gap     10
 
 chunkc set desktop_padding_step_size     10.0
 chunkc set desktop_gap_step_size         5.0
-# }}
+# }}}
 
-# Non-global settings {{
+# Non-global settings {{{
 chunkc set 1_desktop_mode                monocle
 chunkc set 1_desktop_offset_top          10
 chunkc set 1_desktop_offset_bottom       10
@@ -40,9 +41,9 @@ chunkc set 2_desktop_mode                monocle
 chunkc set 2_desktop_offset_gap          10
 
 chunkc set 6_desktop_mode                monocle
-# }}
+# }}}
 
-# Interaction settings {{
+# Interaction settings {{{
 chunkc set window_focus_cycle            monitor
 chunkc set focus_follows_mouse           intrinsic
 chunkc set mouse_follows_focus           1
@@ -54,9 +55,9 @@ chunkc set mouse-drag                    1
 chunkc set mouse-drag mod                fn
 chunkc set ffm_bypass_modifier           fn
 chunkc set ffm_standby_on_float          1
-# }}
+# }}}
 
-# Border settings {{
+# Border settings {{{
 chunkc set focused_border_width          4
 chunkc set focused_border_radius         0
 chunkc set focused_border_color          0xff333333
@@ -66,32 +67,32 @@ chunkc set focused_border_skip_floating  1
 chunkc set preselect_border_width        8
 chunkc set preselect_border_radius       0
 chunkc set preselect_border_color        0xffebdbb2
-# }}
+# }}}
 
-# chwm-sa settings {{
+# chwm-sa settings {{{
 chunkc set window_float_topmost          1
 chunkc set window_fade_inactive          0
 chunkc set window_fade_alpha             0.85
 chunkc set window_fade_duration          0.15
 chunkc set window_use_cgs_move           1
-# }}
+# }}}
 
-# Blur {{
+# Blur {{{
 chunkc set wallpaper                     ~/Pictures/A3MuFbJ.jpg
 chunkc set wallpaper_mode                fill
 chunkc set wallpaper_blur                5.0
 # chunkc set wallpaper_tmp_path            /tmp/
-# }}
+# }}}
 
-# Plugins {{
+# Plugins {{{
 chunkc core::load tiling.so
 chunkc core::load ffm.so
 # chunkc core::load border.so
 # chunkc core::load blur.so
 # chunkc core::load purify.so
-# }}
+# }}}
 
-# Program-specific settings {{
+# Program-specific settings {{{
 chunkc tiling::rule --owner kitty --role AXWindow --subrole AXDialog --state tile &
 chunkc tiling::rule --owner Safari --state tile --subrole AXStandardWindow &
 chunkc tiling::rule --owner alacritty --state tile &
@@ -108,7 +109,7 @@ chunkc tiling::rule --owner Firefox --role AXWindow &
 chunkc tiling::rule --owner \"Code - Insiders\" --state tile &
 chunkc tiling::rule --owner \"Visual Studio Community\" --state tile &
 chunkc tiling::rule --owner Spotify --desktop 7 &
-# }}
+# }}}
 
 # Start chwm-sa
 # ~/scripts/chwm-sa-inject &

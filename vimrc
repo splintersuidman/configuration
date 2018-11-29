@@ -19,7 +19,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin indent on     " required
 
-" Vim-plug {{{
+" Plugins {{{
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -27,9 +28,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-" }}}
-
-" Plugins {{{
 
 " Easy editing {{{
 Plug 'scrooloose/nerdtree'
@@ -56,18 +54,21 @@ Plug 'https://gitlab.com/Lenovsky/nuake.git'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
-Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' } " Rust
+" Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' } " Rust
 " }}}
 
 " Autocompletion {{{
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-" Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
+Plug '~/.vim/bundle/YouCompleteMe'
+Plug 'SirVer/UltiSnips'
+" Plug 'honza/vim-snippets'
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 " }}}
 
 " Language support {{{
@@ -141,8 +142,9 @@ call plug#end()
 " }}}
 
 " Keymaps {{{
-nmap <F8> :TagbarToggle<CR>
-nmap <F7> :NERDTreeToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
+nnoremap <F7> :NERDTreeToggle<CR>
+nnoremap <F2> :FZF<CR>
 nnoremap <F4> :Nuake<CR>
 inoremap <F4> <C-\><C-n>:Nuake<CR>
 tnoremap <F4> <C-\><C-n>:Nuake<CR>
@@ -326,8 +328,8 @@ let g:syntastic_rust_checkers = ['cargo']
 let g:ycm_rust_src_path = '~/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 
 " Deoplete Rust {{{
-let g:deoplete#sources#rust#racer_binary='/Users/splinter/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/Users/splinter/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+" let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+" let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 " }}}
 
 " }}}
@@ -351,15 +353,24 @@ let g:syntastic_cpp_gcc_args = "-std=c++11 -Wall -Wextra"
 " }}}
 
 " Deoplete {{{
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
-call deoplete#custom#var('clangx', 'default_c_options', '')
-call deoplete#custom#var('clangx', 'default_cpp_options', '')
+" let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
+" call deoplete#custom#var('clangx', 'default_c_options', '')
+" call deoplete#custom#var('clangx', 'default_cpp_options', '')
 " }}}
 
 " YouCompleteMe {{{
 let g:ycm_auto_trigger=1
-let g:ycm_key_list_stop_completion = ['<C-y>']
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_key_list_accept_completion = ['<C-y>']
+" }}}
+
+" UltiSnips {{{
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 " }}}
 
 " Startify {{{
