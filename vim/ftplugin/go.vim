@@ -1,0 +1,1 @@
+au BufWritePre *.go GoFmt

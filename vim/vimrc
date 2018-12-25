@@ -1,0 +1,240 @@
+" vim:foldmethod=marker
+"      ________ ++     ________
+"     /VVVVVVVV\++++  /VVVVVVVV\
+"     \VVVVVVVV/++++++\VVVVVVVV/
+"      |VVVVVV|++++++++/VVVVV/'
+"      |VVVVVV|++++++/VVVVV/'
+"     +|VVVVVV|++++/VVVVV/'+
+"   +++|VVVVVV|++/VVVVV/'+++++
+" +++++|VVVVVV|/VVVVV/'+++++++++
+"   +++|VVVVVVVVVVV/'+++++++++
+"     +|VVVVVVVVV/'+++++++++
+"      |VVVVVVV/'+++++++++
+"      |VVVVV/'+++++++++
+"      |VVV/'+++++++++
+"      'V/'   ++++++
+"               ++
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+filetype plugin indent on     " required
+
+let mapleader = " "
+
+" Plugins {{{
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Easy editing {{{
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+" Plug 'terryma/vim-multiple-cursors'
+Plug 'townk/vim-autoclose'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+" Plug 'terryma/vim-smooth-scroll'
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'mattn/emmet-vim'
+" Plug 'editorconfig/editorconfig-vim'
+Plug '/usr/local/opt/fzf'
+Plug 'https://gitlab.com/Lenovsky/nuake.git'
+" }}}
+
+" Aesthetics {{{
+" Plug 'mhinz/vim-startify'
+" Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+" Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' } " Rust
+" }}}
+
+" Autocompletion {{{
+Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
+Plug 'SirVer/UltiSnips'
+" Plug 'honza/vim-snippets'
+" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" }}}
+
+" Language support {{{
+Plug 'vim-syntastic/syntastic', { 'for': [] }
+" C
+if has('nvim')
+    Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
+endif
+" Objective-C / Cocoa
+Plug 'msanders/cocoa.vim', { 'for': 'objc' }
+" Rust
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+" Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+" (La)TeX
+Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
+" Plug 'LaTeX-Box-Team/LaTeX-Box'
+" Haskell
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" Plug 'eagletmt/ghcmod-vim'
+" JavaScript
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+" Go
+Plug 'fatih/vim-go', { 'for': 'go' }
+" Elvish
+Plug 'huiyiqun/elvish.vim'
+" Pascal
+" Plug 'rkennedy/vim-delphi'
+" LLVM
+" Plug 'Superbil/llvm.vim'
+" augroup filetype
+"   au! BufRead,BufNewFile *.ll set filetype=llvm
+" augroup END
+" Brainfuck (of course)
+Plug 'kmyk/brainfuck-highlight.vim'
+" Org mode
+Plug 'jceb/vim-orgmode'
+" }}}
+
+" Formatting {{{
+Plug 'sbdchd/neoformat'
+" }}}
+
+" Linters {{{
+" Plug 'sindresorhus/vim-xo'
+" Plug 'prettier/prettier'
+" }}}
+
+" Colour theme {{{
+" Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'junegunn/seoul256.vim'
+if has('nvim')
+  Plug 'vim-scripts/AfterColors.vim'
+endif
+" Plug 'flazz/vim-colorschemes'
+" Plug 'chriskempson/base16-vim'
+" Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.6' }
+" Plug 'arcticicestudio/nord-vim'
+Plug 'lilydjwg/colorizer'
+" Plug 'dylanaraps/wal.vim'
+" }}}
+
+" All of your Plugs must be added before the following line
+call plug#end()
+
+" }}}
+
+" Keymaps {{{
+nnoremap <F8> :TagbarToggle<CR>
+nnoremap <F7> :NERDTreeToggle<CR>
+nnoremap <F2> :FZF<CR>
+nnoremap <Leader>f :FZF<CR>
+nnoremap <F4> :Nuake<CR>
+inoremap <F4> <C-\><C-n>:Nuake<CR>
+tnoremap <F4> <C-\><C-n>:Nuake<CR>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+
+" Open source/header file in a split.
+nnoremap <Leader>s :split %:r.c<CR>
+nnoremap <Leader>h :split %:r.h<CR>
+
+" Make
+nnoremap <Leader>m :make<CR>
+" Make the current file without extension.
+nnoremap <Leader>n :make %:r<CR>
+
+" Copy/paste from/to system clipboard
+noremap <C-c> "+y
+noremap <C-p> "+P
+
+" NOTE: The § is just below esc, and is easier to reach.
+" NOTE: The capslock key should also be mapped to escape.
+" inoremap § <Esc>
+" }}}
+
+" Indentation {{{
+set tabstop=8
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+" }}}
+
+" Syntax highlighting {{{
+let base16colorspace=256    " Access colors present in 256 colorspace
+let t_Co = 256              " Use 256 colors in terminal
+
+" Make sure guicolors are used when available
+if has('termguicolors')
+    set termguicolors
+endif
+
+" Set italics escape sequences.
+set t_ZH=[3m
+set t_ZR=[23m
+
+syntax on
+" filetype plugin indent on
+filetype plugin on
+" Gruvbox
+  " colo gruvbox
+  " let g:gruvbox_contrast_dark='medium'
+" Dracula
+  colo dracula
+
+set background=dark
+highlight Comment gui=italic
+let g:limelight_conceal_ctermfg = 'gray'
+" let g:limelight_conceal_guifg = 'DarkGray'
+" }}}
+
+" Line number {{{
+set cursorline
+set number
+set relativenumber
+set numberwidth=3
+" }}}
+
+" Scroll {{{
+" set so=3
+" }}}
+
+" Mouse {{{
+set mouse=nv " Normal and Visual
+" }}}
+
+" Wrap {{{
+set wrap lbr
+" set nowrap
+noremap  <buffer> <silent> k gk
+noremap  <buffer> <silent> j gj
+noremap  <buffer> <silent> 0 g0
+noremap  <buffer> <silent> $ g$
+" }}}
+
+" Python {{{
+let g:python_host_prog = "/usr/local/bin/python2.7"
+let g:python3_host_prog = "/usr/local/bin/python3"
+" }}}

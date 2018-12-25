@@ -1,0 +1,1 @@
+hi markdownItalic gui=italic
