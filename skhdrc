@@ -1,9 +1,10 @@
 # vim:foldmethod=marker
 
 # Open terminal (kitty)
-alt - space : kitty --single-instance -d ~
+alt - space : open -na kitty --args --single-instance -d ~
+alt + shift - space : open -na kitty --args -d ~
 # Open terminal with ranger
-fn  - space : kitty --single-instance -d ~ --session ~/dotfiles/kitty/ranger.session
+fn  - space : open -na kitty --args --single-instance -d ~ --session ~/dotfiles/kitty/ranger.session
 alt + cmd - space : ~/dotfiles/run.sh
 
 # Use capslock as escape.
@@ -37,8 +38,8 @@ fn - j : chunkc tiling::window --focus south
 fn - k : chunkc tiling::window --focus north
 fn - l : chunkc tiling::window --focus east
 
-fn + ctrl + alt - l : chunkc tiling::monitor -f prev
-fn + ctrl + alt - h : chunkc tiling::monitor -f next
+fn + alt - l : chunkc tiling::monitor -f prev
+fn + alt - h : chunkc tiling::monitor -f next
 
 # Rotate windows
 fn - r         : chunkc tiling::desktop --rotate 270
