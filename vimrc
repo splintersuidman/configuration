@@ -58,7 +58,7 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " }}}
 
 " Autocompletion {{{
-Plug '~/.vim/bundle/YouCompleteMe'
+Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
 Plug 'SirVer/UltiSnips'
 " Plug 'honza/vim-snippets'
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
@@ -300,6 +300,7 @@ au FileType rust nmap gd :YcmCompleter GoTo<CR>
 
 " Chromatica {{{
 let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
+let g:chromatica#dotclangfile_seach_path='./'
 " let g:chromatica#enable_at_startup=1
 if has('nvim')
   au FileType c ChromaticaStart

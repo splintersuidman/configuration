@@ -37,32 +37,32 @@ c.url.start_pages = 'https://duckduckgo.com'
 c.window.hide_decoration = True
 
 # Dracula
-#  black  = '#282a46'
-#  grey   = '#44475a'
-#  white  = '#f8f8f2'
-#  cyan   = '#8be9fd'
-#  green  = '#50fa7b'
-#  orange = '#ffb86c'
-#  pink   = '#ff79c6'
-#  purple = '#bd93f9'
-#  red    = '#ff5555'
-#  yellow = '#f1fa8c'
+black  = '#282a46'
+grey   = '#44475a'
+white  = '#f8f8f2'
+cyan   = '#8be9fd'
+green  = '#50fa7b'
+orange = '#ffb86c'
+pink   = '#ff79c6'
+purple = '#bd93f9'
+red    = '#ff5555'
+yellow = '#f1fa8c'
 
 # Gruvbox
-black  = '#282828'
-grey   = '#665c54'
-white  = '#ebdbb2'
-cyan   = '#8ec07c'
-green  = '#b8bb26'
-pink   = '#d3869b'
-blue   = '#83a598'
-red    = '#fb4934'
-yellow = '#fabd2f'
+# black  = '#282828'
+# grey   = '#665c54'
+# white  = '#ebdbb2'
+# cyan   = '#8ec07c'
+# green  = '#b8bb26'
+# pink   = '#d3869b'
+# blue   = '#83a598'
+# red    = '#fb4934'
+# yellow = '#fabd2f'
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 # Type: List of QtColor, or QtColor
-c.colors.completion.fg = blue
+c.colors.completion.fg = white
 
 # Background color of the completion widget for odd rows.
 # Type: QssColor
@@ -74,7 +74,7 @@ c.colors.completion.even.bg = black
 
 # Background color of the selected completion item.
 # Type: QssColor
-c.colors.completion.item.selected.bg = blue
+c.colors.completion.item.selected.bg = cyan
 
 # Top border color of the completion widget category headers.
 # Type: QssColor
@@ -86,7 +86,7 @@ c.colors.completion.item.selected.border.bottom = black
 
 # Foreground color of the matched text in the completion.
 # Type: QssColor
-c.colors.completion.match.fg = blue
+c.colors.completion.match.fg = grey
 
 # Foreground color of the statusbar.
 # Type: QssColor
@@ -169,7 +169,7 @@ c.tabs.position = 'bottom'
 c.auto_save.session = True
 
 # Fonts.
-font = 'Fira Code'
+font = 'Fira Mono'
 size = '12pt'
 size_font = '{} {}'.format(size, font)
 
@@ -208,6 +208,7 @@ c.url.searchengines = {
 }
 
 # Keybindings.
+
 # Clear cookies on current site.
 config.bind('cc', 'jseval document.cookie.split(";").forEach(function(c) {'
                   'document.cookie = c.replace(/^ +/, "").replace(/=.*/, "'
@@ -215,7 +216,12 @@ config.bind('cc', 'jseval document.cookie.split(";").forEach(function(c) {'
                   '"Cookies cleared."')
 # Close window.
 config.bind('cw', 'close')
+# Open window.
+config.bind('wn', 'open --window')
 # Open private window.
 config.bind('wp', 'open --private')
 # Open video in picture in picture.
-config.bind(',v', 'spawn -u ~/.quotebrowser/userscripts/open-pip')
+#  config.bind(',v', 'spawn -u ~/.quotebrowser/userscripts/open-pip')
+config.bind(',v', 'spawn -u open-pip')
+# Switch fullscreen.
+config.bind('wF', 'fullscreen')
