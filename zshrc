@@ -70,6 +70,24 @@ generate_rps1 () {
   fi
 }
 RPS1='$(generate_rps1)'
+
+# grep colours
+export GREP_COLORS='1;32'
+export GREP_COLOR=$GREP_COLORS
+
+export LESS_TERMCAP_mb=$(tput bold; tput setaf 6) # cyan
+export LESS_TERMCAP_md=$(tput bold; tput setaf 2) # green
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput bold; tput setaf 1) # red
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7) # white
+export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+export LESS_TERMCAP_mr=$(tput rev)
+export LESS_TERMCAP_mh=$(tput dim)
+export LESS_TERMCAP_ZN=$(tput ssubm)
+export LESS_TERMCAP_ZV=$(tput rsubm)
+export LESS_TERMCAP_ZO=$(tput ssupm)
+export LESS_TERMCAP_ZW=$(tput rsupm)
 # }}}
 
 # Python {{{
@@ -80,28 +98,27 @@ unset PYTHONPATH
 # }}}
 
 # Lang {{{
-export LC_ALL="en_GB.UTF-8"
-export LANG=en_GB.UTF-8
+export LC_ALL="nl_NL.UTF-8"
+export LANG="nl_NL.UTF-8"
 # }}}
 
 # Editors {{{
 export EDITOR=nvim
 export VISUAL=nvim
+export PAGER=less
 # }}}
 
 # Aliases {{{
 alias ga="git add"
+alias gc="git commit --verbose"
+
 alias md="mkdir -p"
 alias vi="nvim"
 # alias vim="nvim"
 alias scrot="screencapture -t png"
-alias cr="cargo run"
-alias cb="cargo build"
-alias fuck="sudo !!"
 alias watch1="watch -t -d -n 1"
-alias love="open -na love"
 alias :q="exit"
-alias ls="exa -F"
+# alias ls="exa -F"
 alias ll="ls -lh"
 alias la="ll -a"
 alias rm="safe-rm"
@@ -120,18 +137,8 @@ copy () {
   # Copy text to the clipboard.
   echo "$@" | pbcopy
 }
-code () {
-  # Open VS Code manually, i.e. without their shell script that requires python 2.
-  open -a Visual\ Studio\ Code "$@"
-}
 ed () {
-  # Change ed's prompt to ": ".
+  # Change ed's prompt to ":".
   command ed -p":" "$@" ;
 }
 # }}}
-
-# if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
