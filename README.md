@@ -1,20 +1,22 @@
 # splintah's dotfiles
 
-![Terminal](terminal.png)
+![Editor](editor.png)
 ![Browser](browser.png)
+![File browser](ranger.png)
+![Terminal](terminal.png)
 
 ## Terminal
 - Theme for zsh: my own, see `zshrc`.
 - Terminal emulator: [kitty](https://github.com/kovidgoyal/kitty) by [kovidgoyal](https://github.com/kovidgoyal)
 - Font: [Fira Code](https://github.com/tonsky/FiraCode) by [tonsky](https://github.com/tonsky)
-- Terminal theme: [Gruvbox](https://github.com/morhetz/gruvbox)
+- Terminal theme: [Dracula](https://github.com/dracula/dracula-theme)
 
 ## Window manager
 - [chunkwm](https://github.com/koekeishiya/chunkwm) by [koekeishiya](https://github.com/koekeishiya)
 
 ## Editor
 - Neovim
-- Theme: [Gruvbox](https://github.com/morhetz/gruvbox)
+- Theme: [Dracula](https://github.com/dracula/dracula-theme)
 
 ## Browser
 - [qutebrowser](https://qutebrowser.org)
