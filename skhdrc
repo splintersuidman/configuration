@@ -92,15 +92,15 @@ fn + cmd - h : skhd -k "ctrl - left"
 # shift - 0x0A : skhd -k "ctrl - left"
 
 # Send window to desktop
-ctrl + shift - l : chunkc tiling::window --send-to-desktop next && skhd -k "ctrl - right"
-ctrl + shift - h : chunkc tiling::window --send-to-desktop prev && skhd -k "ctrl - left"
-ctrl + shift - 1 : chunkc tiling::window --send-to-desktop 1
-ctrl + shift - 2 : chunkc tiling::window --send-to-desktop 2
-ctrl + shift - 3 : chunkc tiling::window --send-to-desktop 3
-ctrl + shift - 4 : chunkc tiling::window --send-to-desktop 4
-ctrl + shift - 5 : chunkc tiling::window --send-to-desktop 5
-ctrl + shift - 6 : chunkc tiling::window --send-to-desktop 6
-ctrl + shift - 7 : chunkc tiling::window --send-to-desktop 7
+fn + ctrl + alt - l : chunkc tiling::window --send-to-desktop next && skhd -k "ctrl - right"
+fn + ctrl + alt - h : chunkc tiling::window --send-to-desktop prev && skhd -k "ctrl - left"
+fn + ctrl + alt - 1 : chunkc tiling::window --send-to-desktop 1
+fn + ctrl + alt - 2 : chunkc tiling::window --send-to-desktop 2
+fn + ctrl + alt - 3 : chunkc tiling::window --send-to-desktop 3
+fn + ctrl + alt - 4 : chunkc tiling::window --send-to-desktop 4
+fn + ctrl + alt - 5 : chunkc tiling::window --send-to-desktop 5
+fn + ctrl + alt - 6 : chunkc tiling::window --send-to-desktop 6
+fn + ctrl + alt - 7 : chunkc tiling::window --send-to-desktop 7
 
 # 'Tile' floating windows.
 ctrl + alt - up    : chunkc tiling::window --grid-layout 1:1:0:0:1:1

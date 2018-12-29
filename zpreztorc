@@ -33,15 +33,16 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'directory' \
   'spectrum' \
-  'utility' \
   'completion' \
   'autosuggestions' \
-  'homebrew' \
   'osx' \
   'history-substring-search' \
   'git' \
   'syntax-highlighting' \
   'prompt'
+
+# 'gnu-utility' \
+# 'utility' \
 
 #
 # Autosuggestions

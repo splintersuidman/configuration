@@ -1,4 +1,4 @@
-# vim: shiftwidth=2
+# vim:shiftwidth=2 foldmethod=marker
 fpath+=~/.zfunc
 
 autoload -Uz compinit
@@ -12,6 +12,14 @@ HYPHEN_INSENSITIVE="true"
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+# }}}
+
+# fzf {{{
+source ~/.nix-profile/share/fzf/key-bindings.zsh
+# }}}
+
+# nnn {{{
+export NNN_USE_EDITOR=1
 # }}}
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
@@ -75,6 +83,7 @@ RPS1='$(generate_rps1)'
 export GREP_COLORS='1;32'
 export GREP_COLOR=$GREP_COLORS
 
+# less colours
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 6) # cyan
 export LESS_TERMCAP_md=$(tput bold; tput setaf 2) # green
 export LESS_TERMCAP_me=$(tput sgr0)
@@ -88,6 +97,13 @@ export LESS_TERMCAP_ZN=$(tput ssubm)
 export LESS_TERMCAP_ZV=$(tput rsubm)
 export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
+
+# fzf colours
+export FZF_DEFAULT_OPTS='
+  --color fg:7,bg:0,hl:5
+  --color fg+:7,bg+:0,hl+:5
+  --color pointer:4,prompt:2,spinner:2,marker:2
+'
 # }}}
 
 # Python {{{
@@ -119,9 +135,11 @@ alias scrot="screencapture -t png"
 alias watch1="watch -t -d -n 1"
 alias :q="exit"
 # alias ls="exa -F"
+alias ls="ls -G"
 alias ll="ls -lh"
 alias la="ll -a"
-alias rm="safe-rm"
+
+alias vimrc="$EDITOR ~/.vim/vimrc"
 # }}}
 
 # Functions {{{
@@ -139,6 +157,6 @@ copy () {
 }
 ed () {
   # Change ed's prompt to ":".
-  command ed -p":" "$@" ;
+  command ed -p":" "$@"
 }
 # }}}
