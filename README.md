@@ -1,9 +1,9 @@
 # splintah's dotfiles
 
-![Editor](editor.png)
-![Browser](browser.png)
-![File browser](ranger.png)
-![Terminal](terminal.png)
+![Editor](img/editor.png)
+![Browser](img/browser.png)
+![File browser](img/ranger.png)
+![Terminal](img/terminal.png)
 
 ## Terminal
 - Theme for zsh: my own, see `zshrc`.
