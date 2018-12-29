@@ -35,10 +35,10 @@ python3Packages.buildPythonApplication rec {
     substituteInPlace ranger/__init__.py \
       --replace "DEFAULT_PAGER = 'less'" "DEFAULT_PAGER = '${stdenv.lib.getBin less}/bin/less'"
 
-    # substituteInPlace ranger/core/main.py \
-    #   --replace "getlocale" "getdefaultlocale"
+    # NOTE: begin changes
     substituteInPlace ranger/core/main.py \
       --replace "VERSION_MSG = [" "locale.setlocale(locale.LC_ALL, 'en_US.UTF-8'); VERSION_MSG = ["
+    # NOTE: end changes
 
     for i in ranger/config/rc.conf doc/config/rc.conf ; do
       substituteInPlace $i --replace /usr/share $out/share
