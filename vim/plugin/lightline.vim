@@ -37,7 +37,7 @@ let s:p.normal.warning  = [ [ s:black, s:orange ] ]
 let g:lightline#colorscheme#dracula#palette = lightline#colorscheme#flatten(s:p)
 
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ],

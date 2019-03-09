@@ -6,7 +6,7 @@ let g:ycm_rust_src_path = '~/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/
 " nmap gs <Plug>(rust-def-split)
 " nmap gx <Plug>(rust-def-vertical)
 " nmap <leader>gd <Plug>(rust-doc)
-nmap gd :YcmCompleter GoTo<CR>
+" nmap gd :YcmCompleter GoTo<CR>
 
 " Deoplete {{{
 " let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'

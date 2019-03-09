@@ -19,6 +19,11 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin indent on     " required
 
+" Python {{{
+let g:python_host_prog = "~/.nix-profile/bin/python2"
+let g:python3_host_prog = "~/.nix-profile/bin/python3"
+" }}}
+
 let mapleader = " "
 
 " Plugins {{{
@@ -57,63 +62,88 @@ Plug 'https://gitlab.com/Lenovsky/nuake.git'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+" Plug 'TaDaa/vimade'
 " Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' } " Rust
 " }}}
 
 " Autocompletion {{{
 Plug '~/.vim/bundle/YouCompleteMe', { 'on': 'YCM' }
-" Plug 'SirVer/UltiSnips'
+
+Plug 'SirVer/UltiSnips'
 " Plug 'honza/vim-snippets'
+
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+" let g:deoplete#enable_at_startup = 1
+
+" Plug 'roxma/nvim-yarp'
+" Plug 'ncm2/ncm2'
+" autocmd BufEnter * call ncm2#enable_for_buffer()
+" set completeopt=noinsert,menuone,noselect
 " }}}
 
 " Language support {{{
 Plug 'vim-syntastic/syntastic', { 'for': [] }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 " C
-if has('nvim')
-    Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp', 'objc', 'objcpp'] }
-endif
+  if has('nvim')
+    Plug 'arakashic/chromatica.nvim', { 'for': ['c', 'cpp', 'objc', 'objcpp'], 'do': ':UpdateRemotePlugins' }
+  endif
 " Objective-C / Cocoa
-Plug 'msanders/cocoa.vim', { 'for': 'objc' }
+  Plug 'msanders/cocoa.vim', { 'for': 'objc' }
 " Rust
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-" Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
+  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+  Plug 'cespare/vim-toml', { 'for': 'toml' }
 " (La)TeX
-Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
-" Plug 'LaTeX-Box-Team/LaTeX-Box'
+  Plug 'lervag/vimtex', { 'for': ['tex', 'plaintex'] }
+  " Plug 'LaTeX-Box-Team/LaTeX-Box'
 " Haskell
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-" Plug 'eagletmt/ghcmod-vim'
+  Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+  Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
+  Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+  Plug 'eagletmt/ghcmod-vim'
+" Idris
+  Plug 'idris-hackers/idris-vim'
 " JavaScript
-" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-" Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+  " Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+  " Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 " Go
-Plug 'fatih/vim-go', { 'for': 'go' }
+  Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 " Elvish
-" Plug 'huiyiqun/elvish.vim'
+  " Plug 'huiyiqun/elvish.vim'
 " Pascal
-" Plug 'rkennedy/vim-delphi'
+  " Plug 'rkennedy/vim-delphi'
 " LLVM
-" Plug 'Superbil/llvm.vim'
-" augroup filetype
-"   au! BufRead,BufNewFile *.ll set filetype=llvm
-" augroup END
+  " Plug 'Superbil/llvm.vim'
+  " augroup filetype
+  "   au! BufRead,BufNewFile *.ll set filetype=llvm
+  " augroup END
 " Brainfuck
-" Plug 'kmyk/brainfuck-highlight.vim'
+  " Plug 'kmyk/brainfuck-highlight.vim'
 " Org mode
-" Plug 'jceb/vim-orgmode'
+  " Plug 'jceb/vim-orgmode'
 " Nix
-Plug 'LnL7/vim-nix'
+  Plug 'LnL7/vim-nix'
+" Prolog
+  Plug 'adimit/prolog.vim'
+" Coq
+  Plug 'jvoorhis/coq.vim'
+  Plug 'let-def/vimbufsync' " Dependency of coquille
+  " Plug 'the-lambda-church/coquille', { 'for': ['coq'] }
+  " NOTE: use my fork because of https://github.com/the-lambda-church/coquille/issues/75.
+  Plug 'splintah/coquille', { 'for': ['coq'] }
 " }}}
 
 " Formatting {{{
@@ -147,34 +177,102 @@ call plug#end()
 " }}}
 
 " Keymaps {{{
-nnoremap <F8> :TagbarToggle<CR>
-nnoremap <F7> :NERDTreeToggle<CR>
+" nnoremap <F8> :TagbarToggle<CR>
+" nnoremap <F7> :NERDTreeToggle<CR>
 nnoremap <F2> :FZF<CR>
-nnoremap <Leader>f :FZF<CR>
 nnoremap <F4> :Nuake<CR>
 inoremap <F4> <C-\><C-n>:Nuake<CR>
 tnoremap <F4> <C-\><C-n>:Nuake<CR>
+
+nnoremap <Leader>t :NERDTreeToggle<CR>
+nnoremap <Leader>f :FZF<CR>
+
+" Jump between splits.
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
+" Append a semicolon at the end of the line and jump back.
+nnoremap <Leader>; m`A;<Esc>``
+
+" Execute @@ with <Return>.
+nnoremap <Return> @@
+
 " Open source/header file in a split.
 nnoremap <Leader>s :split %:r.c<CR>
 nnoremap <Leader>h :split %:r.h<CR>
 
+" Write files and quit.
+nnoremap <Leader>w :write<CR>
+nnoremap <Leader>q :quit<CR>
+
 " Make
-nnoremap <Leader>m :make<CR>
+nnoremap <Leader>m :silent make<CR>
+nnoremap <Leader>M :make<CR>
 " Make the current file without extension.
 nnoremap <Leader>n :make %:r<CR>
 
 " Copy/paste from/to system clipboard
 noremap <C-c> "+y
-noremap <C-p> "+P
+noremap <C-p> "+p
+
+" LanguageClient-mappings
+map <Leader>lm :call LanguageClient_contextMenu()<CR>
+map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
+map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>lb :call LanguageClient#textDocument_references()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+" Coquille keymaps
+autocmd FileType coq :map <silent> <Leader>n :CoqNext<CR>
+autocmd FileType coq :map <silent> <Leader>u :CoqUndo<CR>
+autocmd FileType coq :map <silent> <Leader>c :CoqToCursor<CR>
+
+" map <Leader>hc :w<CR>:GhcModSplitFunCase<CR>
 
 " NOTE: The § is just below esc, and is easier to reach.
 " NOTE: The capslock key should also be mapped to escape.
 " inoremap § <Esc>
+" }}}
+
+" LanguageClient {{{
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'haskell': ['hie-wrapper'],
+    \ }
+let g:LanguageClient_diagnosticsDisplay = {
+    \ 1: {
+    \     "name": "Error",
+    \     "texthl": "ALEError",
+    \     "signText": "x",
+    \     "signTexthl": "ALEErrorSign",
+    \ },
+    \ 2: {
+    \     "name": "Warning",
+    \     "texthl": "ALEWarning",
+    \     "signText": "!",
+    \     "signTexthl": "ALEWarningSign",
+    \ },
+    \ 3: {
+    \     "name": "Information",
+    \     "texthl": "ALEInfo",
+    \     "signText": "i",
+    \     "signTexthl": "ALEInfoSign",
+    \ },
+    \ 4: {
+    \     "name": "Hint",
+    \     "texthl": "ALEInfo",
+    \     "signText": ">",
+    \     "signTexthl": "ALEInfoSign",
+    \ },
+    \ }
+nnoremap <silent> <Leader>k :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 " }}}
 
 " Indentation {{{
@@ -191,7 +289,7 @@ let t_Co = 256              " Use 256 colors in terminal
 
 " Make sure guicolors are used when available
 if has('termguicolors')
-    set termguicolors
+  set termguicolors
 endif
 
 " Set italics escape sequences.
@@ -202,10 +300,10 @@ syntax on
 " filetype plugin indent on
 filetype plugin on
 " Gruvbox
-  " colo gruvbox
-  " let g:gruvbox_contrast_dark='medium'
+  colo gruvbox
+  let g:gruvbox_contrast_dark='medium'
 " Dracula
-  colo dracula
+  " colo dracula
 
 set background=dark
 highlight Comment gui=italic
@@ -214,7 +312,7 @@ let g:limelight_conceal_ctermfg = 'gray'
 " }}}
 
 " Line number {{{
-set cursorline
+set nocursorline
 set number
 set relativenumber
 set numberwidth=3
@@ -225,7 +323,7 @@ set numberwidth=3
 " }}}
 
 " Mouse {{{
-set mouse=nv " Normal and Visual
+set mouse=nvi " Normal, visual, and insert
 " }}}
 
 " Wrap {{{
@@ -235,9 +333,4 @@ noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$
-" }}}
-
-" Python {{{
-let g:python_host_prog = "~/.nix-profile/bin/python2.7"
-let g:python3_host_prog = "~/.nix-profile/bin/python3"
 " }}}

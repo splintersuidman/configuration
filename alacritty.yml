@@ -42,19 +42,19 @@ draw_bold_text_with_bright_colors: false
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Fira Code
+    family: Iosevka
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    family: Fira Code
+    family: Iosevka
     # Style can be specified to pick a specific face.
     style: Bold
 
   # The italic font face
   italic:
-    family: Fira Code
+    family: Iosevka
     # Style can be specified to pick a specific face.
     style: Italic
 
@@ -200,10 +200,8 @@ live_config_reload: true
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
-shell:
-  program: /usr/local/bin/tmux
-  args:
-    - -u2
+# shell:
+#   program: /bin/zsh
 
 # Key bindings
 #

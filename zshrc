@@ -1,5 +1,5 @@
 # vim:shiftwidth=2 foldmethod=marker
-fpath+=~/.zfunc
+# fpath+=~/.zfunc
 
 autoload -Uz compinit
 compinit
@@ -15,11 +15,12 @@ fi
 # }}}
 
 # fzf {{{
-source ~/.nix-profile/share/fzf/key-bindings.zsh
+# source ~/.nix-profile/share/fzf/key-bindings.zsh
 # }}}
 
 # nnn {{{
 export NNN_USE_EDITOR=1
+export NNN_OPENER=nvim
 # }}}
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
@@ -77,7 +78,12 @@ generate_rps1 () {
     echo "$GIT_PROMPT"
   fi
 }
-RPS1='$(generate_rps1)'
+# Prompt for vi-mode.
+function zle-line-init zle-keymap-select {
+  VI_PROMPT="[%B%F{5}NORMAL%F{7}%b]"
+  RPS1="$(generate_rps1) ${${KEYMAP/vicmd/$VI_PROMPT}/(main|viins)/}"
+  zle reset-prompt
+}
 
 # grep colours
 export GREP_COLORS='1;32'
@@ -107,10 +113,11 @@ export FZF_DEFAULT_OPTS='
 # }}}
 
 # Python {{{
-alias setpython3path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python3.6/site-packages/"
-alias setpython2path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python2.7/site-packages/"
-unset PYTHONPATH
+# alias setpython3path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python3.6/site-packages/"
+# alias setpython2path="unset PYTHONPATH && export PYTHONPATH=/usr/local/lib/python2.7/site-packages/"
+# unset PYTHONPATH
 # setpython3path
+export PYTHONPATH=~/.nix-profile/lib/python3.7/site-packages
 # }}}
 
 # Lang {{{
@@ -159,4 +166,16 @@ ed () {
   # Change ed's prompt to ":".
   command ed -p":" "$@"
 }
+ranger () {
+  # Ranger patch: this way, PIL can be found, and images can be previewed.
+  export PYTHONPATH=~/.nix-profile/lib/python3.7/site-packages
+  command ranger "$@"
+  unset PYTHONPATH
+}
+# }}}
+
+# Plugins {{{
+# Installation: nix-env -i zsh-autosuggestions zsh-syntax-highlighting
+# source ~/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # }}}

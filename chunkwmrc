@@ -60,8 +60,8 @@ chunkc set ffm_standby_on_float          1
 # Border settings {{{
 chunkc set focused_border_width          4
 chunkc set focused_border_radius         0
-# chunkc set focused_border_color          0xff333333
-chunkc set focused_border_color          0xffbd93f9
+chunkc set focused_border_color          0xff333333
+# chunkc set focused_border_color          0xffbd93f9
 
 chunkc set focused_border_skip_floating  1
 

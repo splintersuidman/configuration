@@ -5,6 +5,8 @@ alt - space : open -na kitty --args --single-instance -d ~
 alt + shift - space : open -na kitty --args -d ~
 # Open terminal with ranger
 fn  - space : open -na kitty --args --single-instance -d ~ --session ~/dotfiles/kitty/ranger.session
+# Open terminal with newsboat
+alt + fn - space : open -na kitty --args --single-instance -d ~ --session ~/dotfiles/kitty/newsboat.session
 alt + cmd - space : ~/dotfiles/run.sh
 
 # Use capslock as escape.
@@ -114,6 +116,8 @@ ctrl + alt - t : chunkc tiling::window --toggle float;\
                  chunkc tiling::window --grid-layout 4:4:1:1:2:2
 ctrl + alt + shift - t : chunkc tiling::window --toggle sticky;\
                          chunkc tiling::window --grid-layout 4:4:1:1:2:2
+ctrl + alt - c : chunkc tiling::window --toggle sticky;\
+                 chunkc tiling::window --grid-layout 5:5:0:4:1:1
 
 # }}}
 

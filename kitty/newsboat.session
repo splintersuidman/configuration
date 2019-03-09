@@ -1,0 +1,1 @@
+launch zsh -c "PATH=~/.nix-profile/bin:$PATH newsboat"
