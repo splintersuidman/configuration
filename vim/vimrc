@@ -20,8 +20,8 @@ filetype off                  " required
 filetype plugin indent on     " required
 
 " Python {{{
-let g:python_host_prog = "~/.nix-profile/bin/python2"
-let g:python3_host_prog = "~/.nix-profile/bin/python3"
+" let g:python_host_prog = "~/.nix-profile/bin/python2"
+" let g:python3_host_prog = "~/.nix-profile/bin/python3"
 " }}}
 
 let mapleader = " "
@@ -52,7 +52,7 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 " Plug 'mattn/emmet-vim'
 " Plug 'editorconfig/editorconfig-vim'
 " TODO: a way to generate this path automatically?
-Plug '/nix/store/miyxkv0qijkp38ljfpfcjqm01x34wjz8-fzf-0.17.5/share/vim-plugins/fzf-0.17.5'
+Plug '/nix/store/q17y5iwm1z9mm0p8p9xib4inbqb8chij-vimplugin-fzf-0.17.5/share/vim-plugins/fzf/'
 Plug 'https://gitlab.com/Lenovsky/nuake.git'
 " }}}
 
@@ -81,7 +81,6 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-" let g:deoplete#enable_at_startup = 1
 
 " Plug 'roxma/nvim-yarp'
 " Plug 'ncm2/ncm2'
@@ -111,11 +110,13 @@ Plug 'autozimu/LanguageClient-neovim', {
   " Plug 'LaTeX-Box-Team/LaTeX-Box'
 " Haskell
   Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-  Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
-  Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-  Plug 'eagletmt/ghcmod-vim'
+  Plug 'ndmitchell/ghcid', { 'for': 'haskell', 'rtp': 'plugins/nvim' }
+  Plug 'Shougo/vimproc.vim', { 'for': 'haskell', 'do' : 'make' }
+  Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 " Idris
-  Plug 'idris-hackers/idris-vim'
+  Plug 'idris-hackers/idris-vim', { 'for': 'idris' }
+" OCaml
+  Plug 'rgrinberg/vim-ocaml', { 'for': 'ocaml' }
 " JavaScript
   " Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
   " Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
@@ -135,19 +136,19 @@ Plug 'autozimu/LanguageClient-neovim', {
 " Org mode
   " Plug 'jceb/vim-orgmode'
 " Nix
-  Plug 'LnL7/vim-nix'
+  Plug 'LnL7/vim-nix', { 'for': 'nix' }
 " Prolog
-  Plug 'adimit/prolog.vim'
+  Plug 'adimit/prolog.vim', { 'for': 'prolog' }
 " Coq
-  Plug 'jvoorhis/coq.vim'
+  Plug 'jvoorhis/coq.vim', { 'for': 'coq' }
   Plug 'let-def/vimbufsync' " Dependency of coquille
   " Plug 'the-lambda-church/coquille', { 'for': ['coq'] }
   " NOTE: use my fork because of https://github.com/the-lambda-church/coquille/issues/75.
-  Plug 'splintah/coquille', { 'for': ['coq'] }
+  Plug 'splintah/coquille', { 'for': 'coq' }
 " }}}
 
 " Formatting {{{
-Plug 'sbdchd/neoformat'
+" Plug 'sbdchd/neoformat'
 " }}}
 
 " Linters {{{
@@ -161,7 +162,7 @@ Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'junegunn/seoul256.vim'
 if has('nvim')
-  Plug 'vim-scripts/AfterColors.vim'
+  " Plug 'vim-scripts/AfterColors.vim'
 endif
 " Plug 'flazz/vim-colorschemes'
 " Plug 'chriskempson/base16-vim'
@@ -177,6 +178,10 @@ call plug#end()
 " }}}
 
 " Keymaps {{{
+" Switch : and ;.
+" noremap ; :
+" noremap : ;
+
 " nnoremap <F8> :TagbarToggle<CR>
 " nnoremap <F7> :NERDTreeToggle<CR>
 nnoremap <F2> :FZF<CR>
@@ -238,7 +243,25 @@ autocmd FileType coq :map <silent> <Leader>c :CoqToCursor<CR>
 " inoremap § <Esc>
 " }}}
 
+" Deoplete + LanguageClient {{{
+fun! EnableDeopleteLanguageClient()
+  call deoplete#enable()
+  LanguageClientStart
+endfunction
+fun! DisableDeopleteLanguageClient()
+  call deoplete#disable()
+  LanguageClientStop
+endfunction
+command LangServerEnable  call EnableDeopleteLanguageClient()
+command LangServerDisable call DisableDeopleteLanguageClient()
+" }}}
+
+" Deoplete {{{
+let g:deoplete#enable_at_startup = 0
+" }}}
+
 " LanguageClient {{{
+let LanguageClient_autoStart = 0
 set hidden
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
@@ -297,7 +320,6 @@ set t_ZH=[3m
 set t_ZR=[23m
 
 syntax on
-" filetype plugin indent on
 filetype plugin on
 " Gruvbox
   colo gruvbox
