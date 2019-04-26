@@ -7,7 +7,10 @@ alt + shift - space : open -na kitty --args -d ~
 fn  - space : open -na kitty --args --single-instance -d ~ --session ~/dotfiles/kitty/ranger.session
 # Open terminal with newsboat
 alt + fn - space : open -na kitty --args --single-instance -d ~ --session ~/dotfiles/kitty/newsboat.session
+# Run apps
 alt + cmd - space : ~/dotfiles/run.sh
+# Copy password
+fn + cmd - space : ~/dotfiles/passmenu.sh
 
 # Use capslock as escape.
 # NOTE(splintah): capslock is mapped to escape in System Preferences, since that removes the delay.
