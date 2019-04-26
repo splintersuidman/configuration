@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: case ...: ...
+# key: case
+# --
+case ${2:expr}:
+    $0
+    break;
