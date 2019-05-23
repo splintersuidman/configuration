@@ -16,11 +16,45 @@ Always use =:ensure t= for all packages.
   (setq use-package-always-ensure t)
 #+END_SRC
 
-** COMMENT Evil mode
+** Evil mode
 #+BEGIN_SRC emacs-lisp
-  (use-package evil)
-  (require 'evil)
-  (evil-mode t)
+  (use-package evil
+    :config (evil-mode t))
+  (use-package evil-surround
+    :config (global-evil-surround-mode))
+#+END_SRC
+
+Make =RET= and =SPC= normal keys, instead of motion keys.
+#+BEGIN_SRC emacs-lisp
+  (defun move-evil-key (keymap-from keymap-to key)
+    "Moves key binding from one keymap to another, deleting from the old location."
+    (define-key keymap-to key (lookup-key keymap-from key))
+    (define-key keymap-from key nil))
+  (move-evil-key evil-motion-state-map evil-normal-state-map (kbd "RET"))
+  (move-evil-key evil-motion-state-map evil-normal-state-map " ")
+#+END_SRC
+
+Make =SPC= a prefix key.
+#+BEGIN_SRC emacs-lisp
+  (define-key evil-normal-state-map " " nil)
+  (define-key evil-motion-state-map " u" 'universal-argument)
+  (define-key key-translation-map " c" (kbd "C-c"))
+  (define-key key-translation-map " h" (kbd "C-h"))
+  (define-key key-translation-map " o" (kbd "C-x o"))
+  (define-key key-translation-map " x" (kbd "C-x"))
+
+  (defun add-line-above ()
+    (interactive)
+    (evil-open-above 1)
+    (evil-force-normal-state)
+    (evil-next-line))
+  (defun add-line-below ()
+    (interactive)
+    (evil-open-below 1)
+    (evil-force-normal-state)
+    (evil-previous-line))
+  (define-key evil-motion-state-map " [" 'add-line-above)
+  (define-key evil-motion-state-map " ]" 'add-line-below)
 #+END_SRC
 
 ** =which-key=
@@ -36,14 +70,15 @@ Always use =:ensure t= for all packages.
   (use-package company
     :config
     (setq company-idle-delay 0)
-    (setq company-minimum-prefix-length 3)
+    (setq company-minimum-prefix-length 2)
     (define-key company-active-map (kbd "M-n") nil)
     (define-key company-active-map (kbd "M-p") nil)
     (define-key company-active-map (kbd "C-n") #'company-select-next)
     (define-key company-active-map (kbd "C-p") #'company-select-previous)
-    (add-hook 'c++-mode-hook 'company-mode)
-    (add-hook 'c-mode-hook 'company-mode)
-    (add-hook 'emacs-lisp-mode-hook 'company-mode))
+    ;; (add-hook 'c-mode 'company-mode)
+    ;; (add-hook 'emacs-lisp-mode-hook 'company-mode)
+    ;; (add-hook 'prog-mode 'company-mode)
+    (global-company-mode 1))
 #+END_SRC
 
 =company-irony= supplies semantic completion for C.
@@ -62,7 +97,7 @@ Always use =:ensure t= for all packages.
     (add-hook 'c-mode 'irony-mode)
     (add-hook 'irony-mode 'irony-cdb-autosetup-compile-options))
 
-  (use-package flycheck-irony)
+  ;; (use-package flycheck-irony)
 #+END_SRC
 
 ** COMMENT =flycheck=
@@ -74,21 +109,6 @@ Always use =:ensure t= for all packages.
 ** =snippet=
 #+BEGIN_SRC emacs-lisp
   (use-package snippet)
-#+END_SRC
-
-** COMMENT =helm-spotify=
-#+BEGIN_SRC emacs-lisp
-  (use-package helm-spotify)
-#+END_SRC
-
-** COMMENT =hackernews.el=
-#+BEGIN_SRC emacs-lisp
-  (use-package hackernews)
-#+END_SRC
-
-** COMMENT =pocket-reader.el=
-#+BEGIN_SRC emacs-lisp
-  (use-package pocket-reader)
 #+END_SRC
 
 ** =ido-mode=
@@ -116,8 +136,8 @@ Show the menu of =ido-mode= in a vertical way.
 #+END_SRC
 
 ** =avy=
-=avy= allows to jump to a specific character on the screen.
-This function is mapped to =M-s=.
+=avy= allows to jump to a specific character on the screen. This function is
+mapped to =M-s=.
 #+BEGIN_SRC emacs-lisp
   (use-package avy
     :bind ("M-s" . avy-goto-char))
@@ -165,7 +185,7 @@ This function is mapped to =M-s=.
   (use-package spaceline
     :config
     (require 'spaceline-config)
-    (setq powerline-default-separator 'wave)
+    (setq powerline-default-separator nil)
     (spaceline-spacemacs-theme))
 #+END_SRC
 
@@ -192,6 +212,12 @@ This function is mapped to =M-s=.
     (add-hook 'prog-mode-hook 'smartparens-mode))
 #+END_SRC
 
+** COMMENT =magit=
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :bind ("C-x g" . magit-status))
+#+END_SRC
+
 * Language support
 ** Lisp
 #+BEGIN_SRC emacs-lisp
@@ -211,12 +237,35 @@ This function is mapped to =M-s=.
 #+BEGIN_SRC emacs-lisp
   (use-package haskell-mode)
 
-  (custom-set-variables
-   '(haskell-tags-on-save t)
-   '(haskell-process-suggest-remove-import-lines t))
+  (setq haskell-tags-on-save t
+        haskell-process-suggest-remove-import-lines t)
+
   (add-hook 'haskell-mode-hook
             (lambda ()
-              (add-hook 'after-save-hook 'haskell-process-load-or-reload nil 'make-it-local)))
+              (set (make-local-variable 'company-backends)
+                   (append '((company-capf company-dabbrev-code))
+                           company-backends))))
+
+  (setq haskell-process-suggest-remove-import-lines t
+        haskell-process-auto-import-loaded-modules t
+        haskell-process-log t)
+  (eval-after-load 'haskell-mode '(progn
+    (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+    (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+    (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+    (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+    (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+    (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)))
+  (eval-after-load 'haskell-cabal '(progn
+    (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+    (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+
+  ;; Reload the haskell process after save.
+  ;; (add-hook 'haskell-mode-hook
+  ;;           (lambda ()
+  ;;             (add-hook 'after-save-hook 'haskell-process-load-or-reload nil 'make-it-local)))
 
   ;; (eval-after-load 'haskell-mode '(progn
   ;;   (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-mode-show-type-at)))
@@ -247,6 +296,11 @@ This function is mapped to =M-s=.
   ;;   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
 #+END_SRC
 
+*** =hindent=
+#+BEGIN_SRC emacs-lisp
+  (use-package hindent)
+#+END_SRC
+
 ** Idris
 #+BEGIN_SRC emacs-lisp
   (use-package idris-mode)
@@ -274,6 +328,57 @@ Open =SRC= blocks in the current window.
   (setq org-src-window-setup 'current-window)
 #+END_SRC
 
+Expand invisible area (=...=) when editing it.
+#+BEGIN_SRC emacs-lisp
+  (setq org-catch-invisible-edits 'show-and-error)
+#+END_SRC
+
+Hide empty lines between subtrees in collapsed view.
+#+BEGIN_SRC emacs-lisp
+  (setq org-cycle-separator-lines 0)
+#+END_SRC
+
+List handling.
+#+BEGIN_SRC emacs-lisp
+  (setq org-list-indent-offset 0)
+  (setq org-list-demote-modify-bullet '(("+" . "-") ("-" . "+") ("*" . "+")))
+#+END_SRC
+
+Start =org-indent-mode= on startup.
+#+BEGIN_SRC emacs-lisp
+  (setq org-startup-indented 1)
+#+END_SRC
+
+Export with smart quotes.
+#+BEGIN_SRC emacs-lisp
+  (setq org-export-with-smart-quotes t)
+#+END_SRC
+
+Do not use a double space after a full stop when using =org-fill-paragraph=.
+#+BEGIN_SRC emacs-lisp
+  (setq sentence-end-double-space nil)
+#+END_SRC
+
+*** Agenda
+#+BEGIN_SRC emacs-lisp
+  (setq org-agenda-files '("~/agenda/"))
+#+END_SRC
+
+Enable /habits/.
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'org-modules 'org-habit)
+#+END_SRC
+
+Use Dutch names for days and months.
+#+BEGIN_SRC emacs-lisp
+  (setq calendar-week-start-day 1
+        calendar-day-name-array ["zondag" "maandag" "dinsdag" "woensdag"
+                                 "donderdag" "vrijdag" "zaterdag"]
+        calendar-month-name-array ["januari" "februari" "maart" "april" "mei"
+                                   "juni" "juli" "september" "augustus" "september"
+                                   "oktober" "november" "december"])
+#+END_SRC
+
 ** Rust
 #+BEGIN_SRC emacs-lisp
   ;; (use-package rust-mode)
@@ -295,10 +400,15 @@ Open =SRC= blocks in the current window.
 
 ** C/C++
 #+BEGIN_SRC emacs-lisp
-  (defvar c-tab-width 4)
-  (defvaralias 'c-basic-offset 'c-tab-width)
+  (setq c-default-style "user"
+        c-basic-offset 4
+        c-tab-width 4)
 #+END_SRC
 
+** YAML
+#+BEGIN_SRC emacs-lisp
+  (use-package yaml-mode)
+#+END_SRC
 * Settings
 ** Keymappings
 *** Edit and reload configuration
@@ -323,6 +433,7 @@ Kill the whole line with =<s-backspace>=.
 #+BEGIN_SRC emacs-lisp
   (global-set-key (kbd "s-<backspace>") 'kill-whole-line)
 #+END_SRC
+
 ** Exec path
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'exec-path
@@ -330,10 +441,22 @@ Kill the whole line with =<s-backspace>=.
   (add-to-list 'exec-path
                (expand-file-name "~/.local/bin"))
 #+END_SRC
+
+** Locale
+#+BEGIN_SRC emacs-lisp
+  (setq system-time-locale "nl_NL.UTF-8")
+#+END_SRC
+
 ** Kill trailing whitespace
 #+BEGIN_SRC emacs-lisp
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 #+END_SRC
+
+** Fill column
+#+BEGIN_SRC emacs-lisp
+  (setq-default fill-column 80)
+#+END_SRC
+
 ** Insert line below and go to
 #+BEGIN_SRC emacs-lisp
   (defun insert-line-below ()
@@ -342,9 +465,12 @@ Kill the whole line with =<s-backspace>=.
     (newline))
   (global-set-key (kbd "C-<return>") 'insert-line-below)
 #+END_SRC
+
 ** Bracket handling
 #+BEGIN_SRC emacs-lisp
-  (electric-pair-mode 1)
+  (setq show-paren-delay 0)
+  (show-paren-mode t)
+  (electric-pair-mode t)
 #+END_SRC
 
 ** Insert `international' letters
@@ -360,65 +486,69 @@ For Anglo-Saxons, these letters would be `international'.
     `(progn
        ,@(loop for m in maps collect `(set-international-key ,@m))))
 
-  (set-international-keys
-   ;; Umlauts/tremas
-   ("u a" "ä")
-   ("u e" "ë")
-   ("u i" "ï")
-   ("u o" "ö")
-   ("u u" "ü")
-   ;; Accents aigus
-   ("e a" "á")
-   ("e e" "é")
-   ("e i" "í")
-   ("e o" "ó")
-   ("e u" "ú")
-   ;; Accents graves
-   ("` a" "à")
-   ("` e" "è")
-   ("` i" "ì")
-   ("` o" "ò")
-   ("` u" "ù")
-   ;; Circumflex
-   ("i a" "â")
-   ("i e" "ê")
-   ("i i" "î")
-   ("i o" "ô")
-   ("i u" "û")
-   ;; Tilde
-   ("n a" "ã")
-   ("n n" "ñ")
-   ("n o" "õ")
-   ;; Others
-   ("a" "å")
-   ("c" "ç")
-   ("m" "μ")
-   ("o" "ø")
-   ("p" "π")
-   ("s" "ß"))
+  (when (eq system-type 'darwin)
+    (set-international-keys
+     ;; Umlauts/tremas
+     ("u a" "ä")
+     ("u e" "ë")
+     ("u i" "ï")
+     ("u o" "ö")
+     ("u u" "ü")
+     ;; Accents aigus
+     ("e a" "á")
+     ("e e" "é")
+     ("e i" "í")
+     ("e o" "ó")
+     ("e u" "ú")
+     ;; Accents graves
+     ("` a" "à")
+     ("` e" "è")
+     ("` i" "ì")
+     ("` o" "ò")
+     ("` u" "ù")
+     ;; Circumflex
+     ("i a" "â")
+     ("i e" "ê")
+     ("i i" "î")
+     ("i o" "ô")
+     ("i u" "û")
+     ;; Tilde
+     ("n a" "ã")
+     ("n n" "ñ")
+     ("n o" "õ")
+     ;; Others
+     ("a" "å")
+     ("c" "ç")
+     ("m" "μ")
+     ("o" "ø")
+     ("p" "π")
+     ("s" "ß")))
 #+END_SRC
 
 ** Interface settings
-Hide the toolbar and scrollbar.
+*** Hide the toolbar and scrollbar.
 #+BEGIN_SRC emacs-lisp
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
 #+END_SRC
-Note: the menubar on macOS is integrated in the native menubar, which I have hidden, and isn't obtrusive.
+Note: the menubar on macOS is integrated in the native menubar, which I have
+hidden, and isn't obtrusive.
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode -1)
   (when (eq system-type 'darwin)
     (menu-bar-mode t))
 #+END_SRC
 
-Change the titlebar colour of the Emacs window to the background colour of the theme.
-Source: [[https://www.reddit.com/r/emacs/comments/8lfivt/question_how_to_make_macos_titlebar_same_color_as/][reddit.com/r/emacs: "How to make macOS titlebar same color as Emacs background"]].
+*** macOS titlebar colour
+Change the titlebar colour of the Emacs window to the background colour of the
+theme. Source: [[https://www.reddit.com/r/emacs/comments/8lfivt/question_how_to_make_macos_titlebar_same_color_as/][reddit.com/r/emacs: "How to make macOS titlebar same color as
+Emacs background"]].
 #+BEGIN_SRC emacs-lisp
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
 #+END_SRC
 
-Show line numbers.
+*** Line numbers.
 #+BEGIN_SRC emacs-lisp
   ;; (global-linum-mode t)
 #+END_SRC
@@ -429,12 +559,13 @@ Show the line number and column number in the modeline.
   (column-number-mode t)
 #+END_SRC
 
+*** Cursorline
 Highlight the cursorline.
 #+BEGIN_SRC emacs-lisp
   (when window-system (global-hl-line-mode t))
 #+END_SRC
 
-** Prettify symbols
+** COMMENT Prettify symbols
 Prettify symbols like =lambda=.
 #+BEGIN_SRC emacs-lisp
   (when window-system (global-prettify-symbols-mode t))
@@ -453,7 +584,7 @@ Use spaces instead of tabs.
 
 ** Shell settings
 #+BEGIN_SRC emacs-lisp
-  (defvar my-term-shell "/bin/bash")
+  (setq my-term-shell "/bin/zsh")
   (defadvice ansi-term (before force-bash)
     (interactive (list my-term-shell)))
   (ad-activate 'ansi-term)
@@ -465,8 +596,8 @@ Press =s-return= to launch =ansi-term=.
 #+END_SRC
 
 ** Alarm bell
-Flash the modeline instead of an audible bell.
-See [[https://www.emacswiki.org/emacs/AlarmBell][EmacsWiki: Alarm Bell]] for more information about the bell.
+Flash the modeline instead of an audible bell. See [[https://www.emacswiki.org/emacs/AlarmBell][EmacsWiki: Alarm Bell]] for
+more information about the bell.
 #+BEGIN_SRC emacs-lisp
   (setq visible-bell nil
 	ring-bell-function 'flash-mode-line)
@@ -508,7 +639,7 @@ Balance the windows after deleting a window.
   (global-set-key (kbd "C-x 0") 'delete-window-and-balance)
 #+END_SRC
 
-** Subword
+** COMMENT Subword
 Jump inside of camel-case words with =M-b= and others.
 #+BEGIN_SRC emacs-lisp
   (global-subword-mode t)
@@ -530,9 +661,73 @@ Jump inside of camel-case words with =M-b= and others.
       (ad-activate 'isearch-repeat)))
 #+END_SRC
 
+** COMMENT Font ligatures
+See [[https://github.com/tonsky/FiraCode/wiki/Emacs-instructions][this page]] about /[[https://github.com/tonsky/FiraCode][Fira Code]]/. The solution with name /Using composition char
+table/ also works for /Iosevka/ and is pasted below.
+#+BEGIN_SRC emacs-lisp
+  (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+                 (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+                 (36 . ".\\(?:>\\)")
+                 (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+                 (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+                 (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+                 (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+                 (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+                 (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+                 (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+                 (48 . ".\\(?:x[a-zA-Z]\\)")
+                 (58 . ".\\(?:::\\|[:=]\\)")
+                 (59 . ".\\(?:;;\\|;\\)")
+                 (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+                 (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+                 (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+                 (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+                 (91 . ".\\(?:]\\)")
+                 (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+                 (94 . ".\\(?:=\\)")
+                 (119 . ".\\(?:ww\\)")
+                 (123 . ".\\(?:-\\)")
+                 (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+                 (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+                 )
+               ))
+    (dolist (char-regexp alist)
+      (set-char-table-range composition-function-table (car char-regexp)
+                            `([,(cdr char-regexp) 0 font-shape-gstring]))))
+#+END_SRC
+
 * Theme
 Load gruvbox.
 #+BEGIN_SRC emacs-lisp
   (use-package gruvbox-theme
     :init (load-theme 'gruvbox t))
+#+END_SRC
+
+** Switch between dark and light
+Load dark and light theme with =dark-theme-activate= and =light-theme-activate=
+respectively.
+#+BEGIN_SRC emacs-lisp
+  (defun dark-theme-activate ()
+    (interactive)
+    (load-theme 'gruvbox t))
+  (defun light-theme-activate ()
+    (interactive)
+    (load-theme 'gruvbox-light-soft t))
+#+END_SRC
+
+Switch between dark and light theme with =C-x t=.
+#+BEGIN_SRC emacs-lisp
+  (setq dark-theme-active t)
+
+  (defun switch-theme ()
+    (interactive)
+    (if dark-theme-active
+        (progn
+          (setq dark-theme-active nil)
+          (light-theme-activate))
+        (progn
+          (setq dark-theme-active t)
+          (dark-theme-activate))))
+
+  (global-set-key (kbd "C-x t") 'switch-theme)
 #+END_SRC
