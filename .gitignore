@@ -1,8 +1,5 @@
-**/.DS_Store
-vim/autoload
-vim/plugged
-**/result*
-emacs.d/*
-!emacs.d/config.org
-!emacs.d/snippets
-!emacs.d/init.el
+**/result
+**/*~
+
+.ghc/*
+!.ghc/ghci.conf
