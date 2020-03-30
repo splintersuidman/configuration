@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: maina
+# key: maina
+# --
+int main(int argc, char *argv[])
+{
+    $0
+}

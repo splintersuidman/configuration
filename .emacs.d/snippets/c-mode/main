@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: main
+# key: main
+# --
+int main(void)
+{
+    $0
+}

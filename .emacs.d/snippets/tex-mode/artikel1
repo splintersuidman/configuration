@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: artikel1 documentclass
+# key: artikel1
+# --
+\documentclass[11pt, a4paper]{artikel1}
+
+\usepackage[${1:dutch}]{babel}
+\usepackage[style=british]{csquotes}
+\frenchspacing
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage[parfill]{parskip}
+\setmainfont{Crimson}
+\setmonofont[Scale=0.8]{Fira Mono}
+
+\begin{document}
+\title{$2}
+\author{$3}
+\date{${4:\today}}
+\maketitle
+
+$0
+
+\end{document}

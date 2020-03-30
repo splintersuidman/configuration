@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: function
+# key: func
+# --
+${1:return }${2:name}(${3:parameters})
+{
+    $0
+}
