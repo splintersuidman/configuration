@@ -1,0 +1,2 @@
+[ ./mpdscribble/module.nix
+]
