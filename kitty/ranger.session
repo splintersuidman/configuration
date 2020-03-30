@@ -1,1 +1,0 @@
-launch env VISUAL=nvim zsh -c "~/.nix-profile/bin/ranger ~"
