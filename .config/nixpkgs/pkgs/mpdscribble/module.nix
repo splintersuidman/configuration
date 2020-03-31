@@ -60,7 +60,7 @@ in {
             password = mkOption {
               type = types.str;
               example = "x123";
-              description = "The password to the librefm account";
+              description = "The password to the libre.fm account";
             };
             url = mkOption {
               type = types.str;

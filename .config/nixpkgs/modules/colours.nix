@@ -89,7 +89,7 @@ let
     background4 = "#0a0814";
   };
 
-  green = rec {
+  greenDark = rec {
     black = "#373a42";
     brightBlack = black;
     red = "#ec6363";
@@ -110,9 +110,9 @@ let
     foreground = foreground0;
     foreground0 = "#787878";
     foreground1 = foreground0;
-    foreground2 = foreground0;
+    foreground2 = white;
     foreground3 = white;
-    foreground4 = white;
+    foreground4 = "#dddddd";
 
     background = background0;
     background0 = "#000000";
@@ -123,7 +123,42 @@ let
 
     colour0 = background;
   };
+
+  greenLight = rec {
+    black = "#373a42";
+    brightBlack = black;
+    red = "#ec6363";
+    brightRed = red;
+    green = "#4adb5c";
+    brightGreen = green;
+    yellow = "#a6c35e";
+    brightYellow = yellow;
+    blue = "#4697db";
+    brightBlue = blue;
+    magenta = "#b883d8";
+    brightMagenta = magenta;
+    cyan = "#4eb6a9";
+    brightCyan = cyan;
+    white = "#a5a5a5";
+    brightWhite = white;
+
+    foreground = foreground0;
+    foreground0 = "#000000";
+    foreground1 = foreground0;
+    foreground2 = "#111111";
+    foreground3 = foreground2;
+    foreground4 = "#4b4b4b";
+
+    background = background0;
+    background0 = "#eeeeee";
+    background1 = "#dddddd";
+    background2 = "#787878";
+    background3 = background2;
+    background4 = background3;
+
+    colour0 = background;
+  };
 in
 {
-  colours = green;
+  colours = greenDark;
 }

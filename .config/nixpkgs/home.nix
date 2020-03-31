@@ -15,7 +15,7 @@ let prelude = import ./prelude.nix; in
         inherit pkgs;
       };
       clang = pkgs.clang.overrideAttrs (attrs: {
-        meta.priority = pkgs.gcc.meta.priority + 1; # lower priority than gcc 
+        meta.priority = pkgs.gcc.meta.priority + 1; # lower priority than gcc
       });
     };
 

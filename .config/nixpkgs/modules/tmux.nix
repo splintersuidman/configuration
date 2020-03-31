@@ -7,7 +7,7 @@
     escapeTime = 0;
     keyMode = "vi";
     shortcut = "a";
-    terminal = "xterm-256color";
+    terminal = "tmux-256color";
     extraConfig = ''
       # For all keys (k) in {c, n, p}, use C-(k) as an alias for (k).
       bind C-c new-window
