@@ -29,10 +29,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("2f846ff1efa08005b60943a1710a48c401630c36a4dc48339353c37e935eac18" "290fdd9d3620344db9008842719df73bbd1d7fd5b0c8a0c1dbe5e2e27473f673" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "332fcf3c7208aca9fab65d54203f78a242482e7fd65f5725a2482c20b1730732" default)))
+    ("a6f64f4a3e95a5f36da3cffb42be7b02997f07aac8ac29080211a905012769b0" "d2c0dba55bcd58facb896b59300f29a9c30d1e1e7526ddf8367a11b2f625ab3e" "2f846ff1efa08005b60943a1710a48c401630c36a4dc48339353c37e935eac18" "290fdd9d3620344db9008842719df73bbd1d7fd5b0c8a0c1dbe5e2e27473f673" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "332fcf3c7208aca9fab65d54203f78a242482e7fd65f5725a2482c20b1730732" default)))
  '(package-selected-packages
    (quote
-    (zettelkasten agda2-mode org-ref pdf-tools evil-collection nix-company irony nix hs-minor hs-minor-mode yasnippet yaml-mode which-key use-package tuareg switch-window spacemacs-theme spaceline slime sane-term rust-mode org-evil nix-mode multiple-cursors magit-todos idris-mode ido-vertical-mode htmlize hindent highlight-numbers gruvbox-theme git-gutter flycheck fill-column-indicator expand-region evil-surround evil-numbers evil-leader auctex))))
+    (zettelkasten agda2-mode lisp elisp emacs-lisp-mode emacs-lis--mode elisp-mode org-ref pdf-tools evil-collection nix-company irony nix hs-minor hs-minor-mode yasnippet yaml-mode which-key use-package tuareg treemacs-evil switch-window spacemacs-theme spaceline slime sane-term rust-mode org-evil nix-mode multiple-cursors mingus magit-todos lsp-ui lsp-haskell idris-mode ido-vertical-mode htmlize hindent highlight-numbers gruvbox-theme git-gutter flycheck fill-column-indicator expand-region evil-surround evil-numbers evil-leader dracula-theme company-lsp auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
