@@ -42,7 +42,7 @@
         background = colors.background;
         foreground = colors.foreground;
 
-        line-size = 2;
+        line-size = 0;
         line-color = colors.background;
         padding-left = 1;
         padding-right = 1;
