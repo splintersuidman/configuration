@@ -17,8 +17,6 @@
       bind C-p previous-window
       bind p previous-window
 
-      bind a send-prefix
-
       bind v split-window -h
       bind s split-window -v
       bind J resize-pane -D 5
