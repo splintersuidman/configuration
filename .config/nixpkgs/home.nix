@@ -98,7 +98,11 @@ let prelude = import ./prelude.nix; in
               gtkClient = true;
               sdlClient = false;
             })
-            openttd
+            (openttd.overrideAttrs (attrs: {
+              # Compile with XDG Base Directory support.
+              configureFlags = attrs.configureFlags ++ [ "--with-xdg-basedir" ];
+              buildInputs = attrs.buildInputs ++ [ libxdg_basedir ];
+            }))
             scid-vs-pc
           ];
 
