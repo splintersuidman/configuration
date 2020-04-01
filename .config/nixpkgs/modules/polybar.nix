@@ -83,18 +83,15 @@
         format-prefix = "%{A1:${config.home.homeDirectory}/scripts/switch-keyboard.sh:}%{T1}KB%{T-} ";
         format-suffix = "%{A}";
         format-prefix-foreground = colors.foreground-alt;
-        # format-prefix-underline = colors.cyan;
-        # format-prefix-underline = colors.green; # NEW
+        # format-prefix-underline = colors.green;
 
         label-layout = "%layout%";
-        # label-layout-underline = colors.cyan;
-        # label-layout-underline = colors.green; # NEW
+        # label-layout-underline = colors.green;
 
         label-indicator-padding = 2;
         label-indicator-margin = 1;
         label-indicator-background = colors.cyan;
-        # label-indicator-underline = colors.cyan;
-        # label-indicator-underline = colors.green; # NEW
+        # label-indicator-underline = colors.green;
       };
 
       "module/mpd" = {
@@ -120,8 +117,7 @@
         format-prefix = "%{A1:${config.programs.urxvt.package}/bin/urxvt -e ${pkgs.htop}/bin/htop --sort-key PERCENT_CPU:}%{T1}CPU%{T-} ";
         format-suffix = "%{A}";
         format-prefix-foreground = colors.foreground-alt;
-        # format-underline = colors.red;
-        # format-underline = colors.green; # NEW
+        # format-underline = colors.green;
         label = "%percentage:2%%";
       };
 
@@ -131,8 +127,7 @@
         format-prefix = "%{A1:${config.programs.urxvt.package}/bin/urxvt -e ${pkgs.htop}/bin/htop --sort-key PERCENT_MEM:}%{T1}MEM%{T-} ";
         format-suffix = "%{A}";
         format-prefix-foreground = colors.foreground-alt;
-        # format-underline = colors.bright-blue;
-        # format-underline = colors.green; # NEW
+        # format-underline = colors.green;
         label = "%percentage_used%%";
       };
 
@@ -142,8 +137,7 @@
         interval = "3.0";
 
         format-connected = "<ramp-signal> <label-connected>";
-        # format-connected-underline = colors.magenta;
-        # format-connected-underline = colors.green; # NEW
+        # format-connected-underline = colors.green;
         label-connected = "%essid%";
         format-connected-prefix =
           "%{A1:${config.programs.urxvt.package}/bin/urxvt -e ${pkgs.networkmanager}/bin/nmtui:}%{T1}";
@@ -164,7 +158,7 @@
         interface = "enp0s25";
         interval = "3.0";
 
-        # format-connected-underline = colors.green; # NEW
+        # format-connected-underline = colors.green;
         format-connected-prefix = "ETH ";
         format-connected-prefix-foreground = colors.foreground-alt;
         label-connected = "%local_ip%";
@@ -182,8 +176,7 @@
         time = "%H:%M";
         time-alt = " %H:%M:%S";
 
-        # format-underline = colors.blue;
-        # format-underline = colors.green; # NEW
+        # format-underline = colors.green;
 
         label = "%date%%time%";
       };
@@ -225,16 +218,14 @@
         full-at = 98;
 
         format-charging = "%{T1}<animation-charging> <label-charging>%{T-}";
-        # format-charging-underline = colors.green; # NEW
+        # format-charging-underline = colors.green;
 
         format-discharging = "%{T1}<animation-discharging> <label-discharging>%{T-}";
-        # format-discharging-underline = colors.bright-yellow;
-        # format-discharging-underline = colors.yellow; # NEW
+        # format-discharging-underline = colors.yellow;
 
-        format-full-prefix = "= ";
+        format-full-prefix = "≡ ";
         format-full-prefix-foreground = colors.foreground-alt;
-        # format-full-underline = colors.bright-green;
-        # format-full-underline = colors.green; # NEW
+        # format-full-underline = colors.green;
 
         ramp-capacity-0 = "";
         ramp-capacity-1 = "";
