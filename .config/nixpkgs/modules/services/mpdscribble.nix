@@ -6,8 +6,6 @@ let
 
   cfg = config.services.mpdscribble;
 
-  configFile = ".mpdscribble/mpdscribble.conf";
-
   toMpdscribbleIni = generators.toINI {
     mkKeyValue = key: value:
       let
@@ -68,7 +66,7 @@ in
 
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
-    home.file.${configFile}.text =
+    xdg.configFile."mpdscribble/mpdscribble.conf".text =
       (toMpdscribbleIni cfg.config + "\n" + cfg.extraConfig);
 
     systemd.user.services.mpdscribble = {
@@ -83,7 +81,7 @@ in
 
       Service = {
         Type = "simple";
-        ExecStart = "${cfg.package}/bin/mpdscribble --conf ${config.home.homeDirectory}/${configFile} --no-daemon";
+        ExecStart = "${cfg.package}/bin/mpdscribble --conf ${config.xdg.configFile."mpdscribble/mpdscribble.conf".source} --no-daemon";
         Restart = "on-failure";
       };
     };
