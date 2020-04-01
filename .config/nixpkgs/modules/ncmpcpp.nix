@@ -17,6 +17,7 @@
         "tekstowo"
         "internet"
       ];
+      lyrics_directory = config.xdg.dataHome + "/lyrics";
       allow_for_physical_item_deletion = true;
       user_interface = "alternative";
       progressbar_look = "─•─";
