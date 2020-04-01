@@ -1,17 +1,17 @@
 # splintah's dotfiles
 
-## Terminal
-- Theme for zsh: my own, see `zshrc`.
-- Terminal emulator: [kitty](https://github.com/kovidgoyal/kitty)
-- Font: [Iosevka](https://github.com/be5invis/Iosevka)
-- Terminal theme: [gruvbox](https://github.com/morhetz/gruvbox)
+## System information
 
-## Window manager
-- [chunkwm](https://github.com/koekeishiya/chunkwm) by [koekeishiya](https://github.com/koekeishiya)
-
-## Editor
-### Neovim
-- Theme: [gruvbox](https://github.com/morhetz/gruvbox)
-### Emacs
-- Theme: gruvbox
-- Font: [Iosevka](https://github.com/be5invis/Iosevka)
+- Operating system: [NixOS](https://nixos.org)
+- Window manager: [xmonad](https://xmonad.org) ([my xmonad build](https://gitlab.com/splintah/xmonad-splintah))
+- Text editor, agenda, etc.: [Emacs](https://www.gnu.org/software/emacs)
+- Terminal: urxvt, tmux
+- Browser: [Firefox](https://www.mozilla.org/en-US/firefox/)
+- Music: [mopidy](https://mopidy.com) (server), [ncmpcpp](https://rybczak.net/ncmpcpp) (client)
+- News reader: [newsboat](https://newsboat.org/)
+- PDF reader: [zathura](https://pwmt.org/projects/zathura) and [pdf-tools](https://github.com/politza/pdf-tools) for Emacs
+- Status bar: [Polybar](https://polybar.github.io)
+- Password manager: [pass](https://www.passwordstore.org)
+- E-mail: [Thunderbird](https://www.thunderbird.net/)
+- Font: DejaVu Sans Mono
+- Theme: green (see `.emacs.d/themes/` and `.config/nixpkgs/modules/colours.nix`)
