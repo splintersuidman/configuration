@@ -1,18 +1,23 @@
 { pkgs, config, ... }:
+let home = config.home.homeDirectory; in
 {
   xdg = {
+    enable = true;
+    cacheHome = "${home}/.cache";
+    configHome = "${home}/.config";
+    dataHome = "${home}/.local/share";
+    userDirs = {
+      enable = true;
+      desktop = "${home}/desktop";
+      documents = "${home}/documenten";
+      download = "${home}/downloads";
+      music = "${home}/muziek";
+      videos = "${home}/video";
+    };
     mimeApps = {
       enable = false;
       # TODO:
       # associations = {};
-    };
-    userDirs = {
-      enable = true;
-      desktop = "${config.home.homeDirectory}/desktop";
-      documents = "${config.home.homeDirectory}/documents";
-      download = "${config.home.homeDirectory}/downloads";
-      music = "${config.home.homeDirectory}/muziek";
-      videos = "${config.home.homeDirectory}/video";
     };
   };
 }
