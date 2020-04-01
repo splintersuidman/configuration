@@ -32,6 +32,7 @@ in
     ./ncmpcpp.nix
     ./newsboat.nix
     ./onedrive.nix
+    ./pass.nix
     ./polybar.nix
     ./redshift.nix
     ./texlive.nix

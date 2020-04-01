@@ -202,7 +202,6 @@ let prelude = import ./prelude.nix; in
             neofetch
             openssh
             openssl
-            pass browserpass
             patchelf
             pkg-config
             qrencode
@@ -240,7 +239,6 @@ let prelude = import ./prelude.nix; in
 
   programs.feh.enable = true;
   programs.mpv.enable = true;
-  programs.browserpass.enable = true;
   programs.htop.enable = true;
 
   programs.opam = {
