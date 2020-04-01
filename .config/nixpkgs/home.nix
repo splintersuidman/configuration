@@ -165,7 +165,6 @@ let prelude = import ./prelude.nix; in
             nix = [ haskellPackages.nixfmt ];
             ocaml = [
               ocaml
-              opam
               ocamlPackages.utop
               ocamlweb
               gnum4
@@ -253,5 +252,10 @@ let prelude = import ./prelude.nix; in
   home.sessionVariables = rec {
     EDITOR = "emacsclient -c";
     VISUAL = EDITOR;
+
+    OPAMROOT = config.xdg.dataHome + "/opam";
+    LESSHISTFILE = config.xdg.dataHome + "/lesshst";
+    OCTAVE_HISTFILE = config.xdg.dataHome + "/octave_hist";
+    WINEPREFIX = config.xdg.dataHome + "/wine";
   };
 }
