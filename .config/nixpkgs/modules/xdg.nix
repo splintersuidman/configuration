@@ -9,9 +9,10 @@ let home = config.home.homeDirectory; in
     userDirs = {
       enable = true;
       desktop = "${home}/desktop";
-      documents = "${home}/documenten";
+      documents = "${home}/docs";
       download = "${home}/downloads";
-      music = "${home}/muziek";
+      pictures = "${home}/images";
+      music = "${home}/audio";
       videos = "${home}/video";
     };
     mimeApps = {

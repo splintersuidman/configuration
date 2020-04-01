@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  wallpaper = "${config.home.homeDirectory}/wallpapers/A3MuFbJ.jpg";
+  wallpaper = "${config.xdg.userDirs.pictures}/A3MuFbJ.jpg";
 in
 {
   xsession = {

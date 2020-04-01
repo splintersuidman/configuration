@@ -10,7 +10,7 @@
   (setq org-hide-emphasis-markers t)
   (setq org-highlight-latex-and-related '(latex script))
 
-  (setq org-agenda-files '("~/agenda/" "~/notities/"))
+  (setq org-agenda-files '("~/docs/agenda/" "~/docs/notities/"))
   (setq calendar-week-start-day 1)
   (setq calendar-day-name-array ["zondag" "maandag" "dinsdag" "woensdag"
                                  "donderdag" "vrijdag" "zaterdag"])

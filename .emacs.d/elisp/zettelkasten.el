@@ -1,6 +1,6 @@
 (use-package zetteldeft
   :init
-  (setq deft-directory "~/notities")
+  (setq deft-directory "~/docs/notities")
   (setq zetteldeft-id-format "%Y-%m-%d-%H%M")
   (setq zetteldeft-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{3\\}")
   (setq zetteldeft-title-prefix "#+TITLE: ")
