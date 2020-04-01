@@ -73,9 +73,28 @@ in
       enable = mkEnableOption "Whether to enable ncmpcpp.";
 
       package = mkOption {
-        type = with types; package;
+        type = types.package;
         default = pkgs.ncmpcpp;
         description = "Package to use for ncmpcpp.";
+      };
+
+      configDirectory = mkOption {
+        type = types.str;
+        default = "ncmpcpp";
+        description = ''
+          Directory in <literal>xdg.configHome</literal> to store
+          ncmpcpp configuration files in. This option can be
+          overridden by specifying
+          <literal>ncmpcpp_directory</literal> in
+          <literal>programs.ncmpcpp.config</literal>. This option is
+          present to prevent ncmpcpp from making a directory
+          <literal>~/.ncmpcpp</literal>, which it does by default if
+          <literal>ncmpcpp_directory</literal> is not specified in the
+          configuration.
+
+          If the value is an empty string, the
+          <literal>ncmpcpp_directory</literal> option will not be set.
+        '';
       };
 
       bindings = mkOption {
@@ -130,6 +149,12 @@ in
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
     xdg.configFile.${bindingsFile}.text = toNcmpcppBindings cfg.bindings;
-    xdg.configFile.${configFile}.text = toNcmpcppConfig cfg.config;
+    xdg.configFile.${configFile}.text =
+      let c = if cfg.configDirectory == ""
+              then cfg.config
+              else { ncmpcpp_directory =
+                       config.xdg.configHome + "/" + cfg.configDirectory;
+                   } // cfg.config;
+      in toNcmpcppConfig c;
   };
 }
