@@ -21,4 +21,16 @@ let home = config.home.homeDirectory; in
       # associations = {};
     };
   };
+
+  # Also set session variables for XDG User Directories.
+  home.sessionVariables = with config.xdg.userDirs; {
+    XDG_DESKTOP_DIR = desktop;
+    XDG_DOCUMENTS_DIR = documents;
+    XDG_DOWNLOAD_DIR = download;
+    XDG_MUSIC_DIR = music;
+    XDG_PICTURES_DIR = pictures;
+    XDG_PUBLICSHARE_DIR = publishShare;
+    XDG_TEMPLATES_DIR = templates;
+    XDG_VIDEOS_DIR = videos;
+  };
 }
