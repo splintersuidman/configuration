@@ -6,7 +6,7 @@
   (setq haskell-process-suggest-remove-import-lines t)
   (setq haskell-process-log t)
   (setq haskell-process-type 'cabal-new-repl)
-  (setq haskell-process-path-cabal "~/scripts/nix-repl")
+  (setq haskell-process-path-cabal "~/.local/bin/nix-cabal")
 
   (defun haskell-process-load-file-choose-type ()
     "Ask the user to choose a value for `haskell-process-type',
