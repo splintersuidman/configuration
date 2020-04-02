@@ -150,8 +150,15 @@ empty."
                       (run-program "mpv"))
                 (cons "Browser"
                       (run-program browser))
+                (cons "Searx.dev"
+                      (λ (s)
+                        ((run-program browser)
+                         ;; TODO: or can this be done with a POST
+                         ;; request?
+                         (string-append "https://searx.dev/?q="
+                                        (uri-encode s)))))
                 (cons "DuckDuckGo"
-                      (lambda (s)
+                      (λ (s)
                         ((run-program browser)
                          (string-append "https://duckduckgo.com/?q="
                                         (uri-encode s)))))))
