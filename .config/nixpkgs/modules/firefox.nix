@@ -47,6 +47,8 @@
           "network.http.referer.XOriginTrimmingPolicy" = 2;
           "webgl.disabled" = true;
           "browser.sessionstore.privacy_level" = 2;
+          "beacon.enabled" = false;
+          "browser.safebrowsing.downloads.remote.enabled" = false;
           "network.IDN_show_punycode" = true;
         };
       };
