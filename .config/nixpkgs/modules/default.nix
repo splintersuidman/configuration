@@ -27,6 +27,7 @@ in
     ./git.nix
     ./gpg.nix
     ./keyboard.nix
+    ./lorri.nix
     ./mopidy.nix
     ./mpdscribble.nix
     ./ncmpcpp.nix
