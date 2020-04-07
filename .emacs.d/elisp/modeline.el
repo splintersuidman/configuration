@@ -15,7 +15,7 @@
           (feebleline-file-directory      :face feebleline-dir-face :post "")
           (feebleline-file-or-buffer-name :face font-lock-keyword-face :post "")
           (feebleline-file-modified-star  :face font-lock-warning-face :post "")
-          (feebleline-git-branch          :face feebleline-git-face :pre " @ ")
+          (feebleline-git-branch          :face feebleline-git-face :pre " ")
           (my/feebleline-major-mode)
           ;; (my/feebleline-minor-modes      :face font-lock-comment-face)
           (feebleline-project-name        :align right)
