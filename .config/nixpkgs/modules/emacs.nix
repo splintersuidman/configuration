@@ -30,6 +30,7 @@
         # treemacs-evil
         # expand-region
         spaceline
+        feebleline
         yasnippet
         highlight-numbers
         fill-column-indicator

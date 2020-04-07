@@ -2,6 +2,7 @@
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-want-keybinding nil)
+  (setq evil-echo-state nil)
 
   :config
   (use-package evil-collection

@@ -20,4 +20,5 @@
   (let ((next (pop my/themes)))
     (setq my/themes (append my/themes (list next)))
     (load-theme next t)
-    (powerline-reset)))
+    (when (featurep 'spaceline)
+      (powerline-reset))))
