@@ -1,4 +1,6 @@
 (use-package org
+  :hook (org-mode . auto-fill-mode)
+
   :init
   (setq org-log-done 'time)
   (setq org-catch-invisible-edits 'show-and-error)
