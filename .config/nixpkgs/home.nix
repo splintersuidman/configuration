@@ -7,11 +7,7 @@ in
 {
   imports = [
     ./modules
-    nurNoPkgs.repos.splintah.hmModules.mopidy
-    nurNoPkgs.repos.splintah.hmModules.mpdscribble
-    nurNoPkgs.repos.splintah.hmModules.ncmpcpp
-    nurNoPkgs.repos.splintah.hmModules.onedrive
-  ];
+  ] ++ lib.attrValues nurNoPkgs.repos.splintah.hmModules;
 
   nixpkgs.config.packageOverrides = pkgs:
     {
