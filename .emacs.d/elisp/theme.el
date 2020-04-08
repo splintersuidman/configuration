@@ -8,10 +8,10 @@
 (add-to-list 'load-path "~/.emacs.d/themes/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-(load-theme 'green-dark t)
+(load-theme 'green-light t)
 
 (defvar my/themes
-  (list 'green-light 'green-dark)
+  (list 'green-dark 'green-light)
   "A list of themes that can be cycled through with
   `MY/SWITCH-THEME'.")
 
