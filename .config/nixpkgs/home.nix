@@ -1,6 +1,5 @@
 { pkgs, config, lib, ... }:
 let
-  prelude = import ./prelude.nix;
   nurSrc = builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz";
   nurNoPkgs = import nurSrc { };
   nurWithPkgs = pkgs: import nurSrc { inherit pkgs; };
@@ -28,8 +27,8 @@ in
   nixpkgs.config.allowUnfree = true;
 
   home.packages =
-    with builtins; with prelude; with pkgs;
-      flattenAttrs
+    with pkgs;
+      nur.repos.splintah.lib.flattenAttrs
         {
           application = [
             libreoffice
