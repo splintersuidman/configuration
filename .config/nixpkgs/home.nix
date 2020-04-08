@@ -33,6 +33,7 @@ in
             dmenu
             musescore
             signal-desktop
+            qtox
           ];
 
           audio = [
