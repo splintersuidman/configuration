@@ -46,7 +46,5 @@ in
     ./zathura.nix
     
     ./misc
-    ./programs
-    ./services
   ];
 }

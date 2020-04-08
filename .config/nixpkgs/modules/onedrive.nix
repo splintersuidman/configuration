@@ -2,7 +2,7 @@
 {
   programs.onedrive = {
     enable = true;
-    package = pkgs.onedrive;
+    package = pkgs.nur.repos.splintah.onedrive;
     config = rec {
       sync_dir = config.home.homeDirectory + "/.OneDrive";
       skip_dir = "~*|.~*|onbelangrijk";

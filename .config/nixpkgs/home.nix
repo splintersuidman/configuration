@@ -1,19 +1,25 @@
 { pkgs, config, lib, ... }:
-let prelude = import ./prelude.nix; in
+let
+  prelude = import ./prelude.nix;
+  nurSrc = builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz";
+  nurNoPkgs = import nurSrc { };
+  nurWithPkgs = pkgs: import nurSrc { inherit pkgs; };
+in
 {
   imports = [
     ./modules
+    nurNoPkgs.repos.splintah.hmModules.mopidy
+    nurNoPkgs.repos.splintah.hmModules.mpdscribble
+    nurNoPkgs.repos.splintah.hmModules.ncmpcpp
+    nurNoPkgs.repos.splintah.hmModules.onedrive
   ];
 
   nixpkgs.config.packageOverrides = pkgs:
-    (import ./pkgs { inherit pkgs; }) //
     {
       unstable = import <nixos-unstable> {
         config = config.nixpkgs.config;
       };
-      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-        inherit pkgs;
-      };
+      nur = nurWithPkgs pkgs;
       clang = pkgs.clang.overrideAttrs (attrs: {
         meta.priority = pkgs.gcc.meta.priority + 1; # lower priority than gcc
       });
@@ -37,7 +43,7 @@ let prelude = import ./prelude.nix; in
           audio = [
             flac
             cdparanoia
-            id3
+            nur.repos.splintah.id3
 
             mpc_cli
             mpdscribble
@@ -70,7 +76,7 @@ let prelude = import ./prelude.nix; in
             transmission-gtk
             wget
             curl
-            onedrive
+            nur.repos.splintah.onedrive
           ];
 
           fonts = [
@@ -166,7 +172,7 @@ let prelude = import ./prelude.nix; in
             ocaml = [
               ocaml
               ocamlPackages.utop
-              ocamlweb
+              nur.repos.splintah.ocamlweb
               gnum4
             ];
             octave = [ octaveFull ];
@@ -179,7 +185,6 @@ let prelude = import ./prelude.nix; in
             racket = [ racket ];
             rust = [
               rustup
-              # wasm-pack
               rustracer
             ];
             scheme = [ guile ];
