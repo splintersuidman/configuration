@@ -9,7 +9,7 @@
       "Shift-Control-V" = "eval:paste_clipboard";
     };
     fonts = [ "xft:DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true" ];
-    iso14755 = true;
+    iso14755 = false;
     scroll = {
       bar.enable = false;
       scrollOnKeystroke = true;
