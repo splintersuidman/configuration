@@ -7,9 +7,9 @@
   (menu-bar-mode 0))
 
 ;; Show line numbers.
-(use-package linum
-  :hook
-  (prog-mode . linum-mode))
+;; (use-package linum
+;;   :hook
+;;   (prog-mode . linum-mode))
 
 ;; Show line number and column number in modeline.
 (line-number-mode t)
