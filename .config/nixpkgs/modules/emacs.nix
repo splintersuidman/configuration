@@ -47,6 +47,7 @@
         zetteldeft
         sicp
         xkcd
+        direnv
 
         # lsp-mode
         # lsp-ui
