@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# nix-cabal
-#
-# Run cabal with the given arguments in a Nix shell. This is used with
-# haskell-mode for Emacs, so the REPL is run within a Nix shell.
-
-args=$@
-nix-shell --run "cabal $args"
