@@ -89,6 +89,8 @@
         yaml-mode
         # Go
         # go-mode
+        # Bison
+        bison-mode
 
         # Theme
         # gruvbox-theme

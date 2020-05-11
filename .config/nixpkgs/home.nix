@@ -145,6 +145,9 @@ in
               tinycc
               binutils
               indent
+
+              bison
+              flex
             ];
             coq = [ coq ];
             haskell = [
