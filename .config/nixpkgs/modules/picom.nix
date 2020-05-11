@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 {
-  services.compton = {
+  services.picom = {
     enable = false;
     backend = "xrender";
 

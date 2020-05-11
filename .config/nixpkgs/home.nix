@@ -168,7 +168,6 @@ in
             ocaml = [
               ocaml
               ocamlPackages.utop
-              nur.repos.splintah.ocamlweb
               gnum4
             ];
             octave = [ octaveFull ];

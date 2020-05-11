@@ -29,7 +29,7 @@ let home = config.home.homeDirectory; in
     XDG_DOWNLOAD_DIR = download;
     XDG_MUSIC_DIR = music;
     XDG_PICTURES_DIR = pictures;
-    XDG_PUBLICSHARE_DIR = publishShare;
+    XDG_PUBLICSHARE_DIR = publicShare;
     XDG_TEMPLATES_DIR = templates;
     XDG_VIDEOS_DIR = videos;
   };

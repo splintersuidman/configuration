@@ -19,7 +19,6 @@ in
   imports = warnMissing [
     ./bash.nix
     ./colours.nix
-    ./compton.nix
     ./dunst.nix
     ./emacs.nix
     ./email.nix
@@ -34,6 +33,7 @@ in
     ./newsboat.nix
     ./onedrive.nix
     ./pass.nix
+    ./picom.nix
     ./polybar.nix
     ./redshift.nix
     ./texlive.nix
