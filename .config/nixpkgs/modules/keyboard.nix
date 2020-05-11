@@ -5,6 +5,7 @@
     options = [
       "ctrl:nocaps"
       "compose:menu"
+      "compose:ralt"
     ];
   };
 
