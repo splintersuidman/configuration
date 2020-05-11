@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
 {
-  programs.browserpass.enable = true;
-  home.packages = [ pkgs.pass ];
-  home.sessionVariables = {
-    PASSWORD_STORE_DIR = config.xdg.dataHome + "/password-store";
+  programs.password-store = {
+    enable = true;
+    settings = {
+      PASSWORD_STORE_DIR = config.xdg.dataHome + "/password-store";
+    };
   };
+  programs.browserpass.enable = true;
 }
