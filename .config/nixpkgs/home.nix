@@ -187,6 +187,7 @@ in
             ];
             scheme = [ guile ];
             standardML = [ smlnj ];
+            zig = [ unstable.zig ];
           };
 
           system = [

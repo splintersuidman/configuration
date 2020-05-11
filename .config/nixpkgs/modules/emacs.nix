@@ -89,6 +89,8 @@
         yaml-mode
         # Go
         # go-mode
+        # Zig
+        zig-mode
         # Bison
         bison-mode
 
