@@ -150,7 +150,6 @@ in
             haskell = [
               ghc
               cabal-install
-              stack
               haskellPackages.hindent
               haskellPackages.pointfree
               haskellPackages.hoogle
