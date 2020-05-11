@@ -84,9 +84,9 @@ in
             inconsolata
             libertine
             symbola
-	          dejavu_fonts
-	          siji
-	          unifont
+            dejavu_fonts
+            siji
+            unifont
             crimson
             ibm-plex
             mononoki
