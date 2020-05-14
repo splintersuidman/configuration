@@ -22,6 +22,9 @@
         isDefault = true;
 
         settings = {
+          # Adds MPRIS-support.
+          "media.hardwaremediakeys.enabled" = true;
+
           "toolkit.telemetry.archive.enabled" = false;
           "toolkit.telemetry.enabled" = false;
           "toolkit.telemetry.rejected" = true;
