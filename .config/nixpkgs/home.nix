@@ -41,8 +41,8 @@ in
             cdparanoia
             nur.repos.splintah.id3
 
+            playerctl
             mpc_cli
-            mpdscribble
 
             unstable.spotify-tui
           ];
