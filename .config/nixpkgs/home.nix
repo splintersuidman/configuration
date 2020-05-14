@@ -245,7 +245,6 @@ in
   fonts.fontconfig.enable = true;
 
   programs.feh.enable = true;
-  programs.mpv.enable = true;
   programs.htop.enable = true;
 
   programs.opam = {

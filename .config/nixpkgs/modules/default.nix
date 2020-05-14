@@ -29,6 +29,7 @@ in
     ./lorri.nix
     ./mopidy.nix
     ./mpdscribble.nix
+    ./mpv.nix
     ./ncmpcpp.nix
     ./newsboat.nix
     ./onedrive.nix
