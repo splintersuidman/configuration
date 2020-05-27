@@ -220,6 +220,7 @@ in
             xdo
             xdotool
             xfontsel
+            xorg.setxkbmap
             xorg.xev
             xz
             zip unzip
