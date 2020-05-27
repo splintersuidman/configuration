@@ -11,6 +11,7 @@
       decentraleyes
       greasemonkey
       https-everywhere
+      multi-account-containers
       reddit-enhancement-suite
       torswitch
       ublock-origin
