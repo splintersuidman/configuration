@@ -25,6 +25,7 @@ in
     ./firefox.nix
     ./git.nix
     ./gpg.nix
+    ./irssi.nix
     ./keyboard.nix
     ./lorri.nix
     ./mopidy.nix

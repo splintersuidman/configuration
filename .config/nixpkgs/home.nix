@@ -128,7 +128,6 @@ in
           ];
 
           media = [
-            irssi
             rtv
             termtekst
           ];
