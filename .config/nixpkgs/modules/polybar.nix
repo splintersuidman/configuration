@@ -60,7 +60,7 @@
         font-2 = "unifont:fontformat=truetype:size=8:antialias=false;0";
         font-3 = "siji:pixelsize=10;1";
 
-        tray-position = "right";
+        tray-position = "none";
         tray-padding = 2;
 
         cursor-click = "pointer";
