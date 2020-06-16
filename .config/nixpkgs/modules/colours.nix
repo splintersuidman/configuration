@@ -31,6 +31,7 @@ let
     foreground3 = "#bdae93";
     foreground4 = "#a89984";
   };
+
   dracula = rec {
     background = "#282a36";
     foreground = "#f8f8f2";
@@ -63,6 +64,7 @@ let
     foreground3 = "#f8f8f2";
     foreground4 = "#f8f8f2";
   };
+
   spacemacsThemeDark = rec {
     black = background0;
     brightBlack = background2;
@@ -158,7 +160,29 @@ let
 
     colour0 = background;
   };
+
+  base16TomorrowNight = rec {
+    black = "#1d1f21";
+    brightBlack = "#969896";
+    red = "#cc6666";
+    brightRed = red;
+    green = "#b5bd68";
+    brightGreen = green;
+    yellow = "#f0c674";
+    brightYellow = yellow;
+    blue = "#81a2be";
+    brightBlue = blue;
+    magenta = "#b294bb";
+    brightMagenta = magenta;
+    cyan = "#8abeb7";
+    brightCyan = cyan;
+    white = "#c5c8c6";
+    brightWhite = "#ffffff";
+
+    background = black;
+    foreground = white;
+  };
 in
 {
-  colours = greenDark;
+  colours = base16TomorrowNight;
 }
