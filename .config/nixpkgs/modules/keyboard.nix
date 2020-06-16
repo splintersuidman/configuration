@@ -15,9 +15,4 @@
       Control_L = "Escape";
     };
   };
-
-  xsession.initExtra =
-    let xset = "${pkgs.xorg.xset}/bin/xset"; in ''
-      ${xset} r rate 200 25
-    '';
 }
