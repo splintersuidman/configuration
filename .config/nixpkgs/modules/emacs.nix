@@ -98,6 +98,7 @@
         # gruvbox-theme
         # dracula-theme
         # spacemacs-theme
+        base16-theme
       ];
   };
   services.emacs.enable = true;
