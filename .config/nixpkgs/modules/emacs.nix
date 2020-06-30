@@ -48,6 +48,7 @@
         sicp
         xkcd
         direnv
+        ledger-mode
 
         # lsp-mode
         # lsp-ui

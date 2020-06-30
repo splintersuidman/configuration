@@ -34,6 +34,8 @@ in
             musescore
             signal-desktop
             qtox
+            hledger
+            hledger-web
           ];
 
           audio = [
