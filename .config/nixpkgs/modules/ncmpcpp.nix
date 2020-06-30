@@ -1,4 +1,7 @@
 { pkgs, config, ... }:
+let
+  mainColour = "blue";
+in
 {
   programs.ncmpcpp = {
     enable = true;
@@ -30,14 +33,14 @@
       state_flags_color = "default:b";
       main_window_color = "default";
       color1 = "white";
-      color2 = "green";
+      color2 = mainColour;
       progressbar_color = "black:b";
-      progressbar_elapsed_color = "green:b";
+      progressbar_elapsed_color = "${mainColour}:b";
       statusbar_color = "default";
       statusbar_time_color = "default:b";
       player_state_color = "default:b";
       alternative_ui_separator_color = "black:b";
-      window_border_color = "green";
+      window_border_color = mainColour;
       active_window_border = "white";
 
       song_list_format = "$0{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}";
@@ -56,7 +59,7 @@
       selected_item_suffix = "$9";
       modified_item_prefix = "$3> $9";
       song_window_title_format = "{%a - }{%t}|{%f}";
-      song_columns_list_format = "(20)[]{a} (6f)[]{NE} (50)[green]{t|f:Title} (20)[white]{b} (7f)[]{l}";
+      song_columns_list_format = "(20)[]{a} (6f)[]{NE} (50)[${mainColour}]{t|f:Title} (20)[white]{b} (7f)[]{l}";
     };
 
     bindings = {
