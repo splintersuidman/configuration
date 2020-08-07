@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: for_in
-# key: forin
-# --
-for (${1:auto &}${2:x} : ${3:xs}) {
-    $0
-}

@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: for_n
-# key: forn
-# --
-for (${1:type} ${2:i} = ${3:0}; $2 < ${4:max}; ++$2) ${5:{
-    $0
-}}
