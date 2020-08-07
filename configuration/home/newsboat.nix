@@ -53,7 +53,7 @@ in
       # notify-format "Newsboat: %d new articles"
     '';
 
-    # NOTE: This file is contained in the git index.
+    # NOTE: This file is not contained in the git index.
     urls = import ./newsboat/urls.nix;
   };
 }
