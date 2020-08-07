@@ -19,3 +19,7 @@ I use [home-manager](https://github.com/rycee/home-manager) to build the user co
 - E-mail: [Thunderbird](https://www.thunderbird.net/)
 - Font: DejaVu Sans Mono
 - Theme: [base-16](https://github.com/chriskempson/base16) [Tomorrow Night](https://github.com/chriskempson/base16-tomorrow-scheme).
+
+## License
+
+To the extent possible under law, I associate [CC0](https://creativecommons.org/publicdomain/zero/1.0/) with this work and I waive all copyright and related or neighboring rights to this work.
