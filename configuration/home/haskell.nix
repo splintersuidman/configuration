@@ -13,10 +13,10 @@
     cabal2nix
   ];
 
-  home.file.".ghc/ghci.conf".text = ''
-    :def hoogle \s -> pure $ ":!${haskellPackages.hoogle}/bin/hoogle --count=15 \"" <> s <> "\""
-    :def pf \s -> pure $ ":!${haskellPackages.pointfree}/bin/pointfree \"" <> s <> "\""
-    :def hlint \s -> pure $ ":!${haskellPackages.hlint}/bin/hlint \"" <> s <> "\""
+  home.file.".ghc/ghci.conf".text = with pkgs.haskellPackages; ''
+    :def hoogle \s -> pure $ ":!${hoogle}/bin/hoogle --count=15 \"" <> s <> "\""
+    :def pf \s -> pure $ ":!${pointfree}/bin/pointfree \"" <> s <> "\""
+    :def hlint \s -> pure $ ":!${hlint}/bin/hlint \"" <> s <> "\""
     :set prompt "λ> "
     :set +t
   '';
