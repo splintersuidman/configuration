@@ -14,4 +14,11 @@
       set -o vi
     '';
   };
+
+  programs.readline = {
+    enable = true;
+    extraConfig = ''
+      set completion-ignore-case on
+    '';
+  };
 }
