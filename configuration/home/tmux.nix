@@ -8,6 +8,9 @@
     keyMode = "vi";
     shortcut = "a";
     terminal = "tmux-256color";
+
+    tmuxinator.enable = true;
+
     extraConfig = ''
       # For all keys (k) in {c, n, p}, use C-(k) as an alias for (k).
       bind C-c new-window
