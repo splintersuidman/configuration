@@ -9,8 +9,6 @@
     shortcut = "a";
     terminal = "tmux-256color";
 
-    tmuxinator.enable = true;
-
     extraConfig = ''
       # For all keys (k) in {c, n, p}, use C-(k) as an alias for (k).
       bind C-c new-window
@@ -45,5 +43,10 @@
       set -g status-left ""
       set -g status-right ""
     '';
+  };
+
+  programs.tmux.tmuxinator.enable = true;
+  programs.bash.shellAliases = {
+    "mux" = "tmuxinator";
   };
 }
