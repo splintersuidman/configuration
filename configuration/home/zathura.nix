@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
-let colours = config.colours; in
+let
+  colors = config.theme.base16.colors;
+  background = "#${colors.base00.hex.rgb}";
+  backgroundAlt = "#${colors.base01.hex.rgb}";
+  foreground = "#${colors.base05.hex.rgb}";
+  foregroundAlt = "#${colors.base04.hex.rgb}";
+in
 {
   programs.zathura = {
     enable = true;
@@ -7,20 +13,20 @@ let colours = config.colours; in
       selection-clipboard = "clipboard";
       font = "DejaVu Sans Mono 9";
       page-padding = 1;
-      default-bg = colours.background1;
-      default-fg = colours.foreground0;
-      completion-bg = colours.background1;
-      completion-fg = colours.foreground0;
-      completion-group-bg = colours.background1;
-      completion-group-fg = colours.foreground0;
-      completion-highlight-bg = colours.foreground0;
-      completion-highlight-fg = colours.background1;
-      inputbar-bg = colours.background1;
-      inputbar-fg = colours.foreground0;
-      statusbar-bg = colours.background1;
-      statusbar-fg = colours.foreground0;
-      recolor-darkcolor = colours.foreground;
-      recolor-lightcolor = colours.background;
+      default-bg = background;
+      default-fg = foreground;
+      completion-bg = background;
+      completion-fg = foreground;
+      completion-group-bg = background;
+      completion-group-fg = foreground;
+      completion-highlight-bg = background;
+      completion-highlight-fg = foreground;
+      inputbar-bg = background;
+      inputbar-fg = foreground;
+      statusbar-bg = background;
+      statusbar-fg = foreground;
+      recolor-darkcolor = foregroundAlt;
+      recolor-lightcolor = backgroundAlt;
       recolor = false;
     };
   };

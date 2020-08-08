@@ -1,24 +1,26 @@
 { pkgs, config, ... }:
-let colours = config.colours; in
+let
+  colors = config.theme.base16.colors;
+in
 {
   xresources.properties = {
-    "*background" = colours.background;
-    "*foreground" = colours.foreground;
-    "*color0" = colours.colour0;
-    "*color8" = colours.colour8;
-    "*color1" = colours.colour1;
-    "*color9" = colours.colour9;
-    "*color2" = colours.colour2;
-    "*color10" = colours.colour10;
-    "*color3" = colours.colour3;
-    "*color11" = colours.colour11;
-    "*color4" = colours.colour4;
-    "*color12" = colours.colour12;
-    "*color5" = colours.colour5;
-    "*color13" = colours.colour13;
-    "*color6" = colours.colour6;
-    "*color14" = colours.colour14;
-    "*color7" = colours.colour7;
-    "*color15" = colours.colour15;
+    "*background" = "#${colors.base00.hex.rgb}";
+    "*foreground" = "#${colors.base05.hex.rgb}";
+    "*color0" = "#${colors.base00.hex.rgb}";
+    "*color8" = "#${colors.base01.hex.rgb}";
+    "*color1" = "#${colors.base08.hex.rgb}";
+    "*color9" = "#${colors.base08.hex.rgb}";
+    "*color2" = "#${colors.base0B.hex.rgb}";
+    "*color10" = "#${colors.base0B.hex.rgb}";
+    "*color3" = "#${colors.base0A.hex.rgb}";
+    "*color11" = "#${colors.base0A.hex.rgb}";
+    "*color4" = "#${colors.base0D.hex.rgb}";
+    "*color12" = "#${colors.base0D.hex.rgb}";
+    "*color5" = "#${colors.base0E.hex.rgb}";
+    "*color13" = "#${colors.base0E.hex.rgb}";
+    "*color6" = "#${colors.base0C.hex.rgb}";
+    "*color14" = "#${colors.base0C.hex.rgb}";
+    "*color7" = "#${colors.base04.hex.rgb}";
+    "*color15" = "#${colors.base05.hex.rgb}";
   };
 }

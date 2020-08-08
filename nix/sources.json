@@ -1,4 +1,16 @@
 {
+    "base16-tomorrow-scheme": {
+        "branch": "master",
+        "description": "Tommorow scheme for base16",
+        "homepage": null,
+        "owner": "chriskempson",
+        "repo": "base16-tomorrow-scheme",
+        "rev": "af9622bd6a041561837a865df5e15802d99d156a",
+        "sha256": "04288y9zlhisv46bd4h8q09rpw42ah3jc1rbrylgqs2i5d1z69q9",
+        "type": "tarball",
+        "url": "https://github.com/chriskempson/base16-tomorrow-scheme/archive/af9622bd6a041561837a865df5e15802d99d156a.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",

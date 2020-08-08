@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  colours = config.colours;
+  colors = config.theme.base16.colors;
   browser = config.programs.browser.program;
 in
 {
@@ -18,7 +18,7 @@ in
         padding = 8;
         horizontal_padding = 8;
         frame_width = 3;
-        frame_color = colours.background1;
+        frame_color = "#${colors.base01.hex.rgb}";
         separator_color = "frame";
         sort = true;
         idle_threshold = 120;
@@ -53,20 +53,21 @@ in
         context = "ctrl+shift+period";
       };
       urgency_low = {
-        background = colours.background;
-        foreground = colours.foreground;
-        frame_color = colours.foreground0;
+        background = "#${colors.base00.hex.rgb}";
+        foreground = "#${colors.base05.hex.rgb}";
+        frame_color = "#${colors.base01.hex.rgb}";
         timeout = 10;
       };
       urgency_normal = {
-        background = colours.background;
-        foreground = colours.foreground;
+        background = "#${colors.base00.hex.rgb}";
+        foreground = "#${colors.base05.hex.rgb}";
+        frame_color = "#${colors.base01.hex.rgb}";
         timeout = 10;
       };
       urgency_critical = {
-        background = colours.background;
-        foreground = colours.foreground4;
-        frame_color = colours.red;
+        background = "#${colors.base00.hex.rgb}";
+        foreground = "#${colors.base05.hex.rgb}";
+        frame_color = "#${colors.base08.hex.rgb}";
         timeout = 0;
       };
     };

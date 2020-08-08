@@ -1,29 +1,13 @@
 { pkgs, config, ... }:
+let
+  colors = config.theme.base16.colors;
+in
 {
   services.polybar = {
     enable = true;
     package = pkgs.polybar.override { mpdSupport = true; };
     script = "${config.services.polybar.package}/bin/polybar splintah &";
-    config = rec {
-      colors = with config.colours; {
-        inherit (config.colours) black red green yellow blue magenta cyan white;
-        bright-black = brightBlack;
-        bright-red = brightRed;
-        bright-green  = brightGreen;
-        bright-yellow = brightYellow;
-        bright-blue = brightBlue;
-        bright-magenta = brightMagenta;
-        bright-cyan = brightCyan;
-        bright-white = brightWhite;
-
-        inherit (config.colours) background foreground;
-        background-alt = background0;
-        foreground-alt = foreground4;
-        primary = colors.bright-blue;
-        secondary = colors.bright-cyan;
-        alert = colors.red;
-      };
-
+    config = {
       settings = {
         screenchange-reload = true;
       };
@@ -39,11 +23,11 @@
         radius = 0;
         fixed-center = false;
 
-        background = colors.background;
-        foreground = colors.foreground;
+        background = "#${colors.base00.hex.rgb}";
+        foreground = "#${colors.base05.hex.rgb}";
 
         line-size = 2;
-        line-color = colors.background;
+        line-color = "#${colors.base00.hex.rgb}";
         padding-left = 1;
         padding-right = 1;
 
@@ -82,16 +66,16 @@
 
         format-prefix = "%{A1:${config.home.homeDirectory}/.local/bin/switch-keyboard.sh:}%{T1}KB%{T-} ";
         format-suffix = "%{A}";
-        format-prefix-foreground = colors.foreground-alt;
-        format-prefix-underline = colors.green;
+        format-prefix-foreground = "#${colors.base05.hex.rgb}";
+        format-prefix-underline = "#${colors.base0B.hex.rgb}";
 
         label-layout = "%layout%";
-        label-layout-underline = colors.green;
+        label-layout-underline = "#${colors.base0B.hex.rgb}";
 
         label-indicator-padding = 2;
         label-indicator-margin = 1;
-        label-indicator-background = colors.cyan;
-        label-indicator-underline = colors.green;
+        label-indicator-background = "#${colors.base0C.hex.rgb}";
+        label-indicator-underline = "#${colors.base0B.hex.rgb}";
       };
 
       "module/mpd" = {
@@ -116,8 +100,8 @@
         interval = 2;
         format-prefix = "%{A1:${config.programs.urxvt.package}/bin/urxvt -e ${pkgs.htop}/bin/htop --sort-key PERCENT_CPU:}%{T1}CPU%{T-} ";
         format-suffix = "%{A}";
-        format-prefix-foreground = colors.foreground-alt;
-        format-underline = colors.red;
+        format-prefix-foreground = "#${colors.base04.hex.rgb}";
+        format-underline = "#${colors.base08.hex.rgb}";
         label = "%percentage:2%%";
       };
 
@@ -126,8 +110,8 @@
         interval = 2;
         format-prefix = "%{A1:${config.programs.urxvt.package}/bin/urxvt -e ${pkgs.htop}/bin/htop --sort-key PERCENT_MEM:}%{T1}MEM%{T-} ";
         format-suffix = "%{A}";
-        format-prefix-foreground = colors.foreground-alt;
-        format-underline = colors.blue;
+        format-prefix-foreground = "#${colors.base04.hex.rgb}";
+        format-underline = "#${colors.base0D.hex.rgb}";
         label = "%percentage_used%%";
       };
 
@@ -137,7 +121,7 @@
         interval = "3.0";
 
         format-connected = "<ramp-signal> <label-connected>";
-        format-connected-underline = colors.cyan;
+        format-connected-underline = "#${colors.base0C.hex.rgb}";
         label-connected = "%essid%";
         format-connected-prefix =
           "%{A1:${config.programs.urxvt.package}/bin/urxvt -e ${pkgs.networkmanager}/bin/nmtui:}%{T1}";
@@ -146,11 +130,11 @@
         format-disconnected = "";
 
         ramp-signal-0 = "WLAN";
-        ramp-signal-1 = "%{F${colors.bright-white}}W%{F${colors.white}}LAN";
-        ramp-signal-2 = "%{F${colors.bright-white}}WL%{F${colors.white}}AN";
-        ramp-signal-3 = "%{F${colors.bright-white}}WLA%{F${colors.white}}N";
-        ramp-signal-4 = "%{F${colors.bright-white}}WLAN%{F${colors.white}}";
-        ramp-signal-foreground = colors.foreground-alt;
+        ramp-signal-1 = "%{F#${colors.base05.hex.rgb}}W%{F#${colors.base04.hex.rgb}}LAN";
+        ramp-signal-2 = "%{F#${colors.base05.hex.rgb}}WL%{F#${colors.base04.hex.rgb}}AN";
+        ramp-signal-3 = "%{F#${colors.base05.hex.rgb}}WLA%{F#${colors.base04.hex.rgb}}N";
+        ramp-signal-4 = "%{F#${colors.base05.hex.rgb}}WLAN%{F#${colors.base04.hex.rgb}}";
+        ramp-signal-foreground = "#${colors.base04.hex.rgb}";
       };
 
       "module/eth" = {
@@ -158,9 +142,9 @@
         interface = "enp0s25";
         interval = "3.0";
 
-        format-connected-underline = colors.magenta;
+        format-connected-underline = "#${colors.base0E.hex.rgb}";
         format-connected-prefix = "ETH ";
-        format-connected-prefix-foreground = colors.foreground-alt;
+        format-connected-prefix-foreground = "#${colors.base04.hex.rgb}";
         label-connected = "%local_ip%";
 
         format-disconnected = "";
@@ -176,7 +160,7 @@
         time = "%H:%M";
         time-alt = " %H:%M:%S";
 
-        format-underline = colors.blue;
+        format-underline = "#${colors.base0D.hex.rgb}";
 
         label = "%date%%time%";
       };
@@ -186,20 +170,20 @@
 
         format-volume = "<label-volume> <bar-volume>";
         label-volume = "%{T1}VOL%{T-}";
-        label-volume-foreground = colors.foreground-alt;
+        label-volume-foreground = "#${colors.base04.hex.rgb}";
 
         format-muted-prefix = " ";
-        format-muted-foreground = colors.foreground-alt;
+        format-muted-foreground = "#${colors.base04.hex.rgb}";
         label-muted = "geluid uit";
 
         bar-volume-width = 8;
-        bar-volume-foreground-0 = colors.green;
-        bar-volume-foreground-1 = colors.green;
-        bar-volume-foreground-2 = colors.green;
-        bar-volume-foreground-3 = colors.green;
-        bar-volume-foreground-4 = colors.green;
-        bar-volume-foreground-5 = colors.bright-yellow;
-        bar-volume-foreground-6 = colors.bright-red;
+        bar-volume-foreground-0 = "#${colors.base0B.hex.rgb}";
+        bar-volume-foreground-1 = "#${colors.base0B.hex.rgb}";
+        bar-volume-foreground-2 = "#${colors.base0B.hex.rgb}";
+        bar-volume-foreground-3 = "#${colors.base0B.hex.rgb}";
+        bar-volume-foreground-4 = "#${colors.base0B.hex.rgb}";
+        bar-volume-foreground-5 = "#${colors.base0A.hex.rgb}";
+        bar-volume-foreground-6 = "#${colors.base08.hex.rgb}";
         bar-volume-gradient = false;
         bar-volume-indicator = "|";
         bar-volume-indicator-font = 2;
@@ -207,7 +191,7 @@
         bar-volume-fill-font = 2;
         bar-volume-empty = "─";
         bar-volume-empty-font = 2;
-        bar-volume-empty-foreground = colors.foreground;
+        bar-volume-empty-foreground = "#${colors.base05.hex.rgb}";
       };
 
       "module/battery" = {
@@ -218,30 +202,30 @@
         full-at = 98;
 
         format-charging = "%{T1}<animation-charging> <label-charging>%{T-}";
-        format-charging-underline = colors.green;
+        format-charging-underline = "#${colors.base0B.hex.rgb}";
 
         format-discharging = "%{T1}<animation-discharging> <label-discharging>%{T-}";
-        format-discharging-underline = colors.yellow;
+        format-discharging-underline = "#${colors.base0A.hex.rgb}";
 
         format-full-prefix = "≡ ";
-        format-full-prefix-foreground = colors.foreground-alt;
-        format-full-underline = colors.green;
+        format-full-prefix-foreground = "#${colors.base04.hex.rgb}";
+        format-full-underline = "#${colors.base0B.hex.rgb}";
 
         ramp-capacity-0 = "";
         ramp-capacity-1 = "";
         ramp-capacity-2 = "";
-        ramp-capacity-foreground = colors.foreground-alt;
+        ramp-capacity-foreground = "#${colors.base04.hex.rgb}";
 
         animation-charging-0 = "↑";
         animation-charging-1 = "↑";
         animation-charging-2 = "↑";
-        animation-charging-foreground = colors.foreground-alt;
+        animation-charging-foreground = "#${colors.base04.hex.rgb}";
         animation-charging-framerate = 750;
 
         animation-discharging-0 = "↓";
         animation-discharging-1 = "↓";
         animation-discharging-2 = "↓";
-        animation-discharging-foreground = colors.foreground-alt;
+        animation-discharging-foreground = "#${colors.base04.hex.rgb}";
         animation-discharging-framerate = 750;
       };
     };

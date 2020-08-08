@@ -10,7 +10,6 @@
     ../../configuration/home/browser.nix
     ../../configuration/home/c.nix
     ../../configuration/home/chat.nix
-    ../../configuration/home/colours.nix
     ../../configuration/home/direnv.nix
     ../../configuration/home/dunst.nix
     ../../configuration/home/emacs.nix
@@ -42,6 +41,7 @@
     ../../configuration/home/redshift.nix
     ../../configuration/home/ssh.nix
     ../../configuration/home/texlive.nix
+    ../../configuration/home/theme.nix
     ../../configuration/home/tmux.nix
     ../../configuration/home/tools.nix
     ../../configuration/home/unclutter.nix
