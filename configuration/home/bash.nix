@@ -7,5 +7,11 @@
       ".." = "cd ..";
       "..." = "cd ../..";
     };
+    enableAutojump = true;
+    shellOptions = [ "autocd" ];
+    profileExtra = ''
+      # Enable vi mode
+      set -o vi
+    '';
   };
 }
