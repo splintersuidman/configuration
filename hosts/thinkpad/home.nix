@@ -44,6 +44,7 @@
     ../../configuration/home/texlive.nix
     ../../configuration/home/tmux.nix
     ../../configuration/home/tools.nix
+    ../../configuration/home/unclutter.nix
     ../../configuration/home/urxvt.nix
     ../../configuration/home/xresources.nix
     ../../configuration/home/xsession.nix
