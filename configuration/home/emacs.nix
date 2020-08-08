@@ -32,4 +32,9 @@ in
       recommendedGcSettings = true;
     };
   };
+
+  home.sessionVariables = rec {
+    EDITOR = "${config.programs.emacs.package}/bin/emacsclient";
+    VISUAL = EDITOR;
+  };
 }
