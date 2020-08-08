@@ -40,6 +40,7 @@
     ../../configuration/home/polybar.nix
     ../../configuration/home/python.nix
     ../../configuration/home/redshift.nix
+    ../../configuration/home/ssh.nix
     ../../configuration/home/texlive.nix
     ../../configuration/home/tools.nix
     ../../configuration/home/urxvt.nix
