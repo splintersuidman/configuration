@@ -9,6 +9,7 @@
 
   programs.emacs.init.usePackage = {
     direnv = {
+      enable = true;
       config = ''
         (direnv-mode)
       '';
