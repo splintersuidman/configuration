@@ -44,6 +44,8 @@
     ../../configuration/home/texlive.nix
     ../../configuration/home/tools.nix
     ../../configuration/home/urxvt.nix
+    ../../configuration/home/xresources.nix
+    ../../configuration/home/xsession.nix
     ../../configuration/home/yaml.nix
     ../../configuration/home/zettelkasten.nix
   ];
