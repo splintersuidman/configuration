@@ -1,0 +1,6 @@
+{ ... }:
+{
+  services.tlp = {
+    enable = true;
+  };
+}

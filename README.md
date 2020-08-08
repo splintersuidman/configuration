@@ -1,8 +1,7 @@
-# splintah's system configuration
+# splintah's home and system configuration
 
-My system configuration is almost fully written in [Nix](https://nixos.org).
-I use [home-manager](https://github.com/rycee/home-manager) to build the user configuration, and NixOS to build the system configuration.
-(The system configuration is not (yet) contained in this repo, since it is a mess which needs a lot of cleaning up.)
+My home and system configuration are almost fully written in [Nix](https://nixos.org).
+I use [home-manager](https://github.com/rycee/home-manager) to build the home configuration, and NixOS to build the system configuration.
 
 ## System information
 

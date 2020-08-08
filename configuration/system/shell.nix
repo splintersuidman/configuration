@@ -1,0 +1,4 @@
+{ ... }:
+{
+  programs.bash.enableCompletion = true;
+}
