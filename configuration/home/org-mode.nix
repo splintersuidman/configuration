@@ -27,7 +27,6 @@
       config = ''
         (add-to-list 'org-modules 'org-tempo)
         (add-to-list 'org-modules 'org-habit)
-        (add-to-list 'org-modules 'org-mu4e)
 
         (evil-leader/set-key-for-mode 'org-mode
           "c!" 'org-time-stamp-inactive
