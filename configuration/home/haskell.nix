@@ -11,6 +11,7 @@
     haskellPackages.stylish-haskell
     haskellPackages.hasktags
     cabal2nix
+    haskellPackages.ghcide
   ];
 
   home.file.".ghc/ghci.conf".text = with pkgs.haskellPackages; ''
@@ -89,6 +90,24 @@
           "cn" 'haskell-interactive-mode-prompt-next
           "cp" 'haskell-interactive-mode-prompt-previous
           "cz" 'haskell-interactive-switch-back)
+      '';
+    };
+
+    lsp-mode = {
+      enable = true;
+      command = [ "lsp" ];
+    };
+
+    lsp-ui = {
+      enable = true;
+      command = [ "lsp-ui-mode" ];
+    };
+
+    lsp-haskell = {
+      enable = true;
+      init = ''
+        (setq lsp-haskell-process-path-hie "ghcide")
+        (setq lsp-haskell-process-args-hie '())
       '';
     };
   };
