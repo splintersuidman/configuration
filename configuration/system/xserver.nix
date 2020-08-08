@@ -18,6 +18,10 @@
           };
         };
       };
+
+      sessionCommands = ''
+        ${pkgs.lightlocker}/bin/light-locker --lock-on-lid --lock-on-suspend --lock-after-screensaver=0 &
+      '';
     };
 
     synaptics = {
