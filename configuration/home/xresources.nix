@@ -7,7 +7,7 @@ in
     "*background" = "#${colors.base00.hex.rgb}";
     "*foreground" = "#${colors.base05.hex.rgb}";
     "*color0" = "#${colors.base00.hex.rgb}";
-    "*color8" = "#${colors.base01.hex.rgb}";
+    "*color8" = "#${colors.base03.hex.rgb}";
     "*color1" = "#${colors.base08.hex.rgb}";
     "*color9" = "#${colors.base08.hex.rgb}";
     "*color2" = "#${colors.base0B.hex.rgb}";
