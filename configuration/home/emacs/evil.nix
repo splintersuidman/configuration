@@ -15,7 +15,7 @@
     };
 
     evil-collection = {
-      enable = false;
+      enable = true;
       after = [ "evil" ];
       init = ''
         (setq evil-collection-setup-minibuffer nil)
