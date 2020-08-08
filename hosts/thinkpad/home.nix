@@ -42,6 +42,7 @@
     ../../configuration/home/redshift.nix
     ../../configuration/home/ssh.nix
     ../../configuration/home/texlive.nix
+    ../../configuration/home/tmux.nix
     ../../configuration/home/tools.nix
     ../../configuration/home/urxvt.nix
     ../../configuration/home/xresources.nix
