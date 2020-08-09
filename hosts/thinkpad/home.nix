@@ -47,6 +47,7 @@
     ../../configuration/home/tools.nix
     ../../configuration/home/unclutter.nix
     ../../configuration/home/urxvt.nix
+    ../../configuration/home/xdg.nix
     ../../configuration/home/xresources.nix
     ../../configuration/home/xsession.nix
     ../../configuration/home/yaml.nix
