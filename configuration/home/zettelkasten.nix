@@ -1,11 +1,14 @@
-{ ... }:
+{ config, ... }:
+let
+  documents = config.xdg.userDirs.documents;
+in
 {
   programs.emacs.init.usePackage = {
     zetteldeft = {
       enable = true;
       after = [ "evil-leader" ];
       init = ''
-        (setq deft-directory "~/docs/notities")
+        (setq deft-directory "${documents}/notities")
         (setq zetteldeft-id-format "%Y-%m-%d-%H%M")
         (setq zetteldeft-id-regex "[0-9]\\{4\\}\\(-[0-9]\\{2,\\}\\)\\{3\\}")
         (setq zetteldeft-title-prefix "#+TITLE: ")

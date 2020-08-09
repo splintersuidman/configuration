@@ -1,4 +1,7 @@
-{ ... }:
+{ config, ... }:
+let
+  documents = config.xdg.userDirs.documents;
+in 
 {
   programs.emacs.init.usePackage = {
     org = {
@@ -16,7 +19,7 @@
         (setq org-hide-emphasis-markers t)
         (setq org-highlight-latex-and-related '(latex script))
 
-        (setq org-agenda-files '("~/docs/agenda/" "~/docs/notities/"))
+        (setq org-agenda-files '("${documents}/agenda/" "${documents}/notities/"))
         (setq calendar-week-start-day 1)
         (setq calendar-day-name-array ["zondag" "maandag" "dinsdag" "woensdag"
                                        "donderdag" "vrijdag" "zaterdag"])
