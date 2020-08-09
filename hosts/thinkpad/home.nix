@@ -13,6 +13,7 @@
     ../../configuration/home/direnv.nix
     ../../configuration/home/dunst.nix
     ../../configuration/home/emacs.nix
+    ../../configuration/home/feh.nix
     ../../configuration/home/fonts.nix
     ../../configuration/home/games.nix
     ../../configuration/home/git.nix
