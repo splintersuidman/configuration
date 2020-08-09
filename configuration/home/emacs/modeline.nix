@@ -5,12 +5,17 @@
       enable = true;
       after = [ "evil" ];
       config = ''
+        ;; Make the tag " <V> " instead of 'evil-visual-tag for the
+        ;; visual state.
+        (setq evil-visual-state-tag " <V> ")
         (defun my/feebleline-evil-state ()
           "Return current evil state."
           (evil-state-property evil-state :tag t))
+
         (defun my/feebleline-major-mode ()
           "Return current major mode."
           (or mode-name ""))
+
         (defun my/feebleline-minor-modes ()
           "Return current minor modes."
           (string-join (split-string (format-mode-line minor-mode-alist)) "|"))
