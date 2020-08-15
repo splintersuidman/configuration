@@ -84,7 +84,7 @@
     extraGroups = [ "wheel" "audio" "networkmanager" "uinput" ];
   };
 
-  nix.trustedUsers = [ "@wheel" ];
+  nix.trustedUsers = [ "root" "@wheel" ];
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
