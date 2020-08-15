@@ -1,4 +1,19 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
+let
+  colors = config.theme.base16.colors;
+  rgb = base: "#${base.hex.rgb}";
+  rgba = base: alpha:
+    "rgba(${
+      lib.concatMapStringsSep ", " toString [
+        base.dec.r
+        base.dec.g
+        base.dec.b
+        alpha
+      ]
+    })";
+  rgbI = base: rgb base + " !important";
+  rgbaI = base: alpha: rgba base alpha + " !important";
+in
 {
   imports = [
     ../../modules/home/browser.nix
@@ -41,6 +56,13 @@
           # Adds MPRIS-support.
           "media.hardwaremediakeys.enabled" = true;
 
+          # Enables user chrome configuration.
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          # Use devtools theme based on the base-16 theme.
+          "devtools.theme" = "${config.theme.base16.kind}";
+          "browser.display.background_color" = rgb colors.base00;
+          "browser.display.foreground_color" = rgb colors.base05;
+
           "toolkit.telemetry.archive.enabled" = false;
           "toolkit.telemetry.enabled" = false;
           "toolkit.telemetry.rejected" = true;
@@ -70,6 +92,29 @@
           "browser.safebrowsing.downloads.remote.enabled" = false;
           "network.IDN_show_punycode" = true;
         };
+
+        userChrome = ''
+          @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+        '';
+  
+        userContent = ''
+          @-moz-document url(about:home), url(about:newtab) {
+            body {
+              --newtab-background-color: ${rgbI colors.base00};
+              --newtab-element-hover-color: ${rgbI colors.base01};
+              --newtab-icon-primary-color: ${rgbaI colors.base04 0.4};
+              --newtab-search-border-color: ${rgbaI colors.base01 0.2};
+              --newtab-search-dropdown-color: ${rgbI colors.base00};
+              --newtab-search-dropdown-header-color: ${rgbI colors.base00};
+              --newtab-search-icon-color: ${rgbaI colors.base04 0.4};
+              --newtab-text-primary-color: ${rgbI colors.base05};
+              --newtab-textbox-background-color: ${rgbI colors.base01};
+              --newtab-textbox-border: ${rgbaI colors.base01 0.2};
+              --newtab-topsites-background-color: ${rgbI colors.base04};
+              --newtab-topsites-label-color: ${rgbI colors.base05};
+            }
+          }
+        '';
       };
     };
   };
