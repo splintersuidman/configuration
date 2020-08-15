@@ -9,7 +9,7 @@
     };
     enableAutojump = true;
     shellOptions = [ "autocd" ];
-    profileExtra = ''
+    initExtra = ''
       # Enable vi mode
       set -o vi
     '';
