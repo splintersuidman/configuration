@@ -1,11 +1,19 @@
 { pkgs, ... }:
+let
+  nix-doc = pkgs.callPackage ../../nix/nix-doc.nix { };
+in
 {
   home.packages = [
     pkgs.nix-prefetch-git
     pkgs.cachix
     pkgs.haskellPackages.nixfmt
     pkgs.niv
+    nix-doc
   ];
+
+  xdg.configFile."nix/nix.conf".text = ''
+    plugin-files = ${nix-doc}/lib/libnix_doc_plugin.so
+  '';
 
   programs.emacs.init.usePackage = {
     nix-mode = {

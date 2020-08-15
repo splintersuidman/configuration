@@ -35,6 +35,19 @@
         "url": "https://github.com/nmattia/niv/archive/303f442c43f918bc43400ab4a0b662a82ca7748b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nix-doc": {
+        "branch": "main",
+        "description": "An interactive Nix documentation tool providing a CLI for function search and a Nix plugin for docs in the REPL",
+        "homepage": "",
+        "owner": "lf-",
+        "repo": "nix-doc",
+        "rev": "b572ac8adebd7544bb469c986e4199cda3f01744",
+        "sha256": "15falbgz27k3ji7qphbpwi0glja0drq03i7k12m86j3f2riflcyv",
+        "type": "tarball",
+        "url": "https://github.com/lf-/nix-doc/archive/b572ac8adebd7544bb469c986e4199cda3f01744.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "version": "v0.3.3"
+    },
     "nixpkgs": {
         "branch": "nixos-20.03",
         "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
