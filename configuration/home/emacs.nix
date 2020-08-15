@@ -19,6 +19,7 @@ in
     ./emacs/snippets.nix
     ./emacs/switch-window.nix
     ./emacs/theme.nix
+    ./emacs/vterm.nix
     ./emacs/which-key.nix
   ];
 
