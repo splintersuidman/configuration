@@ -63,6 +63,9 @@ in
           "browser.display.background_color" = rgb colors.base00;
           "browser.display.foreground_color" = rgb colors.base05;
 
+          # Set downloads directory.
+          "browser.download.dir" = config.xdg.userDirs.download;
+
           "toolkit.telemetry.archive.enabled" = false;
           "toolkit.telemetry.enabled" = false;
           "toolkit.telemetry.rejected" = true;
