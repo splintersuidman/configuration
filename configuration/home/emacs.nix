@@ -26,7 +26,7 @@ in
   services.emacs.enable = true;
   programs.emacs = {
     enable = true;
-    package = pkgs.unstable.emacs;
+    package = pkgs.emacs;
 
     init = {
       enable = true;

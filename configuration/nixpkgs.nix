@@ -7,8 +7,6 @@ in
   allowUnfree = true;
 
   packageOverrides = pkgs: {
-    unstable = import <nixos-unstable> { };
-
     nur = import sources.nur { inherit pkgs; };
 
     clang = pkgs.clang.overrideAttrs (attrs: {
