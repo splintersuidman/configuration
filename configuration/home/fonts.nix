@@ -18,8 +18,6 @@
     crimson
     ibm-plex
     mononoki
-    unstable.jetbrains-mono
-    unstable.cascadia-code
 
     fontforge-gtk
   ];
