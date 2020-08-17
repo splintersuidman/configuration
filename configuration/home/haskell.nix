@@ -13,6 +13,10 @@
     haskellPackages.hasktags
     cabal2nix
     haskellPackages.ghcide
+
+    # Liquid Haskell
+    haskellPackages.liquidhaskell
+    z3
   ];
 
   home.file.".ghc/ghci.conf".text = with pkgs.haskellPackages; ''
@@ -92,6 +96,10 @@
           "cp" 'haskell-interactive-mode-prompt-previous
           "cz" 'haskell-interactive-switch-back)
       '';
+    };
+
+    liquid-types = {
+      enable = true;
     };
 
     lsp-mode = {
