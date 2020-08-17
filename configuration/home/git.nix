@@ -5,10 +5,6 @@
     enable = true;
     userName = "Splinter Suidman";
     userEmail = "splinter@mannenopdemaan.nl";
-    signing = {
-      key = "splinter@mannenopdemaan.nl";
-      signByDefault = true;
-    };
 
     extraConfig = {
       pull.rebase = false;

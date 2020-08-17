@@ -7,4 +7,9 @@
     maxCacheTtl = 999999;
     enableSshSupport = true;
   };
+
+  programs.git.signing = {
+    key = "splinter@mannenopdemaan.nl";
+    signByDefault = true;
+  };
 }
