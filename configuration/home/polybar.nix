@@ -1,8 +1,24 @@
 { pkgs, config, ... }:
 let
   colors = config.theme.base16.colors;
+  hideIt = pkgs.nur.repos.splintah."hideIt.sh";
 in
 {
+  systemd.user.services.hide-polybar = {
+    Unit = {
+      Description = "Hides Polybar";
+      After = [ "polybar.target" ];
+    };
+    Service = {
+      Type = "simple";
+      # TODO:
+      # - peek with Polybar's line size
+      # - infer direction from config (if bottom then "bottom" else "top")
+      ExecStart = "${hideIt}/bin/hideIt.sh --name '^polybar' --hover --direction top --peek 2";
+      Restart = "on-failure";
+    };
+  };
+
   services.polybar = {
     enable = true;
     package = pkgs.polybar.override { mpdSupport = true; };
@@ -14,6 +30,7 @@ in
 
       "global/wm" = {
         margin-top = 0;
+        # TODO: is this the line size? If so, use that variable here.
         margin-bottom = 2;
       };
 
