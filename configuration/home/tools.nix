@@ -6,7 +6,6 @@
     transmission-gtk
     curl
     wget
-    nur.repos.splintah.onedrive
 
     # Images
     sxiv
