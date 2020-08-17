@@ -9,6 +9,10 @@
       key = "splinter@mannenopdemaan.nl";
       signByDefault = true;
     };
+
+    extraConfig = {
+      pull.rebase = false;
+    };
   };
 
   programs.emacs.init.usePackage = {
