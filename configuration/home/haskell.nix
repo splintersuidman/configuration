@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     ghc
     cabal-install
+    stack
     haskellPackages.hindent
     haskellPackages.pointfree
     haskellPackages.hoogle
