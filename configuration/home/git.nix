@@ -43,5 +43,14 @@
           "gp" 'git-gutter:previous-diff)
       '';
     };
+
+    browse-at-remote = {
+      enable = true;
+      after = [ "evil-leader" ];
+      config = ''
+        (evil-leader/set-key
+          "gr" 'browse-at-remote)
+      '';
+    };
   };
 }
