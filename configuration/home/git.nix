@@ -35,8 +35,12 @@
 
     git-gutter = {
       enable = true;
+      after = [ "evil-leader" ];
       config = ''
         (global-git-gutter-mode)
+        (evil-leader/set-key
+          "gn" 'git-gutter:next-diff
+          "gp" 'git-gutter:previous-diff)
       '';
     };
   };
