@@ -16,6 +16,7 @@
     ../../configuration/home/games.nix
     ../../configuration/home/git.nix
     ../../configuration/home/gpg.nix
+    ../../configuration/home/gtk.nix
     ../../configuration/home/haskell.nix
     ../../configuration/home/hledger.nix
     ../../configuration/home/home-manager.nix

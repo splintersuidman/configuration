@@ -6,6 +6,7 @@
 
     ./system/backlight.nix
 
+    ../../configuration/system/gtk.nix
     ../../configuration/system/printing.nix
     ../../configuration/system/shell.nix
     ../../configuration/system/tlp.nix
