@@ -1,12 +1,10 @@
-{ pkgs, config, lib, ... }:
+{ ... }:
 {
   imports = [
     ../../configuration/home.nix
 
     ../../configuration/home/agda.nix
     ../../configuration/home/audio.nix
-    ../../configuration/home/bash.nix
-    ../../configuration/home/bash.nix
     ../../configuration/home/browser.nix
     ../../configuration/home/c.nix
     ../../configuration/home/chat.nix
@@ -40,6 +38,7 @@
     ../../configuration/home/polybar.nix
     ../../configuration/home/python.nix
     ../../configuration/home/redshift.nix
+    ../../configuration/home/shell.nix
     ../../configuration/home/ssh.nix
     ../../configuration/home/texlive.nix
     ../../configuration/home/theme.nix
