@@ -39,6 +39,7 @@
     ../../configuration/home/polybar.nix
     ../../configuration/home/python.nix
     ../../configuration/home/redshift.nix
+    ../../configuration/home/scheme.nix
     ../../configuration/home/shell.nix
     ../../configuration/home/ssh.nix
     ../../configuration/home/texlive.nix
