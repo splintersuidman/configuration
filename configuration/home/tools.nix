@@ -12,6 +12,7 @@
     scrot
     gimp
     inkscape
+    nur.repos.splintah.giph
 
     # Programming tools
     gnumake
