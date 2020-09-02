@@ -37,7 +37,7 @@ in
   };
 
   home.sessionVariables = rec {
-    EDITOR = "${config.programs.emacs.package}/bin/emacsclient";
+    EDITOR = "${config.programs.emacs.package}/bin/emacsclient -c";
     VISUAL = EDITOR;
   };
 }
