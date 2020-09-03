@@ -3,6 +3,15 @@
   programs.emacs.init.usePackage = {
     vterm = {
       enable = true;
+
+      # TODO: doesn't work because C-n and C-p are shadowed by
+      # company-mode. When that issue is resolved, it is probably no
+      # longer needed to explicitly define their behaviour.
+      # extraConfig = ''
+      #   :bind (:map vterm-mode-map
+      #          ("C-n" . vterm-send-down)
+      #          ("C-p" . vterm-send-up))
+      # '';
     };
   };
 
