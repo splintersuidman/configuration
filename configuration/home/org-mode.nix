@@ -133,6 +133,22 @@ in
           "cxW" 'org-cut-special
           "cy" 'org-evaluate-time-range)
 
+          (evil-leader/set-key-for-mode 'org-agenda-mode
+            "c," 'org-agenda-priority
+            "ca" 'org-attach
+            "cd" 'org-agenda-deadline
+            "cn" 'org-agenda-next-date-line
+            "co" 'org-agenda-open-link
+            "cp" 'org-agenda-next-date-line
+            "cq" 'org-agenda-set-tags
+            "cs" 'org-agenda-schedule
+            "ct" 'org-agenda-todo
+            "cw" 'org-agenda-refile
+            ;; TODO: add more keys under cx.
+            "cx TAB" 'org-agenda-clock-in
+            "cxo" 'org-agenda-clock-out
+            "cz" 'org-agenda-add-note)
+
         ;; TODO: does not seem to work.
         (evil-leader/set-key-for-mode 'org-src-mode
           "c'" 'org-edit-src-exit
