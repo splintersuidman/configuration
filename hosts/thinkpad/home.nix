@@ -42,7 +42,7 @@
     ../../configuration/home/scheme.nix
     ../../configuration/home/shell.nix
     ../../configuration/home/ssh.nix
-    ../../configuration/home/texlive.nix
+    ../../configuration/home/tex.nix
     ../../configuration/home/theme.nix
     ../../configuration/home/tmux.nix
     ../../configuration/home/tools.nix
