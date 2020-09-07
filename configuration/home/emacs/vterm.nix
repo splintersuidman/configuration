@@ -1,17 +1,10 @@
 { ... }:
 {
   programs.emacs.init.usePackage = {
+    # TODO: vterm doesn't work correctly with evil-mode, which means
+    # that C-n and C-p don't work as expected.
     vterm = {
       enable = true;
-
-      # TODO: doesn't work because C-n and C-p are shadowed by
-      # company-mode. When that issue is resolved, it is probably no
-      # longer needed to explicitly define their behaviour.
-      # extraConfig = ''
-      #   :bind (:map vterm-mode-map
-      #          ("C-n" . vterm-send-down)
-      #          ("C-p" . vterm-send-up))
-      # '';
     };
   };
 
