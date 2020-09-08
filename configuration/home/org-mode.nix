@@ -149,6 +149,12 @@ in
             "cxo" 'org-agenda-clock-out
             "cz" 'org-agenda-add-note)
 
+            (evil-leader/set-key
+              "oa" 'org-agenda
+              "on" '(lambda ()
+	                    (interactive)
+	                    (org-agenda nil "n")))
+
         ;; TODO: does not seem to work.
         (evil-leader/set-key-for-mode 'org-src-mode
           "c'" 'org-edit-src-exit
