@@ -14,6 +14,7 @@ in
     ./emacs/font.nix
     ./emacs/gui.nix
     ./emacs/ido.nix
+    ./emacs/indent.nix
     ./emacs/jump.nix
     ./emacs/lsp.nix
     ./emacs/modeline.nix
