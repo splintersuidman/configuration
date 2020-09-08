@@ -26,6 +26,16 @@ in
         (setq calendar-month-name-array ["januari" "februari" "maart" "april" "mei"
                                          "juni" "juli" "augustus" "september"
                                          "oktober" "november" "december"])
+
+            (evil-leader/set-key
+              "oa" 'org-agenda
+              "on" '(lambda ()
+	                    (interactive)
+	                    (org-agenda nil "n"))
+              "oo" '(lambda ()
+	                    (interactive)
+	                    (org-agenda nil "n")
+                      (delete-other-windows)))
       '';
       config = ''
         (add-to-list 'org-modules 'org-tempo)
@@ -148,12 +158,6 @@ in
             "cx TAB" 'org-agenda-clock-in
             "cxo" 'org-agenda-clock-out
             "cz" 'org-agenda-add-note)
-
-            (evil-leader/set-key
-              "oa" 'org-agenda
-              "on" '(lambda ()
-	                    (interactive)
-	                    (org-agenda nil "n")))
 
         ;; TODO: does not seem to work.
         (evil-leader/set-key-for-mode 'org-src-mode
