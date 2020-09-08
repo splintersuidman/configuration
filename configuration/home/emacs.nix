@@ -19,6 +19,7 @@ in
     ./emacs/lsp.nix
     ./emacs/modeline.nix
     ./emacs/pairs.nix
+    ./emacs/shell.nix
     ./emacs/snippets.nix
     ./emacs/switch-window.nix
     ./emacs/theme.nix
