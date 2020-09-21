@@ -1,5 +1,7 @@
 { pkgs, ... }:
 let
+  sources = import ../../nix/sources.nix;
+  unstable = import sources.nixpkgs-unstable { };
   # Discord has a habit of disallowing older client versions...
   discord =
     let
@@ -13,7 +15,7 @@ in
 {
   home.packages = [
     pkgs.signal-desktop
-    pkgs.qtox
+    unstable.qtox
     discord
   ];
 }
