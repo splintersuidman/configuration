@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, config, ... }: {
   home.packages = with pkgs; [
     ghc
     cabal-install
@@ -95,7 +94,7 @@
     };
 
     lsp-haskell = {
-      enable = true;
+      enable = config.programs.emacs.init.usePackage.lsp-mode.enable;
       init = ''
         (setq lsp-haskell-process-path-hie "ghcide")
         (setq lsp-haskell-process-args-hie '())

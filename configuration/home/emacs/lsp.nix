@@ -1,8 +1,21 @@
-{ ... }:
-{
+{ ... }: {
   programs.emacs.init.usePackage = {
-    lsp-mode = {
+    eglot = {
       enable = true;
+      after = [ "evil-leader" ];
+
+      config = ''
+        (evil-leader/set-key
+          "lf" 'eglot-format
+          "lh" 'eglot-help-at-point
+          "ll" 'eglot
+          "lq" 'eglot-shutdown
+          "lr" 'eglot-rename)
+      '';
+    };
+
+    lsp-mode = {
+      enable = false;
       after = [ "evil-leader" "flycheck" ];
       command = [ "lsp" ];
       init = ''
@@ -16,7 +29,7 @@
     };
 
     lsp-ui = {
-      enable = true;
+      enable = false;
       after = [ "evil-leader" ];
       command = [ "lsp-ui-mode" ];
       init = ''
@@ -31,6 +44,5 @@
           "lm" 'lsp-ui-imenu)
       '';
     };
-
   };
 }

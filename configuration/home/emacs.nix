@@ -11,6 +11,7 @@ in
     ./emacs/completion.nix
     ./emacs/evil.nix
     ./emacs/flycheck.nix
+    ./emacs/flymake.nix
     ./emacs/font.nix
     ./emacs/gui.nix
     ./emacs/ido.nix

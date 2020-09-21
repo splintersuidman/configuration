@@ -2,7 +2,7 @@
 {
   programs.emacs.init.usePackage = {
     flycheck = {
-      enable = true;
+      enable = false;
       hook = [
         "(c-mode . flycheck-mode)"
         "(c++-mode . flycheck-mode)"
