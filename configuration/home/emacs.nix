@@ -20,6 +20,7 @@ in
     ./emacs/lsp.nix
     ./emacs/modeline.nix
     ./emacs/pairs.nix
+    ./emacs/pdf.nix
     ./emacs/shell.nix
     ./emacs/snippets.nix
     ./emacs/switch-window.nix
