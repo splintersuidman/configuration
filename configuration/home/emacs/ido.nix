@@ -1,8 +1,7 @@
-{ ... }:
-{
+{ config, ... }: {
   programs.emacs.init.usePackage = {
     ido = {
-      enable = true;
+      enable = false;
       init = ''
         (setq ido-enable-flex-matching t)
         (setq ido-create-new-buffer 'always)
@@ -14,7 +13,7 @@
     };
 
     ido-vertical-mode = {
-      enable = true;
+      enable = config.programs.emacs.init.usePackage.ido.enable;
       after = [ "ido" ];
       init = ''
         (setq ido-vertical-define-keys 'C-n-and-C-p-only)

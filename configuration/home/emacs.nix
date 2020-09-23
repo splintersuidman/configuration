@@ -16,6 +16,7 @@ in
     ./emacs/gui.nix
     ./emacs/ido.nix
     ./emacs/indent.nix
+    ./emacs/ivy.nix
     ./emacs/jump.nix
     ./emacs/lsp.nix
     ./emacs/modeline.nix

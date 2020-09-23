@@ -1,9 +1,7 @@
-{ ... }:
-{
+{ ... }: {
   programs.emacs.init.usePackage = {
     evil = {
       enable = true;
-      # after = [ "evil-leader" ];
       init = ''
         (setq evil-want-C-u-scroll t)
         (setq evil-want-keybinding nil)
@@ -39,7 +37,7 @@
 
     evil-leader = {
       enable = true;
-      after = [ "evil" ];
+      after = [ "evil" "counsel" ];
       init = ''
         (setq evil-leader/in-all-states t)
       '';
@@ -54,7 +52,9 @@
         (evil-leader/set-leader "<SPC>")
         (evil-leader/set-key
           ;; Buffer-related commands under `b'
-          "bb" 'switch-to-buffer
+          ;; NOTE: counsel is nicer here, because of ivy-rich and preview. Same
+          ;; for "bo".
+          "bb" 'counsel-switch-buffer
           "bB" 'list-buffers
           "bd" '(lambda ()
                   (interactive)
@@ -62,6 +62,7 @@
                     (kill-this-buffer)))
           "bD" 'kill-this-buffer
           "bk" 'kill-buffer
+          "bo" 'counsel-switch-buffer-other-window
           ;; Language-specific commands under `c'
           "cc" 'compile
           ;; "cm" 'make
@@ -70,6 +71,7 @@
           ;; File-related commands under `f'
           "fd" 'dired
           "ff" 'find-file
+          "fr" 'my/counsel-rg
           "fs" 'save-buffer
           ;; Help-related commands under `h'
           "h." 'display-local-help
