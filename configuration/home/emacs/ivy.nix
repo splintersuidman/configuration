@@ -1,5 +1,7 @@
 { pkgs, ... }:
-let ripgrep = "${pkgs.ripgrep}/bin/rg";
+let
+  ripgrep = "${pkgs.ripgrep}/bin/rg";
+  fzf = "${pkgs.fzf}/bin/fzf";
 in {
   programs.emacs.init.usePackage = {
     ivy = {
@@ -24,6 +26,7 @@ in {
       enable = true;
       init = ''
         (setq counsel-rg-base-command "${ripgrep} --with-filename --no-heading --line-number --color never %s")
+        (setq counsel-fzf-cmd "${fzf} -f \"%s\"")
       '';
       config = ''
         (defun my/counsel-rg ()

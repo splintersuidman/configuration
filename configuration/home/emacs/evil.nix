@@ -73,6 +73,7 @@
           "ff" 'find-file
           "fr" 'my/counsel-rg
           "fs" 'save-buffer
+          "fz" 'counsel-fzf
           ;; Help-related commands under `h'
           "h." 'display-local-help
           "h?" 'help-for-help
