@@ -9,6 +9,7 @@ in
 
     ./emacs/avy.nix
     ./emacs/completion.nix
+    ./emacs/elfeed.nix
     ./emacs/evil.nix
     ./emacs/flycheck.nix
     ./emacs/flymake.nix
