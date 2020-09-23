@@ -65,6 +65,8 @@
           ;; Language-specific commands under `c'
           "cc" 'compile
           ;; "cm" 'make
+          ;; Editing-related commands under `e'
+          "es" 'evil-ex-sort
           ;; File-related commands under `f'
           "fd" 'dired
           "ff" 'find-file
@@ -110,7 +112,7 @@
           "ws" 'split-window-vertically
           "wd" 'delete-window
           "w=" 'balance-windows
-        
+
           ;; Editing-related commands
           ";" 'comment-line
           "+" 'evil-numbers/inc-at-pt
@@ -118,5 +120,5 @@
         (global-evil-leader-mode t)
       '';
     };
-  };  
+  };
 }
