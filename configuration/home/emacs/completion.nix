@@ -19,14 +19,14 @@
                       (delete 'company-semantic company-backends)))
         ''
       ];
-      extraConfig = ''
-        :bind
-        (:map company-active-map
-              ("M-n" . nil)
-              ("M-p" . nil)
-              ("C-n" . company-select-next)
-              ("C-p" . company-select-previous))
-      '';
+      bindLocal = {
+        company-active-map = {
+          "M-n" = "nil";
+          "M-p" = "nil";
+          "C-n" = "company-select-next";
+          "C-p" = "company-select-previous";
+        };
+      };
     };
 
     irony = {
