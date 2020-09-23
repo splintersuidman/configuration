@@ -3,7 +3,7 @@
   programs.emacs.init = {
     usePackage.base16-theme = {
       enable = true;
-      after = [ "evil" ];
+      after = [ "evil" "evil-leader" ];
       init = ''
         (setq base16-distinct-fringe-background nil)
       '';
@@ -23,6 +23,10 @@
                   evil-visual-state-cursor  `(,(plist-get colors :base09) box)))
           (load-theme theme t))
         (my/load-base16-theme 'base16-tomorrow-night)
+
+        (evil-leader/set-key
+          "tl" 'load-theme
+          "tt" 'my/switch-theme)
       '';
       extraConfig = ''
         (defvar my/themes

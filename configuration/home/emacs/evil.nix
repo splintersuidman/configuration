@@ -100,8 +100,6 @@
           "ht" 'help-with-tutorial
           "hv" 'describe-variable
           "hw" 'where-is
-          ;; Theme-related commands under `t'
-          "tt" 'my/switch-theme
           ;; Window-related commands under `w'
           "wh" 'evil-window-left
           "wj" 'evil-window-down
