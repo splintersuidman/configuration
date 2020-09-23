@@ -1,5 +1,13 @@
+# Nix files
 **/result
-**/*~
+.envrc
 
-.ghc/*
-!.ghc/ghci.conf
+# Emacs files
+**/*~
+**/#*#
+
+# Files I don't want to include because they contain personal information I do
+# not want to share publicly.
+configuration/home/mail/accounts.nix
+configuration/home/newsboat/urls.nix
+configuration/home/emacs/elfeed/feeds.nix
