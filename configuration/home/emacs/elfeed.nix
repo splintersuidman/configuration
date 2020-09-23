@@ -30,7 +30,7 @@ in {
                           :command (list "${mpv}" (elfeed-entry-link entry)))))
 
         (evil-leader/set-key-for-mode 'elfeed-search-mode
-          "cr" 'elfeed-update
+          "cu" 'elfeed-update
           "cv" 'my/elfeed-mpv)
 
         (set-face-attribute 'elfeed-search-feed-face nil :inherit font-lock-function-name-face :foreground nil)
