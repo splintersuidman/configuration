@@ -3,8 +3,7 @@
 let
   sources = import ../nix/sources.nix;
   nixpkgs = import sources.nixpkgs { inherit (config.nixpkgs) config; };
-in
-{
+in {
   _module.args.pkgs = nixpkgs;
   nixpkgs.config = import ./nixpkgs.nix;
   nix.nixPath = [

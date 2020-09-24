@@ -1,9 +1,7 @@
 # Nixpkgs configuration. To use it system-wide, this can be imported
 # in ~/.config/nixpkgs/config.nix.
-let
-  sources = import ../nix/sources.nix;
-in
-{
+let sources = import ../nix/sources.nix;
+in {
   allowUnfree = true;
 
   packageOverrides = pkgs: {

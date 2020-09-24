@@ -11,6 +11,18 @@
         "url": "https://github.com/chriskempson/base16-tomorrow-scheme/archive/af9622bd6a041561837a865df5e15802d99d156a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "emacs-overlay": {
+        "branch": "master",
+        "description": "Bleeding edge emacs overlay [maintainer=@adisbladis] ",
+        "homepage": "",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "5803c85ecb8bb441cfe55ccb75413b26bef3cbea",
+        "sha256": "1x8g5d8lng47ijva79xy028d3g5pdpwdnv6p3mp7hhxggmaj6sk3",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/emacs-overlay/archive/5803c85ecb8bb441cfe55ccb75413b26bef3cbea.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "home-manager": {
         "branch": "release-20.03",
         "description": "Manage a user environment using Nix",
