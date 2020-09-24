@@ -58,5 +58,22 @@ in {
         ''(mu4e-main-mode . mu4e-alert-enable-notifications)''
       ];
     };
+
+    mu4e-views = {
+      enable = true;
+      after = [ "mu4e" "evil-leader" ];
+      init = ''
+        (setq mu4e-views-completion-method 'ivy)
+      '';
+      config = ''
+        ;; NOTE: HTML via xwidgets is very buggy, so disable it. (I do
+        ;; use the "browser" command, so this package is still useful.)
+        (setq mu4e-views-view-commands
+              (assoc-delete-all "html" mu4e-views-view-commands))
+
+        (evil-leader/set-key-for-mode 'mu4e-headers-mode
+          "cv" 'mu4e-views-mu4e-select-view-msg-method)
+      '';
+    };
   };
 }
