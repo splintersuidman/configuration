@@ -15,6 +15,7 @@ in
     ./emacs/flymake.nix
     ./emacs/font.nix
     ./emacs/gui.nix
+    ./emacs/help.nix
     ./emacs/ido.nix
     ./emacs/indent.nix
     ./emacs/ivy.nix
