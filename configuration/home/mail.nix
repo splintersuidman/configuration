@@ -44,5 +44,19 @@ in {
         :load-path "${mu4eLoadPath}"
       '';
     };
+
+    mu4e-alert = {
+      enable = true;
+      after = [ "mu4e" ];
+      init = ''
+        (setq mu4e-alert-email-notification-types '(subjects))
+      '';
+      config = ''
+        (mu4e-alert-set-default-style 'libnotify)
+      '';
+      hook = [
+        ''(mu4e-main-mode . mu4e-alert-enable-notifications)''
+      ];
+    };
   };
 }
