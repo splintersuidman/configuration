@@ -25,5 +25,8 @@
 
     ;; Use `y' and `n' instead of `yes' and `no'.
     (defalias 'yes-or-no-p 'y-or-n-p)
+
+    ;; Inhibit messages for redefined functions.
+    (setq ad-redefinition-action 'accept)
   '';
 }
