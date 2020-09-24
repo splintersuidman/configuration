@@ -69,8 +69,8 @@
           ;; Editing-related commands under `e'
           "es" 'evil-ex-sort
           ;; File-related commands under `f'
-          "fd" 'dired
-          "ff" 'find-file
+          "fd" 'counsel-dired
+          "ff" 'counsel-find-file
           "fr" 'my/counsel-rg
           "fs" 'save-buffer
           ;; Help-related commands under `h'
@@ -86,7 +86,7 @@
           "hc" 'describe-key-briefly
           "hd" 'apropos-documentation
           "he" 'view-echo-area-messages
-          "hf" 'describe-function
+          "hf" 'counsel-describe-function
           "hg" 'describe-gnu-project
           "hh" 'view-hello-file
           "hi" 'info
@@ -100,7 +100,7 @@
           "hr" 'info-emacs-manual
           "hs" 'describe-syntax
           "ht" 'help-with-tutorial
-          "hv" 'describe-variable
+          "hv" 'counsel-describe-variable
           "hw" 'where-is
           ;; Window-related commands under `w'
           "wh" 'evil-window-left
