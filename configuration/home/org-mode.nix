@@ -192,5 +192,30 @@ in {
       after = [ "org" ];
       hook = [ "(org-mode . org-fragtog-mode)" ];
     };
+
+    org-super-agenda = {
+      enable = true;
+      after = [ "org" ];
+      hook = [ "(org-mode . org-super-agenda-mode)" ];
+      init = ''
+        (setq org-super-agenda-groups
+              '((:name none
+                       :time-grid t)
+                (:name "Belangrijk"
+                       :priority "A")
+                (:name "Huiswerk"
+                       :tag ("huiswerk" "homework"))
+                (:name "TODO"
+                       :tag "TODO")
+                (:name "Overig"
+                       :anything t))) 
+
+        (setq org-super-agenda-header-separator "")
+
+        ;; Disable the org-super-agenda-header-map, because it
+        ;; interferes with evil-org.
+        (setq org-super-agenda-header-map (make-sparse-keymap))
+      '';
+    };
   };
 }
