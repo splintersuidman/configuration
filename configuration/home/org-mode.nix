@@ -1,12 +1,10 @@
 { config, ... }:
-let
-  documents = config.xdg.userDirs.documents;
-in 
-{
+let documents = config.xdg.userDirs.documents;
+in {
   programs.emacs.init.usePackage = {
     org = {
       enable = true;
-      hook = [ "(org-mode . auto-fill-mode) "];
+      hook = [ "(org-mode . auto-fill-mode)" ];
       after = [ "evil-leader" ];
       init = ''
         (setq org-log-done 'time)
@@ -27,15 +25,15 @@ in
                                          "juni" "juli" "augustus" "september"
                                          "oktober" "november" "december"])
 
-            (evil-leader/set-key
-              "oa" 'org-agenda
-              "on" '(lambda ()
-	                    (interactive)
-	                    (org-agenda nil "n"))
-              "oo" '(lambda ()
-	                    (interactive)
-	                    (org-agenda nil "n")
-                      (delete-other-windows)))
+        (evil-leader/set-key
+          "oa" 'org-agenda
+          "on" '(lambda ()
+                 (interactive)
+                 (org-agenda nil "n"))
+          "oo" '(lambda ()
+                 (interactive)
+                 (org-agenda nil "n")
+                 (delete-other-windows)))
       '';
       config = ''
         (add-to-list 'org-modules 'org-tempo)
@@ -187,8 +185,12 @@ in
       '';
     };
 
-    org-ref = {
-      enable = false;
+    org-ref = { enable = false; };
+
+    org-fragtog = {
+      enable = true;
+      after = [ "org" ];
+      hook = [ "(org-mode . org-fragtog-mode)" ];
     };
   };
 }
