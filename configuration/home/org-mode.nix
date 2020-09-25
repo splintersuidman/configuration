@@ -141,21 +141,28 @@ in {
           "cxW" 'org-cut-special
           "cy" 'org-evaluate-time-range)
 
-          (evil-leader/set-key-for-mode 'org-agenda-mode
-            "c," 'org-agenda-priority
-            "ca" 'org-attach
-            "cd" 'org-agenda-deadline
-            "cn" 'org-agenda-next-date-line
-            "co" 'org-agenda-open-link
-            "cp" 'org-agenda-next-date-line
-            "cq" 'org-agenda-set-tags
-            "cs" 'org-agenda-schedule
-            "ct" 'org-agenda-todo
-            "cw" 'org-agenda-refile
-            ;; TODO: add more keys under cx.
-            "cx TAB" 'org-agenda-clock-in
-            "cxo" 'org-agenda-clock-out
-            "cz" 'org-agenda-add-note)
+        (evil-leader/set-key-for-mode 'org-agenda-mode
+          "c," 'org-agenda-priority
+          "ca" 'org-attach
+          "cd" 'org-agenda-deadline
+          "cn" 'org-agenda-next-date-line
+          "co" 'org-agenda-open-link
+          "cp" 'org-agenda-next-date-line
+          "cq" 'org-agenda-set-tags
+          "cs" 'org-agenda-schedule
+          "ct" 'org-agenda-todo
+          "cw" 'org-agenda-refile
+          ;; TODO: add more keys under cx.
+          "cx TAB" 'org-agenda-clock-in
+          "cxo" 'org-agenda-clock-out
+          "cz" 'org-agenda-add-note
+
+          ;; TODO: evil-org's [ and ] seem to be broken. C-h C-m says
+          ;; that the bindings are shadowed, but I cannot find by
+          ;; what. Version of 2020-01-01 does work, version of
+          ;; 2020-09-22 does not.
+          "c[" 'org-agenda-earlier
+          "c]" 'org-agenda-later)
 
         ;; TODO: does not seem to work.
         (evil-leader/set-key-for-mode 'org-src-mode
@@ -196,7 +203,7 @@ in {
     org-super-agenda = {
       enable = true;
       after = [ "org" ];
-      hook = [ "(org-mode . org-super-agenda-mode)" ];
+      hook = [ "(org-agenda-mode . org-super-agenda-mode)" ];
       init = ''
         (setq org-super-agenda-groups
               '((:name none
