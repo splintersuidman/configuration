@@ -13,6 +13,7 @@ in
     ./emacs/evil.nix
     ./emacs/flycheck.nix
     ./emacs/flymake.nix
+    ./emacs/fold.nix
     ./emacs/font.nix
     ./emacs/gui.nix
     ./emacs/help.nix
