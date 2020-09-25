@@ -43,8 +43,11 @@ in
                 ("^dvi$" "." "${zathura} %o")))
       '';
       config = ''
+        ;; Revert TeX document buffer after compilation.
+        (add-hook 'TeX-after-compilation-finished-functions
+                  'TeX-revert-document-buffer)
         (setf (alist-get 'output-pdf TeX-view-program-selection)
-              '("Zathura"))
+              '("PDF Tools"))
         '';
     };
   };
