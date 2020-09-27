@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 let documents = config.xdg.userDirs.documents;
 in {
   programs.emacs.init.usePackage = {
@@ -222,6 +222,40 @@ in {
         ;; Disable the org-super-agenda-header-map, because it
         ;; interferes with evil-org.
         (setq org-super-agenda-header-map (make-sparse-keymap))
+      '';
+    };
+
+    org-roam = {
+      enable = true;
+      after = [ "evil-leader" ];
+      init = ''
+        (setq org-roam-directory "${documents}/notities")
+
+        ;; NOTE: not setting this causes an error, because
+        ;;   (boundp 'emacsql-sqlite3-executable)
+        ;;   => t
+        ;; but
+        ;;   emacsql-sqlite3-executable
+        ;;   => nil
+        ;; which makes
+        ;;   (file-executable-p emacsql-sqlite3-executable)
+        ;;   => error
+        (setq emacsql-sqlite3-executable "${pkgs.sqlite}/bin/sqlite3")
+
+        (setq org-roam-graph-executable "${pkgs.graphviz}/bin/dot")
+
+        (setq org-roam-capture-templates
+              '(("d" "default" plain (function org-roam--capture-get-point)
+                 "%?"
+                 :file-name "%<%Y-%m-%d-%H%M> ''${title}"
+                 :head "#+title: ''${title}\n"
+                 :unnarrowed t)))
+      '';
+      config = ''
+        (evil-leader/set-key
+          "zf" 'org-roam-find-file
+          "zi" 'org-roam-insert
+          "zr" 'org-roam)
       '';
     };
   };
