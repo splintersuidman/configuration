@@ -2,8 +2,7 @@
 let
   sources = import ../../nix/sources.nix;
   nix-doc = pkgs.callPackage ../../nix/nix-doc.nix { };
-in
-{
+in {
   home.packages = [
     pkgs.nix-prefetch-git
     pkgs.cachix
@@ -27,6 +26,7 @@ in
       config = ''
         (evil-leader/set-key-for-mode 'nix-mode
           "cc" 'nix-build
+          "cf" 'nix-format-buffer
           "cr" 'nix-repl)
       '';
     };

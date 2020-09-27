@@ -74,6 +74,7 @@
           "cef" 'haskell-goto-first-error
           "cen" 'haskell-goto-next-error
           "cep" 'haskell-goto-prev-error
+          "cf" 'haskell-mode-stylish-buffer
           "cl" 'haskell-process-load-file
           "cL" 'haskell-process-load-file-choose-type
           "ck" 'haskell-interactive-mode-clear

@@ -6,11 +6,16 @@ in {
   programs.emacs.init.usePackage = {
     rust-mode = {
       enable = true;
-      after = if eglotEnable then [ "eglot" ] else [ ];
+      after = [ "evil-leader" ] ++ (if eglotEnable then [ "eglot" ] else [ ]);
       init = if eglotEnable then ''
         (add-to-list 'eglot-server-programs '(rust-mode . (eglot-rls "rls")))
       '' else
         "";
+      config = ''
+        (evil-leader/set-key-for-mode 'rust-mode
+          "cf" 'rust-format-buffer
+          "cF" 'rust-format-diff-buffer)
+      '';
     };
   };
 }
