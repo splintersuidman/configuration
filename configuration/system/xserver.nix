@@ -23,6 +23,7 @@
         ${pkgs.lightlocker}/bin/light-locker --lock-on-lid --lock-on-suspend --lock-after-screensaver=0 &
       '';
     };
+    windowManager.xmonad.enable = true;
 
     synaptics = {
       horizEdgeScroll = true;
