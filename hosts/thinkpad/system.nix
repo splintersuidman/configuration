@@ -1,5 +1,8 @@
 { pkgs, ... }:
-{
+let
+  sources = import ../../nix/sources.nix;
+  unstable = import sources.nixpkgs-unstable { };
+in {
   imports = [
     ../../configuration/system.nix
     ./system/hardware-configuration.nix
@@ -18,7 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use Linux Libre.
-  boot.kernelPackages = pkgs.linuxPackages_5_7;
+  boot.kernelPackages = unstable.linuxPackages_5_8;
 
   networking.hostName = "thinkpad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -29,9 +32,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "nl_NL.UTF-8";
-  };
+  i18n = { defaultLocale = "nl_NL.UTF-8"; };
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
