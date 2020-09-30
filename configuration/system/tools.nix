@@ -13,6 +13,7 @@
     curl
 
     # Other/system tools
+    brightnessctl
     coreutils
     file
     gnupg
