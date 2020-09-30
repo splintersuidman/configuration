@@ -1,19 +1,17 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.gyre-fonts ];
+  home.packages = [ pkgs.dejavu_fonts ];
 
   programs.emacs.init.prelude = ''
-    (set-face-attribute
-     'default
-     nil
-     :height 105
-     :family "DejaVu Sans Mono")
+    (set-face-attribute 'default nil
+                        :family "DejaVu Sans Mono"
+                        :height 105)
 
     ;; Test characters:
     ;; ∘ ℕ ℤ ℚ ℝ ⊥ ⊤ ≡ ≈ ≟ ∀ ∃
 
     ;; Variable pitch face.
     (set-face-attribute 'variable-pitch nil
-                        :family "TeX Gyre Pagella"
-                        :height 125)
+                        :family "DejaVu Sans"
+                        :height 105)
   '';
 }
