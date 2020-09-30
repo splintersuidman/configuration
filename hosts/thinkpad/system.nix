@@ -2,10 +2,13 @@
 let
   sources = import ../../nix/sources.nix;
   unstable = import sources.nixpkgs-unstable { };
+  nixos-hardware = sources.nixos-hardware;
 in {
   imports = [
     ../../configuration/system.nix
     ./system/hardware-configuration.nix
+    "${nixos-hardware}/common/cpu/amd"
+    "${nixos-hardware}/common/pc/laptop/acpi_call.nix"
 
     ../../configuration/system/gtk.nix
     ../../configuration/system/printing.nix
@@ -20,7 +23,8 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use Linux Libre.
+  # Use Linux 5.8. In this version, suspend on lid close, the
+  # microphone, and other things work.
   boot.kernelPackages = unstable.linuxPackages_5_8;
 
   networking.hostName = "thinkpad"; # Define your hostname.
