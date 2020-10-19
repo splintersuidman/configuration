@@ -8,7 +8,7 @@
       "Shift-Control-C" = "eval:selection_to_clipboard";
       "Shift-Control-V" = "eval:paste_clipboard";
     };
-    fonts = [ "xft:DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true" ];
+    fonts = [ "xft:Iosevka Custom:pixelsize=13:antialias=true:autohint=true" ];
     iso14755 = false;
     scroll = {
       bar.enable = false;

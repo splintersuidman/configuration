@@ -11,7 +11,7 @@ in
     enable = true;
     options = {
       selection-clipboard = "clipboard";
-      font = "DejaVu Sans Mono 9";
+      font = "Iosevka Custom 10";
       page-padding = 1;
       default-bg = background;
       default-fg = foreground;

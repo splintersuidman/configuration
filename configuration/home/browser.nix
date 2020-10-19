@@ -53,6 +53,11 @@ in
         isDefault = true;
 
         settings = {
+          # Font settings.
+          "font.name.monospace.x-western" = "Iosevka Cusotm";
+          "font.name.sans-serif.x-western" = "Iosevka Aile";
+          "font.name.serif.x-western" = "Iosevka Aile";
+
           # Adds MPRIS-support.
           "media.hardwaremediakeys.enabled" = true;
 

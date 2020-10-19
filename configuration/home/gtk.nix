@@ -7,8 +7,7 @@ in
   gtk = {
     enable = true;
     font = {
-      package = pkgs.dejavu_fonts; 
-      name = "DejaVu Sans 10";
+      name = "Iosevka Aile 10";
     }; 
 
     gtk3.extraConfig = {

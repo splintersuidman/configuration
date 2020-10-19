@@ -1,7 +1,9 @@
-{ pkgs, ... }:
-{
-  # TODO: firefox crashes when true.
-  fonts.fontconfig.enable = false;
+{ pkgs, ... }: {
+  fonts.fontconfig.enable = true;
+
+  imports = [
+    ./fonts/iosevka.nix
+  ];
 
   home.packages = with pkgs; [
     fantasque-sans-mono

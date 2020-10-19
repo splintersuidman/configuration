@@ -22,7 +22,7 @@ in
         separator_color = "frame";
         sort = true;
         idle_threshold = 120;
-        font = "Dejavu Sans Mono 9";
+        font = "Iosevka Custom 10";
         line_height = 0;
         markup = "full";
         format = "<b>%s</b>\\n%b";

@@ -38,9 +38,8 @@ in
         modules-center = [ ];
         modules-right = [ "alsa" "xkeyboard" "memory" "cpu" "eth" "wlan" "battery" "date" ];
 
-        # font-0 = "Fira Mono:pixelsize=9:antialias=true:autohint=true";
-        font-0 = "DejaVu Sans Mono:pixelsize=9:antialias=true:autohint=true";
-        font-1 = "DejaVu Sans Mono:style=Bold:pixelsize=9:antialias=true:autohint=true";
+        font-0 = "Iosevka Custom:pixelsize=10:antialias=true:autohint=true";
+        font-1 = "Iosevka Custom:style=Bold:pixelsize=10:antialias=true:autohint=true";
         font-2 = "unifont:fontformat=truetype:size=8:antialias=false;0";
         font-3 = "siji:pixelsize=10;1";
 

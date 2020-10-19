@@ -3,15 +3,20 @@
 
   programs.emacs.init.prelude = ''
     (set-face-attribute 'default nil
-                        :family "DejaVu Sans Mono"
-                        :height 105)
+                        :family "Iosevka Custom"
+                        :height 110)
+
+    (set-face-attribute 'font-lock-comment-face nil
+                        :slant 'italic)
+    (set-face-attribute 'font-lock-doc-face nil
+                        :slant 'italic)
 
     ;; Test characters:
     ;; ∘ ℕ ℤ ℚ ℝ ⊥ ⊤ ≡ ≈ ≟ ∀ ∃
 
     ;; Variable pitch face.
     (set-face-attribute 'variable-pitch nil
-                        :family "DejaVu Sans"
+                        :family "Iosevka Aile"
                         :height 105)
   '';
 }
