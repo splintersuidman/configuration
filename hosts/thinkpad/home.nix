@@ -1,7 +1,8 @@
-{ ... }:
-{
+{ ... }: {
   imports = [
     ../../configuration/home.nix
+
+    ./home/polybar.nix
 
     ../../configuration/home/agda.nix
     ../../configuration/home/audio.nix
@@ -14,6 +15,7 @@
     ../../configuration/home/feh.nix
     ../../configuration/home/fonts.nix
     ../../configuration/home/games.nix
+    ../../configuration/home/gestures.nix
     ../../configuration/home/git.nix
     ../../configuration/home/gpg.nix
     ../../configuration/home/gtk.nix

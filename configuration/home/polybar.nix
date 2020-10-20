@@ -116,7 +116,6 @@ in
 
       "module/wlan" = {
         type = "internal/network";
-        interface = "wlp2s0";
         interval = "3.0";
 
         format-connected = "<ramp-signal> <label-connected>";
@@ -138,7 +137,6 @@ in
 
       "module/eth" = {
         type = "internal/network";
-        interface = "enp0s25";
         interval = "3.0";
 
         format-connected-underline = "#${colors.base0E.hex.rgb}";
@@ -195,9 +193,6 @@ in
 
       "module/battery" = {
         type = "internal/battery";
-        battery = "BAT0";
-        # adapter = "ADP1";
-        adapter = "AC";
         full-at = 98;
 
         format-charging = "%{T1}<animation-charging> <label-charging>%{T-}";

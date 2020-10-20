@@ -1,7 +1,8 @@
-{ ... }:
-{
+{ ... }: {
   imports = [
     ../../configuration/home.nix
+
+    ./home/polybar.nix
 
     ../../configuration/home/agda.nix
     ../../configuration/home/audio.nix
