@@ -76,7 +76,7 @@ in {
 
   users.users.splinter = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "networkmanager" "uinput" ];
+    extraGroups = [ "wheel" "audio" "networkmanager" "uinput" "input" ];
   };
 
   nix.trustedUsers = [ "root" "@wheel" ];
