@@ -33,7 +33,6 @@
     ../../configuration/home/mpdscribble.nix
     ../../configuration/home/mpv.nix
     ../../configuration/home/ncmpcpp.nix
-    ../../configuration/home/newsboat.nix
     ../../configuration/home/nix.nix
     ../../configuration/home/onedrive.nix
     ../../configuration/home/org-mode.nix
