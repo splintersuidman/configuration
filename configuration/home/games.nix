@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   home.packages = [
     pkgs.desmume
     (pkgs.freeciv.override {

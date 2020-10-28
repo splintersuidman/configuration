@@ -1,24 +1,12 @@
 { pkgs, config, ... }:
 let
-  agda = pkgs.haskellPackages.Agda;
-  stdlib = pkgs.AgdaStdlib;
+  agda = pkgs.agda.withPackages
+    (agdaPkgs: with agdaPkgs; [ standard-library cubical agda-categories ]);
 in {
-  home.packages = [ agda stdlib ];
+  home.packages = [ agda ];
 
   home.file.".agda/defaults".text = ''
     standard-library
-  '';
-
-  home.file.".agda/standard-library.agda-lib".text = ''
-    name: standard-library
-    include: ${stdlib}/share/agda
-  '';
-
-  home.file.".agda/libraries".text = let
-    stdlibPath = (config.home.homeDirectory) + "/"
-      + config.home.file.".agda/standard-library.agda-lib".target;
-  in ''
-    ${stdlibPath}
   '';
 
   programs.emacs.init.usePackage = {

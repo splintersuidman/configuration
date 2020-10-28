@@ -23,9 +23,9 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use Linux 5.8. In this version, suspend on lid close, the
-  # microphone, and other things work.
-  boot.kernelPackages = unstable.linuxPackages_5_8;
+  # Since Linux 5.8, suspend on lid close, the microphone, and other
+  # things work on this machine.
+  boot.kernelPackages = unstable.linuxPackages_5_9;
 
   networking.hostName = "thinkpad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

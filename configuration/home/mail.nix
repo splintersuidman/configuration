@@ -7,8 +7,6 @@ in {
   home.packages = [
     pkgs.thunderbird
     pkgs.neomutt
-
-    pkgs.mu
   ];
 
   imports = [
@@ -16,6 +14,7 @@ in {
     ./mail/accounts.nix
   ];
 
+  programs.mu.enable = true;
   programs.mbsync.enable = true;
 
   programs.emacs.init.usePackage = {

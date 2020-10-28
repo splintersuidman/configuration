@@ -4,20 +4,17 @@ let
 
   sources = import ../../nix/sources.nix;
   nurNoPkgs = import sources.nur { };
-in
-{
-  imports = [
-    nurNoPkgs.repos.rycee.hmModules.theme-base16
-  ];
+
+  kind = "dark";
+  theme = let
+    filename =
+      if kind == "dark" then "tomorrow-night.yaml" else "tomorrow.yaml";
+  in fromYamlFile "${sources.base16-tomorrow-scheme}/${filename}";
+in {
+  imports = [ nurNoPkgs.repos.rycee.hmModules.theme-base16 ];
 
   theme.base16 = rec {
-    kind = "dark";
-    colors =
-      let
-        file = if kind == "dark"
-          then "tomorrow-night.yaml"
-          else "tomorrow.yaml";
-      in
-        fromYamlFile "${sources.base16-tomorrow-scheme}/${file}";
+    inherit kind;
+    inherit (theme) name colors;
   };
 }

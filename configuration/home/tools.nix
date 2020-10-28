@@ -17,9 +17,6 @@
     # Programming tools
     gnumake
 
-    # Maths tools
-    sageWithDoc
-
     # Man pages
     manpages
     # stdmanpages # C++ std documentation manpages

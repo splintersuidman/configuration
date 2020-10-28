@@ -3,8 +3,7 @@
     ghc
     cabal-install
     stack
-    haskellPackages.hindent
-    haskellPackages.pointfree
+    # haskellPackages.pointfree
     haskellPackages.hoogle
     haskellPackages.hlint
     haskellPackages.ghcid
@@ -14,9 +13,9 @@
     haskellPackages.ghcide
   ];
 
+  # :def pf \s -> pure $ ":!${pointfree}/bin/pointfree \"" <> s <> "\""
   home.file.".ghc/ghci.conf".text = with pkgs.haskellPackages; ''
     :def hoogle \s -> pure $ ":!${hoogle}/bin/hoogle --count=15 \"" <> s <> "\""
-    :def pf \s -> pure $ ":!${pointfree}/bin/pointfree \"" <> s <> "\""
     :def hlint \s -> pure $ ":!${hlint}/bin/hlint \"" <> s <> "\""
     :set prompt "λ> "
     :set +t

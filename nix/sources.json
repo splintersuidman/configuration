@@ -17,22 +17,22 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "5803c85ecb8bb441cfe55ccb75413b26bef3cbea",
-        "sha256": "1x8g5d8lng47ijva79xy028d3g5pdpwdnv6p3mp7hhxggmaj6sk3",
+        "rev": "ccd0f77c4604a68ff5bdd002e3d99e218c2c6250",
+        "sha256": "1i0jbw7fxr0vqn6sk3b3rhww76kxp6jmll0s9dlv9yg4275i8295",
         "type": "tarball",
-        "url": "https://github.com/nix-community/emacs-overlay/archive/5803c85ecb8bb441cfe55ccb75413b26bef3cbea.tar.gz",
+        "url": "https://github.com/nix-community/emacs-overlay/archive/ccd0f77c4604a68ff5bdd002e3d99e218c2c6250.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "home-manager": {
-        "branch": "release-20.03",
+        "branch": "master",
         "description": "Manage a user environment using Nix",
         "homepage": "https://rycee.gitlab.io/home-manager/",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "318bc0754ed6370cfcae13183a7f13f7aa4bc73f",
-        "sha256": "0hgn85yl7gixw1adjfa9nx8axmlpw5y1883lzg3zigknx6ff5hsr",
+        "rev": "28eb093a1e6999d52e60811008b4bfc7e20cc591",
+        "sha256": "0nfpby733q96vnmp2cbz25bnp3d7vkgmramn4hs1sn5xavhb1mbp",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/318bc0754ed6370cfcae13183a7f13f7aa4bc73f.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/28eb093a1e6999d52e60811008b4bfc7e20cc591.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -47,19 +47,6 @@
         "url": "https://github.com/nmattia/niv/archive/303f442c43f918bc43400ab4a0b662a82ca7748b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "nix-doc": {
-        "branch": "main",
-        "description": "An interactive Nix documentation tool providing a CLI for function search and a Nix plugin for docs in the REPL",
-        "homepage": "",
-        "owner": "lf-",
-        "repo": "nix-doc",
-        "rev": "b572ac8adebd7544bb469c986e4199cda3f01744",
-        "sha256": "15falbgz27k3ji7qphbpwi0glja0drq03i7k12m86j3f2riflcyv",
-        "type": "tarball",
-        "url": "https://github.com/lf-/nix-doc/archive/b572ac8adebd7544bb469c986e4199cda3f01744.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "version": "v0.3.3"
-    },
     "nixos-hardware": {
         "branch": "master",
         "description": "A collection of NixOS modules covering hardware quirks.",
@@ -73,15 +60,15 @@
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
-        "branch": "nixos-20.03",
+        "branch": "nixos-20.09",
         "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
-        "repo": "nixpkgs-channels",
-        "rev": "3506bce1d405f078c09a5201e3bb46eb64d5e9e7",
-        "sha256": "1hhdcyd0fsn97z2xhz5676rhs4rjcy7phw0mmgjqamw7mg6mb6g4",
+        "repo": "nixpkgs",
+        "rev": "13d0c311e3ae923a00f734b43fd1d35b47d8943a",
+        "sha256": "0izp5y55whbdaf26w3zy2xvkjvlll39lib1ifvb61ps9gmvlqn39",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/3506bce1d405f078c09a5201e3bb46eb64d5e9e7.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/13d0c311e3ae923a00f734b43fd1d35b47d8943a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-unstable": {
@@ -89,11 +76,11 @@
         "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
-        "repo": "nixpkgs-channels",
-        "rev": "2a35f664394b379e0c0785cc769ff6ccc791be39",
-        "sha256": "1ac01hyvniiwrwgqlvmx76dxc7aqg71nx3d05d0dc35lbyjq7acf",
+        "repo": "nixpkgs",
+        "rev": "1dc37370c489b610f8b91d7fdd40633163ffbafd",
+        "sha256": "1qvfxf83rya7shffvmy364p79isxmzcq4dxa0lkm5b3ybicnd8f4",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/2a35f664394b379e0c0785cc769ff6ccc791be39.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/1dc37370c489b610f8b91d7fdd40633163ffbafd.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nur": {
@@ -102,10 +89,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "95611be4706724743142ab0f28ba26e8ebbcae3d",
-        "sha256": "1jmg133vr1cxglsi7a3bbif3z4x0xdqn8w69mmlin0x1jixxslk4",
+        "rev": "a16eef1477e3961688cc1b10fe42848850ee1b84",
+        "sha256": "05rm89k1aqdjjiglyandp9hihi9i9q780zii2v9kzcyl195167f9",
         "type": "tarball",
-        "url": "https://github.com/nix-community/nur/archive/95611be4706724743142ab0f28ba26e8ebbcae3d.tar.gz",
+        "url": "https://github.com/nix-community/nur/archive/a16eef1477e3961688cc1b10fe42848850ee1b84.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "passenv": {

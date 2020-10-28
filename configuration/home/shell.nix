@@ -7,7 +7,6 @@
       ".." = "cd ..";
       "..." = "cd ../..";
     };
-    enableAutojump = true;
     shellOptions = [ "autocd" ];
     initExtra = ''
       # Enable vi mode
@@ -21,4 +20,6 @@
       set completion-ignore-case on
     '';
   };
+
+  programs.autojump.enable = true;
 }
