@@ -9,6 +9,8 @@
     extraConfig = {
       pull.rebase = false;
     };
+
+    lfs.enable = true;
   };
 
   programs.emacs.init.usePackage = {
