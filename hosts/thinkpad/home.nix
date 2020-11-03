@@ -6,6 +6,7 @@
 
     ../../configuration/home/agda.nix
     ../../configuration/home/audio.nix
+    ../../configuration/home/autorandr.nix
     ../../configuration/home/browser.nix
     ../../configuration/home/c.nix
     ../../configuration/home/chat.nix

@@ -10,6 +10,7 @@ in {
     "${nixos-hardware}/common/cpu/amd"
     "${nixos-hardware}/common/pc/laptop/acpi_call.nix"
 
+    ../../configuration/system/autorandr.nix
     ../../configuration/system/gtk.nix
     ../../configuration/system/printing.nix
     ../../configuration/system/shell.nix
