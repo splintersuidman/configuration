@@ -1,5 +1,16 @@
 { ... }: {
   programs.emacs.init.usePackage = {
+    # Note: should load undo-tree after evil; otherwise C-u scroll does not work
+    # and evil-collection complains that evil-want-keybinding is not set to nil.
+    undo-tree = {
+      enable = true;
+      after = [ "evil" ];
+      config = ''
+        (evil-set-undo-system 'undo-tree)
+        (global-undo-tree-mode)
+      '';
+    };
+
     evil = {
       enable = true;
       init = ''
