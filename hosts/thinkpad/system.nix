@@ -1,7 +1,6 @@
 { pkgs, ... }:
 let
   sources = import ../../nix/sources.nix;
-  unstable = import sources.nixpkgs-unstable { };
   nixos-hardware = sources.nixos-hardware;
 in {
   imports = [
@@ -26,7 +25,7 @@ in {
 
   # Since Linux 5.8, suspend on lid close, the microphone, and other
   # things work on this machine.
-  boot.kernelPackages = unstable.linuxPackages_5_9;
+  boot.kernelPackages = pkgs.linuxPackages_5_9;
 
   networking.hostName = "thinkpad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
