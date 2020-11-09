@@ -11,12 +11,12 @@ I use [home-manager](https://github.com/rycee/home-manager) to build the home co
 - Terminal: urxvt, tmux
 - Browser: [Firefox](https://www.mozilla.org/en-US/firefox/)
 - Music: [mopidy](https://mopidy.com) (server), [ncmpcpp](https://rybczak.net/ncmpcpp) (client)
-- News reader: [newsboat](https://newsboat.org/)
-- PDF reader: [zathura](https://pwmt.org/projects/zathura)
+- News reader: [elfeed](https://github.com/skeeto/elfeed)
+- PDF reader: [zathura](https://pwmt.org/projects/zathura) and [pdf-tools (Emacs)](https://github.com/politza/pdf-tools)
 - Status bar: [Polybar](https://polybar.github.io)
 - Password manager: [pass](https://www.passwordstore.org)
-- E-mail: [Thunderbird](https://www.thunderbird.net/)
-- Font: DejaVu Sans Mono
+- E-mail: [mu4e](https://www.djcbsoftware.nl/code/mu/mu4e.html)
+- Font: [Iosevka](https://github.com/be5invis/Iosevka/)
 - Theme: [base-16](https://github.com/chriskempson/base16) [Tomorrow Night](https://github.com/chriskempson/base16-tomorrow-scheme).
 
 ## License
