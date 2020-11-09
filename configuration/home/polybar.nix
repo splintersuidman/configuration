@@ -50,6 +50,8 @@ in
         cursor-scroll = "ns-resize";
 
         override-redirect = true;
+
+        enable-ipc = true;
       };
 
       "module/xmonad" = {
