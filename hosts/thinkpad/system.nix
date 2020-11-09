@@ -17,6 +17,7 @@ in {
     ../../configuration/system/tools.nix
     ../../configuration/system/tor.nix
     ../../configuration/system/xserver.nix
+    ./system/logind.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
