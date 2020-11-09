@@ -49,4 +49,10 @@ in {
       };
     };
   };
+
+  # I use the NixOS option services.autorandr to run autorandr in batch mode (it
+  # is necessary to run it as root), but it does not do it after boot.
+  xsession.initExtra = ''
+    ${pkgs.autorandr}/bin/autorandr --change
+  '';
 }
