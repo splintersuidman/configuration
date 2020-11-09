@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, config, lib, ... }:
 let
   fingerprints = {
     HDMI-1 =
@@ -40,6 +40,12 @@ in {
             position = "1680x0";
           };
         };
+      };
+    };
+    hooks = {
+      postswitch = lib.optionalAttrs config.services.polybar.enable {
+        "polybar-restart" =
+          "${config.services.polybar.package}/bin/polybar-msg cmd restart";
       };
     };
   };
