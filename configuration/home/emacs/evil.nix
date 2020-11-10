@@ -118,6 +118,10 @@
           "wj" 'evil-window-down
           "wk" 'evil-window-up
           "wl" 'evil-window-right
+          "wH" 'windmove-swap-states-left
+          "wJ" 'windmove-swap-states-down
+          "wK" 'windmove-swap-states-up
+          "wL" 'windmove-swap-states-right
           "wo" 'other-window
           "wv" 'split-window-horizontally
           "ws" 'split-window-vertically
