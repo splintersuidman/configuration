@@ -2,8 +2,7 @@
 let
   colors = config.theme.base16.colors;
   browser = config.programs.browser.program;
-in
-{
+in {
   services.dunst = {
     enable = true;
     settings = {
@@ -69,6 +68,32 @@ in
         foreground = "#${colors.base05.hex.rgb}";
         frame_color = "#${colors.base08.hex.rgb}";
         timeout = 0;
+      };
+
+      led = {
+        script = let
+          brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+          sleep = "${pkgs.coreutils}/bin/sleep";
+          grep = "${pkgs.gnugrep}/bin/grep";
+          sed = "${pkgs.gnused}/bin/sed";
+          script = pkgs.writeScriptBin "led" ''
+            #!${pkgs.bash}/bin/bash
+            devices=$(${brightnessctl} --machine-readable --list | ${grep} capslock | ${sed} 's/,.*//g')
+            for _ in {1..2}
+            do
+              for device in $devices
+              do
+                ${brightnessctl} --device "$device" set 1
+              done
+              ${pkgs.coreutils}/bin/sleep 0.1
+              for device in $devices
+              do
+                ${brightnessctl} --device "$device" set 0
+              done
+              ${pkgs.coreutils}/bin/sleep 0.1
+            done
+          '';
+        in "${script}/bin/led";
       };
     };
   };
