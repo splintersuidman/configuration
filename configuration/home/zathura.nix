@@ -2,7 +2,7 @@
 let
   colors = config.theme.base16.colors;
   background = "#${colors.base00.hex.rgb}";
-  backgroundAlt = "#${colors.base01.hex.rgb}";
+  backgroundAlt = "#${colors.base00.hex.rgb}";
   foreground = "#${colors.base05.hex.rgb}";
   foregroundAlt = "#${colors.base04.hex.rgb}";
 in
