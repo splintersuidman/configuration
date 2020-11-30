@@ -14,10 +14,13 @@ let
     phases = [ "installPhase" ];
     installPhase = ''
       mkdir -p $out/bin
+      cp ${xmonad-splintah}/bin/xmonad-splintah $out/bin/xmonad
       cp ${xmonad-splintah}/bin/xmonad-splintah $out/bin/xmonad-${targetSystem}
     '';
   };
 in {
+  home.packages = [ xmonad ];
+
   xsession = {
     enable = true;
     initExtra = ''
