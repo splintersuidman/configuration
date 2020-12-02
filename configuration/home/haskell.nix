@@ -1,4 +1,9 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+let
+  hls =
+    "${pkgs.haskellPackages.haskell-language-server}/bin/haskell-language-server-wrapper";
+  eglotEnable = config.programs.emacs.init.usePackage.eglot.enable;
+in {
   home.packages = with pkgs; [
     ghc
     cabal-install
@@ -63,7 +68,10 @@
                  (process-type (intern choice)))
             (let ((haskell-process-type process-type))
               (haskell-process-load-file))))
-      '';
+      '' + (if eglotEnable then ''
+        (add-to-list 'eglot-server-programs '(haskell-mode . ("${hls}" "--lsp")))
+      '' else
+        "");
 
       config = ''
         (general-define-key
