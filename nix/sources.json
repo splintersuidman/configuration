@@ -101,10 +101,10 @@
         "homepage": "https://splintah.github.io/passenv/",
         "owner": "splintah",
         "repo": "passenv",
-        "rev": "00f6d61f741a6928984477b7da07c421be77ec85",
-        "sha256": "0qizkg5rhiiyj9hxd6iby18nypwxas0ypfzd5hm7b6djj8nnv7zc",
+        "rev": "bf72b638bd96073d62857122778c4dc67b370ee0",
+        "sha256": "16bc4phh6jq0zwfflxn5vnbh95jkzl1manfzqrh3940h7ly13fwp",
         "type": "tarball",
-        "url": "https://github.com/splintah/passenv/archive/00f6d61f741a6928984477b7da07c421be77ec85.tar.gz",
+        "url": "https://github.com/splintah/passenv/archive/bf72b638bd96073d62857122778c4dc67b370ee0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

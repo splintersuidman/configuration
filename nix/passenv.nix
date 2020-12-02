@@ -57,6 +57,10 @@ in
             , ("SPOTIFY_CLIENT_ID", value "client_id")
             , ("SPOTIFY_CLIENT_SECRET", value "client_secret")
             ])
+       <> passKV "listenbrainz.org" (env
+            [ ("LISTENBRAINZ_USERNAME", value "username")
+            , ("LISTENBRAINZ_AUTH_TOKEN", value "auth_token")
+            ])
     '';
   };
 }
