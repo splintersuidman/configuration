@@ -20,12 +20,15 @@ in {
   programs.emacs.init.usePackage = {
     nix-mode = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       config = ''
-        (evil-leader/set-key-for-mode 'nix-mode
-          "cc" 'nix-build
-          "cf" 'nix-format-buffer
-          "cr" 'nix-repl)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'nix-mode-map
+          "c" '(nix-build :which-key "Build")
+          "f" '(nix-format-buffer :which-key "Format buffer")
+          "r" '(nix-repl :which-key "REPL"))
       '';
     };
   };

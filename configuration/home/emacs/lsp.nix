@@ -2,12 +2,16 @@
   programs.emacs.init.usePackage = {
     eglot = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
 
       config = ''
-        (evil-leader/set-key
+        ;; TODO: doesn't seem to work.
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
+          "la" 'eglot-code-actions
           "lf" 'eglot-format
-          "lh" 'eglot-help-at-point
           "ll" 'eglot
           "lq" 'eglot-shutdown
           "lr" 'eglot-rename)
@@ -16,21 +20,24 @@
 
     lsp-mode = {
       enable = false;
-      after = [ "evil-leader" "flycheck" ];
+      after = [ "general" "flycheck" ];
       command = [ "lsp" ];
       init = ''
         ;; Prefer lsp-ui with flycheck over flymake.
         (setq lsp-prefer-flymake nil)
       '';
       config = ''
-        (evil-leader/set-key
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
           "ll" 'lsp)
       '';
     };
 
     lsp-ui = {
       enable = false;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       command = [ "lsp-ui-mode" ];
       init = ''
         (setq lsp-ui-doc-enable nil)
@@ -38,7 +45,10 @@
       '';
 
       config = ''
-        (evil-leader/set-key
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
           "ld" 'lsp-ui-doc-glance
           "lgd" 'lsp-ui-peek-find-definitions
           "lm" 'lsp-ui-imenu)

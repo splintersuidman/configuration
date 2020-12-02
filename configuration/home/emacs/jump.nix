@@ -3,9 +3,13 @@
   programs.emacs.init.usePackage = {
     dumb-jump = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       config = ''
-        (evil-leader/set-key
+        ;; TODO: doesn't seem to work.
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
           "jj" 'dumb-jump-go
           "jo" 'dumb-jump-go-other-window
           "je" 'dumb-jump-go-prefer-external

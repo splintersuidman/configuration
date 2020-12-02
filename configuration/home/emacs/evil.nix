@@ -46,44 +46,63 @@
       '';
     };
 
-    evil-leader = {
+    # TODO: use a specialised function for leader-key definitions instead of
+    # general-define-key. This function cannot be defined in the :config section
+    # of general.el's use-package form, because then it will not be defined.
+    general = {
       enable = true;
-      after = [ "evil" "counsel" ];
+      after = [ "evil" ];
       init = ''
-        (setq evil-leader/in-all-states t)
-      '';
-      # TODO: does not seem to work.
-      extraConfig = ''
-        :functions
-        (evil-leader/set-key
-         eval-leader/set-leader
-         global-evil-leader-mode)
+        (defconst my-leader "SPC"
+          "Leader key.")
+        (defconst my-local-leader (concat my-leader " c")
+          "Local leader key.")
+
+        (setq general-override-states '(insert emacs hybrid normal visual motion operator replace))
       '';
       config = ''
-        (evil-leader/set-leader "<SPC>")
-        (evil-leader/set-key
+        (general-define-key
+          :states '(normal visual motion)
+          :prefix my-leader
+          :keymaps 'override
+
+          ;; Unbind leader key.
+          "" nil
+
+          ;; Prefix keys
+          "b" '(:ignore t :which-key "Buffer")
+          "c" '(:ignore t :which-key "Local")
+          "e" '(:ignore t :which-key "Editing")
+          "f" '(:ignore t :which-key "File")
+          "g" '(:ignore t :which-key "Git")
+          "h" '(:ignore t :which-key "Help")
+          "j" '(:ignore t :which-key "Jump")
+          "l" '(:ignore t :which-key "Lsp")
+          "o" '(:ignore t :which-key "Org-mode")
+          "t" '(:ignore t :which-key "Theme")
+          "w" '(:ignore t :which-key "Window")
+          "z" '(:ignore t :which-key "Org-roam")
+
           ;; Buffer-related commands under `b'
           ;; NOTE: counsel is nicer here, because of ivy-rich and preview. Same
           ;; for "bo".
-          "bb" 'counsel-switch-buffer
-          "bB" 'list-buffers
-          "bd" '(lambda ()
-                  (interactive)
-                  (when (y-or-n-p "Kill this buffer? ")
-                    (kill-this-buffer)))
-          "bD" 'kill-this-buffer
-          "bk" 'kill-buffer
-          "bo" 'counsel-switch-buffer-other-window
-          ;; Language-specific commands under `c'
-          "cc" 'compile
-          ;; "cm" 'make
+          "bb" '(counsel-switch-buffer :which-key "Switch buffer")
+          "bB" '(list-buffers :which-key "List buffers")
+          "bd" '((lambda ()
+                   (interactive)
+                   (when (y-or-n-p "Kill this buffer? ")
+                     (kill-this-buffer)))
+                 :which-key "Kill this buffer")
+          "bD" '(kill-this-buffer :which-key "Force kill this buffer")
+          "bk" '(kill-buffer :which-key "Kill buffer")
+          "bo" '(counsel-switch-buffer-other-window :which-key "Switch buffer other window")
           ;; Editing-related commands under `e'
-          "es" 'evil-ex-sort
+          "es" '(evil-ex-sort :which-key "Sort")
           ;; File-related commands under `f'
-          "fd" 'counsel-dired
-          "ff" 'counsel-find-file
-          "fr" 'my/counsel-rg
-          "fs" 'save-buffer
+          "fd" '(counsel-dired :which-key "Dired")
+          "ff" '(counsel-find-file :which-key "Find file")
+          "fr" '(my/counsel-rg :which-key "Ripgrep")
+          "fs" '(save-buffer :which-key "Save buffer")
           ;; Help-related commands under `h'
           "h." 'display-local-help
           "h?" 'help-for-help
@@ -114,25 +133,28 @@
           "hv" 'counsel-describe-variable
           "hw" 'where-is
           ;; Window-related commands under `w'
-          "wh" 'evil-window-left
-          "wj" 'evil-window-down
-          "wk" 'evil-window-up
-          "wl" 'evil-window-right
-          "wH" 'windmove-swap-states-left
-          "wJ" 'windmove-swap-states-down
-          "wK" 'windmove-swap-states-up
-          "wL" 'windmove-swap-states-right
-          "wo" 'other-window
-          "wv" 'split-window-horizontally
-          "ws" 'split-window-vertically
-          "wd" 'delete-window
-          "w=" 'balance-windows
+          "wh" '(evil-window-left :which-key "Left")
+          "wj" '(evil-window-down :which-key "Down")
+          "wk" '(evil-window-up :which-key "Up")
+          "wl" '(evil-window-right :which-key "Right")
+          "wH" '(windmove-swap-states-left :which-key "Swap left")
+          "wJ" '(windmove-swap-states-down :which-key "Swap down")
+          "wK" '(windmove-swap-states-up :which-key "Swap up")
+          "wL" '(windmove-swap-states-right :which-key "Swap right")
+          "wo" '(other-window :which-key "Other window")
+          "wv" '(split-window-horizontally :which-key "Split horizontally")
+          "ws" '(split-window-vertically :which-key "Split vertically")
+          "wd" '(delete-window :which-key "Delete")
+          "w=" '(balance-windows :which-key "Balance")
+
+          ;; M-x
+          "SPC" '(counsel-M-x :which-key "M-x")
+          "x" '(counsel-M-x :which-key "M-x")
 
           ;; Editing-related commands
-          ";" 'comment-line
-          "+" 'evil-numbers/inc-at-pt
-          "-" 'evil-numbers/dec-at-pt)
-        (global-evil-leader-mode t)
+          ";" '(comment-dwim :which-key "Comment")
+          "+" '(evil-numbers/inc-at-pt :which-key "Increase at point")
+          "-" '(evil-numbers/dec-at-pt :which-key "Decrease at point"))
       '';
     };
   };

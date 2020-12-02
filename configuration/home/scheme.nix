@@ -14,22 +14,25 @@
 
     geiser = {
       enable = true;
-      after = [ "scheme" "company" "evil-leader" ];
+      after = [ "scheme" "company" "general" ];
       init = ''
         (setq geiser-active-implementations '(guile))
       '';
       config = ''
-        (evil-leader/set-key-for-mode 'scheme-mode
-          "c\\" 'geiser-insert-lambda
-          "cb" 'geiser-eval-buffer
-          "cc" 'geiser-eval-definition
-          "ce" 'geiser-eval-last-sexp
-          "ck" 'geiser-compile-current-buffer
-          "cl" 'geiser-load-file
-          "cL" 'geiser-load-current-buffer
-          "cr" 'geiser-eval-region
-          "cs" 'geiser-set-scheme
-          "cz" 'geiser-doc-switch-to-repl)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'scheme-mode-map
+          "\\" 'geiser-insert-lambda
+          "b" 'geiser-eval-buffer
+          "c" 'geiser-eval-definition
+          "e" 'geiser-eval-last-sexp
+          "k" 'geiser-compile-current-buffer
+          "l" 'geiser-load-file
+          "L" 'geiser-load-current-buffer
+          "r" 'geiser-eval-region
+          "s" 'geiser-set-scheme
+          "z" 'geiser-doc-switch-to-repl)
       '';
     };
   };

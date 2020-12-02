@@ -20,7 +20,7 @@ in {
   programs.emacs.init.usePackage = {
     mu4e = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       init = ''
         (setq mu4e-mu-binary "${mu}"
 
@@ -36,8 +36,11 @@ in {
         (setq send-mail-function 'mailclient-send-it)
       '';
       config = ''
-        (evil-leader/set-key-for-mode 'mu4e-headers-mode
-          "cu" 'mu4e-update-mail-and-index)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'mu4e-headers-mode-map
+          "u" 'mu4e-update-mail-and-index)
       '';
       extraConfig = ''
         :load-path "${mu4eLoadPath}"
@@ -60,7 +63,7 @@ in {
 
     mu4e-views = {
       enable = true;
-      after = [ "mu4e" "evil-leader" ];
+      after = [ "mu4e" "general" ];
       init = ''
         (setq mu4e-views-completion-method 'ivy)
       '';
@@ -70,8 +73,11 @@ in {
         (setq mu4e-views-view-commands
               (assoc-delete-all "html" mu4e-views-view-commands))
 
-        (evil-leader/set-key-for-mode 'mu4e-headers-mode
-          "cv" 'mu4e-views-mu4e-select-view-msg-method)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'mu4e-headers-mode-map
+          "v" 'mu4e-views-mu4e-select-view-msg-method)
       '';
     };
   };

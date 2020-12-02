@@ -1,34 +1,15 @@
 { pkgs, ... }:
-let
-  zathura = "${pkgs.zathura}/bin/zathura";
-in
-{
+let zathura = "${pkgs.zathura}/bin/zathura";
+in {
   programs.texlive = {
     enable = true;
-    extraPackages = tpkgs: {
-      inherit (tpkgs) scheme-full;
-    };
+    extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
   };
 
   programs.emacs.init.usePackage = {
-    tex-mode = {
-      enable = false;
-      after = [ "evil-leader" ];
-      extraConfig = ''
-        :defines TeX-engine
-      '';
-      init = ''
-        (setq TeX-engine 'xetex)
-      '';
-      config = ''
-        (evil-leader/set-key-for-mode 'tex-mode
-          "cc" 'TeX-command-master
-          "cv" 'TeX-view)
-      '';
-    };
-
     latex = {
       enable = true;
+      after = [ "general" ];
       mode = [ ''("\\.tex\\'" . latex-mode)'' ];
       package = epkgs: epkgs.auctex;
       init = ''
@@ -48,7 +29,16 @@ in
                   'TeX-revert-document-buffer)
         (setf (alist-get 'output-pdf TeX-view-program-selection)
               '("PDF Tools"))
-        '';
+
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'LaTeX-mode-map
+          "c" 'TeX-command-master
+          "e" 'LaTeX-environment
+          "s" 'LaTeX-section
+          "v" 'TeX-view)
+      '';
     };
   };
 }

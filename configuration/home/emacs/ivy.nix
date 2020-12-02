@@ -42,9 +42,13 @@ in {
 
     swiper = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       config = ''
-        (evil-leader/set-key "ss" 'swiper)
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
+          "/" '(swiper :which-key "Swiper"))
       '';
     };
   };

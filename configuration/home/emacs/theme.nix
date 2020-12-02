@@ -3,7 +3,7 @@
   programs.emacs.init = {
     usePackage.base16-theme = {
       enable = true;
-      after = [ "evil" "evil-leader" ];
+      after = [ "evil" "general" ];
       init = ''
         (setq base16-distinct-fringe-background nil)
       '';
@@ -24,9 +24,13 @@
           (load-theme theme t))
         (my/load-base16-theme 'base16-tomorrow-night)
 
-        (evil-leader/set-key
-          "tl" 'load-theme
-          "tt" 'my/switch-theme)
+        ;; TODO: doesn't seem to work.
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
+          "tl" '(load-theme :which-key "Load theme")
+          "tt" '(my/switch-theme :which-key "Switch theme"))
       '';
       extraConfig = ''
         (defvar my/themes

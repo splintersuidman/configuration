@@ -16,9 +16,12 @@
   programs.emacs.init.usePackage = {
     magit = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       init = ''
-        (evil-leader/set-key
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
           "gg" 'magit-status)
       '';
     };
@@ -37,10 +40,13 @@
 
     git-gutter = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       config = ''
         (global-git-gutter-mode)
-        (evil-leader/set-key
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
           "gn" 'git-gutter:next-diff
           "gp" 'git-gutter:previous-diff)
       '';
@@ -48,9 +54,12 @@
 
     browse-at-remote = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       config = ''
-        (evil-leader/set-key
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'override
           "gr" 'browse-at-remote)
       '';
     };

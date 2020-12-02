@@ -25,7 +25,7 @@
   programs.emacs.init.usePackage = {
     haskell-mode = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ] ++ (if eglotEnable then [ "eglot" ] else [ ]);
       mode = [
         ''("\\.hs\\'" . haskell-mode)''
         ''("\\.hsc\\'" . haskell-mode)''
@@ -66,30 +66,36 @@
       '';
 
       config = ''
-        (evil-leader/set-key-for-mode 'haskell-mode
-          "c," 'haskell-mode-format-imports
-          "cb" 'haskell-interactive-switch
-          "cc" 'haskell-process-cabal-build
-          "cef" 'haskell-goto-first-error
-          "cen" 'haskell-goto-next-error
-          "cep" 'haskell-goto-prev-error
-          "cf" 'haskell-mode-stylish-buffer
-          "cl" 'haskell-process-load-file
-          "cL" 'haskell-process-load-file-choose-type
-          "ck" 'haskell-interactive-mode-clear
-          "cr" 'haskell-process-reload
-          "cs" 'haskell-mode-stylish-buffer
-          "ct" 'haskell-process-do-type
-          "cv" 'haskell-cabal-visit-file
-          "cx" 'haskell-process-cabal)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'interactive-haskell-mode-map
+          "," 'haskell-mode-format-imports
+          "b" 'haskell-interactive-switch
+          "c" 'haskell-process-cabal-build
+          "ef" 'haskell-goto-first-error
+          "en" 'haskell-goto-next-error
+          "ep" 'haskell-goto-prev-error
+          "f" 'haskell-mode-stylish-buffer
+          "l" 'haskell-process-load-file
+          "L" 'haskell-process-load-file-choose-type
+          "k" 'haskell-interactive-mode-clear
+          "r" 'haskell-process-reload
+          "s" 'haskell-mode-stylish-buffer
+          "t" 'haskell-process-do-type
+          "v" 'haskell-cabal-visit-file
+          "x" 'haskell-process-cabal)
 
-        (evil-leader/set-key-for-mode 'haskell-interactive-mode
-          "cc" 'haskell-process-interrupt
-          "cf" 'next-error-follow-minor-mode
-          "ck" 'haskell-interactive-mode-clear
-          "cn" 'haskell-interactive-mode-prompt-next
-          "cp" 'haskell-interactive-mode-prompt-previous
-          "cz" 'haskell-interactive-switch-back)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'haskell-interactive-mode-map
+          "c" 'haskell-process-interrupt
+          "f" 'next-error-follow-minor-mode
+          "k" 'haskell-interactive-mode-clear
+          "n" 'haskell-interactive-mode-prompt-next
+          "p" 'haskell-interactive-mode-prompt-previous
+          "z" 'haskell-interactive-switch-back)
       '';
     };
 

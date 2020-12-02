@@ -15,7 +15,7 @@ in {
   programs.emacs.init.usePackage = {
     elfeed = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       init = ''
         (setq elfeed-feeds '(${feeds}))
       '';
@@ -29,9 +29,18 @@ in {
             (make-process :name (elfeed-entry-title entry)
                           :command (list "${mpv}" (elfeed-entry-link entry)))))
 
-        (evil-leader/set-key-for-mode 'elfeed-search-mode
-          "cu" 'elfeed-update
-          "cv" 'my/elfeed-mpv)
+        ;; Unbind leader key, as elfeed binds SPC.
+        (general-define-key
+          :prefix my-leader
+          :states '(normal visual motion)
+          :keymaps 'elfeed-search-mode-map
+          "" nil)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'elfeed-search-mode-map
+          "u" 'elfeed-update
+          "v" 'my/elfeed-mpv)
 
         (set-face-attribute 'elfeed-search-feed-face nil :inherit font-lock-function-name-face :foreground nil)
         (set-face-attribute 'elfeed-search-tag-face nil :inherit font-lock-type-face :foreground nil)

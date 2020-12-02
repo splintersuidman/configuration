@@ -8,7 +8,7 @@
   programs.emacs.init.usePackage = {
     ledger-mode = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
       mode = [
         ''("\\.ledger\\'" . ledger-mode)''
         ''("\\.journal\\'" . ledger-mode)''
@@ -17,27 +17,30 @@
         (setq ledger-binary-path "${pkgs.hledger}/bin/hledger")
       '';
       config = ''
-        (evil-leader/set-key-for-mode 'ledger-mode
-          "ca" 'ledger-add-transaction
-          "cb" 'ledger-post-edit-amount
-          "cc" 'ledger-toggle-current
-          "cd" 'ledger-delete-current-transaction
-          "ce" 'ledger-toggle-current-transaction
-          "cf" 'ledger-occur
-          "ck" 'ledger-copy-transaction-at-point
-          "cl" 'ledger-display-ledger-stats
-          "coa" 'ledger-report-redo
-          "coe" 'ledger-report-edit-report
-          "cog" 'ledger-report-goto
-          "cok" 'ledger-report-quit
-          "cor" 'ledger-report
-          "cos" 'ledger-report-save
-          "cp" 'ledger-display-balance-at-point
-          "cq" 'ledger-post-align-xact
-          "cr" 'ledger-reconcile
-          "cs" 'ledger-sort-region
-          "ct" 'ledger-insert-effective-date
-          "cu" 'ledger-schedule-upcoming)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'ledger-mode-map
+          "a" 'ledger-add-transaction
+          "b" 'ledger-post-edit-amount
+          "c" 'ledger-toggle-current
+          "d" 'ledger-delete-current-transaction
+          "e" 'ledger-toggle-current-transaction
+          "f" 'ledger-occur
+          "k" 'ledger-copy-transaction-at-point
+          "l" 'ledger-display-ledger-stats
+          "oa" 'ledger-report-redo
+          "oe" 'ledger-report-edit-report
+          "og" 'ledger-report-goto
+          "ok" 'ledger-report-quit
+          "or" 'ledger-report
+          "os" 'ledger-report-save
+          "p" 'ledger-display-balance-at-point
+          "q" 'ledger-post-align-xact
+          "r" 'ledger-reconcile
+          "s" 'ledger-sort-region
+          "t" 'ledger-insert-effective-date
+          "u" 'ledger-schedule-upcoming)
       '';
     };
   };

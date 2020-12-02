@@ -12,7 +12,7 @@ in {
   programs.emacs.init.usePackage = {
     agda2-mode = {
       enable = true;
-      after = [ "evil-leader" ];
+      after = [ "general" ];
 
       # The agda2-mode package in emacsPackages is often not the same version as
       # the agda2-mode Emacs package contained in the Agda package, so use the
@@ -34,36 +34,39 @@ in {
       ];
 
       config = ''
-        (evil-leader/set-key-for-mode 'agda2-mode
-          "c," 'agda2-goal-and-context
-          "c." 'agda2-goal-and-context-and-inferred
-          "c;" 'agda2-goal-context-and-checked
-          "c=" 'agda2-show-constraints
-          "c?" 'agda2-show-goals
-          "ca" 'agda2-auto-maybe-all
-          "cb" 'agda2-previous-goal
-          "cc" 'agda2-make-case
-          "cd" 'agda2-infer-type-maybe-toplevel
-          "ce" 'agda2-show-context
-          "cf" 'agda2-next-goal
-          "ch" 'agda2-helper-function-type
-          "cl" 'agda2-load
-          "cn" 'agda2-compute-normalised-maybe-toplevel
-          "co" 'agda2-module-contents-maybe-toplevel
-          "cr" 'agda2-refine
-          "cs" 'agda2-solve-maybe-all
-          "ct" 'agda2-goal-type
-          "cw" 'agda-why-in-scope-maybe-toplevel
-          "cxa" 'agda2-abort
-          "cxc" 'agda2-compile
-          "cxd" 'agda2-remove-annotations
-          "cxh" 'agda2-remove-implicit-arguments
-          "cxl" 'agda2-load
-          "cxq" 'agda2-quit
-          "cxr" 'agda2-restart
-          "cxs" 'agda2-set-program-version
-          "cx;" 'agda2-comment-dwim-rest-of-buffer
-          "cz" 'agda2-search-about-toplevel)
+        (general-define-key
+          :prefix my-local-leader
+          :states '(normal visual motion)
+          :keymaps 'agda2-mode-map
+          "," '(agda2-goal-and-context :which-key "Goal and context")
+          "." '(agda2-goal-and-context-and-inferred :which-key "Goal, context and inferred")
+          ";" '(agda2-goal-and-context-and-checked :which-key "Goal, context and checked")
+          "=" '(agda2-show-constraints :which-key "Show constraints")
+          "?" '(agda2-show-goals :which-key "Show goals")
+          "a" '(agda2-auto-maybe-all :which-key "Auto solve")
+          "b" '(agda2-previous-goal :which-key "Previous goal")
+          "c" '(agda2-make-case :which-key "Case split")
+          "d" '(agda2-infer-type-maybe-toplevel :which-key "Infer type")
+          "e" '(agda2-show-context :which-key "Show context")
+          "f" '(agda2-next-goal :which-key "Next goal")
+          "h" '(agda2-helper-function-type :which-key "Helper function type")
+          "l" '(agda2-load :which-key "Load")
+          "n" '(agda2-compute-normalised-maybe-toplevel :which-key "Normal form")
+          "o" '(agda2-module-contents-maybe-toplevel :which-key "Module contents")
+          "r" '(agda2-refine :which-key "Refine")
+          "s" '(agda2-solve-maybe-all :which-key "Solve all")
+          "t" '(agda2-goal-type :which-key "Goal type")
+          "w" '(agda-why-in-scope-maybe-toplevel :which-key "Why in scope")
+          "xa" '(agda2-abort :which-key "Abort")
+          "xc" '(agda2-compile :which-key "Compile")
+          "xd" '(agda2-remove-annotations :which-key "Remove annotations")
+          "xh" '(agda2-remove-implicit-arguments :which-key "Remove implicit arguments")
+          "xl" '(agda2-load :which-key "Load")
+          "xq" '(agda2-quit :which-key "Quit")
+          "xr" '(agda2-restart :which-key "Restart")
+          "xs" '(agda2-set-program-version :which-key "Set version")
+          "x;" '(agda2-comment-dwim-rest-of-buffer :which-key "Comment rest of buffer")
+          "z" '(agda2-search-about-toplevel :which-key "Search"))
 
         ;; Make agda-mode not use default colours, but colours from the theme.
         (set-face-attribute 'agda2-highlight-datatype-face nil :inherit font-lock-type-face :foreground nil)
