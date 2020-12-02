@@ -14,7 +14,7 @@ in {
   '';
 
   home.sessionVariables = {
-    NIX_PATH = "nixpkgs=${sources.nixpkgs}:$NIX_PATH";
+    NIX_PATH = "nixpkgs=${sources.nixpkgs}:nixpkgs-unstable=${sources.nixpkgs-unstable}:$NIX_PATH";
   };
 
   programs.emacs.init.usePackage = {
