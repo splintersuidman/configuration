@@ -60,11 +60,10 @@ in {
           "Ask the user to choose a value for `haskell-process-type',
         and load the current file using that process type."
           (interactive)
-          (require 'ido)
           (let* ((process-types (mapcar 'cadr
                                         (cdr (custom-variable-type 'haskell-process-type))))
                  (choices (mapcar 'symbol-name process-types))
-                 (choice (ido-completing-read "Haskell process type: " choices))
+                 (choice (completing-read "Haskell process type: " choices))
                  (process-type (intern choice)))
             (let ((haskell-process-type process-type))
               (haskell-process-load-file))))
