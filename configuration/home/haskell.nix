@@ -16,6 +16,7 @@ in {
     haskellPackages.hasktags
     cabal2nix
     haskellPackages.ghcide
+    haskellPackages.haskell-language-server
   ];
 
   # :def pf \s -> pure $ ":!${pointfree}/bin/pointfree \"" <> s <> "\""
@@ -26,7 +27,6 @@ in {
     :set +t
   '';
 
-  # TODO: investigate using ghcide / language server.
   programs.emacs.init.usePackage = {
     haskell-mode = {
       enable = true;
