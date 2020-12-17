@@ -59,5 +59,23 @@ in {
           "/" '(swiper :which-key "Swiper"))
       '';
     };
+
+    prescient = {
+      enable = true;
+      init = ''
+        (setq prescient-filter-method '(fuzzy))
+      '';
+      config = ''
+        (prescient-persist-mode)
+      '';
+    };
+
+    ivy-prescient = {
+      enable = true;
+      after = [ "ivy" "counsel" "prescient" ];
+      config = ''
+        (ivy-prescient-mode)
+      '';
+    };
   };
 }
