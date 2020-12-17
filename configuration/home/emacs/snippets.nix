@@ -2,7 +2,7 @@
 {
   programs.emacs.init.usePackage = {
     yasnippet = {
-      enable = true;
+      enable = false;
       init = ''
         (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
       '';
