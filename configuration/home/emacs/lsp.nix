@@ -1,22 +1,6 @@
 { ... }: {
   programs.emacs.init.usePackage = {
-    eglot = {
-      enable = true;
-      after = [ "general" ];
-
-      config = ''
-        ;; TODO: doesn't seem to work.
-        (general-define-key
-          :prefix my-leader
-          :states '(normal visual motion)
-          :keymaps 'override
-          "la" 'eglot-code-actions
-          "lf" 'eglot-format
-          "ll" 'eglot
-          "lq" 'eglot-shutdown
-          "lr" 'eglot-rename)
-      '';
-    };
+    eglot = { enable = true; };
 
     lsp-mode = {
       enable = false;

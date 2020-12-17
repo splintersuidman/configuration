@@ -248,7 +248,6 @@ in {
 
     org-roam = {
       enable = true;
-      after = [ "general" ];
       init = ''
         (setq org-roam-directory "${documents}/notities")
 
@@ -271,15 +270,6 @@ in {
                  :file-name "%<%Y-%m-%d-%H%M> ''${title}"
                  :head "#+title: ''${title}\n"
                  :unnarrowed t)))
-      '';
-      config = ''
-        (general-define-key
-          :prefix my-leader
-          :states '(normal visual motion)
-          :keymaps 'override
-          "zf" '(org-roam-find-file :which-key "Find file")
-          "zi" '(org-roam-insert :which-key "Insert")
-          "zr" '(org-roam :which-key "Toggle org-roam buffer"))
       '';
     };
   };

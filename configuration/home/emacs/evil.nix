@@ -103,6 +103,11 @@
           "ff" '(counsel-find-file :which-key "Find file")
           "fr" '(my/counsel-rg :which-key "Ripgrep")
           "fs" '(save-buffer :which-key "Save buffer")
+          ;; Git-related commands under `g'
+          "gg" '(magit-status :which-key "Magit")
+          "gn" '(git-gutter:next-hunk :which-key "Next hunk")
+          "gp" '(git-gutter:previous-hunk :which-key "Previous hunk")
+          "gr" '(browse-at-remote :which-key "Browse at remote")
           ;; Help-related commands under `h'
           "h." 'display-local-help
           "h?" 'help-for-help
@@ -132,6 +137,25 @@
           "ht" 'help-with-tutorial
           "hv" 'counsel-describe-variable
           "hw" 'where-is
+          ;; Jump-related commands under `j'
+          "jj" 'dumb-jump-go
+          "jo" 'dumb-jump-go-other-window
+          "je" 'dumb-jump-go-prefer-external
+          "jx" 'dumb-jump-go-prefer-external-other-window
+          "ji" 'dumb-jump-prompt
+          "jl" 'dumb-jump-quick-look
+          "jb" 'dumb-jump-back
+          ;; Language server-related commands under `l'
+          "la" '(eglot-code-actions :which-key "Code actions")
+          "lf" '(eglot-format :which-key "Format")
+          "ll" '(eglot :which-key "Start LSP")
+          "ln" 'flymake-goto-next-error
+          "lp" 'flymake-goto-prev-error
+          "lq" '(eglot-shutdown :which-key "Shutdown LSP")
+          "lr" '(eglot-rename :which-key "Rename")
+          ;; Theme-related commands under `t'
+          "tl" '(load-theme :which-key "Load theme")
+          "tt" '(my/switch-theme :which-key "Switch theme")
           ;; Window-related commands under `w'
           "wh" '(evil-window-left :which-key "Left")
           "wj" '(evil-window-down :which-key "Down")
@@ -146,6 +170,10 @@
           "ws" '(split-window-vertically :which-key "Split vertically")
           "wd" '(delete-window :which-key "Delete")
           "w=" '(balance-windows :which-key "Balance")
+          ;; Org-roam-related commands under `z'
+          "zf" '(org-roam-find-file :which-key "Find file")
+          "zi" '(org-roam-insert :which-key "Insert")
+          "zr" '(org-roam :which-key "Toggle org-roam buffer")
 
           ;; M-x
           "SPC" '(counsel-M-x :which-key "M-x")

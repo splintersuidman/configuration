@@ -1,9 +1,8 @@
-{ ... }:
-{
+{ ... }: {
   programs.emacs.init = {
     usePackage.base16-theme = {
       enable = true;
-      after = [ "evil" "general" ];
+      after = [ "evil" ];
       init = ''
         (setq base16-distinct-fringe-background nil)
       '';
@@ -23,14 +22,6 @@
                   evil-visual-state-cursor  `(,(plist-get colors :base09) box)))
           (load-theme theme t))
         (my/load-base16-theme 'base16-tomorrow-night)
-
-        ;; TODO: doesn't seem to work.
-        (general-define-key
-          :prefix my-leader
-          :states '(normal visual motion)
-          :keymaps 'override
-          "tl" '(load-theme :which-key "Load theme")
-          "tt" '(my/switch-theme :which-key "Switch theme"))
       '';
       extraConfig = ''
         (defvar my/themes
@@ -38,7 +29,7 @@
                 (lambda () (my/load-base16-theme 'base16-tomorrow-night)))
           "A list of functions that enable themes, that can be cycled
           through with `MY/SWITCH-THEME'.")
-  
+
         (defun my/switch-theme ()
           (interactive)
           (let ((next (pop my/themes)))
