@@ -1,5 +1,8 @@
-{ pkgs, ... }:
-let sources = import ../../nix/sources.nix;
+{ pkgs, config, ... }:
+let
+  sources = import ../../nix/sources.nix;
+  rnix-lsp = "${pkgs.rnix-lsp}/bin/rnix-lsp";
+  eglotEnable = config.programs.emacs.init.usePackage.eglot.enable;
 in {
   home.packages = [
     pkgs.nix-prefetch-git
@@ -14,13 +17,18 @@ in {
   '';
 
   home.sessionVariables = {
-    NIX_PATH = "nixpkgs=${sources.nixpkgs}:nixpkgs-unstable=${sources.nixpkgs-unstable}:$NIX_PATH";
+    NIX_PATH =
+      "nixpkgs=${sources.nixpkgs}:nixpkgs-unstable=${sources.nixpkgs-unstable}:$NIX_PATH";
   };
 
   programs.emacs.init.usePackage = {
     nix-mode = {
       enable = true;
-      after = [ "general" ];
+      after = [ "general" ] ++ (if eglotEnable then [ "eglot" ] else [ ]);
+      init = if eglotEnable then ''
+        (add-to-list 'eglot-server-programs '(nix-mode . ("${rnix-lsp}")))
+      '' else
+        "";
       config = ''
         (general-define-key
           :prefix my-local-leader
