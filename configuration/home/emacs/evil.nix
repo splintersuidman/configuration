@@ -101,7 +101,7 @@
           ;; File-related commands under `f'
           "fd" '(counsel-dired :which-key "Dired")
           "ff" '(counsel-find-file :which-key "Find file")
-          "fr" '(my/counsel-rg :which-key "Ripgrep")
+          "fr" '(splinter-counsel-rg :which-key "Ripgrep")
           "fs" '(save-buffer :which-key "Save buffer")
           ;; Git-related commands under `g'
           "gg" '(magit-status :which-key "Magit")
@@ -155,7 +155,7 @@
           "lr" '(eglot-rename :which-key "Rename")
           ;; Theme-related commands under `t'
           "tl" '(load-theme :which-key "Load theme")
-          "tt" '(my/switch-theme :which-key "Switch theme")
+          "tt" '(splinter-switch-theme :which-key "Switch theme")
           ;; Window-related commands under `w'
           "wh" '(evil-window-left :which-key "Left")
           "wj" '(evil-window-down :which-key "Down")

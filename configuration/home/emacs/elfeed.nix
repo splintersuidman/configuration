@@ -20,7 +20,7 @@ in {
         (setq elfeed-feeds '(${feeds}))
       '';
       config = ''
-        (defun my/elfeed-mpv (entry)
+        (defun splinter-elfeed-mpv (entry)
           "Open the link of the currently selected item in mpv."
           (interactive (list (elfeed-search-selected :ignore-region)))
           (when (elfeed-entry-p entry)
@@ -40,7 +40,7 @@ in {
           :states '(normal visual motion)
           :keymaps 'elfeed-search-mode-map
           "u" 'elfeed-update
-          "v" 'my/elfeed-mpv)
+          "v" 'splinter-elfeed-mpv)
 
         (set-face-attribute 'elfeed-search-feed-face nil :inherit font-lock-function-name-face :foreground nil)
         (set-face-attribute 'elfeed-search-tag-face nil :inherit font-lock-type-face :foreground nil)

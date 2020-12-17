@@ -8,7 +8,7 @@
       '';
 
       config = ''
-        (defun my/load-base16-theme (theme)
+        (defun splinter-load-base16-theme (theme)
           "Load a base-16 theme. This function is used instead of
         just `(load-theme theme t)' to also set the colours of the evil
         cursors."
@@ -21,19 +21,19 @@
                   evil-replace-state-cursor `(,(plist-get colors :base08) bar)
                   evil-visual-state-cursor  `(,(plist-get colors :base09) box)))
           (load-theme theme t))
-        (my/load-base16-theme 'base16-tomorrow-night)
+        (splinter-load-base16-theme 'base16-tomorrow-night)
       '';
       extraConfig = ''
-        (defvar my/themes
-          (list (lambda () (my/load-base16-theme 'base16-tomorrow))
-                (lambda () (my/load-base16-theme 'base16-tomorrow-night)))
+        (defvar splinter-themes
+          (list (lambda () (splinter-load-base16-theme 'base16-tomorrow))
+                (lambda () (splinter-load-base16-theme 'base16-tomorrow-night)))
           "A list of functions that enable themes, that can be cycled
-          through with `MY/SWITCH-THEME'.")
+          through with `SPLINTER-SWITCH-THEME'.")
 
-        (defun my/switch-theme ()
+        (defun splinter-switch-theme ()
           (interactive)
-          (let ((next (pop my/themes)))
-            (setq my/themes (append my/themes (list next)))
+          (let ((next (pop splinter-themes)))
+            (setq splinter-themes (append splinter-themes (list next)))
             (funcall next)))
       '';
     };

@@ -34,7 +34,7 @@ in {
         (setq counsel-rg-base-command "${ripgrep} --with-filename --no-heading --line-number --color never %s")
       '';
       config = ''
-        (defun my/counsel-rg ()
+        (defun splinter-counsel-rg ()
           "Calls `COUNSEL-RG' with \"rg: \" as the prompt; otherwise, the
         path in the Nix store will be included in the prompt."
           (interactive)
