@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   sources = import ../../nix/sources.nix;
   nixos-hardware = sources.nixos-hardware;
@@ -6,8 +6,8 @@ in {
   imports = [
     ../../configuration/system.nix
     ./system/hardware-configuration.nix
-    "${nixos-hardware}/common/cpu/amd"
-    "${nixos-hardware}/common/pc/laptop/acpi_call.nix"
+    "${nixos-hardware}/lenovo/thinkpad/t14s"
+    "${nixos-hardware}/lenovo/thinkpad/t14s/amd"
 
     ../../configuration/system/autorandr.nix
     ../../configuration/system/gtk.nix
@@ -24,9 +24,8 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Since Linux 5.8, suspend on lid close, the microphone, and other
-  # things work on this machine.
-  boot.kernelPackages = pkgs.linuxPackages_5_9;
+  # NOTE: nixos-hardware/lenovo/thinkpad/t14s/amd defines boot.kernelPackages.
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
 
   networking.hostName = "thinkpad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
