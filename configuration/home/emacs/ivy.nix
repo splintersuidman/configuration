@@ -20,6 +20,14 @@ in {
       '';
     };
 
+    all-the-icons-ivy = {
+      enable = true;
+      init = ''
+        (setq all-the-icons-spacer " ")
+      '';
+      hook = [ "(after-init . all-the-icons-ivy-setup)" ];
+    };
+
     counsel = {
       enable = true;
       init = ''

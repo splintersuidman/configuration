@@ -2,8 +2,7 @@
 let
   sources = import ../../nix/sources.nix;
   nurNoPkgs = import sources.nur { };
-in
-{
+in {
   imports = [
     nurNoPkgs.repos.rycee.hmModules.emacs-init
 
@@ -17,6 +16,7 @@ in
     ./emacs/font.nix
     ./emacs/gui.nix
     ./emacs/help.nix
+    ./emacs/icons.nix
     ./emacs/ido.nix
     ./emacs/indent.nix
     ./emacs/ivy.nix
