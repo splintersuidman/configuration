@@ -4,7 +4,6 @@ in {
   programs.emacs.init.usePackage = {
     org = {
       enable = true;
-      hook = [ "(org-mode . auto-fill-mode)" ];
       after = [ "general" ];
       init = ''
         (setq org-log-done 'time)
@@ -25,6 +24,15 @@ in {
                                          "juni" "juli" "augustus" "september"
                                          "oktober" "november" "december"])
 
+        (defun splinter-save-all-org-agenda-buffers ()
+          (interactive)
+          (save-current-buffer
+            (dolist (buffer (buffer-list t))
+              (set-buffer buffer)
+              (when (member (buffer-file-name)
+                            (mapcar 'expand-file-name (org-agenda-files t)))
+                (save-buffer)))))
+
         (general-define-key
           :prefix my-leader
           :states '(normal visual motion)
@@ -40,6 +48,11 @@ in {
                    (delete-other-windows))
                  :which-key "Full-frame agenda"))
       '';
+      hook = [
+        "(org-mode . auto-fill-mode)"
+        "(org-agenda-mode . auto-save-mode)"
+        "(auto-save-mode . splinter-save-all-org-agenda-buffers)"
+      ];
       config = ''
         (add-to-list 'org-modules 'org-tempo)
         (add-to-list 'org-modules 'org-habit)
@@ -194,14 +207,93 @@ in {
 
     evil-org = {
       enable = true;
-      after = [ "org" ];
+      after = [ "org" "general" ];
+      init = ''
+        (defun splinter-evil-org-agenda-set-keys ()
+          "Set normal state keys for `org-agenda'. Where
+        `org-agenda-set-keys' uses motion state, I use normal state,
+        because it works better with my leader key definitions."
+          (evil-set-initial-state 'org-agenda-mode 'normal)
+          (general-define-key
+            :keymaps 'org-agenda-mode-map
+            :states 'normal
+            "TAB" 'org-agenda-goto
+            "g TAB" 'org-agenda-goto
+            "RET" 'org-agenda-switch-to
+            "M-RET" 'org-agenda-recenter
+            "<delete>" 'org-agenda-show-scroll-down
+            "<backspace>" 'org-agenda-show-scroll-down
+            "j" 'org-agenda-next-line
+            "k" 'org-agenda-previous-line
+            "gj" 'org-agenda-next-item
+            "gk" 'org-agenda-previous-item
+            "gH" 'evil-window-top
+            "gM" 'evil-window-middle
+            "gL" 'evil-window-bottom
+            "C-j" 'org-agenda-next-item
+            "C-k" 'org-agenda-previous-item
+            "[" 'org-agenda-earlier
+            "]" 'org-agenda-later
+            "J" 'org-agenda-priority-down
+            "K" 'org-agenda-priority-up
+            "H" 'org-agenda-do-date-earlier
+            "L" 'org-agenda-do-date-later
+            "t" 'org-agenda-todo
+            "M-j" 'org-agenda-drag-line-forward
+            "M-k" 'org-agenda-drag-line-backward
+            "C-S-h" 'org-agenda-todo-previousset
+            "C-S-l" 'org-agenda-todo-nextset
+            "u" 'org-agenda-undo
+            "dd" 'org-agenda-kill
+            "dA" 'org-agenda-archive
+            "da" 'org-agenda-archive-default-with-confirmation
+            "ct" 'org-agenda-set-tags
+            "ce" 'org-agenda-set-effort
+            "cT" 'org-timer-set-timer
+            "i" 'org-agenda-diary-entry
+            "a" 'org-agenda-add-note
+            "A" 'org-agenda-append-agenda
+            "C" 'org-agenda-capture
+            "m" 'org-agenda-bulk-toggle
+            "~" 'org-agenda-bulk-toggle-all
+            "*" 'org-agenda-bulk-mark-all
+            "%" 'org-agenda-bulk-mark-regexp
+            "M" 'org-agenda-bulk-remove-all-marks
+            "x" 'org-agenda-bulk-action
+            "gr" 'org-agenda-redo
+            "gR" 'org-agenda-redo-all
+            "ZQ" 'org-agenda-exit
+            "ZZ" 'org-agenda-quit
+            "gD" 'org-agenda-view-mode-dispatch
+            "ZD" 'org-agenda-dim-blocked-tasks
+            "sc" 'org-agenda-filter-by-category
+            "sr" 'org-agenda-filter-by-regexp
+            "se" 'org-agenda-filter-by-effort
+            "st" 'org-agenda-filter-by-tag
+            "s^" 'org-agenda-filter-by-top-headline
+            "ss" 'org-agenda-limit-interactively
+            "S" 'org-agenda-filter-remove-all
+            "I" 'org-agenda-clock-in
+            "O" 'org-agenda-clock-out
+            "cg" 'org-agenda-clock-goto
+            "cc" 'org-agenda-clock-cancel
+            "cr" 'org-agenda-clockreport-mode
+            "." 'org-agenda-goto-today
+            "gc" 'org-agenda-goto-calendar
+            "gC" 'org-agenda-convert-date
+            "gd" 'org-agenda-goto-date
+            "gh" 'org-agenda-holidays
+            "gm" 'org-agenda-phases-of-moon
+            "gs" 'org-agenda-sunrise-sunset
+            "gt" 'org-agenda-show-tags
+            "p" 'org-agenda-date-prompt
+            "P" 'org-agenda-show-the-flagging-note
+            "+" 'org-agenda-manipulate-query-add
+            "-" 'org-agenda-manipulate-query-subtract))
+      '';
       hook = [
         "(org-mode . evil-org-mode)"
-        ''
-          (org-agenda-mode . (lambda ()
-                               (require 'evil-org-agenda)
-                               (evil-org-agenda-set-keys)))
-        ''
+        "(org-agenda-mode . splinter-evil-org-agenda-set-keys)"
       ];
     };
 
