@@ -30,7 +30,9 @@ in {
               mu4e-sent-folder   "/sent"
               mu4e-drafts-folder "/drafts"
               mu4e-trash-folder  "/trash"
-              mu4e-refile-folder "/archive")
+              mu4e-refile-folder "/archive"
+
+              mu4e-completing-read-function 'completing-read)
 
         ;; TODO: configure SMTP from Emacs.
         (setq send-mail-function 'mailclient-send-it)
