@@ -1,5 +1,8 @@
 { pkgs, ... }:
-{
+let
+  sources = import ../../nix/sources.nix;
+  unstable = import sources.nixpkgs-unstable { };
+in {
   home.packages = with pkgs; [
     # Files
     ranger
@@ -27,7 +30,7 @@
 
     # Video
     vlc
-    youtubeDL
+    unstable.youtubeDL
     ffmpeg
 
     # Other/system tools
