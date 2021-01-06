@@ -18,11 +18,6 @@
       hook = [ "(magit-mode . magit-todos-mode)" ];
     };
 
-    evil-magit = {
-      enable = true;
-      after = [ "evil" "magit" ];
-    };
-
     git-gutter = let
       git-gutter-fringe-enabled =
         config.programs.emacs.init.usePackage.git-gutter-fringe.enable;
