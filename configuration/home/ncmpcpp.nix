@@ -1,8 +1,5 @@
 { pkgs, config, lib, ... }:
-let
-  nurSrc = (import ../../nix/sources.nix).nur;
-  nurNoPkgs = import nurSrc { };
-  mainColour = "blue";
+let mainColour = "blue";
 in {
   programs.ncmpcpp = {
     enable = true;

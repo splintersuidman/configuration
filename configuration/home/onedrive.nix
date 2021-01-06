@@ -1,13 +1,4 @@
-{ pkgs, config, ... }:
-let
-  nurSrc = (import ../../nix/sources.nix).nur;
-  nurNoPkgs = import nurSrc { };
-in
-{
-  imports = [
-    nurNoPkgs.repos.splintah.hmModules.onedrive
-  ];
-
+{ pkgs, config, ... }: {
   programs.onedrive = {
     enable = true;
     package = pkgs.onedrive;

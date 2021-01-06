@@ -1,8 +1,4 @@
-{ pkgs, ... }:
-let
-  sources = import ../../nix/sources.nix;
-  unstable = import sources.nixpkgs-unstable { };
-in {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # Files
     ranger
@@ -34,7 +30,9 @@ in {
     ffmpeg
 
     # Other/system tools
-    aspell aspellDicts.en aspellDicts.nl
+    aspell
+    aspellDicts.en
+    aspellDicts.nl
     calc
     cmatrix
     coreutils
@@ -67,6 +65,7 @@ in {
     xorg.setxkbmap
     xorg.xev
     xz
-    zip unzip
+    zip
+    unzip
   ];
 }

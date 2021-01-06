@@ -2,10 +2,7 @@
 let
   wallpaper = "${config.xdg.userDirs.pictures}/A3MuFbJ.jpg";
 
-  xmonad-splintah =
-    pkgs.callPackage /home/splinter/.xmonad/xmonad-splintah/default.nix {
-      nixpkgs = pkgs;
-    };
+  xmonad-splintah = pkgs.xmonad-splintah;
   targetSystem = pkgs.stdenv.targetPlatform.system;
   # Rename executable to xmonad-${targetSystem} (e.g. xmonad-linux-x86_64) to
   # prevent XMonad from recompiling after boot.

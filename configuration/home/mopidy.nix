@@ -1,12 +1,4 @@
-{ pkgs, config, ... }:
-let
-  nurSrc = (import ../../nix/sources.nix).nur;
-  nurNoPkgs = import nurSrc { };
-
-  getSecret = (import ../../nix/passenv.nix).lib.getSecret;
-in {
-  imports = [ nurNoPkgs.repos.splintah.hmModules.mopidy ];
-
+{ pkgs, config, ... }: {
   home.packages = [ pkgs.mpc_cli pkgs.playerctl ];
 
   services.mopidy = {
@@ -23,12 +15,9 @@ in {
         hostname = "::";
         port = 6600;
       };
+      audio.mixer_volume = 30;
       spotify = {
         enabled = true;
-        username = getSecret "SPOTIFY_USERNAME";
-        password = getSecret "SPOTIFY_PASSWORD";
-        client_id = getSecret "SPOTIFY_CLIENT_ID";
-        client_secret = getSecret "SPOTIFY_CLIENT_SECRET";
         bitrate = 320;
         volume_normalization = true;
       };

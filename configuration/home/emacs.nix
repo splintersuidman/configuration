@@ -1,11 +1,5 @@
-{ pkgs, config, ... }:
-let
-  sources = import ../../nix/sources.nix;
-  nurNoPkgs = import sources.nur { };
-in {
+{ pkgs, config, ... }: {
   imports = [
-    nurNoPkgs.repos.rycee.hmModules.emacs-init
-
     ./emacs/avy.nix
     ./emacs/completion.nix
     ./emacs/elfeed.nix

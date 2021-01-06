@@ -9,17 +9,12 @@ in {
     pkgs.cachix
     pkgs.haskellPackages.nixfmt
     pkgs.niv
-    pkgs.nix-doc
+    # pkgs.nix-doc
   ];
 
-  xdg.configFile."nix/nix.conf".text = ''
-    plugin-files = ${pkgs.nix-doc}/lib/libnix_doc_plugin.so
-  '';
-
-  home.sessionVariables = {
-    NIX_PATH =
-      "nixpkgs=${sources.nixpkgs}:nixpkgs-unstable=${sources.nixpkgs-unstable}:$NIX_PATH";
-  };
+  # xdg.configFile."nix/nix.conf".text = ''
+  #   plugin-files = ${pkgs.nix-doc}/lib/libnix_doc_plugin.so
+  # '';
 
   programs.emacs.init.usePackage = {
     nix-mode = {

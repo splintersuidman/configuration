@@ -9,11 +9,6 @@ in {
     pkgs.neomutt
   ];
 
-  imports = [
-    # NOTE: This file is not contained in the git index.
-    ./mail/accounts.nix
-  ];
-
   programs.mu.enable = true;
   programs.mbsync.enable = true;
 

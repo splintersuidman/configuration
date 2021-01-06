@@ -1,16 +1,13 @@
-{ pkgs, lib, ... }:
-let
-  sources = import ../../nix/sources.nix;
-  nixos-hardware = sources.nixos-hardware;
-in {
+{ pkgs, lib, inputs, ... }: {
   imports = [
     ../../configuration/system.nix
     ./system/hardware-configuration.nix
-    "${nixos-hardware}/lenovo/thinkpad/t14s"
-    "${nixos-hardware}/lenovo/thinkpad/t14s/amd"
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen1
 
     ../../configuration/system/autorandr.nix
     ../../configuration/system/gtk.nix
+    ../../configuration/system/nix.nix
     ../../configuration/system/printing.nix
     ../../configuration/system/shell.nix
     ../../configuration/system/tlp.nix

@@ -1,13 +1,4 @@
-# Common system configuration that will be importer by the hosts.
-{ config, ... }:
-let
-  sources = import ../nix/sources.nix;
-  nixpkgs = import sources.nixpkgs { inherit (config.nixpkgs) config; };
-in {
-  _module.args.pkgs = nixpkgs;
+# Common system configuration that will be imported by the hosts.
+{ config, ... }: {
   nixpkgs.config = import ./nixpkgs.nix;
-  nix.nixPath = [
-    "nixpkgs=${sources.nixpkgs}"
-    "nixos-config=/etc/nixos/configuration.nix"
-  ];
 }

@@ -1,24 +1,11 @@
 { pkgs, lib, ... }:
 let
-  feed = url: tags:
-    let urlString = ''"${url}"'';
-    in if tags == [ ] then
-      urlString
-    else
-      "(" + urlString + " " + lib.concatStringsSep " " tags + ")";
-  feeds =
-    # NOTE: This file is not contained in the git index.
-    lib.concatStringsSep " " (import ./elfeed/feeds.nix { inherit feed; });
-
   mpv = "${pkgs.mpv}/bin/mpv";
 in {
   programs.emacs.init.usePackage = {
     elfeed = {
       enable = true;
       after = [ "general" ];
-      init = ''
-        (setq elfeed-feeds '(${feeds}))
-      '';
       config = ''
         (defun splinter-elfeed-mpv (entry)
           "Open the link of the currently selected item in mpv."
