@@ -30,7 +30,7 @@
   services.emacs.enable = true;
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable;
+    package = pkgs.emacs;
 
     init = {
       enable = true;
