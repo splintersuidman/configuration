@@ -1,11 +1,13 @@
 { ... }: {
-  services.logind = rec {
-    lidSwitch = "suspend-then-hibernate";
+  services.logind = let action = "suspend-then-hibernate";
+  in {
+    lidSwitch = action;
+    lidSwitchDocked = action;
     extraConfig = ''
-      HandlePowerKey=${lidSwitch}
+      HandlePowerKey=${action}
     '';
   };
   systemd.sleep.extraConfig = ''
-    HibernateDelaySec=30m
+    HibernateDelaySec=1h
   '';
 }
