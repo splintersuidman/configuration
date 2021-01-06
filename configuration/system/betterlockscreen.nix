@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   systemd.services.betterlockscreen = {
     enable = true;
     description = "Locks screen";

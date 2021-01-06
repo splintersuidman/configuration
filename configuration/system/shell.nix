@@ -1,4 +1,1 @@
-{ ... }:
-{
-  programs.bash.enableCompletion = true;
-}
+{ ... }: { programs.bash.enableCompletion = true; }
