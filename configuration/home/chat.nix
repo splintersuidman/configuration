@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.signal-desktop pkgs.qtox pkgs.discord ];
+  home.packages = [ pkgs.signal-desktop pkgs.qtox pkgs.unstable.discord ];
 }
