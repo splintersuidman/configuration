@@ -3,9 +3,9 @@
     Home and NixOS configuration.
 
     The home configuration can be built (à la 'home-manager build') using
-      nix build '.#home.<host>'
+      nix build '.#<host>'
     and to the configuration can be switched (à la 'home-manager switch') using
-      nix run '.#home.<host>'
+      nix run '.#<host>'
     where '<host>' is the name of the host (e.g. 'thinkpad').
 
     The system configuration can be built using
@@ -105,13 +105,13 @@
         };
       };
 
-      packages.x86_64-linux.home =
+      packages.x86_64-linux =
         builtins.mapAttrs (_name: config: config.activationPackage)
         self.homeConfigurations;
 
-      apps.x86_64-linux.home = builtins.mapAttrs (name: activationPackage: {
+      apps.x86_64-linux = builtins.mapAttrs (name: activationPackage: {
         type = "app";
         program = "${activationPackage}/activate";
-      }) self.packages.x86_64-linux.home;
+      }) self.packages.x86_64-linux;
     };
 }
