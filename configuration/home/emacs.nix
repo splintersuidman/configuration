@@ -35,6 +35,11 @@
     init = {
       enable = true;
       recommendedGcSettings = true;
+      # NOTE: without this option, company-mode does not seem to load, and
+      # initial-scratch-message is not inserted, for example. See
+      # <https://gitlab.com/rycee/nur-expressions/-/issues/23> and
+      # <https://gitlab.com/rycee/nur-expressions/-/commit/23d30ea7a3b97f7734f9383f93b5ded1c08d826d>.
+      earlyInit = "(setq package-enable-at-startup t)";
     };
   };
 
