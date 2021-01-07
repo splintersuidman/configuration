@@ -13,16 +13,10 @@ let
     })";
   rgbI = base: rgb base + " !important";
   rgbaI = base: alpha: rgba base alpha + " !important";
-in
-{
-  imports = [
-    ../../modules/home/browser.nix
-  ];
+in {
+  imports = [ ../../modules/home/browser.nix ];
 
-  home.packages = [
-    pkgs.torbrowser
-    pkgs.qutebrowser
-  ];
+  home.packages = [ pkgs.torbrowser pkgs.qutebrowser ];
 
   programs.browser = rec {
     enable = true;
@@ -43,6 +37,7 @@ in
       https-everywhere
       multi-account-containers
       reddit-enhancement-suite
+      tridactyl
       ublock-origin
       umatrix
     ];
@@ -98,7 +93,7 @@ in
         userChrome = ''
           @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
         '';
-  
+
         userContent = ''
           @-moz-document url(about:home), url(about:newtab) {
             body {
