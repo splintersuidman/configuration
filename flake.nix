@@ -28,6 +28,10 @@
       url = "github:chriskempson/base16-tomorrow-scheme";
       flake = false;
     };
+    kmonad = {
+      url = "github:david-janssen/kmonad";
+      flake = false;
+    };
     xmonad-splintah = {
       url = "github:splintah/xmonad-splintah";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,6 +52,10 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
+
+          kmonad =
+            inputs.nixpkgs.legacyPackages.x86_64-linux.haskellPackages.callPackage
+            "${inputs.kmonad}/nix/kmonad.nix" { };
 
           xmonad-splintah = inputs.xmonad-splintah.defaultPackage.x86_64-linux;
         })

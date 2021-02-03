@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let cfg = config.services.kmonad;
 in with lib; {
   options.services.kmonad = {
@@ -32,13 +32,13 @@ in with lib; {
 
     xdg.configFile."kmonad/kmonad.kbd".text = cfg.config;
 
-    systemd.services.kmonad = {
+    systemd.user.services.kmonad = {
       Unit = { Description = "kmonad"; };
       Install = { WantedBy = [ "graphical.target" ]; };
       Service = {
         Type = "simple";
         ExecStart = "${cfg.package}/bin/kmonad ${
-            config.xdg.configFile."kmonad/kmonad.kdb".source
+            config.xdg.configFile."kmonad/kmonad.kbd".source
           }";
       };
     };

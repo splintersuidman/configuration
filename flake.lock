@@ -83,6 +83,22 @@
         "type": "github"
       }
     },
+    "kmonad": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1611250290,
+        "narHash": "sha256-x8/Ixg3/uqXJLW2nppD3kIpnRsbODahf7+KZfVBBB6o=",
+        "owner": "david-janssen",
+        "repo": "kmonad",
+        "rev": "e36a85c0c8e4ac748bb666fb668d5db55a9d6130",
+        "type": "github"
+      },
+      "original": {
+        "owner": "david-janssen",
+        "repo": "kmonad",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1608918390,
@@ -162,6 +178,7 @@
         "base16-tomorrow-scheme": "base16-tomorrow-scheme",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
+        "kmonad": "kmonad",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
