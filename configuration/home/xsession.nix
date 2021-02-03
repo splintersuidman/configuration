@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  wallpaper = "${config.xdg.userDirs.pictures}/A3MuFbJ.jpg";
+  wallpaper = "${config.xdg.userDirs.pictures}/wallpaper";
 
   xmonad-splintah = pkgs.xmonad-splintah;
   targetSystem = pkgs.stdenv.targetPlatform.system;
@@ -21,7 +21,7 @@ in {
   xsession = {
     enable = true;
     initExtra = ''
-      ${pkgs.feh}/bin/feh --no-fehbg --bg-scale ${wallpaper}
+      ${pkgs.feh}/bin/feh --no-fehbg --bg-fill ${wallpaper}
     '';
 
     windowManager.command = "${xmonad}/bin/xmonad-${targetSystem}";
