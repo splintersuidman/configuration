@@ -22,8 +22,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # NOTE: nixos-hardware/lenovo/thinkpad/t14s/amd defines boot.kernelPackages.
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+  boot = {
+    # NOTE: nixos-hardware/lenovo/thinkpad/t14s/amd defines boot.kernelPackages.
+    kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+    kernelModules = [ "uinput" ];
+  };
 
   networking.hostName = "thinkpad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -74,8 +77,13 @@
 
   users.users.splinter = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "networkmanager" "uinput" ];
+    extraGroups = [ "wheel" "audio" "networkmanager" "input" "uinput" ];
   };
+
+  services.udev.extraRules = ''
+    # KMonad user access to /dev/uinput
+    KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
+  '';
 
   nix.trustedUsers = [ "root" "@wheel" ];
 
