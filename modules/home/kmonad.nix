@@ -63,7 +63,7 @@ in {
       systemd.user.services = mapAttrs' (name: kb:
         nameValuePair "kmonad-${name}" {
           Unit = { Description = "KMonad for ${name}"; };
-          Install = { WantedBy = [ "graphical.target" ]; };
+          Install = { WantedBy = [ "default.target" ]; };
           Service = {
             Type = "simple";
             ExecStart = "${cfg.package}/bin/kmonad ${
