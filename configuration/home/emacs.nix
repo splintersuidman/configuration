@@ -27,7 +27,13 @@
     ./emacs/which-key.nix
   ];
 
-  services.emacs.enable = true;
+  services.emacs = {
+    enable = true;
+    client = {
+      enable = true;
+      arguments = [ "--create-frame" ];
+    };
+  };
   programs.emacs = {
     enable = true;
     package = pkgs.emacs;
