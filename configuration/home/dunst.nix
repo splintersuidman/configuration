@@ -20,7 +20,7 @@ in {
         frame_color = "#${colors.base01.hex.rgb}";
         separator_color = "frame";
         sort = true;
-        idle_threshold = 120;
+        idle_threshold = 0;
         font = "Iosevka Custom 10";
         line_height = 0;
         markup = "full";
