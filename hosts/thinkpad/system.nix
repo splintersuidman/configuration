@@ -75,6 +75,7 @@
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true; # For Steam.
 
+  users.groups = { uinput = { }; };
   users.users.splinter = {
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "networkmanager" "input" "uinput" ];
