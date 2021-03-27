@@ -1,11 +1,18 @@
 { pkgs, lib, ... }:
-let
-  mpv = "${pkgs.mpv}/bin/mpv";
+let mpv = "${pkgs.mpv}/bin/mpv";
 in {
   programs.emacs.init.usePackage = {
     elfeed = {
       enable = true;
       after = [ "general" ];
+      init = ''
+        (defun splinter-elfeed-set-faces (&optional force)
+          "Set elfeed faces."
+          (when (or force (featurep 'elfeed))
+            (set-face-attribute 'elfeed-search-feed-face nil :inherit font-lock-function-name-face :foreground nil)
+            (set-face-attribute 'elfeed-search-tag-face nil :inherit font-lock-type-face :foreground nil)
+            (set-face-attribute 'elfeed-search-date-face nil :inherit font-lock-variable-name-face :foreground nil)))
+      '';
       config = ''
         (defun splinter-elfeed-mpv (entry)
           "Open the link of the currently selected item in mpv."
@@ -28,11 +35,9 @@ in {
           :keymaps 'elfeed-search-mode-map
           "u" 'elfeed-update
           "v" 'splinter-elfeed-mpv)
-
-        (set-face-attribute 'elfeed-search-feed-face nil :inherit font-lock-function-name-face :foreground nil)
-        (set-face-attribute 'elfeed-search-tag-face nil :inherit font-lock-type-face :foreground nil)
-        (set-face-attribute 'elfeed-search-date-face nil :inherit font-lock-variable-name-face :foreground nil)
+        (splinter-elfeed-set-faces t)
       '';
+      hook = [ "(after-load-theme . splinter-elfeed-set-faces)" ];
     };
   };
 }

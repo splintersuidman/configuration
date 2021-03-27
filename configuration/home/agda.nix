@@ -25,14 +25,30 @@ in {
           (let ((coding-system-for-read 'utf-8))
             (file-name-directory (shell-command-to-string "${agda}/bin/agda-mode locate"))))
       '';
-
       mode = [
         ''("\\.agda\\'" . agda2-mode)''
         ''("\\.lagda.md\\'" . agda2-mode)''
         ''("\\.lagda.org\\'" . agda2-mode)''
         ''("\\.lagda.tex\\'" . agda2-mode)''
       ];
-
+      init = ''
+        (defun splinter-agda-mode-set-faces (&optional force)
+          "Make agda-mode faces inherit from font-lock."
+          (when (or force (featurep 'agda2-mode))
+            (set-face-attribute 'agda2-highlight-datatype-face nil :inherit font-lock-type-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-field-face nil :inherit font-lock-function-name-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-function-face nil :inherit font-lock-function-name-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-inductive-constructor-face nil :inherit font-lock-type-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-keyword-face nil :inherit font-lock-keyword-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-module-face nil :inherit font-lock-type-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-number-face nil :inherit font-lock-type-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-operator-face nil :inherit font-lock-variable-name-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-postulate-face nil :inherit font-lock-type-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-primitive-face nil :inherit font-lock-function-name-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-primitive-type-face nil :inherit font-lock-type-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-record-face nil :inherit font-lock-type-face :foreground nil)
+            (set-face-attribute 'agda2-highlight-symbol-face nil :inherit font-lock-variable-name-face :foreground nil)))
+      '';
       config = ''
         (general-define-key
           :prefix my-local-leader
@@ -67,22 +83,9 @@ in {
           "xs" '(agda2-set-program-version :which-key "Set version")
           "x;" '(agda2-comment-dwim-rest-of-buffer :which-key "Comment rest of buffer")
           "z" '(agda2-search-about-toplevel :which-key "Search"))
-
-        ;; Make agda-mode not use default colours, but colours from the theme.
-        (set-face-attribute 'agda2-highlight-datatype-face nil :inherit font-lock-type-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-field-face nil :inherit font-lock-function-name-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-function-face nil :inherit font-lock-function-name-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-inductive-constructor-face nil :inherit font-lock-type-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-keyword-face nil :inherit font-lock-keyword-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-module-face nil :inherit font-lock-type-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-number-face nil :inherit font-lock-type-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-operator-face nil :inherit font-lock-variable-name-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-postulate-face nil :inherit font-lock-type-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-primitive-face nil :inherit font-lock-function-name-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-primitive-type-face nil :inherit font-lock-type-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-record-face nil :inherit font-lock-type-face :foreground nil)
-        (set-face-attribute 'agda2-highlight-symbol-face nil :inherit font-lock-variable-name-face :foreground nil)
+        (splinter-agda-mode-set-faces t)
       '';
+      hook = [ "(after-load-theme . splinter-agda-mode-set-faces)" ];
     };
   };
 }

@@ -1,12 +1,19 @@
 { ... }: {
   programs.emacs.init = {
+    prelude = ''
+      (defvar after-load-theme-hook nil
+        "Hook that is run after `load-theme' is called.")
+
+      (defadvice load-theme (after run-after-load-theme-hook activate)
+        "Run `after-load-theme-hook'."
+        (run-hooks 'after-load-theme-hook))
+    '';
     usePackage.base16-theme = {
       enable = true;
       after = [ "evil" ];
       init = ''
         (setq base16-distinct-fringe-background nil)
       '';
-
       config = ''
         (defun splinter-load-base16-theme (theme)
           "Load a base-16 theme. This function is used instead of
@@ -31,6 +38,7 @@
           through with `SPLINTER-SWITCH-THEME'.")
 
         (defun splinter-switch-theme ()
+          "Switch to the next theme in `SPLINTER-THEMES'."
           (interactive)
           (let ((next (pop splinter-themes)))
             (setq splinter-themes (append splinter-themes (list next)))
