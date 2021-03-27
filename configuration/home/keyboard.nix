@@ -224,7 +224,7 @@ in {
     <Multi_key> <asciicircum> <asterisk> <g> : "ᵍ"
     <Multi_key> <asciicircum> <asterisk> <h> : "ʰ"
     <Multi_key> <asciicircum> <asterisk> <i> : "ⁱ"
-    <Multi_key> <asciicircum> <asterisk> <j> : "ⁱ"
+    <Multi_key> <asciicircum> <asterisk> <j> : "ʲ"
     <Multi_key> <asciicircum> <asterisk> <k> : "ᵏ"
     <Multi_key> <asciicircum> <asterisk> <l> : "ˡ"
     <Multi_key> <asciicircum> <asterisk> <m> : "ᵐ"
