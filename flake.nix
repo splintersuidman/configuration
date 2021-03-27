@@ -32,6 +32,10 @@
       url = "github:david-janssen/kmonad";
       flake = false;
     };
+    mu4e-thread-folding = {
+      url = "github:rougier/mu4e-thread-folding";
+      flake = false;
+    };
     xmonad-splintah = {
       url = "github:splintah/xmonad-splintah";
       inputs.nixpkgs.follows = "nixpkgs";

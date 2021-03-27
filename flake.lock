@@ -99,6 +99,22 @@
         "type": "github"
       }
     },
+    "mu4e-thread-folding": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1614425686,
+        "narHash": "sha256-vn2RBa8vrjCjuuD6aP/Rw7T5gGEnrTdXmbC9fKYdALQ=",
+        "owner": "rougier",
+        "repo": "mu4e-thread-folding",
+        "rev": "56bb25a1addba4c6ed79c4e5d1a580d80cc698f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rougier",
+        "repo": "mu4e-thread-folding",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1611383797,
@@ -179,6 +195,7 @@
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "kmonad": "kmonad",
+        "mu4e-thread-folding": "mu4e-thread-folding",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
