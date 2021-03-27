@@ -84,9 +84,7 @@
           "z" '(:ignore t :which-key "Org-roam")
 
           ;; Buffer-related commands under `b'
-          ;; NOTE: counsel is nicer here, because of ivy-rich and preview. Same
-          ;; for "bo".
-          "bb" '(counsel-switch-buffer :which-key "Switch buffer")
+          "bb" '(switch-to-buffer :which-key "Switch buffer")
           "bB" '(list-buffers :which-key "List buffers")
           "bd" '((lambda ()
                    (interactive)
@@ -95,13 +93,12 @@
                  :which-key "Kill this buffer")
           "bD" '(kill-this-buffer :which-key "Force kill this buffer")
           "bk" '(kill-buffer :which-key "Kill buffer")
-          "bo" '(counsel-switch-buffer-other-window :which-key "Switch buffer other window")
           ;; Editing-related commands under `e'
           "es" '(evil-ex-sort :which-key "Sort")
           ;; File-related commands under `f'
-          "fd" '(counsel-dired :which-key "Dired")
-          "ff" '(counsel-find-file :which-key "Find file")
-          "fr" '(splinter-counsel-rg :which-key "Ripgrep")
+          "fd" '(dired :which-key "Dired")
+          "ff" '(find-file :which-key "Find file")
+          "fr" '(consult-ripgrep :which-key "Ripgrep")
           "fs" '(save-buffer :which-key "Save buffer")
           ;; Git-related commands under `g'
           "gg" '(magit-status :which-key "Magit")
@@ -121,7 +118,7 @@
           "hc" 'describe-key-briefly
           "hd" 'apropos-documentation
           "he" 'view-echo-area-messages
-          "hf" 'counsel-describe-function
+          "hf" 'describe-function
           "hg" 'describe-gnu-project
           "hh" 'view-hello-file
           "hi" 'info
@@ -135,7 +132,7 @@
           "hr" 'info-emacs-manual
           "hs" 'describe-syntax
           "ht" 'help-with-tutorial
-          "hv" 'counsel-describe-variable
+          "hv" 'describe-variable
           "hw" 'where-is
           ;; Jump-related commands under `j'
           "jj" 'dumb-jump-go
@@ -176,8 +173,11 @@
           "zr" '(org-roam :which-key "Toggle org-roam buffer")
 
           ;; M-x
-          "SPC" '(counsel-M-x :which-key "M-x")
-          "x" '(counsel-M-x :which-key "M-x")
+          "SPC" '(execute-extended-command :which-key "M-x")
+          "x" '(execute-extended-command :which-key "M-x")
+
+          ;; Search
+          "/" '(consult-line :which-key "Search line")
 
           ;; Editing-related commands
           ";" '(comment-dwim :which-key "Comment")

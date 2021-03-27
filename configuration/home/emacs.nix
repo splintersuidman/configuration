@@ -13,7 +13,7 @@
     ./emacs/icons.nix
     ./emacs/ido.nix
     ./emacs/indent.nix
-    ./emacs/ivy.nix
+    ./emacs/minibuffer.nix
     ./emacs/jump.nix
     ./emacs/lsp.nix
     ./emacs/modeline.nix
