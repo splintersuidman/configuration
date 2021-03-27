@@ -18,11 +18,11 @@
     },
     "emacs-overlay": {
       "locked": {
-        "lastModified": 1612254101,
-        "narHash": "sha256-OZLBb0TcjcsP5R++L++Q+vKBsHOo3ju9ZWfqtr9l/l0=",
+        "lastModified": 1616214656,
+        "narHash": "sha256-ceFOGcsbGlP/qtxMBlRGFH5fsbN+uGQYeHUrpgcRS4U=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "7e91cd4bb9d063e4c4f7fd867d2c4bd712193686",
+        "rev": "d9530a7048f4b1c0f65825202a0ce1d111a1d39a",
         "type": "github"
       },
       "original": {
@@ -132,11 +132,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1609254719,
-        "narHash": "sha256-XB3391z8r81Bt8NfQzB+tYdTWoraY0QVdXM21JhfW+Y=",
+        "lastModified": 1616527350,
+        "narHash": "sha256-VkMevY2WLU+K7T/P4wVj18Ms8zyeRfp05ILf556m5Y8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "733e537a8ad76fd355b6f501127f7d0eb8861775",
+        "rev": "d3f7e969b9860fb80750147aeb56dab1c730e756",
         "type": "github"
       },
       "original": {
@@ -164,7 +164,7 @@
     "private": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-S7G8Hhy0nVEr1pbaE5Kd3x9fNqu+U7oNpLBKhER2uOY=",
+        "narHash": "sha256-v+l3DBYoCdSRi2lppxNRBxjSDOunt4aGy/ASkCEIYOw=",
         "path": "/home/splinter/configuration/private",
         "type": "path"
       },
