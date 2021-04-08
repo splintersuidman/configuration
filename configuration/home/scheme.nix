@@ -1,8 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = [
-    pkgs.guile
-  ];
+{ pkgs, ... }: {
+  home.packages = [ pkgs.guile ];
 
   programs.emacs.init.usePackage = {
     scheme = {
@@ -13,7 +10,7 @@
     };
 
     geiser = {
-      enable = true;
+      enable = false;
       after = [ "scheme" "company" "general" ];
       init = ''
         (setq geiser-active-implementations '(guile))

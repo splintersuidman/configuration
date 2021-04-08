@@ -36,7 +36,7 @@ in {
       after = [ "selectrum" ];
       init = ''
         (setq completion-styles '(orderless))
-        (setq orderless-skip-highlighting (lambda () selectrum-active-p))
+        (setq orderless-skip-highlighting (lambda () selectrum-is-active))
         (setq selectrum-highlight-candidates-function 'orderless-highlight-matches)
       '';
     };
