@@ -14,8 +14,7 @@
     (column-number-mode t)
 
     ;; Highlight the cursorline.
-    (when window-system
-      (global-hl-line-mode t))
+    (global-hl-line-mode t)
 
     ;; Don't show splash screen.
     (setq inhibit-splash-screen t)
