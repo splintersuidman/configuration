@@ -84,7 +84,7 @@
           "z" '(:ignore t :which-key "Org-roam")
 
           ;; Buffer-related commands under `b'
-          "bb" '(switch-to-buffer :which-key "Switch buffer")
+          "bb" '(consult-buffer :which-key "Switch buffer")
           "bB" '(list-buffers :which-key "List buffers")
           "bd" '((lambda ()
                    (interactive)
@@ -93,11 +93,13 @@
                  :which-key "Kill this buffer")
           "bD" '(kill-this-buffer :which-key "Force kill this buffer")
           "bk" '(kill-buffer :which-key "Kill buffer")
+          "bo" '(consult-buffer-other-window :which-key "Switch buffer in other window")
           ;; Editing-related commands under `e'
           "es" '(evil-ex-sort :which-key "Sort")
           ;; File-related commands under `f'
           "fd" '(dired :which-key "Dired")
           "ff" '(find-file :which-key "Find file")
+          "fF" '(consult-find :which-key "Find file")
           "fr" '(consult-ripgrep :which-key "Ripgrep")
           "fs" '(save-buffer :which-key "Save buffer")
           ;; Git-related commands under `g'
