@@ -109,7 +109,17 @@
           modules = [
             ./hosts/thinkpad/system.nix
             {
-              nix.registry.nixpkgs.flake = inputs.nixpkgs;
+              nix = {
+                registry = {
+                  nixpkgs.flake = inputs.nixpkgs;
+                  unstable.flake = inputs.nixpkgs-unstable;
+                  home-manager.flake = inputs.home-manager;
+                  nur.flake = inputs.nur;
+                  emacs-overlay.flake = inputs.emacs-overlay;
+                  nixos-hardware.flake = inputs.nixos-hardware;
+                };
+                nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+              };
               nixpkgs.overlays = overlays;
             }
           ];
