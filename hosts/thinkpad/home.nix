@@ -55,5 +55,6 @@
     ../../configuration/home/xsession.nix
     ../../configuration/home/yaml.nix
     ../../configuration/home/zathura.nix
+    ../../configuration/home/zig.nix
   ];
 }
