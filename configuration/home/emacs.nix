@@ -1,6 +1,7 @@
 { pkgs, config, ... }: {
   imports = [
     ./emacs/avy.nix
+    ./emacs/backup.nix
     ./emacs/completion.nix
     ./emacs/elfeed.nix
     ./emacs/evil.nix
