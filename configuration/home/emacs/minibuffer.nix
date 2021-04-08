@@ -1,5 +1,7 @@
 { pkgs, ... }:
-let ripgrep = "${pkgs.ripgrep}/bin/rg";
+let
+  fd = "${pkgs.fd}/bin/fd";
+  ripgrep = "${pkgs.ripgrep}/bin/rg";
 in {
   programs.emacs.init.usePackage = {
     selectrum = {
@@ -55,6 +57,7 @@ in {
       enable = true;
       after = [ "general" ];
       init = ''
+        (setq consult-find-command "${fd} ARG . OPTS")
         (setq consult-ripgrep-command "${ripgrep} --null --line-buffered --color=always --max-columns=500   --no-heading --line-number . -e ARG OPTS")
       '';
       config = ''
