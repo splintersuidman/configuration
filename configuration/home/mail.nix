@@ -89,7 +89,7 @@ in {
       '';
       config = ''
         (general-define-key
-          :mode 'mu4e-headers-mode
+          :keymaps 'mu4e-headers-mode-map
           "<tab>" 'mu4e-headers-toggle-at-point)
         (splinter-mu4e-thread-folding-mode-set-faces t)
       '';
