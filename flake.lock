@@ -213,11 +213,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1609954752,
-        "narHash": "sha256-9VXBfa37Lle6MoHBxtmEnP4+icADsKJrrgz1dEtp2z4=",
+        "lastModified": 1618861691,
+        "narHash": "sha256-ZB/6hF1Q+bpgzgYAFNqudXdlmIbVJZZTa0jRf1/YwSM=",
         "owner": "splintah",
         "repo": "xmonad-splintah",
-        "rev": "f4a2694b2487366d893fe2b906ab4a9d4ab183fe",
+        "rev": "a78e4b3241d8e029740386f280feac13c566b11e",
         "type": "github"
       },
       "original": {
