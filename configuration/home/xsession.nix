@@ -16,14 +16,18 @@ let
     '';
   };
 in {
+  imports = [ ../../modules/home/wallpaper.nix ];
+
   home.packages = [ xmonad ];
 
   xsession = {
     enable = true;
-    initExtra = ''
-      ${pkgs.feh}/bin/feh --no-fehbg --bg-fill --geometry +0+0 ${wallpaper}
-    '';
-
     windowManager.command = "${xmonad}/bin/xmonad-${targetSystem}";
+  };
+
+  wallpaper = {
+    enableXSession = true;
+    command =
+      "${pkgs.feh}/bin/feh --no-fehbg --bg-fill --geometry +0+0 ${wallpaper}";
   };
 }

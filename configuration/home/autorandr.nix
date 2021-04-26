@@ -10,8 +10,7 @@ in {
   programs.autorandr = {
     enable = true;
     profiles = {
-      # Default single-screen setup, with builtin laptop screen as
-      # primary.
+      # Default single-display setup, with builtin laptop display as primary.
       default = {
         fingerprint = { inherit (fingerprints) eDP-1; };
         config = {
@@ -23,8 +22,8 @@ in {
           };
         };
       };
-      # Double-screen setup with HDMI screen as primary and builtin
-      # laptop screen as secondary.
+      # Double-display setup with HDMI display as primary and builtin laptop
+      # display as secondary.
       doublescreen = {
         fingerprint = { inherit (fingerprints) HDMI-1 eDP-1; };
         config = {
@@ -46,6 +45,8 @@ in {
       postswitch = lib.optionalAttrs config.services.polybar.enable {
         "polybar-restart" =
           "${config.services.polybar.package}/bin/polybar-msg cmd restart";
+      } // lib.optionalAttrs (config.wallpaper.command != null) {
+        "wallpaper" = config.wallpaper.command;
       };
     };
   };
