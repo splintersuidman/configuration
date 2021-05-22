@@ -180,7 +180,7 @@
     "private": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-v+l3DBYoCdSRi2lppxNRBxjSDOunt4aGy/ASkCEIYOw=",
+        "narHash": "sha256-EgINBdzKK44B9GeukSCqTwZhMtlapBgnTlROTf48vMg=",
         "path": "/home/splinter/configuration/private",
         "type": "path"
       },

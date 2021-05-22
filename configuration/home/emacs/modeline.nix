@@ -5,7 +5,6 @@
       init = ''
         (setq doom-modeline-height 22)
         (setq doom-modeline-bar-width 2)
-        (setq doom-modeline-mu4e t)
         (setq doom-modeline-icon t)
       '';
       hook = [ "(after-init . doom-modeline-mode)" ];

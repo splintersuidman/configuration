@@ -18,5 +18,8 @@
     (set-face-attribute 'variable-pitch nil
                         :family "Iosevka Aile"
                         :height 105)
+    ;; Fixed pitch face.
+    (set-face-attribute 'fixed-pitch nil
+                        :family "Iosevka Custom")
   '';
 }
