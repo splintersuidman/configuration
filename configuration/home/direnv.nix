@@ -10,6 +10,9 @@
   programs.emacs.init.usePackage = {
     direnv = {
       enable = true;
+      init = ''
+        (setq direnv-always-show-summary nil)
+      '';
       config = ''
         (direnv-mode)
       '';
