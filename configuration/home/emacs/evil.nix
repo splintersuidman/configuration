@@ -152,6 +152,7 @@
           "lp" 'flymake-goto-prev-error
           "lq" '(eglot-shutdown :which-key "Shutdown LSP")
           "lr" '(eglot-rename :which-key "Rename")
+          "m" '(consult-imenu :which-key "Imenu")
           ;; Theme-related commands under `t'
           "tl" '(load-theme :which-key "Load theme")
           "tt" '(splinter-switch-theme :which-key "Switch theme")

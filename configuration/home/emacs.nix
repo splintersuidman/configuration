@@ -13,10 +13,11 @@
     ./emacs/help.nix
     ./emacs/icons.nix
     ./emacs/ido.nix
+    ./emacs/imenu.nix
     ./emacs/indent.nix
-    ./emacs/minibuffer.nix
     ./emacs/jump.nix
     ./emacs/lsp.nix
+    ./emacs/minibuffer.nix
     ./emacs/modeline.nix
     ./emacs/pairs.nix
     ./emacs/pdf.nix
