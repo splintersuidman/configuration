@@ -103,7 +103,9 @@
           "fr" '(splinter-consult-ripgrep-project :which-key "Ripgrep")
           "fs" '(save-buffer :which-key "Save buffer")
           ;; Git-related commands under `g'
+          "gb" '(magit-blame :which-key "Git blame")
           "gg" '(magit-status :which-key "Magit")
+          "gl" '(magit-log :which-key "Git log")
           "gn" '(git-gutter:next-hunk :which-key "Next hunk")
           "gp" '(git-gutter:previous-hunk :which-key "Previous hunk")
           "gr" '(browse-at-remote :which-key "Browse at remote")
@@ -152,6 +154,7 @@
           "lp" 'flymake-goto-prev-error
           "lq" '(eglot-shutdown :which-key "Shutdown LSP")
           "lr" '(eglot-rename :which-key "Rename")
+          ;; Imenu under `m'
           "m" '(consult-imenu :which-key "Imenu")
           ;; Theme-related commands under `t'
           "tl" '(load-theme :which-key "Load theme")
