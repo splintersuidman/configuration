@@ -33,7 +33,7 @@
 (defvar notmuch-update-interval 60
   "The interval in seconds between consecutive updates.")
 
-(defvar notmuch-update-command "notmuch new"
+(defvar notmuch-update-command (concat notmuch-command " new")
   "The update command. This command is run using sh.
 
 Example: mbsync --all && notmuch new")

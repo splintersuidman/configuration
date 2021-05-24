@@ -67,7 +67,7 @@ it removes the notification tag from all messages with that tag."
     (make-process :name "notmuch-notify"
                   :command (funcall notmuch-notify-command msg)))
   (make-process :name "notmuch-notify-clear-tag"
-                :command '("notmuch" "tag" "-notification" "--" "tag:notification")))
+                :command `(,notmuch-command "tag" "-notification" "--" "tag:notification")))
 
 ;;;###autoload
 (defun notmuch-notify ()
@@ -81,7 +81,7 @@ tag from those messages."
   (unless (and notmuch-notify--process (process-live-p notmuch-notify--process))
     (setq notmuch-notify--process
           (make-process :name "notmuch-notify"
-                        :command '("notmuch" "search" "--format=sexp" "tag:notification and tag:unread")
+                        :command `(,notmuch-command "search" "--format=sexp" "tag:notification and tag:unread")
                         :filter 'notmuch-notify--filter
                         :sentinel 'notmuch-notify--sentinel))))
 
