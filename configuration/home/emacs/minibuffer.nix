@@ -59,6 +59,24 @@ in {
       init = ''
         (setq consult-find-command "${fd} ARG . OPTS")
         (setq consult-ripgrep-command "${ripgrep} --null --line-buffered --color=always --max-columns=500   --no-heading --line-number . -e ARG OPTS")
+
+        (defun splinter-consult-ripgrep-project ()
+          "Run `consult-ripgrep' from the project root, if there is any,
+        otherwise from the standard directory."
+          (interactive)
+          (let ((proj (project-current)))
+            (if proj
+                (consult-ripgrep (project-root proj))
+              (consult-ripgrep))))
+
+        (defun splinter-consult-find-project ()
+          "Run `consult-find' from the project root, if there is any,
+        otherwise from the standard directory."
+          (interactive)
+          (let ((proj (project-current)))
+            (if proj
+                (consult-find (project-root proj))
+              (consult-find))))
       '';
       config = ''
         (general-define-key

@@ -99,8 +99,8 @@
           ;; File-related commands under `f'
           "fd" '(dired :which-key "Dired")
           "ff" '(find-file :which-key "Find file")
-          "fF" '(consult-find :which-key "Find file")
-          "fr" '(consult-ripgrep :which-key "Ripgrep")
+          "fF" '(splinter-consult-find-project :which-key "Find file")
+          "fr" '(splinter-consult-ripgrep-project :which-key "Ripgrep")
           "fs" '(save-buffer :which-key "Save buffer")
           ;; Git-related commands under `g'
           "gg" '(magit-status :which-key "Magit")
