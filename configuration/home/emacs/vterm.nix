@@ -1,10 +1,14 @@
 { ... }:
 {
   programs.emacs.init.usePackage = {
-    # TODO: vterm doesn't work correctly with evil-mode, which means
-    # that C-n and C-p don't work as expected.
     vterm = {
       enable = true;
+      init = ''
+        (defun vterm-new ()
+          "Create a new `vterm' buffer."
+          (interactive)
+          (vterm t))
+      '';
     };
   };
 

@@ -10,8 +10,10 @@
     };
     shellOptions = [ "autocd" ];
     initExtra = ''
-      # Enable vi mode
-      set -o vi
+      # Enable vi mode if not running vterm inside Emacs.
+      if [[ "$INSIDE_EMACS" != 'vterm' ]]; then
+        set -o vi
+      fi
     '';
   };
 

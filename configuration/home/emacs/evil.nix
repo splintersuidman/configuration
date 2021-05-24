@@ -156,6 +156,8 @@
           ;; Theme-related commands under `t'
           "tl" '(load-theme :which-key "Load theme")
           "tt" '(splinter-switch-theme :which-key "Switch theme")
+          ;; Vterm-related commands under `v'
+          "v" '(vterm-new :which-key "Vterm")
           ;; Window-related commands under `w'
           "wh" '(evil-window-left :which-key "Left")
           "wj" '(evil-window-down :which-key "Down")
