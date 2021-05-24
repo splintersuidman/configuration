@@ -21,14 +21,15 @@ in {
       after = [ "general" ];
       config = ''
         (general-define-key
-          :prefix my-local-leader
-          :states '(normal visual motion)
-          :keymaps 'notmuch-common-keymap
-          "r" 'notmuch-refresh-this-buffer
-          "R" 'notmuch-refresh-all-buffers)
+         :prefix my-local-leader
+         :states '(normal visual motion)
+         :keymaps 'notmuch-common-keymap
+         "r" 'notmuch-refresh-this-buffer
+         "R" 'notmuch-refresh-all-buffers)
       '';
       extraConfig = ''
         :custom
+        (notmuch-command "${notmuch}")
         (notmuch-show-logo nil)
         (notmuch-hello-auto-refresh t)
         (notmuch-search-oldest-first nil "Show newest first")
@@ -39,11 +40,20 @@ in {
                                   (:name "sent" :query "tag:sent" :key "t")
                                   (:name "drafts" :query "tag:draft" :key "d")
                                   (:name "all mail" :query "*" :key "a")))
-
       '';
     };
 
-    consult-notmuch = { enable = true; };
+    consult-notmuch = {
+      enable = true;
+      after = [ "general" ];
+      config = ''
+        (general-define-key
+         :prefix my-local-leader
+         :states '(normal visual motion)
+         :keymaps 'notmuch-common-keymap
+         "s" 'consult-notmuch)
+      '';
+    };
 
     notmuch-notify = {
       enable = true;
