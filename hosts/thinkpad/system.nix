@@ -26,6 +26,9 @@
     # NOTE: nixos-hardware/lenovo/thinkpad/t14s/amd defines boot.kernelPackages.
     kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
     kernelModules = [ "uinput" ];
+
+    # Clean /tmp on boot.
+    cleanTmpDir = true;
   };
 
   networking.hostName = "thinkpad"; # Define your hostname.
