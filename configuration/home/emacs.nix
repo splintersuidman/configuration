@@ -15,15 +15,12 @@
     ./emacs/ido.nix
     ./emacs/imenu.nix
     ./emacs/indent.nix
-    ./emacs/jump.nix
     ./emacs/lsp.nix
     ./emacs/minibuffer.nix
     ./emacs/modeline.nix
     ./emacs/pairs.nix
     ./emacs/pdf.nix
     ./emacs/shell.nix
-    ./emacs/snippets.nix
-    ./emacs/switch-window.nix
     ./emacs/theme.nix
     ./emacs/vterm.nix
     ./emacs/which-key.nix

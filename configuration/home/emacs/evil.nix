@@ -138,14 +138,6 @@
           "ht" 'help-with-tutorial
           "hv" 'describe-variable
           "hw" 'where-is
-          ;; Jump-related commands under `j'
-          "jj" 'dumb-jump-go
-          "jo" 'dumb-jump-go-other-window
-          "je" 'dumb-jump-go-prefer-external
-          "jx" 'dumb-jump-go-prefer-external-other-window
-          "ji" 'dumb-jump-prompt
-          "jl" 'dumb-jump-quick-look
-          "jb" 'dumb-jump-back
           ;; Language server-related commands under `l'
           "la" '(eglot-code-actions :which-key "Code actions")
           "lf" '(eglot-format :which-key "Format")

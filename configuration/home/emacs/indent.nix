@@ -7,7 +7,7 @@
     '';
 
     usePackage.aggressive-indent = {
-      enable = true;
+      enable = false;
     };
   };
 }

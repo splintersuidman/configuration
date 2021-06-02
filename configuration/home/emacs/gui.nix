@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   programs.emacs.init.prelude = ''
     ;; Hide toolbar, scrollbar.
     (tool-bar-mode 0)
@@ -9,15 +8,7 @@
     (when (not (eq system-type 'darwin))
       (menu-bar-mode 0))
 
-    ;; Show line number and column number in modeline.
-    (line-number-mode t)
-    (column-number-mode t)
-
-    ;; Highlight the cursorline.
-    (global-hl-line-mode t)
-
-    ;; Don't show splash screen.
-    (setq inhibit-splash-screen t)
+    (setq inhibit-startup-screen t)
 
     ;; Wrap lines.
     (global-visual-line-mode t)
@@ -28,4 +19,18 @@
     ;; Inhibit messages for redefined functions.
     (setq ad-redefinition-action 'accept)
   '';
+
+  programs.emacs.init.usePackage = {
+    hl-line = {
+      config = ''
+        (global-hl-line-mode t)
+      '';
+    };
+
+    hl-todo = {
+      config = ''
+        (global-hl-todo-mode t)
+      '';
+    };
+  };
 }

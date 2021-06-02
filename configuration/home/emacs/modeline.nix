@@ -1,4 +1,9 @@
 { pkgs, ... }: {
+  programs.emacs.init.prelude = ''
+    (line-number-mode t)
+    (column-number-mode t)
+  '';
+
   programs.emacs.init.usePackage = {
     doom-modeline = {
       enable = true;

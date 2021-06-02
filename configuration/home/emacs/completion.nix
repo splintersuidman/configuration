@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   programs.emacs.init.usePackage = {
     company = {
       enable = true;
