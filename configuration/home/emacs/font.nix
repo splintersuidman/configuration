@@ -4,7 +4,7 @@
   programs.emacs.init.prelude = ''
     (set-face-attribute 'default nil
                         :family "Iosevka Custom"
-                        :height 110)
+                        :height 105)
 
     (set-face-attribute 'font-lock-comment-face nil
                         :slant 'italic)
