@@ -39,7 +39,11 @@
   };
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
+    package = pkgs.emacsGcc;
+    init.prelude = ''
+      ;; Inhibit native compilation warnings.
+      (setq comp-async-report-warnings-errors nil)
+    '';
 
     init = {
       enable = true;
