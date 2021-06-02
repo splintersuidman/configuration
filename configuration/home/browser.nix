@@ -26,7 +26,6 @@ in {
 
   programs.firefox = {
     enable = true;
-    enableAdobeFlash = false;
     package = pkgs.firefox;
 
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [

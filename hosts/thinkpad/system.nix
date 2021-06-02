@@ -81,7 +81,7 @@
     extraGroups = [ "wheel" "audio" "networkmanager" "input" "uinput" ];
   };
 
-  services.udev.extraRules = ''
+  services.udev.initrdRules = ''
     # KMonad user access to /dev/uinput
     KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"
   '';
