@@ -27,6 +27,7 @@
     ./emacs/theme.nix
     ./emacs/vterm.nix
     ./emacs/which-key.nix
+    ./emacs/window.nix
   ];
 
   services.emacs = {
