@@ -17,8 +17,6 @@
     file
     gnupg
     gnutar
-    intel-gpu-tools
-    libGL
     libnotify
     lshw
     openssh
@@ -26,10 +24,8 @@
     patchelf
     tmux
     tree
-    xcape
     xclip
     xdotool
-    xfontsel
     xorg.xev
     xz
     zip unzip

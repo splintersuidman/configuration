@@ -1,1 +1,1 @@
-{ ... }: { services.postgresql = { enable = true; }; }
+{ ... }: { services.postgresql = { enable = false; }; }

@@ -11,10 +11,10 @@
     scrot
     gimp
     inkscape
-    nur.repos.splintah.giph
 
     # Programming tools
     gnumake
+    gdb
 
     # Man pages
     manpages
@@ -25,7 +25,6 @@
     groff
 
     # Video
-    vlc
     unstable.youtubeDL
     ffmpeg
 
@@ -34,18 +33,13 @@
     aspellDicts.en
     aspellDicts.nl
     calc
-    cmatrix
     coreutils
-    dmenu
     entr
     fd
     file
     gnupg
     gnutar
-    gtypist
     hplip
-    intel-gpu-tools
-    libGL
     libnotify
     lshw
     neofetch
@@ -56,12 +50,12 @@
     qrencode
     ripgrep
     tokei
+    traceroute
     tree
-    xcape
+    whois
     xclip
     xdo
     xdotool
-    xfontsel
     xorg.setxkbmap
     xorg.xev
     xz
