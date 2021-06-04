@@ -5,19 +5,6 @@ in {
     enable = true;
     settings = {
       mpd_port = config.services.mopidy.config.mpd.port;
-      lyrics_fetchers = lib.concatStringsSep "," [
-        "lyricwiki"
-        "genius"
-        "azlyrics"
-        "sing365"
-        "lyricsmania"
-        "metrolyrics"
-        "justsomelyrics"
-        "jahlyrics"
-        "plyrics"
-        "tekstowo"
-        "internet"
-      ];
       lyrics_directory = config.xdg.dataHome + "/lyrics";
       allow_for_physical_item_deletion = true;
       user_interface = "alternative";
