@@ -83,6 +83,22 @@
         "type": "github"
       }
     },
+    "icon-affixation": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1623006031,
+        "narHash": "sha256-xXvSaKcqaVNnLjMD+Vkun70pj2IoV10+tdJyoDR9/bY=",
+        "owner": "iyefrat",
+        "repo": "icon-affixation",
+        "rev": "7c1a68c2c1c9cc7bd0bdec42e2ff67f4c5bd47da",
+        "type": "github"
+      },
+      "original": {
+        "owner": "iyefrat",
+        "repo": "icon-affixation",
+        "type": "github"
+      }
+    },
     "kmonad": {
       "flake": false,
       "locked": {
@@ -194,6 +210,7 @@
         "base16-tomorrow-scheme": "base16-tomorrow-scheme",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
+        "icon-affixation": "icon-affixation",
         "kmonad": "kmonad",
         "mu4e-thread-folding": "mu4e-thread-folding",
         "nixos-hardware": "nixos-hardware",

@@ -28,6 +28,10 @@
       url = "github:chriskempson/base16-tomorrow-scheme";
       flake = false;
     };
+    icon-affixation = {
+      url = "github:iyefrat/icon-affixation";
+      flake = false;
+    };
     kmonad = {
       url = "github:david-janssen/kmonad";
       flake = false;

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   fd = "${pkgs.fd}/bin/fd";
   ripgrep = "${pkgs.ripgrep}/bin/rg";
@@ -51,6 +51,18 @@ in {
         (advice-add 'marginalia-cycle :after
                     (lambda () (when (bound-and-true-p selectrum-mode) (selectrum-exhibit 'keep-selected))))
       '';
+    };
+
+    icon-affixation = {
+      enable = true;
+      after = [ "marginalia" ];
+      package = epkgs:
+        epkgs.trivialBuild {
+          pname = "icon-affixation";
+          buildInputs = [ epkgs.all-the-icons epkgs.marginalia ];
+          src = inputs.icon-affixation;
+        };
+      hook = [ "(marginalia-mode . icon-affixation-mode)" ];
     };
 
     consult = {
