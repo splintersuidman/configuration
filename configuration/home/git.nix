@@ -5,13 +5,23 @@
     userName = "Splinter Suidman";
     userEmail = "splinter@mannenopdemaan.nl";
 
-    extraConfig = { pull.rebase = false; };
+    extraConfig = {
+      pull.rebase = false;
+      # For forge
+      github.username = "splintah";
+    };
 
     lfs.enable = true;
+
   };
 
   programs.emacs.init.usePackage = {
     magit = { enable = true; };
+
+    forge = {
+      enable = true;
+      after = [ "magit" ];
+    };
 
     magit-todos = {
       enable = true;
