@@ -100,6 +100,7 @@
           "fd" '(dired :which-key "Dired")
           "ff" '(find-file :which-key "Find file")
           "fF" '(splinter-consult-find-project :which-key "Find file")
+          "fp" '(find-file-at-point :which-key "Find file at point")
           "fr" '(splinter-consult-ripgrep-project :which-key "Ripgrep")
           "fs" '(save-buffer :which-key "Save buffer")
           ;; Git-related commands under `g'
