@@ -26,7 +26,8 @@ in {
       enable = true;
       after = [ "selectrum" "prescient" ];
       init = ''
-        (setq selectrum-prescient-enable-filtering nil)
+        (setq selectrum-prescient-enable-filtering t)
+        (setq prescient-use-case-folding t)
       '';
       config = ''
         (selectrum-prescient-mode)
@@ -34,7 +35,7 @@ in {
     };
 
     orderless = {
-      enable = true;
+      enable = false;
       after = [ "selectrum" ];
       init = ''
         (setq completion-styles '(orderless))
