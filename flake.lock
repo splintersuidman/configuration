@@ -99,11 +99,20 @@
         "type": "github"
       }
     },
+    "mopidy-mpd": {
       "flake": false,
       "locked": {
+        "lastModified": 1625073775,
+        "narHash": "sha256-at9JZPpqvXVmKaAuoF27yT7kku4/UDv6HkNFPWTmQAo=",
+        "owner": "splintah",
+        "repo": "mopidy-mpd",
+        "rev": "51d524cb66bdd16446d1bba077232294893f3afe",
         "type": "github"
       },
       "original": {
+        "owner": "splintah",
+        "ref": "feat/multiple_tags",
+        "repo": "mopidy-mpd",
         "type": "github"
       }
     },
@@ -187,6 +196,7 @@
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "kmonad": "kmonad",
+        "mopidy-mpd": "mopidy-mpd",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",

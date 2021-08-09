@@ -1,11 +1,11 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, inputs, ... }: {
   home.packages = [ pkgs.mpc_cli pkgs.playerctl ];
 
   services.mopidy = {
     enable = true;
     package = pkgs.mopidy;
     extraPackages = with pkgs.mopidyPackages; [
-      mopidy-mpd
+      (mopidy-mpd.overrideAttrs (oldAttrs: { src = inputs.mopidy-mpd; }))
       mopidy-mpris
       mopidy-spotify
     ];

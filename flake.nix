@@ -32,6 +32,8 @@
       url = "github:david-janssen/kmonad";
       flake = false;
     };
+    mopidy-mpd = {
+      url = "github:splintah/mopidy-mpd/feat/multiple_tags";
       flake = false;
     };
     xmonad-splintah = {
