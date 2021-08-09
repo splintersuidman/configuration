@@ -28,16 +28,10 @@
       url = "github:chriskempson/base16-tomorrow-scheme";
       flake = false;
     };
-    icon-affixation = {
-      url = "github:iyefrat/icon-affixation";
-      flake = false;
-    };
     kmonad = {
       url = "github:david-janssen/kmonad";
       flake = false;
     };
-    mu4e-thread-folding = {
-      url = "github:rougier/mu4e-thread-folding";
       flake = false;
     };
     xmonad-splintah = {
@@ -85,12 +79,10 @@
               # NOTE: these modules must be imported here to prevent infinite
               # recursion. See
               # <https://github.com/nix-community/home-manager/issues/1642#issuecomment-739012921>.
-              nurNoPkgs.repos.rycee.hmModules.emacs-init
               nurNoPkgs.repos.rycee.hmModules.theme-base16
               nurNoPkgs.repos.splintah.hmModules.onedrive
               nurNoPkgs.repos.splintah.hmModules.mopidy
               nurNoPkgs.repos.splintah.hmModules.mpdscribble
-              "${inputs.private}/configuration/home/emacs/elfeed/feeds.nix"
               "${inputs.private}/configuration/home/mail/accounts.nix"
               "${inputs.private}/configuration/home/mopidy.nix"
               "${inputs.private}/configuration/home/mpdscribble.nix"

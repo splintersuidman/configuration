@@ -36,6 +36,7 @@
     ../../configuration/home/onedrive.nix
     ../../configuration/home/org-mode.nix
     ../../configuration/home/pass.nix
+    ../../configuration/home/pdf.nix
     ../../configuration/home/polybar.nix
     ../../configuration/home/python.nix
     ../../configuration/home/redshift.nix
@@ -53,6 +54,5 @@
     ../../configuration/home/xresources.nix
     ../../configuration/home/xsession.nix
     ../../configuration/home/yaml.nix
-    ../../configuration/home/zathura.nix
   ];
 }

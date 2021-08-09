@@ -1,6 +1,7 @@
-{ ... }:
-{
-  programs.emacs.init.usePackage = {
-    yaml-mode = { enable = true; };
+{ ... }: {
+  programs.emacs.init.modules."init/init-yaml.el" = {
+    enable = true;
+    config = ./yaml.el;
+    feature = "init-yaml";
   };
 }

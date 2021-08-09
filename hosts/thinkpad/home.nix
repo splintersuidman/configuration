@@ -12,6 +12,7 @@
     ../../configuration/home/chat.nix
     ../../configuration/home/direnv.nix
     ../../configuration/home/dunst.nix
+    ../../configuration/home/elfeed.nix
     ../../configuration/home/emacs.nix
     ../../configuration/home/feh.nix
     ../../configuration/home/fonts.nix
@@ -35,9 +36,11 @@
     ../../configuration/home/mpv.nix
     ../../configuration/home/ncmpcpp.nix
     ../../configuration/home/nix.nix
+    ../../configuration/home/ocaml.nix
     ../../configuration/home/onedrive.nix
     ../../configuration/home/org-mode.nix
     ../../configuration/home/pass.nix
+    ../../configuration/home/pdf.nix
     ../../configuration/home/polybar.nix
     ../../configuration/home/python.nix
     ../../configuration/home/redshift.nix
@@ -51,11 +54,11 @@
     ../../configuration/home/tools.nix
     ../../configuration/home/unclutter.nix
     ../../configuration/home/urxvt.nix
+    ../../configuration/home/vterm.nix
     ../../configuration/home/xdg.nix
     ../../configuration/home/xresources.nix
     ../../configuration/home/xsession.nix
     ../../configuration/home/yaml.nix
-    ../../configuration/home/zathura.nix
     ../../configuration/home/zig.nix
   ];
 }
