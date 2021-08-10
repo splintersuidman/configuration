@@ -21,14 +21,14 @@
 (use-package orderless
   :ensure t
   :init
-  (defun splinter-flex-tilde (pattern _index _total)
+  (defun splinter-flex-dispatcher (pattern _index _total)
     "Use orderless-flex on a component if it ends with a tilde (~)."
     (when (string-suffix-p "~" pattern)
       `(orderless-flex . ,(substring pattern 0 -1))))
   :custom
   (completion-styles '(orderless))
   (orderless-matching-styles '(orderless-literal orderless-regexp orderless-initialism))
-  (orderless-style-dispatchers '(splinter-flex-tilde)))
+  (orderless-style-dispatchers '(splinter-flex-dispatcher)))
 
 (use-package marginalia
   :ensure t
