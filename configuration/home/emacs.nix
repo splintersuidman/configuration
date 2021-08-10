@@ -132,6 +132,12 @@
           feature = "init-project";
         };
 
+        "init/init-scratch.el" = {
+          enable = true;
+          config = ./emacs/init/scratch.el;
+          feature = "init-scratch";
+        };
+
         "init/init-theme.el" = {
           enable = true;
           config = ./emacs/init/theme.el;

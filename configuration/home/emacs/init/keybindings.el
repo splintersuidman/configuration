@@ -70,6 +70,7 @@
     "j" '(:ignore t :which-key "Jump")
     "l" '(:ignore t :which-key "Lsp")
     "o" '(:ignore t :which-key "Org-mode")
+    "s" '(:ignore t :which-key "Scratch")
     "t" '(:ignore t :which-key "Theme")
     "w" '(:ignore t :which-key "Window")
     "z" '(:ignore t :which-key "Org-roam")
