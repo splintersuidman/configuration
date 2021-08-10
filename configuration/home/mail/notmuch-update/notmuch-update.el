@@ -48,6 +48,7 @@ Example: mbsync --all && notmuch new")
   "The notmuch update timer.")
 
 (defun notmuch-update--sentinel (proc event)
+  "Function to run after the notmuch update process is run."
   (when (or (not (eq (process-status proc) 'exit))
           (/= (process-exit-status proc) 0))
     (message "notmuch: Update process returned with non-zero exit code"))
@@ -76,9 +77,13 @@ Example: mbsync --all && notmuch new")
 
 ;;;###autoload
 (defun notmuch-update-add-hook ()
-  "Add hook to start timer when `notmuch-hello-mode' is
-  entered."
+  "Add hook to start timer when `notmuch-hello-mode' is entered."
   (add-hook 'notmuch-hello-mode-hook 'notmuch-update--init-timer))
+
+;;;###autoload
+(defun notmuch-update-start ()
+  "Start the update timer."
+  (notmuch-update--init-timer))
 
 (provide 'notmuch-update)
 

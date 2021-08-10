@@ -33,7 +33,6 @@
 
 (use-package notmuch-update
   :after (general notmuch notmuch-notify)
-  :functions (notmuch-update-add-hook)
   :custom
   (notmuch-update-command "mbsync --all && notmuch new")
   (notmuch-update-interval (* 5 60))
@@ -47,9 +46,8 @@ except for `notmuch-show-mode' buffers."
         (when (memq buffer-mode '(notmuch-tree-mode notmuch-search-mode notmuch-hello-mode))
           (with-current-buffer buffer
             (notmuch-refresh-this-buffer))))))
-  :config
-  (notmuch-update-add-hook)
   :hook
+  (notmuch-hello-mode . notmuch-update-start)
   (notmuch-update-post . notmuch-notify)
   (notmuch-update-post . splinter-notmuch-refresh-non-show-buffers)
   :general
