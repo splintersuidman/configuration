@@ -38,7 +38,6 @@
   (require 'haskell-doc)
   :hook
   (haskell-mode . interactive-haskell-mode)
-  (haskell-mode . haskell-auto-insert-mode-template)
   :general
   (my-local-leader-def
     :keymaps 'interactive-haskell-mode-map
