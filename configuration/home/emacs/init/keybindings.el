@@ -4,6 +4,7 @@
   (evil-want-C-u-scroll t)
   (evil-want-keybinding nil)
   (evil-echo-state nil)
+  (evil-want-minibuffer t)
   :config
   (evil-mode))
 
@@ -11,7 +12,7 @@
   :ensure t
   :after evil
   :custom
-  (evil-collection-setup-minibuffer nil)
+  (evil-collection-setup-minibuffer t)
   :config
   (evil-collection-init))
 

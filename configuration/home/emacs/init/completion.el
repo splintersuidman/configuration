@@ -5,6 +5,8 @@
 (use-package minibuffer
   :demand t
   :after general
+  :custom
+  (enable-recursive-minibuffers t)
   :general
   (:keymaps 'minibuffer-mode-map
    "C-u" 'delete-minibuffer-contents))
@@ -16,7 +18,21 @@
 (use-package vertico
   :ensure t
   :config
-  (vertico-mode))
+  (vertico-mode)
+  :general
+  (:keymaps 'vertico-map
+   :states '(normal insert)
+   "C-n" 'vertico-next
+   "C-p" 'vertico-previous
+   "RET" 'vertico-exit)
+  (:keymaps 'vertico-map
+   :states 'normal
+   "C-d" 'vertico-scroll-up
+   "C-u" 'vertico-scroll-down
+   "j" 'vertico-next
+   "k" 'vertico-previous
+   "gg" 'vertico-first
+   "G" 'vertico-last))
 
 (use-package orderless
   :ensure t
