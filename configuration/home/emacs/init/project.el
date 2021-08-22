@@ -5,9 +5,8 @@
   :init
   (defun splinter-project-root ()
     "Return the project root directory or ‘nil’ if there is no current project."
-    (let ((project (project-current)))
-      (when project
-        (project-root project))))
+    (when-let ((project (project-current)))
+      (project-root project)))
 
   (cl-defmethod project-root ((project (head splinter-dot-project)))
     (cdr project))
