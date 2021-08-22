@@ -17,6 +17,8 @@
 
 (use-package vertico
   :ensure t
+  :demand t
+  :after general
   :config
   (vertico-mode)
   :general
