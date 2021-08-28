@@ -30,19 +30,27 @@
 
 (require 'notmuch)
 
-(defvar notmuch-update-interval 60
-  "The interval in seconds between consecutive updates.")
+(defcustom notmuch-update-interval 60
+  "The interval in seconds between consecutive updates."
+  :type 'integer
+  :group 'notmuch-update)
 
-(defvar notmuch-update-command (concat notmuch-command " new")
+(defcustom notmuch-update-command (concat notmuch-command " new")
   "The update command. This command is run using sh.
 
-Example: mbsync --all && notmuch new")
+Example: mbsync --all && notmuch new"
+  :type 'string
+  :group 'notmuch-update)
 
-(defvar notmuch-update-pre-hook nil
-  "Hook to run before running the `notmuch-update-command'.")
+(defcustom notmuch-update-pre-hook nil
+  "Hook to run before running the `notmuch-update-command'."
+  :type 'hook
+  :group 'notmuch-update)
 
-(defvar notmuch-update-post-hook nil
-  "Hook to run after running the `notmuch-update-command'.")
+(defcustom notmuch-update-post-hook nil
+  "Hook to run after running the `notmuch-update-command'."
+  :type 'hook
+  :group 'notmuch-update)
 
 (defvar notmuch-update--timer nil
   "The notmuch update timer.")

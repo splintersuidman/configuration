@@ -34,7 +34,7 @@
 (defun notmuch-notify-command-default (msg)
   `("notify-send" ,(plist-get msg :authors) ,(plist-get msg :subject)))
 
-(defvar notmuch-notify-command 'notmuch-notify-command-default
+(defcustom notmuch-notify-command 'notmuch-notify-command-default
   "Command used to send a notification.
 
 This is a function with a message as a parameter, that must
@@ -44,7 +44,9 @@ program.
 
 The message is a plist with the following attributes: `:thread',
 `:timestamp', `:date_relative', `:matched', `:total', `:authors',
-`:subject', `:query', `:tags'.")
+`:subject', `:query', `:tags'."
+  :type 'function
+  :group 'notmuch-notify)
 
 (defvar notmuch-notify--output ""
   "Variable used to write the output of notmuch search to.")
