@@ -57,6 +57,14 @@ except for `notmuch-show-mode' buffers."
 
 (use-package message
   :after general
+  :config
+  ;; From <https://gitlab.com/rycee/nur-expressions/-/blob/master/hm-modules/emacs-notmuch.nix>.
+  (defun splinter-message-send ()
+    (make-local-variable 'message-user-fqdn)
+    (let ((from (nth 1 (mail-extract-address-components (message-field-value "From")))))
+      (setq message-user-fqdn (nth 1 (split-string from "@")))))
+  :hook
+  (message-send . splinter-message-send)
   :general
   (my-local-leader-def
     :keymaps 'message-mode-map
