@@ -23,6 +23,13 @@
   :config
   (add-to-list 'org-modules 'org-tempo)
   (add-to-list 'org-modules 'org-habit)
+
+  (defun splinter-ncatlab-follow (title arg)
+    "Follow ncatlab link."
+    (browse-url (concat "https://ncatlab.org/nlab/show/" title) arg))
+
+  (org-link-set-parameters "ncatlab"
+                           :follow 'splinter-ncatlab-follow)
   :hook
   (org-mode . auto-fill-mode)
   (org-agenda-mode . auto-save-mode)
