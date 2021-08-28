@@ -15,6 +15,8 @@
     "Try to find a .project file in ‘dir’ indicating a project directory."
     (let ((root (locate-dominating-file dir ".project")))
       (and root (cons 'splinter-dot-project root))))
+
+  (add-to-list 'project-find-functions 'splinter-project-try-dot-project)
   :custom
   (project-switch-commands '((project-find-file "Find file" ?f)
                              (project-dired "Dired" ?d)
@@ -22,7 +24,6 @@
                              (splinter-project-vterm "Vterm" ?v)
                              (project-execute-extended-command "Execute command" ?x)
                              (magit-project-status "Magit" ?g)))
-  (project-find-functions '(splinter-project-try-dot-project project-try-vc))
   :general
   (my-leader-def
     "p!" '(project-shell-command :which-key "Shell command")
