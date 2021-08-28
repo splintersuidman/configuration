@@ -18,6 +18,16 @@
         (vterm t))))
   :general
   (my-leader-def
-    "v" '(splinter-project-vterm :which-key "Terminal")))
+    "v" '(splinter-project-vterm :which-key "Terminal"))
+  (my-leader-def
+    :keymaps '(vterm-mode-map)
+    "" nil)
+  (my-local-leader-def
+    :keymaps '(vterm-mode-map)
+    "l" '(vterm-clear-scrollback :which-key "Clear scrollback")
+    "n" '(vterm-next-prompt :which-key "Next prompt")
+    "p" '(vterm-previous-prompt :which-key "Previous prompt")
+    "r" '(vterm-reset-cursor-point :which-key "Reset cursor point")
+    "t" '(vterm-copy-mode :which-key "Copy mode")))
 
 (provide 'init-vterm)
