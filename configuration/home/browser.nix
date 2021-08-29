@@ -36,6 +36,7 @@ in {
       https-everywhere
       multi-account-containers
       reddit-enhancement-suite
+      refined-github
       tridactyl
       ublock-origin
       umatrix
