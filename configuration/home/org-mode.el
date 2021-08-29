@@ -307,9 +307,10 @@
                              (:name "Overig"
                                     :anything t))) 
   (org-super-agenda-header-separator "")
+  :init
   ;; Disable the org-super-agenda-header-map, because it
   ;; interferes with evil-org.
-  (org-super-agenda-header-map (make-sparse-keymap)))
+  (setq org-super-agenda-header-map (make-sparse-keymap)))
 
 ;; TODO: v2
 (use-package org-roam
