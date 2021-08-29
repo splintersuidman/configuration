@@ -86,11 +86,11 @@
     "kmonad": {
       "flake": false,
       "locked": {
-        "lastModified": 1628499196,
-        "narHash": "sha256-0LA6Kv3it6SCTyToZ+1100tNiDYc4v6v+Qd0LQTdAmk=",
+        "lastModified": 1630168874,
+        "narHash": "sha256-8cnh+OiOix7VwvA6UOngSlkJPPcG7KnV9DuGKTWDzgk=",
         "owner": "david-janssen",
         "repo": "kmonad",
-        "rev": "0359b2c14ab01b9b480c8c4eeaf990f4938cb511",
+        "rev": "3f22a3534893b0e71f658aa7830b8a9c02391f87",
         "type": "github"
       },
       "original": {
