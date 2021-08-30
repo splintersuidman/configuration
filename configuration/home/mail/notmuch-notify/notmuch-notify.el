@@ -3,6 +3,7 @@
 ;; Copyright (C) 2021 Splinter Suidman
 
 ;; Author: Splinter Suidman
+;; Package-Requires: (notmuch)
 
 ;; This file is not part of GNU Emacs.
 
@@ -31,10 +32,12 @@
 
 ;;; Code:
 
-(defun notmuch-notify-command-default (msg)
+(require 'notmuch)
+
+(defun notmuch-notify--command-default (msg)
   `("notify-send" ,(plist-get msg :authors) ,(plist-get msg :subject)))
 
-(defcustom notmuch-notify-command 'notmuch-notify-command-default
+(defcustom notmuch-notify-command 'notmuch-notify--command-default
   "Command used to send a notification.
 
 This is a function with a message as a parameter, that must
@@ -48,29 +51,6 @@ The message is a plist with the following attributes: `:thread',
   :type 'function
   :group 'notmuch-notify)
 
-(defvar notmuch-notify--output ""
-  "Variable used to write the output of notmuch search to.")
-
-(defvar notmuch-notify--process nil
-  "The notify process, used to check whether a process is already running.")
-
-(defun notmuch-notify--filter (proc string)
-  "Filter to pass to `make-process' which writes the process'
-output to the string `notmuch-notify--output'."
-  (setq notmuch-notify--output (concat notmuch-notify--output string)))
-
-(defun notmuch-notify--sentinel (proc event)
-  "Sentinel to pass to `make-process' which parses the messages
-from `notmuch-notify--output' (in the sexp format of notmuch
-search) and sends for each of these messages a notification. Then
-it removes the notification tag from all messages with that tag."
-  (setq notmuch-notify--process nil)
-  (dolist (msg (read notmuch-notify--output))
-    (make-process :name "notmuch-notify"
-                  :command (funcall notmuch-notify-command msg)))
-  (make-process :name "notmuch-notify-clear-tag"
-                :command `(,notmuch-command "tag" "-notification" "--" "tag:notification")))
-
 ;;;###autoload
 (defun notmuch-notify ()
   "Search using notmuch all messages tagged with the tags
@@ -79,13 +59,11 @@ notification using notify-send consisting of the author(s) and
 the subject of the message. Finally, remove the 'notification'
 tag from those messages."
   (interactive)
-  (setq notmuch-notify--output "")
-  (unless (and notmuch-notify--process (process-live-p notmuch-notify--process))
-    (setq notmuch-notify--process
-          (make-process :name "notmuch-notify"
-                        :command `(,notmuch-command "search" "--format=sexp" "tag:notification and tag:unread")
-                        :filter 'notmuch-notify--filter
-                        :sentinel 'notmuch-notify--sentinel))))
+  (let ((messages (notmuch-call-notmuch-sexp "search" "--format=sexp" "tag:notification and tag:unread")))
+    (dolist (msg messages)
+      (make-process :name "notmuch-notify"
+                    :command (funcall notmuch-notify-command msg)))
+    (notmuch-call-notmuch-process "tag" "-notification" "--" "tag:notification")))
 
 (provide 'notmuch-notify)
 

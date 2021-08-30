@@ -19,6 +19,7 @@ in {
     notmuch-notify = self.trivialBuild {
       pname = "notmuch-notify";
       src = ./mail/notmuch-notify;
+      packageRequires = [ self.notmuch ];
     };
 
     notmuch-update = self.trivialBuild {
