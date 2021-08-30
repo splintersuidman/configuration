@@ -312,21 +312,37 @@
   ;; interferes with evil-org.
   (setq org-super-agenda-header-map (make-sparse-keymap)))
 
-;; TODO: v2
 (use-package org-roam
-  :disabled
   :ensure t
+  :after (general)
+  :init
+  (setq org-roam-v2-ack t)
   :custom
   (org-roam-capture-templates
-   '(("d" "default" plain (function org-roam--capture-get-point)
-      "%?"
-      :file-name "%<%Y-%m-%d-%H%M> ''${title}"
-      :head "#+title: ''${title}\n"
+   '(("d" "default" plain "%?"
+      :if-new (file+head "%<%Y-%m-%d-%H%M%S>-${slug}.org"
+                         "#+title: ${title}\n")
       :unnarrowed t)))
+  :config
+  (org-roam-setup)
   :general
   (my-leader-def
-    "zf" '(org-roam-find-file :which-key "Find file")
-    "zi" '(org-roam-insert :which-key "Insert")
-    "zr" '(org-roam :which-key "Toggle org-roam buffer")))
+    "nf" '(org-roam-node-find :which-key "Find node")
+    "ni" '(org-roam-node-insert :which-key "Insert")
+    "nl" '(org-roam-buffer-toggle :which-key "Toggle org-roam buffer")))
+
+(use-package org-roam-dailies
+  :ensure org-roam
+  :after (general)
+  :custom
+  (org-roam-dailies-directory "dag/")
+  (org-roam-dailies-capture-templates
+   '(("d" "default" entry
+      "* %?"
+      :if-new (file+head "%<%Y-%m-%d>.org.gpg"
+                         "#+title: %<%Y-%m-%d>\n"))))
+  :general
+  (my-leader-def
+    "nd" '(org-roam-dailies-capture-today :which-key "Capture daily")))
 
 (provide 'init-org-mode)

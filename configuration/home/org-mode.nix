@@ -18,7 +18,6 @@ in {
           (org-agenda-files '("${documents}/agenda/")))
 
         (use-package org-roam
-          :disabled
           :defer t
           :custom
           (org-roam-directory "${documents}/notities")

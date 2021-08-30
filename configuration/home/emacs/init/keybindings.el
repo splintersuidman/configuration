@@ -70,12 +70,12 @@
     "h" '(:ignore t :which-key "Help")
     "j" '(:ignore t :which-key "Jump")
     "l" '(:ignore t :which-key "Lsp")
+    "n" '(:ignore t :which-key "Notes")
     "o" '(:ignore t :which-key "Org-mode")
     "p" '(:ignore t :which-key "Project")
     "s" '(:ignore t :which-key "Scratch")
     "t" '(:ignore t :which-key "Theme")
     "w" '(:ignore t :which-key "Window")
-    "z" '(:ignore t :which-key "Org-roam")
 
     ;; Buffer-related commands under `b'
     "bb" '(consult-buffer :which-key "Switch buffer")
