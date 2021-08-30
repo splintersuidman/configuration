@@ -30,6 +30,11 @@
 
 (require 'notmuch)
 
+(defgroup notmuch-update nil
+  "Fetch mails for Notmuch at a regular interval."
+  :prefix "notmuch-update-"
+  :group 'notmuch)
+
 (defcustom notmuch-update-interval 60
   "The interval in seconds between consecutive updates."
   :type 'integer
@@ -58,7 +63,7 @@ Example: mbsync --all && notmuch new"
 (defun notmuch-update--sentinel (proc event)
   "Function to run after the notmuch update process is run."
   (when (or (not (eq (process-status proc) 'exit))
-          (/= (process-exit-status proc) 0))
+            (/= (process-exit-status proc) 0))
     (message "notmuch: Update process returned with non-zero exit code"))
   (run-hooks 'notmuch-update-post-hook))
 

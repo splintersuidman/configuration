@@ -34,6 +34,11 @@
 
 (require 'notmuch)
 
+(defgroup notmuch-notify nil
+  "Notifications for new mails in Notmuch."
+  :prefix "notmuch-notify-"
+  :group 'notmuch)
+
 (defun notmuch-notify--command-default (msg)
   `("notify-send" ,(plist-get msg :authors) ,(plist-get msg :subject)))
 
