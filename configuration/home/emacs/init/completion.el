@@ -75,7 +75,15 @@
 
 (use-package embark
   :ensure t
-  :disabled)
+  :general
+  (:keymaps 'override
+   "C-," 'embark-act))
+
+(use-package embark-consult
+  :ensure t
+  :after (embark consult)
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package company
   :disabled

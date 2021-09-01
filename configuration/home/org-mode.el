@@ -149,7 +149,6 @@
     "xW" 'org-cut-special
     "y" 'org-evaluate-time-range)
 
-  ;; TODO: doesn't seem to work.
   ;; Unbind leader key.
   (my-leader-def
     :keymaps 'org-agenda-mode-map
@@ -183,6 +182,32 @@
     :keymaps 'org-src-mode-map
     "'" 'org-edit-src-exit
     "k" 'org-edit-src-abort))
+
+;; Org-mode and embark
+(use-package org
+  :after embark
+  :config
+  (defun splinter-embark-org-link ()
+    "Target the Org-mode link at point."
+    (when-let ((link (org-element-lineage (org-element-context) '(link) t)))
+      (let* ((beg (org-element-property :contents-begin link))
+             (end (org-element-property :contents-end link)))
+        (if (and beg end)
+            (cons 'org-link (cons (buffer-substring-no-properties beg end) (cons beg end)))
+          (cons 'org-link (org-element-property :raw-link link))))))
+
+  (embark-define-keymap splinter-embark-org-link-map
+    "Keymap for Org link actions."
+    ("RET" org-open-at-point)
+    ("l" org-insert-link)
+    ("n" org-next-link)
+    ("p" org-previous-link))
+
+  (add-to-list 'embark-keymap-alist '(org-link . splinter-embark-org-link-map))
+  :hook
+  (org-mode . (lambda ()
+                (make-local-variable 'embark-target-finders)
+                (add-to-list 'embark-target-finders 'splinter-embark-org-link))))
 
 (use-package evil-org
   :ensure t
