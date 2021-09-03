@@ -6,8 +6,13 @@
   :commands (elfeed)
   :init
   (defun splinter-elfeed-set-faces (&optional force)
-    "Set elfeed faces."
-    (when (or force (featurep 'elfeed))
+    "Set elfeed faces for base16-themes."
+    (when (or force
+              (and (featurep 'elfeed)
+                   (-any? (lambda (theme)
+                            (string-prefix-p "base16-" (symbol-name theme)))
+                          custom-enabled-themes)))
+      (message "Setting fonts")
       (set-face-attribute 'elfeed-search-feed-face nil :inherit font-lock-function-name-face :foreground nil)
       (set-face-attribute 'elfeed-search-tag-face nil :inherit font-lock-type-face :foreground nil)
       (set-face-attribute 'elfeed-search-date-face nil :inherit font-lock-variable-name-face :foreground nil)))
