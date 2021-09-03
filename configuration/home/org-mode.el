@@ -192,9 +192,10 @@
     (when-let ((link (org-element-lineage (org-element-context) '(link) t)))
       (let* ((beg (org-element-property :contents-begin link))
              (end (org-element-property :contents-end link)))
-        (if (and beg end)
-            (cons 'org-link (cons (buffer-substring-no-properties beg end) (cons beg end)))
-          (cons 'org-link (org-element-property :raw-link link))))))
+        (cons 'org-link
+              (if (and beg end)
+                  (cons (buffer-substring-no-properties beg end) (cons beg end))
+                (org-element-property :raw-link link))))))
 
   (embark-define-keymap splinter-embark-org-link-map
     "Keymap for Org link actions."
@@ -293,7 +294,9 @@
      "p" 'org-agenda-date-prompt
      "P" 'org-agenda-show-the-flagging-note
      "+" 'org-agenda-manipulate-query-add
-     "-" 'org-agenda-manipulate-query-subtract))
+     "-" 'org-agenda-manipulate-query-subtract
+     "[" 'org-agenda-later
+     "]" 'org-agenda-later))
   :hook
   (org-mode . evil-org-mode)
   (org-agenda-mode . splinter-evil-org-agenda-set-keys))
