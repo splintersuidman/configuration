@@ -7,7 +7,29 @@
   "Run ‘after-load-theme-hook’."
   (run-hooks 'after-load-theme-hook))
 
+(defun splinter-load-theme (theme)
+  "Disable all custom enabled themes and then load THEME."
+  (interactive
+   (list
+    (intern (completing-read "Load custom theme: "
+                             (mapcar 'symbol-name
+                                     (custom-available-themes))))))
+  (mapc 'disable-theme custom-enabled-themes)
+  (load-theme theme t))
+
+(defvar splinter-themes nil
+  "A list of functions that enable themes, that can be cycled
+  through with ‘SPLINTER-SWITCH-THEME’.")
+
+(defun splinter-switch-theme ()
+  "Switch to the next theme in ‘SPLINTER-THEMES’."
+  (interactive)
+  (when-let ((next (pop splinter-themes)))
+    (setq splinter-themes (append splinter-themes (list next)))
+    (funcall next)))
+
 (use-package base16-theme
+  :disabled
   :ensure t
   :demand t
   :after evil
@@ -26,25 +48,43 @@
             evil-normal-state-cursor  `(,(plist-get colors :base0B) box)
             evil-replace-state-cursor `(,(plist-get colors :base08) bar)
             evil-visual-state-cursor  `(,(plist-get colors :base09) box)))
-    (load-theme theme t))
+    (splinter-load-theme theme))
 
-  (splinter-load-base16-theme 'base16-tomorrow-night)
+  (add-to-list 'splinter-themes
+               (lambda ()
+                 (splinter-load-base16-theme 'base16-tomorrow)))
+  (add-to-list 'splinter-themes
+               (lambda ()
+                 (splinter-load-base16-theme 'base16-tomorrow-night)))
 
-  (defvar splinter-themes
-    (list (lambda () (splinter-load-base16-theme 'base16-tomorrow))
-          (lambda () (splinter-load-base16-theme 'base16-tomorrow-night)))
-    "A list of functions that enable themes, that can be cycled
-    through with ‘SPLINTER-SWITCH-THEME’.")
+  (splinter-load-base16-theme 'base16-tomorrow-night))
 
-  (defun splinter-switch-theme ()
-    "Switch to the next theme in ‘SPLINTER-THEMES’."
-    (interactive)
-    (let ((next (pop splinter-themes)))
-      (setq splinter-themes (append splinter-themes (list next)))
-      (funcall next)))
+(use-package modus-themes
+  :ensure t
+  :custom
+  (modus-themes-italic-constructs t)
+  (modus-themes-bold-constructs t)
+  (modus-themes-completions 'opinionated)
+  (modus-themes-headings '((t . (rainbow background overline))))
+  (modus-themes-scale-headings t)
+  (modus-themes-links '(background))
+  (modus-themes-paren-match '(bold intense))
+  (modus-themes-region '(bg-only accented))
+  :config
+  (add-to-list 'splinter-themes
+               (lambda ()
+                 (splinter-load-theme 'modus-operandi)))
+  (add-to-list 'splinter-themes
+               (lambda ()
+                 (splinter-load-theme 'modus-vivendi))))
+
+(use-package custom
+  :demand t
+  :config
+  (splinter-switch-theme)
   :general
   (my-leader-def
-    "tl" '(load-theme :which-key "Load theme")
+    "tl" '(splinter-load-theme :which-key "Load theme")
     "tt" '(splinter-switch-theme :which-key "Switch theme")))
 
 (provide 'init-theme)
