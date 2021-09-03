@@ -26,6 +26,7 @@
    :states '(normal insert)
    "C-n" 'vertico-next
    "C-p" 'vertico-previous
+   "C-y" 'evil-paste-after
    "RET" 'vertico-exit)
   (:keymaps 'vertico-map
    :states 'normal
