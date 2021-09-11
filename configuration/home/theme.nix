@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ config, inputs, lib, ... }:
 let
   inherit (config.lib.theme.base16) fromYamlFile;
 
@@ -47,6 +47,10 @@ in {
     inherit kind;
     inherit (theme) name colors;
   };
+
+  xresources.properties = lib.mapAttrs'
+    (name: color: lib.nameValuePair "colors.${name}" "#${color.hex.rgb}")
+    colors;
 
   # These options default to `true`, but they do and install some things I don't
   # want, so I disable them.
