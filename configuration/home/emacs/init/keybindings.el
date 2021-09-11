@@ -100,21 +100,6 @@
     "fr" '(consult-ripgrep :which-key "Ripgrep")
     "fs" '(save-buffer :which-key "Save buffer")
 
-    ;; Window-related commands under `w'
-    "wh" '(evil-window-left :which-key "Left")
-    "wj" '(evil-window-down :which-key "Down")
-    "wk" '(evil-window-up :which-key "Up")
-    "wl" '(evil-window-right :which-key "Right")
-    "wH" '(windmove-swap-states-left :which-key "Swap left")
-    "wJ" '(windmove-swap-states-down :which-key "Swap down")
-    "wK" '(windmove-swap-states-up :which-key "Swap up")
-    "wL" '(windmove-swap-states-right :which-key "Swap right")
-    "wo" '(other-window :which-key "Other window")
-    "wv" '(split-window-horizontally :which-key "Split horizontally")
-    "ws" '(split-window-vertically :which-key "Split vertically")
-    "wd" '(delete-window :which-key "Delete")
-    "w=" '(balance-windows :which-key "Balance")
-
     "SPC" '(execute-extended-command :which-key "M-x")
 
     ;; Editing-related commands

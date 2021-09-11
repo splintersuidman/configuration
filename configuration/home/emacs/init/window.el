@@ -2,18 +2,33 @@
   :custom
   (window-combination-resize t)
   (display-buffer-alist 
-      '(("\\*\\(Help\\|WoMan\\).*"
-         (display-buffer-in-side-window)
-         (window-width . 0.30)
-         (side . right)
-         (slot . 0))
-        ("\\*eldoc.*"
-         (display-buffer-in-side-window)
-         (window-width . 0.30)
-         (side . right)
-         (slot . 1))
-        ("\\*.*\\(e?shell\\|v?term\\).*\\*"
-         (display-buffer-reuse-mode-window display-buffer-at-bottom)
-         (window-height . 0.30)))))
+   '(("\\*\\(Help\\|WoMan\\).*"
+      (display-buffer-in-side-window)
+      (window-width . 0.30)
+      (side . right)
+      (slot . 0))
+     ("\\*eldoc.*"
+      (display-buffer-in-side-window)
+      (window-width . 0.30)
+      (side . right)
+      (slot . 1))
+     ("\\*.*\\(e?shell\\|v?term\\).*\\*"
+      (display-buffer-reuse-mode-window display-buffer-at-bottom)
+      (window-height . 0.30))))
+  :general
+  (my-leader-def
+    "wh" '(evil-window-left :which-key "Left")
+    "wj" '(evil-window-down :which-key "Down")
+    "wk" '(evil-window-up :which-key "Up")
+    "wl" '(evil-window-right :which-key "Right")
+    "wH" '(windmove-swap-states-left :which-key "Swap left")
+    "wJ" '(windmove-swap-states-down :which-key "Swap down")
+    "wK" '(windmove-swap-states-up :which-key "Swap up")
+    "wL" '(windmove-swap-states-right :which-key "Swap right")
+    "wo" '(other-window :which-key "Other window")
+    "wv" '(split-window-horizontally :which-key "Split horizontally")
+    "ws" '(split-window-vertically :which-key "Split vertically")
+    "wd" '(delete-window :which-key "Delete")
+    "w=" '(balance-windows :which-key "Balance")))
 
 (provide 'init-window)
