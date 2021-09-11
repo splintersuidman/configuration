@@ -6,6 +6,17 @@
   (evil-echo-state nil)
   (evil-want-minibuffer t)
   :config
+  (defun splinter-evil-quit (oldfun &rest r)
+    "Advice for `evil-quit' to kill tabs before frames.
+
+The order of closing then is: current window, current tab,
+current frame, Emacs."
+    (if (and (eq (length (window-list)) 1)
+             (> (length (tab-bar-tabs)) 1))
+        (tab-bar-close-tab)
+      (apply oldfun r)))
+  (advice-add 'evil-quit :around 'splinter-evil-quit)
+
   (evil-mode))
 
 (use-package evil-collection
