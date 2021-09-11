@@ -84,8 +84,9 @@ current frame, Emacs."
     "n" '(:ignore t :which-key "Notes")
     "o" '(:ignore t :which-key "Org-mode")
     "p" '(:ignore t :which-key "Project")
+    "q" '(:ignore t :which-key "Theme")
     "s" '(:ignore t :which-key "Scratch")
-    "t" '(:ignore t :which-key "Theme")
+    "t" '(:ignore t :which-key "Tab")
     "w" '(:ignore t :which-key "Window")
 
     ;; Buffer-related commands under `b'

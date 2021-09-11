@@ -84,7 +84,7 @@
   (splinter-switch-theme)
   :general
   (my-leader-def
-    "tl" '(splinter-load-theme :which-key "Load theme")
-    "tt" '(splinter-switch-theme :which-key "Switch theme")))
+    "yl" '(splinter-load-theme :which-key "Load theme")
+    "yy" '(splinter-switch-theme :which-key "Switch theme")))
 
 (provide 'init-theme)

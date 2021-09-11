@@ -138,6 +138,12 @@
           feature = "init-scratch";
         };
 
+        "init/init-tab-bar.el" = {
+          enable = true;
+          config = ./emacs/init/tab-bar.el;
+          feature = "init-tab-bar";
+        };
+
         "init/init-theme.el" = {
           enable = true;
           config = ./emacs/init/theme.el;
