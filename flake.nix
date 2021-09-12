@@ -29,11 +29,11 @@
       flake = false;
     };
     kmonad = {
-      url = "github:david-janssen/kmonad";
+      url = "github:kmonad/kmonad";
       flake = false;
     };
     mopidy-mpd = {
-      url = "github:splintah/mopidy-mpd/feat/multiple_tags";
+      url = "github:mopidy/mopidy-mpd";
       flake = false;
     };
     xmonad-splintah = {
