@@ -352,7 +352,7 @@
                          "#+title: ${title}\n")
       :unnarrowed t)))
   :config
-  (org-roam-setup)
+  (org-roam-db-autosync-mode)
   :general
   (my-leader-def
     "nf" '(org-roam-node-find :which-key "Find node")
