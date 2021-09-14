@@ -373,4 +373,7 @@
   (my-leader-def
     "nd" '(org-roam-dailies-capture-today :which-key "Capture daily")))
 
+(use-package olivetti
+  :ensure t)
+
 (provide 'init-org-mode)
