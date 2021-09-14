@@ -71,12 +71,29 @@
   (modus-themes-paren-match '(bold intense))
   (modus-themes-region '(bg-only accented))
   :config
+  (defun splinter-load-modus-theme (theme)
+    "Load a Modus theme.
+
+This function loads a Modus theme and configures some faces to my
+liking."
+    (splinter-load-theme theme)
+    ;; Set the foreground of the git-gutter-fringe faces to the colour that is
+    ;; normally used for their background.
+    (set-face-attribute 'git-gutter-fr:added nil
+                        :background (modus-themes-color 'bg-main)
+                        :foreground (modus-themes-color 'green-fringe-bg))
+    (set-face-attribute 'git-gutter-fr:deleted nil
+                        :background (modus-themes-color 'bg-main)
+                        :foreground (modus-themes-color 'red-fringe-bg))
+    (set-face-attribute 'git-gutter-fr:modified nil
+                        :background (modus-themes-color 'bg-main)
+                        :foreground (modus-themes-color 'yellow-fringe-bg)))
   (add-to-list 'splinter-themes
                (lambda ()
-                 (splinter-load-theme 'modus-operandi)))
+                 (splinter-load-modus-theme 'modus-operandi)))
   (add-to-list 'splinter-themes
                (lambda ()
-                 (splinter-load-theme 'modus-vivendi))))
+                 (splinter-load-modus-theme 'modus-vivendi))))
 
 (use-package custom
   :demand t
