@@ -17,11 +17,34 @@
             'TeX-revert-document-buffer)
   (setf (alist-get 'output-pdf TeX-view-program-selection)
         '("PDF Tools"))
+
+  (defun splinter-latex-add-left-right ()
+    "Add \\left and \\right for the focused pair of brackets, braces, etc.
+
+TODO: for escaped braces (\\{, \\}), this does not work."
+    (interactive)
+    (save-excursion
+      (when-let* ((beg (ignore-errors (evil-jump-item)))
+                  (end (ignore-errors (evil-jump-item)))
+                  ;; Pair of things (brackets, braces, ...) from left to
+                  ;; right.
+                  (pair (if (< beg end)
+                            (cons beg end)
+                          (cons end beg)))
+                  (left (car pair))
+                  (right (cdr pair)))
+        (message "%s %s" left right)
+        (goto-char left)
+        (insert "\\left")
+        ;; Add 5 because \left moves the point position.
+        (goto-char (+ 5 right))
+        (insert "\\right"))))
   :general
   (my-local-leader-def
     :keymaps 'LaTeX-mode-map
     "c" 'TeX-command-master
     "e" 'LaTeX-environment
+    "p" 'splinter-latex-add-left-right
     "s" 'LaTeX-section
     "v" 'TeX-view))
 
