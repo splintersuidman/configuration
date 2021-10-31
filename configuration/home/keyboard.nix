@@ -14,6 +14,7 @@ in {
     keyboards = {
       builtin = {
         enable = true;
+        device = "/dev/input/event0";
         config = ''
           (defcfg
             input (device-file "/dev/input/event0")
@@ -61,6 +62,7 @@ in {
 
       leopold = {
         enable = true;
+        device = "/dev/input/by-id/usb-HID_Keyboard_HID_Keyboard-event-kbd";
         config = ''
           (defcfg
             input (device-file "/dev/input/by-id/usb-HID_Keyboard_HID_Keyboard-event-kbd")

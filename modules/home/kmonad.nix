@@ -22,6 +22,13 @@ let
         '';
       };
 
+      device = mkOption {
+        type = with types; either path str;
+        description = ''
+          The path to the device file.
+        '';
+      };
+
       config = mkOption {
         type = types.lines;
         default = "";
@@ -45,7 +52,7 @@ in {
       type = types.package;
       example = "pkgs.kmonad";
       description = ''
-        The kmonad package.
+        The KMonad package.
       '';
     };
   };
@@ -60,10 +67,19 @@ in {
         nameValuePair "kmonad/kmonad-${name}.kbd" { text = kb.config; })
         enabledKeyboards;
 
+      systemd.user.paths = mapAttrs' (name: kb:
+        nameValuePair "kmonad-${name}" {
+          Unit.Description = "Trigger for KMonad for ${name}";
+          Install.WantedBy = [ "default.target" ];
+          Path = {
+            Unit = "kmonad-${name}.service";
+            PathExists = kb.device;
+          };
+        }) enabledKeyboards;
+
       systemd.user.services = mapAttrs' (name: kb:
         nameValuePair "kmonad-${name}" {
-          Unit = { Description = "KMonad for ${name}"; };
-          Install = { WantedBy = [ "default.target" ]; };
+          Unit.Description = "KMonad for ${name}";
           Service = {
             Type = "simple";
             ExecStart = "${cfg.package}/bin/kmonad ${
