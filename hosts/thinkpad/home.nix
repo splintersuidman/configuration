@@ -43,6 +43,7 @@
     ../../configuration/home/pdf.nix
     ../../configuration/home/polybar.nix
     ../../configuration/home/python.nix
+    ../../configuration/home/r.nix
     ../../configuration/home/redshift.nix
     ../../configuration/home/rust.nix
     ../../configuration/home/scheme.nix
