@@ -29,6 +29,7 @@
     "wv" '(split-window-horizontally :which-key "Split horizontally")
     "ws" '(split-window-vertically :which-key "Split vertically")
     "wd" '(delete-window :which-key "Delete")
+    "w0" '(delete-other-windows :which-key "Delete other windows")
     "w=" '(balance-windows :which-key "Balance")))
 
 (provide 'init-window)
