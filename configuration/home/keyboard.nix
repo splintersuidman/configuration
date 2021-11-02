@@ -2,6 +2,7 @@
 let
   sleep = "${pkgs.coreutils}/bin/sleep";
   setxkbmap = "${pkgs.xorg.setxkbmap}/bin/setxkbmap";
+  setxkbmapCommand = "${setxkbmap} -option compose:ralt";
 in {
   imports = [ ../../modules/home/kmonad.nix ];
 
@@ -12,14 +13,15 @@ in {
   services.kmonad = {
     package = pkgs.kmonad;
     keyboards = {
-      builtin = {
+      builtin = let device = "/dev/input/event0";
+      in {
         enable = true;
-        device = "/dev/input/event0";
+        inherit device;
         config = ''
           (defcfg
-            input (device-file "/dev/input/event0")
+            input (device-file "${device}")
             output (uinput-sink "KMonad built-in"
-              "${sleep} 1 && ${setxkbmap} -option compose:ralt")
+              "${sleep} 1 && ${setxkbmapCommand}")
 
             fallthrough true)
 
@@ -60,50 +62,52 @@ in {
         '';
       };
 
-      leopold = {
-        enable = true;
-        device = "/dev/input/by-id/usb-HID_Keyboard_HID_Keyboard-event-kbd";
-        config = ''
-          (defcfg
-            input (device-file "/dev/input/by-id/usb-HID_Keyboard_HID_Keyboard-event-kbd")
-            output (uinput-sink "KMonad Leopold"
-              "${sleep} 1 && ${setxkbmap} -option compose:ralt")
+      leopold =
+        let device = "/dev/input/by-id/usb-HID_Keyboard_HID_Keyboard-event-kbd";
+        in {
+          enable = true;
+          inherit device;
+          config = ''
+            (defcfg
+              input (device-file "${device}")
+              output (uinput-sink "KMonad Leopold"
+                "${sleep} 1 && ${setxkbmapCommand}")
 
-            fallthrough true)
+              fallthrough true)
 
-          (defsrc
-            esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12       ssrq slck pause
-            grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc ins  home pgup
-            tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    del  end  pgdn
-            caps a    s    d    f    g    h    j    k    l    ;    '    ret
-            lsft      z    x    c    v    b    n    m    ,    .    /    rsft           up
-            lctl lmet lalt           spc                 ralt      menu rctl      left down rght)
+            (defsrc
+              esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12       ssrq slck pause
+              grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc ins  home pgup
+              tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    del  end  pgdn
+              caps a    s    d    f    g    h    j    k    l    ;    '    ret
+              lsft      z    x    c    v    b    n    m    ,    .    /    rsft           up
+              lctl lmet lalt           spc                 ralt      menu rctl      left down rght)
 
-          (defalias
-            ;; xcape-like key: escape when tapped, control when hold.
-            xcp (tap-hold-next-release 400 esc ctl)
-            ;; Return when tapped, control when hold.
-            rct (tap-hold-next-release 400 ret ctl)
-            lsf (around lsft (layer-toggle qwerty-shift))
-            rsf (around rsft (layer-toggle qwerty-shift)))
+            (defalias
+              ;; xcape-like key: escape when tapped, control when hold.
+              xcp (tap-hold-next-release 400 esc ctl)
+              ;; Return when tapped, control when hold.
+              rct (tap-hold-next-release 400 ret ctl)
+              lsf (around lsft (layer-toggle qwerty-shift))
+              rsf (around rsft (layer-toggle qwerty-shift)))
 
-          (deflayer qwerty
-            esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12       ssrq slck pause
-            grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc ins  home pgup
-            tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    del  end  pgdn
-            @xcp a    s    d    f    g    h    j    k    l    ;    '    @rct
-            lsft      z    x    c    v    b    n    m    ,    .    /    rsft           up
-            lctl lmet lalt           spc                 ralt      menu rctl      left down rght)
+            (deflayer qwerty
+              esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12       ssrq slck pause
+              grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc ins  home pgup
+              tab  q    w    e    r    t    y    u    i    o    p    [    ]    \    del  end  pgdn
+              @xcp a    s    d    f    g    h    j    k    l    ;    '    @rct
+              lsft      z    x    c    v    b    n    m    ,    .    /    rsft           up
+              lctl lmet lalt           spc                 ralt      menu rctl      left down rght)
 
-          (deflayer qwerty-shift
-            esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12       ssrq slck pause
-            ~     !    @    #    $    %    ^    &    *    \(   \)   \_   +    bspc ins  home pgup
-            S-tab Q    W    E    R    T    Y    U    I    O    P    {    }    |    del  end  pgdn
-            @xcp  A    S    D    F    G    H    J    K    L    :    "    @rct
-            XX         Z    X    C    V    B    N    M    <    >    ?    XX             up
-            lctl  lmet lalt           spc                 ralt      menu rctl      left down rght)
-        '';
-      };
+            (deflayer qwerty-shift
+              esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12       ssrq slck pause
+              ~     !    @    #    $    %    ^    &    *    \(   \)   \_   +    bspc ins  home pgup
+              S-tab Q    W    E    R    T    Y    U    I    O    P    {    }    |    del  end  pgdn
+              @xcp  A    S    D    F    G    H    J    K    L    :    "    @rct
+              XX         Z    X    C    V    B    N    M    <    >    ?    XX             up
+              lctl  lmet lalt           spc                 ralt      menu rctl      left down rght)
+          '';
+        };
     };
   };
 
