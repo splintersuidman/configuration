@@ -1,6 +1,6 @@
 { config, ... }: {
   services.mpdscribble = {
-    enable = true;
+    enable = false;
     config = {
       host = "localhost";
       port = config.services.mopidy.config.mpd.port;
