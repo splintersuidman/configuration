@@ -1,6 +1,7 @@
 (set-face-attribute 'default nil
                     :family "Iosevka Custom"
-                    :height 105)
+                    :height 105
+                    :weight 'medium)
 
 (set-face-attribute 'font-lock-comment-face nil
                     :slant 'italic)
