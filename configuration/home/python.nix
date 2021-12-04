@@ -23,6 +23,6 @@ in
 {
   home.packages = [
     pkgs.python3
-    pyls
+    # pyls
   ];
 }
