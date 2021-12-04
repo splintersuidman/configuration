@@ -5,7 +5,7 @@ in {
 
   services.polybar = {
     enable = true;
-    package = pkgs.polybar.override { mpdSupport = true; };
+    package = pkgs.polybar;
     script = "${config.services.polybar.package}/bin/polybar splintah &";
     config = {
       settings = { screenchange-reload = true; };
