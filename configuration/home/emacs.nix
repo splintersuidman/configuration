@@ -12,15 +12,6 @@
   programs.emacs = {
     enable = true;
     package = pkgs.emacsGcc;
-    # TODO: requires vertico v0.13.
-    # overrides = self: super: {
-    #   vertico-buffer = self.trivialBuild {
-    #     pname = "vertico-buffer";
-    #     version = self.vertico.version;
-    #     src = "${self.vertico.src}/extensions/vertico-buffer.el";
-    #     packageRequires = [ self.vertico ];
-    #   };
-    # };
 
     init = {
       enable = true;

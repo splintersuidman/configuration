@@ -38,6 +38,14 @@
    "gg" 'vertico-first
    "G" 'vertico-last))
 
+(use-package vertico-directory
+  :after vertico
+  :general
+  (:keymaps 'vertico-map
+   :states '(normal insert)
+   "C-<backspace>" 'vertico-directory-delete-word
+   "M-DEL" 'vertico-directory-delete-word))
+
 (use-package orderless
   :ensure t
   :init
