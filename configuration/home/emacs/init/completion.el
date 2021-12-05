@@ -120,6 +120,15 @@
   (corfu-auto-prefix 3)
   :config
   (corfu-global-mode)
+  (defun splinter-setup-corfu-for-minibuffer ()
+    "Enable Corfu in the minibuffer, e.g. for
+M-: (‘eval-expression’). Disable ‘corfu-auto’, since it will
+interfere with Vertico for e.g. ‘find-file’."
+    (make-local-variable 'corfu-auto)
+    (setq corfu-auto nil)
+    (corfu-mode))
+  :hook
+  (minibuffer-setup . splinter-setup-corfu-for-minibuffer)
   :general
   (:keymaps 'corfu-map
     "M-n" 'corfu-next
