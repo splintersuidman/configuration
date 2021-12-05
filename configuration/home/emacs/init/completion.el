@@ -55,6 +55,8 @@
       `(orderless-flex . ,(substring pattern 0 -1))))
   :custom
   (completion-styles '(orderless))
+  (read-file-name-completion-ignore-case t)
+  (completion-category-overrides '((file (styles orderless partial-completion))))
   (orderless-matching-styles '(orderless-literal orderless-regexp orderless-initialism))
   (orderless-style-dispatchers '(splinter-flex-dispatcher)))
 
