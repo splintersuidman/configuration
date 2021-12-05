@@ -144,9 +144,14 @@ interfere with Vertico for e.g. ‘find-file’."
 (use-package cape
   :ensure t
   :init
-  (add-to-list 'completion-at-point-functions 'cape-dabbrev)
   (add-to-list 'completion-at-point-functions 'cape-keyword)
   (add-to-list 'completion-at-point-functions 'cape-file))
+
+(use-package dabbrev
+  ;; Swap M-/ and C-M-/.
+  :general
+  ("M-/" 'dabbrev-completion
+   "C-M-/" 'dabbrev-expand))
 
 (use-package kind-icon
   :ensure t
