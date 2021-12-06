@@ -46,6 +46,14 @@
    "C-<backspace>" 'vertico-directory-delete-word
    "M-DEL" 'vertico-directory-delete-word))
 
+(use-package vertico-repeat
+  :after vertico
+  :hook
+  (minibuffer-setup . vertico-repeat-save)
+  :general
+  (my-leader-def
+    "r" '(vertico-repeat :which-key "Repeat minibuffer")))
+
 (use-package orderless
   :ensure t
   :init
