@@ -130,6 +130,12 @@
   (corfu-auto-prefix 3)
   :config
   (corfu-global-mode)
+
+  ;; See minad/corfu#12.
+  (evil-make-overriding-map corfu-map)
+  (advice-add 'corfu--setup :after 'evil-normalize-keymaps)
+  (advice-add 'corfu--teardown :after 'evil-normalize-keymaps)
+
   (defun splinter-setup-corfu-for-minibuffer ()
     "Enable Corfu in the minibuffer, e.g. for
 M-: (‘eval-expression’). Disable ‘corfu-auto’, since it will
@@ -141,13 +147,10 @@ interfere with Vertico for e.g. ‘find-file’."
   (minibuffer-setup . splinter-setup-corfu-for-minibuffer)
   :general
   (:keymaps 'corfu-map
-    "M-n" 'corfu-next
-    "M-p" 'corfu-previous
-    ;; TODO: this does not work because C-n executes ‘evil-complete-next’ and
-    ;; C-p executes ‘evil-complete-previous’. See also
-    ;; <https://github.com/minad/corfu/issues/12>.
-    "C-n" 'corfu-next
-    "C-p" 'corfu-previous))
+   "M-n" 'corfu-next
+   "M-p" 'corfu-previous
+   "C-n" 'corfu-next
+   "C-p" 'corfu-previous))
 
 (use-package cape
   :ensure t
