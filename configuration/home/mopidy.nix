@@ -25,4 +25,6 @@
       local = { enabled = false; };
     };
   };
+
+  services.playerctld.enable = true;
 }
