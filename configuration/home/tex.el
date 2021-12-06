@@ -33,7 +33,6 @@ TODO: for escaped braces (\\{, \\}), this does not work."
                           (cons end beg)))
                   (left (car pair))
                   (right (cdr pair)))
-        (message "%s %s" left right)
         (goto-char left)
         (insert "\\left")
         ;; Add 5 because \left moves the point position.
@@ -42,8 +41,14 @@ TODO: for escaped braces (\\{, \\}), this does not work."
   :general
   (my-local-leader-def
     :keymaps 'LaTeX-mode-map
+    "RET" 'TeX-insert-macro
+    "a" 'TeX-command-run-all
+    "b" 'TeX-command-buffer
     "c" 'TeX-command-master
     "e" 'LaTeX-environment
+    "k" 'TeX-kill-job
+    "l" 'TeX-recenter-output-buffer
+    "n" 'TeX-normal-mode
     "p" 'splinter-latex-add-left-right
     "s" 'LaTeX-section
     "v" 'TeX-view))
