@@ -19,7 +19,7 @@ in {
   home.packages = [ pkgs.torbrowser pkgs.qutebrowser ];
 
   programs.chromium = {
-    enable = false;
+    enable = true;
     package = pkgs.ungoogled-chromium.override { enableWideVine = true; };
   };
 
