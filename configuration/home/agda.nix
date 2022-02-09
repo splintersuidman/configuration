@@ -1,7 +1,12 @@
 { pkgs, config, ... }:
 let
-  agda = pkgs.unstable.agda.withPackages
-    (agdaPkgs: with agdaPkgs; [ standard-library cubical agda-categories ]);
+  agda = pkgs.unstable.agda.withPackages (agdaPkgs:
+    with agdaPkgs; [
+      standard-library
+      cubical
+      agda-categories
+      agdarsec
+    ]);
 in {
   home.packages = [ agda ];
 
