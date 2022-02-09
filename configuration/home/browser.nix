@@ -18,6 +18,11 @@ in {
 
   home.packages = [ pkgs.torbrowser pkgs.qutebrowser ];
 
+  programs.chromium = {
+    enable = false;
+    package = pkgs.ungoogled-chromium.override { enableWideVine = true; };
+  };
+
   programs.browser = rec {
     enable = true;
     package = config.programs.firefox.package;
