@@ -14,6 +14,7 @@
 ;; Variable pitch face.
 (set-face-attribute 'variable-pitch nil
                     :family "Iosevka Aile"
+                    :weight 'regular
                     :height 105)
 ;; Fixed pitch face.
 (set-face-attribute 'fixed-pitch nil
