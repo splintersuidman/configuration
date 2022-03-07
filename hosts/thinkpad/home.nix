@@ -46,6 +46,7 @@
     ../../configuration/home/r.nix
     ../../configuration/home/redshift.nix
     ../../configuration/home/rust.nix
+    ../../configuration/home/sage.nix
     ../../configuration/home/scheme.nix
     ../../configuration/home/shell.nix
     ../../configuration/home/ssh.nix
