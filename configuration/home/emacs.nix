@@ -33,6 +33,12 @@
           # extraPackages = epkgs: [ epkgs.vertico-buffer ];
         };
 
+        "init/init-desktop.el" = {
+          enable = true;
+          config = ./emacs/init/desktop.el;
+          feature = "init-desktop";
+        };
+
         "init/init-eglot.el" = {
           enable = true;
           config = ./emacs/init/eglot.el;
