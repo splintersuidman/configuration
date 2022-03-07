@@ -31,4 +31,4 @@ let
 
   pylsp = pylspWithPackages pkgs.python3Packages
     (pyPkgs: [ pyPkgs.pylsp-mypy pyPkgs.pyls-isort ]);
-in { home.packages = [ pkgs.python3 pylsp ]; }
+in { home.packages = [ pkgs.python3 pkgs.python3Packages.ipython pylsp ]; }
