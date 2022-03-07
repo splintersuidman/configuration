@@ -91,7 +91,10 @@
   (consult-ripgrep-command "rg --null --line-buffered --color=always --max-columns=500   --no-heading --line-number . -e ARG OPTS")
   :general
   (my-leader-def
-    "/" '(consult-line :which-key "Search line")))
+    "/" '(consult-line :which-key "Search line"))
+  (my-local-leader-def
+   :keymaps 'minibuffer-mode-map
+   "r" 'consult-history))
 
 (use-package embark
   :ensure t
