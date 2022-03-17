@@ -38,6 +38,19 @@ TODO: for escaped braces (\\{, \\}), this does not work."
         ;; Add 5 because \left moves the point position.
         (goto-char (+ 5 right))
         (insert "\\right"))))
+
+  (defun splinter-latex-modify-environment ()
+    "Modify current LaTeX environment."
+    (interactive)
+    (LaTeX-environment t))
+
+  (defun splinter-TeX-compile ()
+    "Run default TeX command until document is ready for viewing."
+    (interactive)
+    (let ((command (TeX-command-default 'TeX-master-file)))
+      (unless (equal command "View")
+        (TeX-command command 'TeX-master-file)
+        (splinter-TeX-compile))))
   :general
   (my-local-leader-def
     :keymaps 'LaTeX-mode-map
@@ -45,7 +58,9 @@ TODO: for escaped braces (\\{, \\}), this does not work."
     "a" 'TeX-command-run-all
     "b" 'TeX-command-buffer
     "c" 'TeX-command-master
+    "C" 'splinter-TeX-compile
     "e" 'LaTeX-environment
+    "E" 'splinter-latex-modify-environment
     "k" 'TeX-kill-job
     "l" 'TeX-recenter-output-buffer
     "n" 'TeX-normal-mode
