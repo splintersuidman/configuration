@@ -11,6 +11,10 @@
     "Create a new eshell."
     ;; The argument to `eshell' does not really matter, as long as it's
     ;; not an integer (n), which causes Emacs to open the nth `eshell'.
-    (eshell 'new)))
+    (eshell 'new))
+  :hook
+  (eshell-exit . (lambda ()
+                   (unless (one-window-p)
+                     (delete-window)))))
 
 (provide 'init-eshell)
