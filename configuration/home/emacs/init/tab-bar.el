@@ -16,7 +16,7 @@
     "tn" '(tab-bar-switch-to-next-tab :which-key "Next tab")
     "to" '(other-tab-prefix :which-key "Other tab prefix")
     "tp" '(tab-bar-switch-to-prev-tab :which-key "Previous tab")
-    "tr" '(tab-bar-rename-tab :which-key "Renam tabe")
+    "tr" '(tab-bar-rename-tab :which-key "Rename tab")
     "tt" '(tab-bar-switch-to-tab :which-key "Switch tab")
     "tu" '(tab-bar-undo-close-tab :which-key "Undo close tab")))
 

@@ -32,4 +32,23 @@
     "w0" '(delete-other-windows :which-key "Delete other windows")
     "w=" '(balance-windows :which-key "Balance")))
 
+(use-package winner
+  :disabled
+  :config
+  (winner-mode)
+  :general
+  (my-leader-def
+    "wr" '(winner-redo :which-key "Redo")
+    "wu" '(winner-undo :which-key "Undo")))
+
+;; `winner-mode' works across tabs, which I do not like, so I use
+;; `tab-bar-history-mode' instead.
+(use-package tab-bar
+  :config
+  (tab-bar-history-mode)
+  :general
+  (my-leader-def
+    "wr" '(tab-bar-history-forward :which-key "Redo")
+    "wu" '(tab-bar-history-back :which-key "Undo")))
+
 (provide 'init-window)
