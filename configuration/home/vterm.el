@@ -16,6 +16,10 @@
       (if (and vterm-buffer (not current-prefix-arg))
           (pop-to-buffer vterm-buffer)
         (vterm t))))
+  (add-hook 'vterm-exit-functions
+            (lambda (_buffer _event)
+              (unless (one-window-p)
+                (delete-window))))
   :general
   (my-leader-def
     "v" '(splinter-project-vterm :which-key "Terminal"))
