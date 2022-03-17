@@ -131,6 +131,7 @@
   (corfu-auto t)
   (corfu-auto-delay 0.1)
   (corfu-auto-prefix 3)
+  (corfu-quit-at-boundary nil)
   :config
   (corfu-global-mode)
 
