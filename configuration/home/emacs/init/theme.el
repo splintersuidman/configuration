@@ -64,7 +64,7 @@
   :custom
   (modus-themes-italic-constructs t)
   (modus-themes-bold-constructs t)
-  (modus-themes-completions 'opinionated)
+  (modus-themes-completions '((matches . (background intense))))
   (modus-themes-headings '((t . (rainbow background overline))))
   (modus-themes-scale-headings t)
   (modus-themes-links '(background))
@@ -87,7 +87,14 @@ liking."
                         :foreground (modus-themes-color 'red-fringe-bg))
     (set-face-attribute 'git-gutter-fr:modified nil
                         :background (modus-themes-color 'bg-main)
-                        :foreground (modus-themes-color 'yellow-fringe-bg)))
+                        :foreground (modus-themes-color 'yellow-fringe-bg))
+    ;; Hide mode line bar.
+    (set-face-attribute 'doom-modeline-bar nil
+                        :background nil
+                        :inherit 'mode-line)
+    (set-face-attribute 'doom-modeline-bar-inactive nil
+                        :background nil
+                        :inherit 'mode-line-inactive))
   (add-to-list 'splinter-themes
                (lambda ()
                  (splinter-load-modus-theme 'modus-operandi)))
