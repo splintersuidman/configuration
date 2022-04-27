@@ -27,6 +27,13 @@ current frame, Emacs."
   :config
   (evil-collection-init))
 
+(use-package evil-goggles
+  :ensure t
+  :custom
+  (evil-goggles-duration 0.15)
+  :config
+  (evil-goggles-mode))
+
 (use-package undo-fu
   :ensure t
   :after evil
