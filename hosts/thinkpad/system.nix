@@ -65,14 +65,17 @@
 
   # Enable sound.
   sound.enable = true;
-  # hardware.pulseaudio.enable = true;
   hardware.pulseaudio = {
     enable = true;
+    package = pkgs.pulseaudioFull;
     support32Bit = true;
     # Necessary for mopidy; see
     # <https://github.com/NixOS/nixpkgs/issues/39635#issuecomment-453549679>.
     systemWide = true;
   };
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
 
   # OpenGL
   hardware.opengl.enable = true;
