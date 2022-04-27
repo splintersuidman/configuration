@@ -128,6 +128,7 @@ current frame, Emacs."
     "fs" '(save-buffer :which-key "Save buffer")
 
     "SPC" '(execute-extended-command :which-key "M-x")
+    "S-SPC" '(consult-mode-command :which-key "Mode command")
 
     ;; Editing-related commands
     ";" '(comment-dwim :which-key "Comment")
