@@ -25,7 +25,7 @@
     groff
 
     # Video
-    unstable.youtubeDL
+    unstable.youtube-dl
     ffmpeg
 
     # Other/system tools

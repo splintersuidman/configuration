@@ -28,9 +28,15 @@
       url = "github:chriskempson/base16-tomorrow-scheme";
       flake = false;
     };
+    nixpkgs-iosevka.url =
+      "github:nixos/nixpkgs?rev=838eefb4f93f2306d4614aafb9b2375f315d917f";
     kmonad = {
       url = "github:kmonad/kmonad?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    lin = {
+      url = "gitlab:protesilaos/lin";
+      flake = false;
     };
     mopidy-mpd = {
       url = "github:mopidy/mopidy-mpd";
@@ -57,6 +63,13 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
+
+          # Pin Iosevka independently from Nixpkgs, since building the
+          # modified version requires a lot of resources.
+          iosevka = (import inputs.nixpkgs-iosevka {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          }).iosevka;
 
           xmonad-splintah = inputs.xmonad-splintah.defaultPackage.x86_64-linux;
         })

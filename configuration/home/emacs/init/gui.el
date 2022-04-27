@@ -31,6 +31,26 @@
   :config
   (global-hl-line-mode))
 
+;; TODO: wait for https://gitlab.com/protesilaos/lin/-/issues/4.
+(use-package lin
+  :disabled
+  :custom
+  (lin-face 'lin-blue)
+  (lin-mode-hooks '(dired-mode-hook
+                    elfeed-search-mode-hook
+                    git-rebase-mode-hook
+                    ibuffer-mode-hook
+                    ilist-mode-hook
+                    ledger-report-mode-hook
+                    log-view-mode-hook
+                    magit-log-mode-hook
+                    mu4e-headers-mode
+                    notmuch-search-mode-hook
+                    notmuch-tree-mode-hook
+                    occur-mode-hook
+                    org-agenda-mode-hook
+                    tabulated-list-mode-hook)))
+
 (use-package hl-todo
   :config
   (global-hl-todo-mode))

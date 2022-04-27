@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, inputs, ... }: {
   imports = [ ../../modules/home/emacs-init.nix ];
 
   services.emacs = {
@@ -11,7 +11,14 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsGcc;
+    package = pkgs.emacsNativeComp;
+
+    overrides = self: super: {
+      lin = self.trivialBuild {
+        pname = "lin";
+        src = inputs.lin;
+      };
+    };
 
     init = {
       enable = true;
@@ -79,6 +86,7 @@
           enable = true;
           config = ./emacs/init/gui.el;
           feature = "init-gui";
+          extraPackages = epkgs: [ epkgs.lin ];
         };
 
         "init/init-help.el" = {

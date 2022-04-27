@@ -133,7 +133,7 @@
   (corfu-auto-prefix 3)
   (corfu-quit-at-boundary nil)
   :config
-  (corfu-global-mode)
+  (global-corfu-mode)
 
   ;; See minad/corfu#12.
   (evil-make-overriding-map corfu-map)

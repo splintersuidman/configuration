@@ -2,6 +2,8 @@
 
 (use-package magit
   :ensure t
+  :init
+  (setq forge-add-default-bindings nil)
   :general
   (my-leader-def
     "gb" '(magit-blame :which-key "Git blame")
