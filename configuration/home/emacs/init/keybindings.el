@@ -27,7 +27,22 @@ current frame, Emacs."
   :config
   (evil-collection-init))
 
+(use-package undo-fu
+  :ensure t
+  :after evil
+  :custom
+  (evil-undo-system 'undo-fu))
+
+(use-package undo-fu-session
+  :ensure t
+  :after undo-fu
+  :custom
+  (undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
+  :config
+  (global-undo-fu-session-mode))
+
 (use-package undo-tree
+  :disabled
   :ensure t
   :after evil
   :config
