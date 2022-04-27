@@ -30,5 +30,21 @@ let
     };
 
   pylsp = pylspWithPackages pkgs.python3Packages
-    (pyPkgs: [ pyPkgs.pylsp-mypy pyPkgs.pyls-isort ]);
-in { home.packages = [ pkgs.python3 pkgs.python3Packages.ipython pylsp ]; }
+    (pyPkgs: [ pyPkgs.pyls-flake8 pyPkgs.pyls-isort pyPkgs.pylsp-mypy ]);
+in {
+  home.packages = [
+    pkgs.python3
+    pkgs.python3Packages.ipython
+    pkgs.python3Packages.black
+    pkgs.python3Packages.isort
+    pkgs.python3Packages.flake8
+    pkgs.python3Packages.black-macchiato
+    pylsp
+  ];
+
+  programs.emacs.init.modules."init/init-python.el" = {
+    enable = true;
+    config = ./python.el;
+    feature = "init-python";
+  };
+}
