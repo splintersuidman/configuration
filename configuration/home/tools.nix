@@ -1,16 +1,19 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    zoom-us
+
     # Files
     ranger
-    transmission-gtk
-    curl
-    wget
 
     # Images
     sxiv
     scrot
     gimp
     inkscape
+    imagemagick
+
+    # Type setting
+    texmacs
 
     # Programming tools
     gnumake
@@ -43,16 +46,13 @@
     libnotify
     lshw
     neofetch
-    openssh
-    openssl
     patchelf
     pkg-config
     qrencode
     ripgrep
     tokei
-    traceroute
     tree
-    whois
+    unzip
     xclip
     xdo
     xdotool
@@ -60,6 +60,17 @@
     xorg.xev
     xz
     zip
-    unzip
+
+    # Networking
+    curl
+    dsniff
+    nmap
+    openssh
+    openssl
+    traceroute
+    transmission-gtk
+    wget
+    whois
+    wireshark
   ];
 }
