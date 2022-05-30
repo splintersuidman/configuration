@@ -4,7 +4,7 @@ in {
   programs.ncmpcpp = {
     enable = true;
     settings = {
-      mpd_port = config.services.mopidy.config.mpd.port;
+      mpd_port = config.services.mopidy.settings.mpd.port;
       lyrics_directory = config.xdg.dataHome + "/lyrics";
       allow_for_physical_item_deletion = true;
       user_interface = "alternative";

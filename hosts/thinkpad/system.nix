@@ -69,10 +69,10 @@
     enable = true;
     package = pkgs.pulseaudioFull;
     support32Bit = true;
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
     # Necessary for mopidy; see
     # <https://github.com/NixOS/nixpkgs/issues/39635#issuecomment-453549679>.
-    systemWide = true;
+    # TODO: check if this works with mopidy.
+    systemWide = false;
   };
 
   # Bluetooth

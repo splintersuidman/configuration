@@ -11,7 +11,7 @@
         greeters.gtk = {
           enable = true;
           cursorTheme = {
-            package = pkgs.gnome3.defaultIconTheme;
+            package = pkgs.gnome3.adwaita-icon-theme;
             name = "Adwaita";
             size = 18;
           };

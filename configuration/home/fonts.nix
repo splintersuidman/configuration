@@ -31,7 +31,7 @@ in {
     fira
     fira-code
     fira-mono
-    font-awesome-ttf
+    font-awesome
     gentium
     ibm-plex
     inconsolata

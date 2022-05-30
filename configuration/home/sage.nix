@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.sagemath ];
+  home.packages = [ pkgs.sage ];
 
   programs.emacs.init.modules."init/init-sage.el" = {
     enable = true;

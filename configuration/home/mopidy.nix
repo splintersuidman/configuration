@@ -3,13 +3,12 @@
 
   services.mopidy = {
     enable = true;
-    package = pkgs.mopidy;
-    extraPackages = with pkgs.mopidyPackages; [
+    extensionPackages = with pkgs.mopidyPackages; [
       (mopidy-mpd.overrideAttrs (oldAttrs: { src = inputs.mopidy-mpd; }))
       mopidy-mpris
       mopidy-spotify
     ];
-    config = {
+    settings = {
       mpd = {
         enabled = true;
         hostname = "::";

@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    manpages
+    man-pages
 
     # Editors
     emacs

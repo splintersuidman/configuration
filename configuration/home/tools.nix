@@ -20,7 +20,7 @@
     gdb
 
     # Man pages
-    manpages
+    man-pages
     # stdmanpages # C++ std documentation manpages
 
     # Type setting

@@ -16,7 +16,7 @@ let
 in {
   imports = [ ../../modules/home/browser.nix ];
 
-  home.packages = [ pkgs.torbrowser pkgs.qutebrowser ];
+  home.packages = [ pkgs.tor-browser-bundle-bin pkgs.qutebrowser ];
 
   programs.chromium = {
     enable = true;
