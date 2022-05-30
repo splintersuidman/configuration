@@ -34,6 +34,10 @@
       url = "github:kmonad/kmonad?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    "ligature.el" = {
+      url = "github:mickeynp/ligature.el";
+      flake = false;
+    };
     lin = {
       url = "gitlab:protesilaos/lin";
       flake = false;

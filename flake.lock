@@ -121,6 +121,22 @@
         "type": "github"
       }
     },
+    "ligature.el": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1644765909,
+        "narHash": "sha256-Bgb5wFyx0hMilpihxA8cTrRVw71EBOw2DczlM4lSNMs=",
+        "owner": "mickeynp",
+        "repo": "ligature.el",
+        "rev": "9357156a917a021a87b33ee391567a5d8e44794a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mickeynp",
+        "repo": "ligature.el",
+        "type": "github"
+      }
+    },
     "lin": {
       "flake": false,
       "locked": {
@@ -234,7 +250,7 @@
     "private": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-Z8JFA0GJy0GfrzqOgiWj3F8OYYLLQmbk+HCYaRIqQ4k=",
+        "narHash": "sha256-74C9B9ZFuylA3EtmQS8P/cCTtuASLKWxijURs/SYEvk=",
         "path": "/home/splinter/configuration/private",
         "type": "path"
       },
@@ -249,6 +265,7 @@
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "kmonad": "kmonad",
+        "ligature.el": "ligature.el",
         "lin": "lin",
         "mopidy-mpd": "mopidy-mpd",
         "nixos-hardware": "nixos-hardware",

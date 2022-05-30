@@ -18,6 +18,11 @@
         pname = "lin";
         src = inputs.lin;
       };
+
+      ligature = self.trivialBuild {
+        pname = "ligature";
+        src = inputs."ligature.el";
+      };
     };
 
     init = {
@@ -86,7 +91,7 @@
           enable = true;
           config = ./emacs/init/gui.el;
           feature = "init-gui";
-          extraPackages = epkgs: [ epkgs.lin ];
+          extraPackages = epkgs: [ epkgs.ligature epkgs.lin ];
         };
 
         "init/init-help.el" = {
