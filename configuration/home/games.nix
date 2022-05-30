@@ -5,8 +5,8 @@
     #   gtkClient = true;
     #   sdlClient = false;
     # })
-    pkgs.minecraft
-    pkgs.multimc
+    pkgs.unstable.polymc
+    pkgs.openjdk
     # (pkgs.openttd.overrideAttrs (attrs: {
     #   # Compile with XDG Base Directory support.
     #   configureFlags = attrs.configureFlags ++ [ "--with-xdg-basedir" ];
