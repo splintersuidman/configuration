@@ -162,9 +162,11 @@ in {
   config = let
     emacs = config.programs.emacs.finalPackage;
 
+    enabledModules = filterAttrs (_: module: module.enable) cfg.modules;
+
     moduleFiles =
       mapAttrs (name: module: pkgs.writeTextDir name module.configText)
-      cfg.modules;
+      enabledModules;
 
     featureFile = let
       features = map (module: module.feature)
@@ -200,7 +202,7 @@ in {
       source = emacsDirDerivation.outPath;
       onChange = let
         # TODO: add .el if it does not already contain .el.
-        files = map (name: "${emacsDirHome}/${name}") (attrNames cfg.modules);
+        files = map (name: "${emacsDirHome}/${name}") (attrNames enabledModules);
       in ''
         # Remove .elc files. Supply -f to ignore non-existent files.
         rm -f ${concatStringsSep " " (map (name: "${name}c") files)}
