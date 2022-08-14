@@ -1,3 +1,5 @@
+(require 'init-keybindings)
+
 (use-package window
   :custom
   (window-combination-resize t)
