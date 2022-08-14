@@ -34,6 +34,14 @@ current frame, Emacs."
   :config
   (evil-goggles-mode))
 
+(use-package evil-owl
+  :ensure t
+  :after window
+  :custom
+  (evil-owl-display-method 'window)
+  :config
+  (evil-owl-mode))
+
 (use-package undo-fu
   :ensure t
   :after evil

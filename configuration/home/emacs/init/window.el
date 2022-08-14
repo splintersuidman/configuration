@@ -16,7 +16,11 @@
       (slot . 1))
      ("\\*.*\\(e?shell\\|v?term\\).*\\*"
       (display-buffer-reuse-mode-window display-buffer-at-bottom)
-      (window-height . 0.30))))
+      (window-height . 0.30))
+     ("*evil-owl*"
+      (display-buffer-in-side-window)
+      (side . bottom)
+      (window-height . 0.3))))
   :general
   (my-leader-def
     "wh" '(evil-window-left :which-key "Left")
