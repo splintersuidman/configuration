@@ -61,7 +61,7 @@
       overlays = [
         inputs.nur.overlay
         inputs.emacs-overlay.overlay
-        inputs.kmonad.overlay
+        inputs.kmonad.overlays.default
         (final: prev: {
           unstable = import inputs.nixpkgs-unstable {
             system = "x86_64-linux";
