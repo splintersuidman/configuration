@@ -104,6 +104,41 @@ liking."
                (lambda ()
                  (splinter-load-modus-theme 'modus-vivendi))))
 
+(use-package ef-themes
+  :ensure t
+  :config
+  (defun splinter-ef-themes-color (theme color)
+    "Return color value for COLOR from palette of ef-theme THEME."
+    (car (alist-get color (symbol-value (ef-themes--palette theme)))))
+  (defun splinter-load-ef-theme (theme)
+    (interactive
+     (list
+      (intern (completing-read "Load Ef theme: "
+                               (mapcar 'symbol-name ef-themes-collection)))))
+    "Load an Ef theme.
+
+This functions loads an Ef theme and configures some faces to my
+liking."
+    (splinter-load-theme theme)
+    ;; Set the foreground of the git-gutter-fringe faces to the colour that is
+    ;; normally used for their background.
+    (set-face-attribute 'git-gutter-fr:added nil
+                        :background (splinter-ef-themes-color theme 'bg-main)
+                        :foreground (splinter-ef-themes-color theme 'green-warmer))
+    (set-face-attribute 'git-gutter-fr:deleted nil
+                        :background (splinter-ef-themes-color theme 'bg-main)
+                        :foreground (splinter-ef-themes-color theme 'red-warmer))
+    (set-face-attribute 'git-gutter-fr:modified nil
+                        :background (splinter-ef-themes-color theme 'bg-main)
+                        :foreground (splinter-ef-themes-color theme 'yellow-warmer))
+    ;; Hide mode line bar.
+    (set-face-attribute 'doom-modeline-bar nil
+                        :background nil
+                        :inherit 'mode-line)
+    (set-face-attribute 'doom-modeline-bar-inactive nil
+                        :background nil
+                        :inherit 'mode-line-inactive)))
+
 (use-package custom
   :demand t
   :config
