@@ -7,11 +7,13 @@ let
   notify-send = "${pkgs.libnotify}/bin/notify-send";
   notmuch = "${pkgs.notmuch}/bin/notmuch";
 in {
-  programs.mbsync.enable = true;
+  home.packages = [ pkgs.thunderbird ];
+
+  programs.mbsync.enable = false;
   programs.mu.enable = false;
-  programs.msmtp.enable = true;
+  programs.msmtp.enable = false;
   programs.notmuch = {
-    enable = true;
+    enable = false;
     new.tags = [ "unread" "inbox" "notification" ];
   };
 
@@ -30,7 +32,7 @@ in {
   };
 
   programs.emacs.init.modules."init/init-mail.el" = {
-    enable = true;
+    enable = false;
     config = ./mail.el;
     feature = "init-mail";
     extraPackages = epkgs: with epkgs; [ notmuch-notify notmuch-update ];
