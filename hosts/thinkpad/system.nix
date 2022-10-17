@@ -29,6 +29,8 @@
 
     # Clean /tmp on boot.
     cleanTmpDir = true;
+
+    plymouth.enable = true;
   };
 
   networking.hostName = "thinkpad"; # Define your hostname.
