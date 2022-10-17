@@ -96,19 +96,19 @@ liking."
                         :inherit 'mode-line)
     (set-face-attribute 'doom-modeline-bar-inactive nil
                         :background nil
-                        :inherit 'mode-line-inactive))
-  (add-to-list 'splinter-themes
-               (lambda ()
-                 (splinter-load-modus-theme 'modus-operandi)))
-  (add-to-list 'splinter-themes
-               (lambda ()
-                 (splinter-load-modus-theme 'modus-vivendi))))
+                        :inherit 'mode-line-inactive)))
+  ;; (add-to-list 'splinter-themes
+  ;;              (lambda ()
+  ;;                (splinter-load-modus-theme 'modus-operandi)))
+  ;; (add-to-list 'splinter-themes
+  ;;              (lambda ()
+  ;;                (splinter-load-modus-theme 'modus-vivendi))))
 
 (use-package ef-themes
   :ensure t
   :config
   (defun splinter-ef-themes-color (theme color)
-    "Return color value for COLOR from palette of ef-theme THEME."
+    "Return color value for COLOR from palette of Ef theme THEME."
     (car (alist-get color (symbol-value (ef-themes--palette theme)))))
   (defun splinter-load-ef-theme (theme)
     (interactive
@@ -137,7 +137,13 @@ liking."
                         :inherit 'mode-line)
     (set-face-attribute 'doom-modeline-bar-inactive nil
                         :background nil
-                        :inherit 'mode-line-inactive)))
+                        :inherit 'mode-line-inactive))
+  (add-to-list 'splinter-themes
+               (lambda ()
+                 (splinter-load-ef-theme 'ef-autumn)))
+  (add-to-list 'splinter-themes
+               (lambda ()
+                 (splinter-load-ef-theme 'ef-spring))))
 
 (use-package custom
   :demand t
