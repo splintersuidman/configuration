@@ -81,7 +81,7 @@ in {
           "browser.send_pings" = false;
           # "browser.sessionstore.max_tabs_undo" = 0;
           "browser.urlbar.speculativeConnect.enabled" = false;
-          "dom.event.clipboardevents.enabled" = false;
+          "dom.event.clipboardevents.enabled" = true;
           "media.eme.enabled" = false;
           "media.gmp-widevinecdm.enabled" = false;
           "media.navigator.enabled" = false;
