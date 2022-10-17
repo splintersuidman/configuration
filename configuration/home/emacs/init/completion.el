@@ -174,9 +174,6 @@ interfere with Vertico for e.g. ‘find-file’."
   :custom
   (kind-icon-default-face 'corfu-default)
   :config
-  ;; See jdsmith/kind-icon#7. TODO: remove this when updated.
-  (setf (alist-get 'file kind-icon-mapping)
-        '("f" :icon "file-document-outline" :face font-lock-string-face))
   (add-to-list 'corfu-margin-formatters 'kind-icon-margin-formatter))
 
 (provide 'init-completion)
