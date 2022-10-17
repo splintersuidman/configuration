@@ -87,7 +87,7 @@
   users.groups = { uinput = { }; };
   users.users.splinter = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "networkmanager" "input" "uinput" ];
+    extraGroups = [ "wheel" "audio" "networkmanager" "input" "uinput" "dialout" ];
   };
 
   services.udev.extraRules = ''

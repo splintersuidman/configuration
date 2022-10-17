@@ -15,5 +15,6 @@ in {
     pkgs.wineWowPackages.stable
     pkgs.musescore
     digital
+    pkgs.arduino
   ];
 }
