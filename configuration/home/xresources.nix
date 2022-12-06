@@ -1,8 +1,6 @@
 { pkgs, config, ... }:
-let
-  colors = config.theme.base16.colors;
-in
-{
+let colors = config.theme.base16.colors;
+in {
   xresources.properties = {
     "*background" = "#${colors.base00.hex.rgb}";
     "*foreground" = "#${colors.base05.hex.rgb}";

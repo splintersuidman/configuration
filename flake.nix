@@ -15,10 +15,10 @@
   '';
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.05";
+      url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/nur";
@@ -85,7 +85,7 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
-          configuration = { ... }: {
+          modules = [{
             imports = let
               nurNoPkgs = import inputs.nur {
                 nurpkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
@@ -107,10 +107,7 @@
               inherit overlays;
             };
             _module.args.inputs = inputs;
-          };
-          system = "x86_64-linux";
-          homeDirectory = "/home/splinter";
-          username = "splinter";
+          }];
         };
       };
 

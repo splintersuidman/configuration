@@ -5,7 +5,8 @@
     #   gtkClient = true;
     #   sdlClient = false;
     # })
-    pkgs.unstable.polymc
+    # prismlauncher
+    # pkgs.unstable.polymc
     pkgs.openjdk
     # (pkgs.openttd.overrideAttrs (attrs: {
     #   # Compile with XDG Base Directory support.

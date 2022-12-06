@@ -11,7 +11,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsNativeComp;
+    package = pkgs.emacsUnstable;
 
     overrides = self: super: {
       lin = self.trivialBuild {

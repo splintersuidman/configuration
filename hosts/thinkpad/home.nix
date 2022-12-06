@@ -63,4 +63,10 @@
     ../../configuration/home/yaml.nix
     ../../configuration/home/zig.nix
   ];
+
+  home = {
+    username = "splinter";
+    homeDirectory = "/home/splinter";
+    stateVersion = "20.09";
+  };
 }
