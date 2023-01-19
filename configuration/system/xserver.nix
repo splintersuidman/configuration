@@ -7,7 +7,7 @@
 
     displayManager = {
       lightdm = {
-        enable = true;
+        enable = false;
         greeters.gtk = {
           enable = true;
           cursorTheme = {
@@ -18,9 +18,11 @@
         };
       };
 
-      sessionCommands = ''
-        ${pkgs.lightlocker}/bin/light-locker --lock-on-lid --lock-on-suspend --lock-after-screensaver=0 &
-      '';
+      sddm.enable = true;
+
+      # sessionCommands = ''
+      #   ${pkgs.lightlocker}/bin/light-locker --lock-on-lid --lock-on-suspend --lock-after-screensaver=0 &
+      # '';
     };
 
     # NOTE: I configure XMonad from home-manager, but NixOS requires at least
@@ -28,11 +30,16 @@
     # <https://github.com/nix-community/home-manager/issues/1180#issuecomment-617329614>
     # and for an alternative solution see
     # <https://discourse.nixos.org/t/opening-i3-from-home-manager-automatically/4849/8>.
-    desktopManager.xterm.enable = true;
+    desktopManager.xterm.enable = false;
+    desktopManager.plasma5.enable = true;
 
     synaptics = {
       horizEdgeScroll = true;
       vertEdgeScroll = true;
     };
   };
+
+  programs.xwayland.enable = true;
+
+  environment.systemPackages = [ pkgs.plasma5Packages.bismuth ];
 }

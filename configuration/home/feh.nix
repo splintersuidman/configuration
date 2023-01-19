@@ -1,1 +1,1 @@
-{ ... }: { programs.feh.enable = true; }
+{ ... }: { programs.feh.enable = false; }

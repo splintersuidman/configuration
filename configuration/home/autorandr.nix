@@ -10,7 +10,7 @@ let
   };
 in {
   programs.autorandr = {
-    enable = true;
+    enable = false;
     profiles = {
       # Default single-display setup, with builtin laptop display as primary.
       default = {

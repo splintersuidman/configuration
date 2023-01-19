@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 let
   wallpaper = "${config.xdg.userDirs.pictures}/wallpaper";
 
@@ -22,11 +22,16 @@ in {
 
   xsession = {
     enable = true;
-    windowManager.command = "${xmonad}/bin/xmonad-${targetSystem}";
+    # windowManager.command = "${xmonad}/bin/xmonad-${targetSystem}";
+    # profileExtra = ''
+    #   export KDEWM=/home/splinter/.xmonad/xmonad-x86_64-linux
+    # '';
   };
 
+  systemd.user.sessionVariables = config.home.sessionVariables;
+
   wallpaper = {
-    enableXSession = true;
+    enableXSession = false;
     command =
       "${pkgs.feh}/bin/feh --no-fehbg --bg-fill --geometry +0+0 ${wallpaper}";
   };

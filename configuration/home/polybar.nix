@@ -4,7 +4,7 @@ in {
   home.packages = [ pkgs.material-icons ];
 
   services.polybar = {
-    enable = true;
+    enable = false;
     package = pkgs.polybar;
     script = "${config.services.polybar.package}/bin/polybar splintah &";
     config = {

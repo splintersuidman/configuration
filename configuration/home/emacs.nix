@@ -7,6 +7,7 @@
       enable = true;
       arguments = [ "--create-frame" ];
     };
+    socketActivation.enable = true;
   };
 
   programs.emacs = {

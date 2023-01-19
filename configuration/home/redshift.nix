@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   services.redshift = {
-    enable = true;
+    enable = false;
     provider = "manual";
     latitude = "52";
     longitude = "5";

@@ -1,5 +1,5 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
+  home.packages = [ pkgs.krunner-pass pkgs.wl-clipboard ];
   programs.password-store = {
     enable = true;
     settings = {

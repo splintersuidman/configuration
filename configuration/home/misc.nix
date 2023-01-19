@@ -16,5 +16,6 @@ in {
     pkgs.musescore
     digital
     pkgs.arduino
+    pkgs.plasma5Packages.kalendar
   ];
 }

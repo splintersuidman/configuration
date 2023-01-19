@@ -4,7 +4,7 @@ let
   browser = config.programs.browser.program;
 in {
   services.dunst = {
-    enable = true;
+    enable = false;
     settings = {
       global = {
         monitor = 0;
