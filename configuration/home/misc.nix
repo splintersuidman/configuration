@@ -17,5 +17,6 @@ in {
     digital
     pkgs.arduino
     pkgs.plasma5Packages.kalendar
+    pkgs.zotero
   ];
 }
