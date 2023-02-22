@@ -1,6 +1,6 @@
 { ... }: {
   services.autorandr = {
-    enable = true;
+    enable = false;
     defaultTarget = "default";
   };
 }
