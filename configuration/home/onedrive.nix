@@ -4,7 +4,7 @@
     package = pkgs.onedrive;
     config = rec {
       sync_dir = "${config.home.homeDirectory}/.OneDrive";
-      skip_dir = "~*|.~*|onbelangrijk";
+      skip_dir = "~*|.~*|onbelangrijk|*.part";
       skip_file = skip_dir;
       upload_only = true;
     };
