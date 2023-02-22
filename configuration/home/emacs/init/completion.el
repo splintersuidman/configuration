@@ -58,15 +58,21 @@
   :ensure t
   :init
   (defun splinter-flex-dispatcher (pattern _index _total)
-    "Use orderless-flex on a component if it ends with a tilde (~)."
+    "Use ‘orderless-flex’ on a component if it ends with a
+tilde (~)."
     (when (string-suffix-p "~" pattern)
       `(orderless-flex . ,(substring pattern 0 -1))))
+  (defun splinter-invert-dispatcher (pattern _index _total)
+    "Use ‘orderless-without-literal’ on a component if it ends with
+an exclamation point (!)."
+    (when (string-suffix-p "!" pattern)
+      `(orderless-without-literal . ,(substring pattern 0 -1))))
   :custom
   (completion-styles '(orderless))
   (read-file-name-completion-ignore-case t)
   (completion-category-overrides '((file (styles orderless partial-completion))))
   (orderless-matching-styles '(orderless-literal orderless-regexp orderless-initialism))
-  (orderless-style-dispatchers '(splinter-flex-dispatcher)))
+  (orderless-style-dispatchers '(splinter-flex-dispatcher splinter-invert-dispatcher)))
 
 (use-package marginalia
   :ensure t
