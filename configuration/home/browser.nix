@@ -38,6 +38,7 @@ in {
       darkreader
       decentraleyes
       greasemonkey
+      languagetool
       multi-account-containers
       reddit-enhancement-suite
       refined-github
