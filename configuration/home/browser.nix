@@ -38,7 +38,6 @@ in {
       darkreader
       decentraleyes
       greasemonkey
-      https-everywhere
       multi-account-containers
       reddit-enhancement-suite
       refined-github
@@ -52,6 +51,9 @@ in {
         isDefault = true;
 
         settings = {
+          # Enable HTTPS Only mode.
+          "dom.security.https_only_mode" = true;
+
           # Adds MPRIS-support.
           "media.hardwaremediakeys.enabled" = true;
 
