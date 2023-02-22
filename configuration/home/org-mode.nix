@@ -20,7 +20,7 @@ in {
         (use-package org-roam
           :defer t
           :custom
-          (org-roam-directory "${documents}/notities")
+          (org-roam-directory "${documents}/notes/")
 
           ;; NOTE: not setting this causes an error, because
           ;;   (boundp 'emacsql-sqlite3-executable)

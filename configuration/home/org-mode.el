@@ -30,8 +30,9 @@
 
   (org-link-set-parameters "ncatlab"
                            :follow 'splinter-ncatlab-follow)
+
+  (org-babel-do-load-languages 'org-babel-load-languages '((latex . t)))
   :hook
-  (org-mode . auto-fill-mode)
   (org-agenda-mode . auto-save-mode)
   (auto-save-mode . org-save-all-org-buffers)
   :general
@@ -308,10 +309,6 @@
   (alert-default-style 'libnotify)
   (org-alert-notification-title "Agenda"))
 
-(use-package org-ref
-  :disabled
-  :ensure t)
-
 (use-package org-fragtog
   :ensure t
   :after org
@@ -350,16 +347,82 @@
    '(("d" "default" plain "%?"
       :if-new (file+head "%<%Y-%m-%d-%H%M%S>-${slug}.org"
                          "#+title: ${title}\n")
-      :unnarrowed t)))
+      :unnarrowed t)
+     ("r" "reference" plain "%?"
+      :if-new (file+head "references/${citekey}.org"
+                         "#+title: ${title}\n"))))
+  (org-roam-ui-latex-macros
+   '(("\\id" . "1")
+     ("\\setpred" . "\\left\\{\\, #1 \\mid #2 \\,\\right\\}")
+     ("\\triv" . "\\operatorname{triv}")
+     ("\\dom" . "\\operatorname{dom}")
+     ("\\cod" . "\\operatorname{cod}")
+     ("\\im" . "\\operatorname{im}")
+     ("\\cat" . "\\mathscr{#1}")
+     ("\\catSet" . "\\mathbf{Set}")
+     ("\\catPointedSet" . "\\mathbf{Set}_*")
+     ("\\catCategory" . "\\mathbf{Category}")
+     ("\\catPointedCategory" . "\\mathbf{Set}")
+     ("\\catPointedCategory" . "\\mathbf{Cat}_*")
+     ("\\catGroupoid" . "\\mathbf{Grpd}")
+     ("\\catMonoid" . "\\mathbf{Mon}")
+     ("\\catGroup" . "\\mathbf{Grp}")
+     ("\\catAbgroup" . "\\mathbf{Ab}")
+     ("\\catRing" . "\\mathbf{Ring}")
+     ("\\catField" . "\\mathbf{Field}")
+     ("\\catGraph" . "\\mathbf{Graph}")
+     ("\\catDirectedGraph" . "\\mathbf{Graph}_{\\to}")
+     ("\\catTopoligicalSpace" . "\\mathbf{Top}")
+     ("\\catPointedTopoligicalSpace" . "\\mathbf{Top}_*")
+     ("\\catVectorSpace" . "\\mathbf{Vect}")
+     ("\\catSet" . "\\mathbf{Set}")
+     ("\\catSet" . "\\mathbf{Set}")
+     ("\\catSet" . "\\mathbf{Set}")
+     ("\\catSet" . "\\mathbf{Set}")
+     ("\\deloop" . "\\mathbf{B}")
+     ("\\leftadj" . "\\dashv")
+     ("\\rightadj" . "\\vdash")
+     ("\\colim" . "\\operatorname{colim}")
+     ("\\inj" . "\\operatorname{inj}")
+     ("\\pr" . "\\operatorname{pr}")
+     ("\\qed" . "\\square")
+     ("\\To" . "\\Rightarrow")
+     ("\\Hom" . "\\operatorname{Hom}")
+     ("\\End" . "\\operatorname{End}")
+     ("\\Aut" . "\\operatorname{Aut}")))
   :config
   (org-roam-db-autosync-mode)
   :general
   (my-leader-def
+    "nc" '(org-roam-capture :which-key "Capture")
     "nf" '(org-roam-node-find :which-key "Find node")
-    "ni" '(org-roam-node-insert :which-key "Insert")
-    "nl" '(org-roam-buffer-toggle :which-key "Toggle org-roam buffer")))
+    "ni" '(org-roam-node-insert :which-key "Insert node")
+    "nl" '(org-roam-buffer-toggle :which-key "Toggle org-roam buffer")
+    "nr" '(orb-insert-link :which-key "Cite")))
+
+(use-package org-roam-ui
+  :ensure t
+  :after (org-roam)
+  :custom
+  (org-roam-ui-sync-theme nil)
+  (org-roam-ui-follow t)
+  (org-roam-ui-update-on-save t)
+  (org-roam-ui-open-on-start t))
+
+(use-package org-ref
+  :ensure t
+  :custom
+  (bibtex-completion-bibliography '("~/Zotero/biblatex.bib"))
+  (bibtex-compeltion-notes-path "~/Documents/notes/references/")
+  (bibtex-completion-pdf-field "file"))
+
+(use-package org-roam-bibtex
+  :ensure t
+  :after (org-roam org-ref)
+  :hook (org-roam-mode . org-roam-bibtex-mode))
 
 (use-package org-roam-dailies
+  :disabled
   :ensure org-roam
   :after (general)
   :custom
