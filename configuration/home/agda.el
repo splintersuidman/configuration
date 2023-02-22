@@ -1,6 +1,9 @@
 (require 'init-keybindings)
 
 (use-package agda2-mode
+  :custom
+  (agda-input-user-translations '(("eq" "＝")
+                                  ("==" "＝")))
   :load-path
   (lambda ()
     (let ((coding-system-for-read 'utf-8))
