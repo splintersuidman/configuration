@@ -54,7 +54,7 @@ current frame, Emacs."
   :custom
   (undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'"))
   :config
-  (global-undo-fu-session-mode))
+  (undo-fu-session-global-mode))
 
 (use-package undo-tree
   :disabled
