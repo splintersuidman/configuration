@@ -1,4 +1,5 @@
 (use-package desktop
+  :disabled
   :custom
   (desktop-dirname "~/.emacs.d/")
   (desktop-auto-save-timeout (* 2 60))
