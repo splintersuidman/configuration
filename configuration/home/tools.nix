@@ -68,7 +68,7 @@
     openssh
     openssl
     traceroute
-    transmission-gtk
+    transmission-qt
     wget
     whois
     wireshark
