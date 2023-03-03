@@ -88,6 +88,12 @@
           feature = "init-font";
         };
 
+        "init/init-frame.el" = {
+          enable = true;
+          config = ./emacs/init/frame.el;
+          feature = "init-frame";
+        };
+
         "init/init-gui.el" = {
           enable = true;
           config = ./emacs/init/gui.el;
