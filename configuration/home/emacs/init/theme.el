@@ -78,18 +78,22 @@
 
 This function loads a Modus theme and configures some faces to my
 liking."
+    (interactive
+     (list
+      (intern (completing-read "Load Modus theme: " '(modus-vivendi modus-operandi)))))
     (splinter-load-theme theme)
     ;; Set the foreground of the git-gutter-fringe faces to the colour that is
     ;; normally used for their background.
-    (set-face-attribute 'git-gutter-fr:added nil
-                        :background (modus-themes-color 'bg-main)
-                        :foreground (modus-themes-color 'green-fringe-bg))
-    (set-face-attribute 'git-gutter-fr:deleted nil
-                        :background (modus-themes-color 'bg-main)
-                        :foreground (modus-themes-color 'red-fringe-bg))
-    (set-face-attribute 'git-gutter-fr:modified nil
-                        :background (modus-themes-color 'bg-main)
-                        :foreground (modus-themes-color 'yellow-fringe-bg))
+    (modus-themes-with-colors
+      (set-face-attribute 'git-gutter-fr:added nil
+                          :background bg-main
+                          :foreground green-cooler)
+      (set-face-attribute 'git-gutter-fr:deleted nil
+                          :background bg-main
+                          :foreground red-cooler)
+      (set-face-attribute 'git-gutter-fr:modified nil
+                          :background bg-main
+                          :foreground yellow-cooler))
     ;; Hide mode line bar.
     (set-face-attribute 'doom-modeline-bar nil
                         :background nil
@@ -111,6 +115,10 @@ liking."
     "Return color value for COLOR from palette of Ef theme THEME."
     (car (alist-get color (symbol-value (ef-themes--palette theme)))))
   (defun splinter-load-ef-theme (theme)
+    "Load an Ef theme.
+
+This function loads an Ef theme and configures some faces to my
+liking."
     (interactive
      (list
       (intern (completing-read "Load Ef theme: "
@@ -120,24 +128,39 @@ liking."
 This functions loads an Ef theme and configures some faces to my
 liking."
     (splinter-load-theme theme)
-    ;; Set the foreground of the git-gutter-fringe faces to the colour that is
-    ;; normally used for their background.
-    (set-face-attribute 'git-gutter-fr:added nil
-                        :background (splinter-ef-themes-color theme 'bg-main)
-                        :foreground (splinter-ef-themes-color theme 'green-warmer))
-    (set-face-attribute 'git-gutter-fr:deleted nil
-                        :background (splinter-ef-themes-color theme 'bg-main)
-                        :foreground (splinter-ef-themes-color theme 'red-warmer))
-    (set-face-attribute 'git-gutter-fr:modified nil
-                        :background (splinter-ef-themes-color theme 'bg-main)
-                        :foreground (splinter-ef-themes-color theme 'yellow-warmer))
-    ;; Hide mode line bar.
-    (set-face-attribute 'doom-modeline-bar nil
-                        :background nil
-                        :inherit 'mode-line)
-    (set-face-attribute 'doom-modeline-bar-inactive nil
-                        :background nil
-                        :inherit 'mode-line-inactive))
+    (ef-themes-with-colors
+      ;; Set the foreground of the git-gutter-fringe faces to the colour that is
+      ;; normally used for their background.
+      (set-face-attribute 'git-gutter-fr:added nil
+                          :background bg-main
+                          :foreground green-warmer)
+      (set-face-attribute 'git-gutter-fr:deleted nil
+                          :background bg-main
+                          :foreground red-warmer)
+      (set-face-attribute 'git-gutter-fr:modified nil
+                          :background bg-main
+                          :foreground yellow-warmer)
+      ;; Hide mode line bar.
+      (set-face-attribute 'doom-modeline-bar nil
+                          :background nil
+                          :inherit 'mode-line)
+      (set-face-attribute 'doom-modeline-bar-inactive nil
+                          :background nil
+                          :inherit 'mode-line-inactive)
+      ;; Set org-roam-ui colours.
+      (setq org-roam-ui-custom-theme
+            `((bg . ,bg-main)
+              (bg-alt . ,bg-dim)
+              (fg . ,fg-dim)
+              (fg-alt . ,fg-dim)
+              (red . ,red)
+              (orange . ,red)
+              (yellow . ,yellow)
+              (green . ,green)
+              (cyan . ,cyan)
+              (blue . ,blue)
+              (violet . ,magenta-cooler)
+              (magenta . ,magenta)))))
   (add-to-list 'splinter-themes
                (lambda ()
                  (splinter-load-ef-theme 'ef-autumn)))
