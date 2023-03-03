@@ -198,12 +198,13 @@
                   (cons (buffer-substring-no-properties beg end) (cons beg end))
                 (org-element-property :raw-link link))))))
 
-  (embark-define-keymap splinter-embark-org-link-map
-    "Keymap for Org link actions."
-    ("RET" org-open-at-point)
-    ("l" org-insert-link)
-    ("n" org-next-link)
-    ("p" org-previous-link))
+  ;; Keymap for Org link actions.
+  (defvar-keymap splinter-embark-org-link-map
+    :parent embark-general-map
+    "RET" 'org-open-at-point
+    "l" 'org-insert-link
+    "n" 'org-next-link
+    "p" 'org-previous-link)
 
   (add-to-list 'embark-keymap-alist '(org-link . splinter-embark-org-link-map))
   :hook
