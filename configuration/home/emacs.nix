@@ -76,6 +76,18 @@
           feature = "init-flymake";
         };
 
+        "init/init-eglot-languagetool-nix.el" = {
+          enable = true;
+          feature = "init-eglot-languagetool-nix";
+          config = ''
+            (use-package eglot
+              :defer t
+              :init
+              (add-to-list 'eglot-server-programs '(tex-mode . ("${pkgs.ltex-ls}/bin/ltex-ls"))))
+            (provide 'init-eglot-languagetool-nix)
+          '';
+        };
+
         "init/init-fold.el" = {
           enable = true;
           config = ./emacs/init/fold.el;
