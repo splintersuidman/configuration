@@ -13,7 +13,7 @@ in {
   services.kmonad = {
     package = pkgs.kmonad;
     keyboards = {
-      builtin = let device = "/dev/input/event0";
+      builtin = let device = "/dev/input/by-path/platform-i8042-serio-0-event-kbd";
       in {
         enable = true;
         inherit device;
