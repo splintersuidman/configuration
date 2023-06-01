@@ -10,6 +10,8 @@
     socketActivation.enable = true;
   };
 
+  home.packages = [ (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }) ];
+
   programs.emacs = {
     enable = true;
     package = pkgs.emacsUnstable;
