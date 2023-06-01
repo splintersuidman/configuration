@@ -16,7 +16,11 @@ let
 in {
   imports = [ ../../modules/home/browser.nix ];
 
-  home.packages = [ pkgs.tor-browser-bundle-bin pkgs.qutebrowser ];
+  home.packages = [
+    pkgs.unstable.tor-browser-bundle-bin
+    pkgs.qutebrowser
+    pkgs.plasma5Packages.plasma-browser-integration
+  ];
 
   programs.chromium = {
     enable = true;
@@ -33,23 +37,25 @@ in {
     enable = true;
     package = pkgs.firefox;
 
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      browserpass
-      darkreader
-      decentraleyes
-      greasemonkey
-      languagetool
-      multi-account-containers
-      reddit-enhancement-suite
-      refined-github
-      tridactyl
-      ublock-origin
-      umatrix
-    ];
-
     profiles = {
       default = {
         isDefault = true;
+
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          browserpass
+          darkreader
+          decentraleyes
+          greasemonkey
+          languagetool
+          multi-account-containers
+          plasma-integration
+          reddit-enhancement-suite
+          refined-github
+          tridactyl
+          ublock-origin
+          umatrix
+        ];
+
 
         settings = {
           # Enable HTTPS Only mode.

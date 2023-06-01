@@ -28,7 +28,7 @@
     kernelModules = [ "uinput" ];
 
     # Clean /tmp on boot.
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
 
     plymouth.enable = true;
   };
