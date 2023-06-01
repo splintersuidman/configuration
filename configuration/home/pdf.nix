@@ -7,7 +7,7 @@ let
   foregroundAlt = "#${colors.base04.hex.rgb}";
 in {
   programs.zathura = {
-    enable = true;
+    enable = false;
     options = {
       selection-clipboard = "clipboard";
       font = "Iosevka Custom 10";
