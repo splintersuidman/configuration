@@ -157,6 +157,22 @@
         "type": "gitlab"
       }
     },
+    "math-delimiters": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1635436319,
+        "narHash": "sha256-5HZpVpq0WL3QRMicI+Rk2uJ1z9BVh5gdZojpGi4fEWo=",
+        "owner": "oantolin",
+        "repo": "math-delimiters",
+        "rev": "421a5d7b433ffe62445af8b7adbf613ed63fe650",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oantolin",
+        "repo": "math-delimiters",
+        "type": "github"
+      }
+    },
     "mopidy-mpd": {
       "flake": false,
       "locked": {

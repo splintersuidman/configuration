@@ -68,4 +68,27 @@ TODO: for escaped braces (\\{, \\}), this does not work."
     "s" 'LaTeX-section
     "v" 'TeX-view))
 
+(use-package math-delimiters
+  :after (latex general)
+  :demand t
+  :commands
+  (math-delimiters-insert)
+  :init
+  (defun splinter-math-delimiters-insert (&optional prefix)
+    "Like ‘math-delimiters-insert’, but move past closing delimiter
+if point is before one."
+    (interactive "P")
+    (cond
+     (prefix (insert-char ?$))
+     ((and (looking-at (regexp-quote (cdr math-delimiters-inline)))
+           (not (looking-back (regexp-quote (car math-delimiters-inline)) nil)))
+      (forward-char (length (cdr math-delimiters-inline))))
+     ((and (looking-at (regexp-quote (cdr math-delimiters-display)))
+           (not (looking-back (regexp-quote (car math-delimiters-display)) nil)))
+      (forward-char (length (cdr math-delimiters-display))))
+     (t (math-delimiters-insert))))
+  :general
+  (:keymaps 'TeX-mode-map
+   "$" 'splinter-math-delimiters-insert))
+
 (provide 'init-tex)

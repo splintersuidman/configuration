@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home.packages = [ pkgs.gnuplot ];
 
   programs.texlive = {
@@ -6,9 +6,19 @@
     extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
   };
 
-  programs.emacs.init.modules."init/init-tex.el" = {
-    enable = true;
-    config = ./tex.el;
-    feature = "init-tex";
+  programs.emacs = {
+    overrides = self: super: {
+      math-delimiters = self.trivialBuild {
+        pname = "math-delimiters";
+        src = inputs.math-delimiters;
+      };
+    };
+
+    init.modules."init/init-tex.el" = {
+      enable = true;
+      config = ./tex.el;
+      feature = "init-tex";
+      extraPackages = epkgs: [ epkgs.math-delimiters ];
+    };
   };
 }

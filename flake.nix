@@ -42,6 +42,10 @@
       url = "gitlab:protesilaos/lin";
       flake = false;
     };
+    math-delimiters = {
+      url = "github:oantolin/math-delimiters";
+      flake = false;
+    };
     mopidy-mpd = {
       url = "github:mopidy/mopidy-mpd";
       flake = false;
