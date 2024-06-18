@@ -6,7 +6,7 @@
     shellAliases = {
       ".." = "cd ..";
       "..." = "cd ../..";
-      "ls" = "${pkgs.exa}/bin/exa";
+      "ls" = "${pkgs.eza}/bin/eza";
     };
     shellOptions = [ "autocd" ];
     initExtra = ''

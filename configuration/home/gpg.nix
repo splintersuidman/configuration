@@ -6,6 +6,7 @@
     defaultCacheTtl = 300;
     maxCacheTtl = 999999;
     enableSshSupport = true;
+    pinentryPackage = pkgs.pinentry-qt;
   };
 
   programs.git.signing = {

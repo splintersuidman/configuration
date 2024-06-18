@@ -4,7 +4,7 @@
     pkgs.cachix
     pkgs.haskellPackages.nixfmt
     pkgs.niv
-    pkgs.rnix-lsp
+    pkgs.nil
     # pkgs.nix-doc
   ];
 

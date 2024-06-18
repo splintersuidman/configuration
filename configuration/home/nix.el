@@ -6,7 +6,7 @@
   :after (general eglot)
   :mode "\\.nix\\'"
   :init
-  (add-to-list 'eglot-server-programs '(nix-mode . ("rnix-lsp")))
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
   :general
   (my-local-leader-def
     :keymaps 'nix-mode-map

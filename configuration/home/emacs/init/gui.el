@@ -17,6 +17,7 @@
 (use-package emacs
   :custom
   (inhibit-startup-screen t)
+  (ring-bell-function 'ignore)
   :config
   ;; Wrap lines.
   (global-visual-line-mode t)

@@ -17,6 +17,9 @@
      ("\\*.*\\(e?shell\\|v?term\\).*\\*"
       (display-buffer-reuse-mode-window display-buffer-at-bottom)
       (window-height . 0.30))
+     ("\\*Flymake diagnostics for.*\\*"
+      (display-buffer-reuse-mode-window display-buffer-at-bottom)
+      (window-height . 0.30))
      ("*evil-owl*"
       (display-buffer-in-side-window)
       (side . bottom)

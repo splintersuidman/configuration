@@ -9,7 +9,7 @@
   (TeX-parse-self t)
   :init
   (setq-default TeX-PDF-mode t)
-  (setq-default TeX-engine 'xetex)
+  (setq-default TeX-engine 'luatex)
   (setq-default TeX-master nil)
   :config
   ;; Revert TeX document buffer after compilation.

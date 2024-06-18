@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   services.xserver = {
     enable = true;
-    libinput.enable = true;
     autoRepeatDelay = 200;
     autoRepeatInterval = 25;
 
@@ -17,8 +16,6 @@
           };
         };
       };
-
-      sddm.enable = true;
 
       # sessionCommands = ''
       #   ${pkgs.lightlocker}/bin/light-locker --lock-on-lid --lock-on-suspend --lock-after-screensaver=0 &
@@ -39,7 +36,11 @@
     };
   };
 
+  services.displayManager.sddm.enable = true;
+
+  services.libinput.enable = true;
+
   programs.xwayland.enable = true;
 
-  environment.systemPackages = [ pkgs.plasma5Packages.bismuth ];
+  environment.systemPackages = [ pkgs.bismuth-patched ];
 }

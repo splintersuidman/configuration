@@ -11,6 +11,7 @@
       math-delimiters = self.trivialBuild {
         pname = "math-delimiters";
         src = inputs.math-delimiters;
+        version = "0";
       };
     };
 

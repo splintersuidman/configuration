@@ -1,5 +1,10 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.sage ];
+  home.packages = [
+    (pkgs.sage.override {
+      requireSageTests = false;
+      extraPythonPackages = ps: with ps; [ notebook ];
+    })
+  ];
 
   programs.emacs.init.modules."init/init-sage.el" = {
     enable = true;

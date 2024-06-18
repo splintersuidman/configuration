@@ -5,7 +5,7 @@ let
       standard-library
       cubical
       agda-categories
-      agdarsec
+      # agdarsec
     ]);
 in {
   home.packages = [ agda ];

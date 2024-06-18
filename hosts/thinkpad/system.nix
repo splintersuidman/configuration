@@ -13,9 +13,9 @@
     ../../configuration/system/shell.nix
     ../../configuration/system/tlp.nix
     ../../configuration/system/tools.nix
-    ../../configuration/system/tor.nix
+    # ../../configuration/system/tor.nix
     ../../configuration/system/xserver.nix
-    ./system/logind.nix
+    # ./system/logind.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

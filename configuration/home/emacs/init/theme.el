@@ -113,7 +113,7 @@ liking."
   :config
   (defun splinter-ef-themes-color (theme color)
     "Return color value for COLOR from palette of Ef theme THEME."
-    (car (alist-get color (symbol-value (ef-themes--palette theme)))))
+    (ef-themes-get-color-value color nil theme))
   (defun splinter-load-ef-theme (theme)
     "Load an Ef theme.
 
@@ -148,25 +148,26 @@ liking."
                           :background nil
                           :inherit 'mode-line-inactive)
       ;; Set org-roam-ui colours.
-      (setq org-roam-ui-custom-theme
-            `((bg . ,bg-main)
-              (bg-alt . ,bg-dim)
-              (fg . ,fg-dim)
-              (fg-alt . ,fg-dim)
-              (red . ,red)
-              (orange . ,red)
-              (yellow . ,yellow)
-              (green . ,green)
-              (cyan . ,cyan)
-              (blue . ,blue)
-              (violet . ,magenta-cooler)
-              (magenta . ,magenta)))))
+      ;; (setq org-roam-ui-custom-theme
+      ;;       `((bg . ,bg-main)
+      ;;         (bg-alt . ,bg-dim)
+      ;;         (fg . ,fg-dim)
+      ;;         (fg-alt . ,fg-dim)
+      ;;         (red . ,red)
+      ;;         (orange . ,red)
+      ;;         (yellow . ,yellow)
+      ;;         (green . ,green)
+      ;;         (cyan . ,cyan)
+      ;;         (blue . ,blue)
+      ;;         (violet . ,magenta-cooler)
+      ;;         (magenta . ,magenta)))
+      ))
   (add-to-list 'splinter-themes
                (lambda ()
-                 (splinter-load-ef-theme 'ef-autumn)))
+                 (splinter-load-ef-theme 'ef-dark)))
   (add-to-list 'splinter-themes
                (lambda ()
-                 (splinter-load-ef-theme 'ef-spring))))
+                 (splinter-load-ef-theme 'ef-light))))
 
 (use-package custom
   :demand t

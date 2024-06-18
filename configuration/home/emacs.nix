@@ -14,17 +14,19 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable;
+    package = pkgs.emacs;
 
     overrides = self: super: {
       lin = self.trivialBuild {
         pname = "lin";
         src = inputs.lin;
+        version = "0";
       };
 
       ligature = self.trivialBuild {
         pname = "ligature";
         src = inputs."ligature.el";
+        version = "0";
       };
     };
 

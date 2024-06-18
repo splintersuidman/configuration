@@ -150,8 +150,6 @@ an exclamation point (!)."
 
   ;; See minad/corfu#12.
   (evil-make-overriding-map corfu-map)
-  (advice-add 'corfu--setup :after 'evil-normalize-keymaps)
-  (advice-add 'corfu--teardown :after 'evil-normalize-keymaps)
 
   (defun splinter-setup-corfu-for-minibuffer ()
     "Enable Corfu in the minibuffer, e.g. for
