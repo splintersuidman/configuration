@@ -42,6 +42,11 @@ current frame, Emacs."
   :config
   (evil-owl-mode))
 
+(use-package evil-matchit
+  :ensure t
+  :config
+  (global-evil-matchit-mode))
+
 (use-package undo-fu
   :ensure t
   :after evil
@@ -132,6 +137,7 @@ current frame, Emacs."
     "bo" '(consult-buffer-other-window :which-key "Switch buffer in other window")
 
     ;; Editing-related commands under `e'
+    "ef" '(evil-avy-goto-char :which-key "Goto character")
     "es" '(evil-ex-sort :which-key "Sort")
 
     ;; File-related commands under `f'
