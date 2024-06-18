@@ -10,6 +10,7 @@
     ../../configuration/home/browser.nix
     ../../configuration/home/c.nix
     ../../configuration/home/chat.nix
+    ../../configuration/home/coq.nix
     ../../configuration/home/direnv.nix
     ../../configuration/home/dunst.nix
     ../../configuration/home/elfeed.nix
