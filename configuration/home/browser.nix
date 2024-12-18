@@ -18,17 +18,16 @@ in {
 
   home.packages = [
     pkgs.unstable.tor-browser-bundle-bin
-    pkgs.qutebrowser
     pkgs.plasma5Packages.plasma-browser-integration
   ];
 
   programs.chromium = {
     enable = true;
-    package = pkgs.ungoogled-chromium.override { enableWideVine = true; };
+    # package = pkgs.ungoogled-chromium.override { enableWideVine = true; };
   };
 
   programs.browser = rec {
-    enable = true;
+    enable = false;
     package = config.programs.firefox.package;
     program = "${package}/bin/firefox";
   };
@@ -82,7 +81,7 @@ in {
           "toolkit.telemetry.unifiedIsOptIn" = false;
 
           # Firefox tweaks suggested by privacytools.io.
-          "privacy.firstparty.isolate" = true;
+          "privacy.firstparty.isolate" = false;
           "privacy.resistFingerprinting" = true;
           "privacy.trackingprotection.fingerprinting.enabled" = true;
           "privacy.trackingprotection.cryptomining.enabled" = true;

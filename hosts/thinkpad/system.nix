@@ -81,8 +81,11 @@
   hardware.bluetooth.enable = true;
 
   # OpenGL
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport32Bit = true; # For Steam.
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = [
+    pkgs.rocmPackages.clr
+  ];
+  hardware.graphics.enable32Bit = true; # For Steam.
 
   users.groups = { uinput = { }; };
   users.users.splinter = {

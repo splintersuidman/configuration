@@ -28,8 +28,13 @@
     groff
 
     # Video
-    unstable.youtube-dl
+    unstable.yt-dlp
     ffmpeg
+    vlc
+
+    # Audio
+    audacity
+    plasma5Packages.kdenlive
 
     # Other/system tools
     aspell
@@ -68,7 +73,7 @@
     openssh
     openssl
     traceroute
-    transmission-qt
+    unstable.transmission_4-qt
     wget
     whois
     wireshark

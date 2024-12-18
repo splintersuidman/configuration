@@ -24,6 +24,7 @@ let onedrive = pkgs.unstable.onedrive; in
     !.git/*
     !.mypy_cache/*
     !__pycache__/*
+    !#*
     /Universiteit/
   '';
 
