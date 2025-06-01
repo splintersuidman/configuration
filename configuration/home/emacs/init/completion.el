@@ -169,6 +169,16 @@ interfere with Vertico for e.g. ‘find-file’."
    "C-n" 'corfu-next
    "C-p" 'corfu-previous))
 
+;; Use corfu-terminal because Cosmic tiles child frames.
+;; TODO: find a way to make Cosmic not tile child frames.
+(use-package corfu-terminal
+  :ensure t
+  :functions corfu-terminal-mode
+  :custom
+  (corfu-terminal-disable-on-gui nil)
+  :config
+  (corfu-terminal-mode))
+
 (use-package cape
   :ensure t
   :init

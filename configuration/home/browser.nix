@@ -18,7 +18,6 @@ in {
 
   home.packages = [
     pkgs.unstable.tor-browser-bundle-bin
-    pkgs.plasma5Packages.plasma-browser-integration
   ];
 
   programs.chromium = {
@@ -40,14 +39,13 @@ in {
       default = {
         isDefault = true;
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           browserpass
           darkreader
           decentraleyes
           greasemonkey
           languagetool
           multi-account-containers
-          plasma-integration
           reddit-enhancement-suite
           refined-github
           tridactyl

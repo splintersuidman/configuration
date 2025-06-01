@@ -1,4 +1,7 @@
 { config, pkgs, ... }: {
+  services.desktopManager.cosmic.enable = true;
+  services.displayManager.cosmic-greeter.enable = true;
+
   services.xserver = {
     enable = true;
     autoRepeatDelay = 200;
@@ -28,7 +31,6 @@
     # and for an alternative solution see
     # <https://discourse.nixos.org/t/opening-i3-from-home-manager-automatically/4849/8>.
     desktopManager.xterm.enable = false;
-    desktopManager.plasma5.enable = true;
 
     synaptics = {
       horizEdgeScroll = true;
@@ -36,11 +38,7 @@
     };
   };
 
-  services.displayManager.sddm.enable = true;
-
   services.libinput.enable = true;
 
   programs.xwayland.enable = true;
-
-  environment.systemPackages = [ pkgs.bismuth-patched ];
 }
