@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;; TODO: put some of this in early-init.el?
 
 (use-package tool-bar

@@ -1,12 +1,24 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   home.packages = [
-    pkgs.unstable.typst
-    pkgs.unstable.typst-lsp
+    pkgs.typst
+    # TODO: use tinymist instead
+    # pkgs.unstable.typst-lsp
   ];
 
-  programs.emacs.init.modules."init/init-typst.el" = {
-    enable = true;
-    config = ./typst.el;
-    feature = "init-typst";
+  programs.emacs = {
+    # overrides = self: super: {
+    #   typst-ts-mode = self.trivialBuild {
+    #     pname = "typst-ts-mode";
+    #     src = inputs.typst-ts-mode;
+    #     version = "0";
+    #   };
+    # };
+
+    init.modules."init/init-typst.el" = {
+      enable = false;
+      config = ./typst.el;
+      feature = "init-typst";
+      extraPackages = epkgs: [ epkgs.typst-ts-mode ];
+    };
   };
 }

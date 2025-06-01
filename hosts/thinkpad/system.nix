@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, lib, inputs, config, ... }: {
   imports = [
     ../../configuration/system.nix
     ./system/hardware-configuration.nix
@@ -66,9 +66,8 @@
   # networking.firewall.enable = false;
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio = {
-    enable = true;
+  services.pulseaudio = {
+    enable = false;
     package = pkgs.pulseaudioFull;
     support32Bit = true;
     # Necessary for mopidy; see

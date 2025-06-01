@@ -1,8 +1,12 @@
-{ pkgs, config, inputs, ... }: {
-  home.packages = [ pkgs.mpc_cli pkgs.playerctl ];
+{ pkgs, config, inputs, ... }:
+let
+  pass = "${config.programs.password-store.package}/bin/pass";
+  passCommand = name: "${pass} ${name} | ${pkgs.coreutils}/bin/head -n 1";
+in {
+  home.packages = [ pkgs.mpc_cli pkgs.playerctl pkgs.spotify ];
 
   services.mopidy = {
-    enable = true;
+    enable = false;
     extensionPackages = with pkgs.mopidyPackages; [
       (mopidy-mpd.overrideAttrs (oldAttrs: { src = inputs.mopidy-mpd; }))
       mopidy-mpris
@@ -25,5 +29,5 @@
     };
   };
 
-  services.playerctld.enable = true;
+  services.playerctld.enable = false;
 }

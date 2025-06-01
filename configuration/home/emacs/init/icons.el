@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (use-package all-the-icons
   :disabled
   :ensure t)

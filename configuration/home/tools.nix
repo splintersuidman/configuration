@@ -34,7 +34,7 @@
 
     # Audio
     audacity
-    plasma5Packages.kdenlive
+    kdePackages.kdenlive
 
     # Other/system tools
     aspell

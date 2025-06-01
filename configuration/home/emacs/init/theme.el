@@ -1,11 +1,16 @@
+;;; -*- lexical-binding: t -*-
+
+(require 'init-git)
 (require 'init-keybindings)
+(require 'init-modeline)
 
 (defvar after-load-theme-hook nil
   "Hook that is run after ‘load-theme’ is called.")
 
-(defadvice load-theme (after run-after-load-theme-hook activate)
+(defun load-theme--after-advice (_oldfun &rest _args)
   "Run ‘after-load-theme-hook’."
   (run-hooks 'after-load-theme-hook))
+(advice-add 'load-theme :after 'load-theme--after-advice)
 
 (defun splinter-load-theme (theme)
   "Disable all custom enabled themes and then load THEME."
@@ -86,27 +91,27 @@ liking."
     ;; normally used for their background.
     (modus-themes-with-colors
       (set-face-attribute 'git-gutter-fr:added nil
-                          :background bg-main
+                          :background bg-dim
                           :foreground green-cooler)
       (set-face-attribute 'git-gutter-fr:deleted nil
-                          :background bg-main
+                          :background bg-dim
                           :foreground red-cooler)
       (set-face-attribute 'git-gutter-fr:modified nil
-                          :background bg-main
-                          :foreground yellow-cooler))
+                          :background bg-dim
+                          :foreground yellow-intense))
     ;; Hide mode line bar.
     (set-face-attribute 'doom-modeline-bar nil
-                        :background nil
+                        :background 'unspecified
                         :inherit 'mode-line)
     (set-face-attribute 'doom-modeline-bar-inactive nil
-                        :background nil
-                        :inherit 'mode-line-inactive)))
-  ;; (add-to-list 'splinter-themes
-  ;;              (lambda ()
-  ;;                (splinter-load-modus-theme 'modus-operandi)))
-  ;; (add-to-list 'splinter-themes
-  ;;              (lambda ()
-  ;;                (splinter-load-modus-theme 'modus-vivendi))))
+                        :background 'unspecified
+                        :inherit 'mode-line-inactive))
+  (add-to-list 'splinter-themes
+               (lambda ()
+                 (splinter-load-modus-theme 'modus-vivendi)))
+  (add-to-list 'splinter-themes
+               (lambda ()
+                 (splinter-load-modus-theme 'modus-operandi))))
 
 (use-package ef-themes
   :ensure t
@@ -123,10 +128,6 @@ liking."
      (list
       (intern (completing-read "Load Ef theme: "
                                (mapcar 'symbol-name ef-themes-collection)))))
-    "Load an Ef theme.
-
-This functions loads an Ef theme and configures some faces to my
-liking."
     (splinter-load-theme theme)
     (ef-themes-with-colors
       ;; Set the foreground of the git-gutter-fringe faces to the colour that is
@@ -142,10 +143,10 @@ liking."
                           :foreground yellow-warmer)
       ;; Hide mode line bar.
       (set-face-attribute 'doom-modeline-bar nil
-                          :background nil
+                          :background 'unspecified
                           :inherit 'mode-line)
       (set-face-attribute 'doom-modeline-bar-inactive nil
-                          :background nil
+                          :background 'unspecified
                           :inherit 'mode-line-inactive)
       ;; Set org-roam-ui colours.
       ;; (setq org-roam-ui-custom-theme
@@ -162,12 +163,13 @@ liking."
       ;;         (violet . ,magenta-cooler)
       ;;         (magenta . ,magenta)))
       ))
-  (add-to-list 'splinter-themes
-               (lambda ()
-                 (splinter-load-ef-theme 'ef-dark)))
-  (add-to-list 'splinter-themes
-               (lambda ()
-                 (splinter-load-ef-theme 'ef-light))))
+  ;; (add-to-list 'splinter-themes
+  ;;              (lambda ()
+  ;;                (splinter-load-ef-theme 'ef-dark)))
+  ;; (add-to-list 'splinter-themes
+  ;;              (lambda ()
+  ;;                (splinter-load-ef-theme 'ef-light)))
+  )
 
 (use-package custom
   :demand t

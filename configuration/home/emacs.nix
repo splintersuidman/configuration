@@ -10,7 +10,7 @@
     socketActivation.enable = true;
   };
 
-  home.packages = [ (pkgs.nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; }) ];
+  home.packages = [ pkgs.nerd-fonts.symbols-only ];
 
   programs.emacs = {
     enable = true;

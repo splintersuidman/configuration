@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'init-keybindings)
 
 (use-package tab-bar

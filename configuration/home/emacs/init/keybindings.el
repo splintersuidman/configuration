@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (use-package evil
   :ensure t
   :custom

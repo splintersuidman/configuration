@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'init-eglot)
 
 (use-package cc-mode

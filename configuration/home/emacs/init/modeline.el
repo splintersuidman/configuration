@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (use-package simple
   :config
   (line-number-mode t)

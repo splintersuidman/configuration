@@ -4,9 +4,9 @@ let onedrive = pkgs.unstable.onedrive; in
   programs.onedrive = {
     enable = true;
     package = onedrive;
-    config = rec {
+    settings = rec {
       sync_dir = "${config.home.homeDirectory}/.OneDrive";
-      monitor_interval = 10 * 60; # 10 minutes
+      monitor_interval = "600"; # 10 minutes
       disable_notifications = "true";
       check_nosync = "true";
     };

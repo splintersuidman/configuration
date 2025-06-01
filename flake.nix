@@ -15,10 +15,10 @@
   '';
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/nur";
@@ -100,11 +100,8 @@
               # recursion. See
               # <https://github.com/nix-community/home-manager/issues/1642#issuecomment-739012921>.
               nurNoPkgs.repos.rycee.hmModules.theme-base16
-              nurNoPkgs.repos.splintah.hmModules.onedrive
-              nurNoPkgs.repos.splintah.hmModules.mpdscribble
               "${inputs.private}/configuration/home/mail/accounts.nix"
               "${inputs.private}/configuration/home/mopidy.nix"
-              "${inputs.private}/configuration/home/mpdscribble.nix"
             ];
             nixpkgs = {
               config.allowUnfree = true;

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (use-package paren
   :custom
   (show-paren-delay 0)

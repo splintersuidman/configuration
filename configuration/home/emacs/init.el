@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;; TODO: early-init
 (setq user-emacs-directory "~/.emacs.d/")
 (setq user-init-file (expand-file-name "init.el" user-emacs-directory))

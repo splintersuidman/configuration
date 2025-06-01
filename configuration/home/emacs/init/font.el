@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (set-face-attribute 'default nil
                     :family "Iosevka Custom"
                     :height 105
