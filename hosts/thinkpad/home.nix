@@ -40,7 +40,7 @@
     ../../configuration/home/ocaml.nix
     ../../configuration/home/onedrive.nix
     ../../configuration/home/org-mode.nix
-    ../../configuration/home/pass.nix
+    ../../configuration/home/password.nix
     ../../configuration/home/pdf.nix
     ../../configuration/home/polybar.nix
     ../../configuration/home/python.nix
