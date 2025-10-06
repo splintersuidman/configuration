@@ -10,7 +10,10 @@
     socketActivation.enable = true;
   };
 
-  home.packages = [ pkgs.nerd-fonts.symbols-only ];
+  home.packages = [
+    pkgs.nerd-fonts.symbols-only
+    pkgs.unstable.ltex-ls-plus
+  ];
 
   programs.emacs = {
     enable = true;
@@ -62,6 +65,19 @@
           feature = "init-eglot";
         };
 
+        "init/init-eglot-languagetool-nix.el" = {
+          enable = true;
+          feature = "init-eglot-languagetool-nix";
+          config = ''
+            ;;; -*- lexical-binding: t -*-
+            (use-package eglot
+             :defer t
+             :init
+             (add-to-list 'eglot-server-programs '(tex-mode . ("${pkgs.unstable.ltex-ls-plus}/bin/ltex-ls-plus"))))
+            (provide 'init-eglot-languagetool-nix)
+          '';
+        };
+
         "init/init-eshell.el" = {
           enable = true;
           config = ./emacs/init/eshell.el;
@@ -78,18 +94,6 @@
           enable = true;
           config = ./emacs/init/flymake.el;
           feature = "init-flymake";
-        };
-
-        "init/init-eglot-languagetool-nix.el" = {
-          enable = true;
-          feature = "init-eglot-languagetool-nix";
-          config = ''
-            (use-package eglot
-              :defer t
-              :init
-              (add-to-list 'eglot-server-programs '(tex-mode . ("${pkgs.ltex-ls}/bin/ltex-ls"))))
-            (provide 'init-eglot-languagetool-nix)
-          '';
         };
 
         "init/init-fold.el" = {
