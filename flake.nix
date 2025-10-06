@@ -21,9 +21,16 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/nur";
+    nur = {
+      url = "github:nix-community/nur";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    purescript-overlay = {
+      url = "github:thomashoneyman/purescript-overlay";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     base16-tomorrow-scheme = {
       url = "github:chriskempson/base16-tomorrow-scheme";
       flake = false;
@@ -65,6 +72,7 @@
       overlays = [
         inputs.nur.overlays.default
         inputs.emacs-overlay.overlay
+        inputs.purescript-overlay.overlays.default
         inputs.kmonad.overlays.default
         (final: prev: {
           unstable = import inputs.nixpkgs-unstable {
