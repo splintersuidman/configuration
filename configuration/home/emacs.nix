@@ -14,7 +14,7 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs;
+    package = pkgs.emacs.override { withTreeSitter = true; };
 
     overrides = self: super: {
       lin = self.trivialBuild {
@@ -181,6 +181,13 @@
           enable = true;
           config = ./emacs/init/theme.el;
           feature = "init-theme";
+        };
+
+        "init/init-treesitter.el" = {
+          enable = true;
+          config = ./emacs/init/treesitter.el;
+          feature = "init-treesitter";
+          extraPackages = epkgs: [ epkgs.treesit-grammars.with-all-grammars ];
         };
 
         "init/init-window.el" = {
