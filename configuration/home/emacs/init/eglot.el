@@ -9,6 +9,7 @@
   :general
   (my-leader-def
     "la" '(eglot-code-actions :which-key "Code actions")
+    "lb" '(flymake-show-buffer-diagnostics :which-key "Diagnostics")
     "lf" '(eglot-format :which-key "Format")
     "ll" '(eglot :which-key "Start LSP")
     "ln" '(flymake-goto-next-error :which-key "Next error")
