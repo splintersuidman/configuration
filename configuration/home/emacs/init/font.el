@@ -15,7 +15,7 @@
 
 ;; Variable pitch face.
 (set-face-attribute 'variable-pitch nil
-                    :family "Iosevka Aile"
+                    :family "IBM Plex Sans"
                     :weight 'regular
                     :height 105)
 ;; Fixed pitch face.

@@ -36,7 +36,7 @@
       flake = false;
     };
     nixpkgs-iosevka.url =
-      "github:nixos/nixpkgs?rev=838eefb4f93f2306d4614aafb9b2375f315d917f";
+      "github:nixos/nixpkgs?rev=7df7ff7d8e00218376575f0acdcc5d66741351ee";
     kmonad = {
       url = "github:kmonad/kmonad?dir=nix";
       inputs.nixpkgs.follows = "nixpkgs";
