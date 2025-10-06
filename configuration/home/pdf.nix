@@ -6,6 +6,8 @@ let
   foreground = "#${colors.base05.hex.rgb}";
   foregroundAlt = "#${colors.base04.hex.rgb}";
 in {
+  home.packages = [ pkgs.kdePackages.okular ];
+
   programs.zathura = {
     enable = false;
     options = {
