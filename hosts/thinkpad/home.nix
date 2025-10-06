@@ -43,6 +43,7 @@
     ../../configuration/home/password.nix
     ../../configuration/home/pdf.nix
     ../../configuration/home/polybar.nix
+    ../../configuration/home/purescript.nix
     ../../configuration/home/python.nix
     ../../configuration/home/r.nix
     ../../configuration/home/redshift.nix

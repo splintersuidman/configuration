@@ -7,6 +7,7 @@
 
     ../../configuration/system/autorandr.nix
     ../../configuration/system/gtk.nix
+    ../../configuration/system/localsend.nix
     ../../configuration/system/nix.nix
     ../../configuration/system/postgresql.nix
     ../../configuration/system/printing.nix
