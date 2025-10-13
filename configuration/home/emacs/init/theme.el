@@ -171,13 +171,27 @@ liking."
   ;;                (splinter-load-ef-theme 'ef-light)))
   )
 
+
+(use-package flexoki-themes
+  :demand t
+  :init)
+
+(use-package cosmic-theme-watcher
+  :demand t
+  :after (flexoki-themes)
+  :custom
+  (cosmic-theme-watcher-light-theme 'flexoki-light)
+  (cosmic-theme-watcher-dark-theme 'flexoki-dark)
+  (cosmic-theme-watcher-load-theme-function 'splinter-load-theme)
+  :config
+  (cosmic-theme-watcher-enable))
+
 (use-package custom
   :demand t
-  :config
-  (splinter-switch-theme)
+  :after (cosmic-theme-watcher)
   :general
   (my-leader-def
     "yl" '(splinter-load-theme :which-key "Load theme")
-    "yy" '(splinter-switch-theme :which-key "Switch theme")))
+    "yy" '(cosmic-theme-watcher-toggle :which-key "Switch theme")))
 
 (provide 'init-theme)

@@ -31,6 +31,10 @@
         src = inputs."ligature.el";
         version = "0";
       };
+
+      cosmic-theme-watcher = inputs.cosmic-theme-watcher.packages.x86_64-linux.default;
+
+      flexoki-themes = inputs.flexoki-themes.packages.x86_64-linux.default;
     };
 
     init = {
@@ -185,6 +189,7 @@
           enable = true;
           config = ./emacs/init/theme.el;
           feature = "init-theme";
+          extraPackages = epkgs: [ epkgs.flexoki-themes epkgs.cosmic-theme-watcher ];
         };
 
         "init/init-treesitter.el" = {

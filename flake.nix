@@ -25,7 +25,13 @@
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay= {
+      url = "github:nix-community/emacs-overlay";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        nixpkgs-stable.follows = "nixpkgs";
+      };
+    };
     nixos-hardware.url = "github:nixos/nixos-hardware";
     purescript-overlay = {
       url = "github:thomashoneyman/purescript-overlay";
@@ -41,6 +47,22 @@
     base16-tomorrow-scheme = {
       url = "github:chriskempson/base16-tomorrow-scheme";
       flake = false;
+    };
+    cosmic-theme-watcher = {
+      url = "github:splintersuidman/cosmic-theme-watcher";
+      flake = true;
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        emacs-overlay.follows = "emacs-overlay";
+      };
+    };
+    flexoki-themes = {
+      url = "github:splintersuidman/flexoki-themes";
+      flake = true;
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        emacs-overlay.follows = "emacs-overlay";
+      };
     };
     nixpkgs-iosevka.url =
       "github:nixos/nixpkgs?rev=7df7ff7d8e00218376575f0acdcc5d66741351ee";
