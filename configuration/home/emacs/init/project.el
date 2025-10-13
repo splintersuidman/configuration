@@ -17,7 +17,7 @@
     "Try to find a .project file in ‘dir’ indicating a project directory."
     (let ((root (locate-dominating-file dir ".project")))
       (and root (cons 'splinter-dot-project root))))
-
+  :config
   (add-to-list 'project-find-functions 'splinter-project-try-dot-project)
   :custom
   (project-switch-commands '((project-find-file "Find file" ?f)
