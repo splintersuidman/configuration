@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "base16-tomorrow-scheme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1559891939,
-        "narHash": "sha256-CSfzQytRaPyozysHJgdUgvCbE8AIkrYM2TpC+pNHSBA=",
-        "owner": "chriskempson",
-        "repo": "base16-tomorrow-scheme",
-        "rev": "af9622bd6a041561837a865df5e15802d99d156a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "chriskempson",
-        "repo": "base16-tomorrow-scheme",
-        "type": "github"
-      }
-    },
     "cosmic-manager": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -443,7 +427,6 @@
     },
     "root": {
       "inputs": {
-        "base16-tomorrow-scheme": "base16-tomorrow-scheme",
         "cosmic-manager": "cosmic-manager",
         "cosmic-theme-watcher": "cosmic-theme-watcher",
         "emacs-overlay": "emacs-overlay",

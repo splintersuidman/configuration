@@ -44,10 +44,6 @@
         home-manager.follows = "home-manager";
       };
     };
-    base16-tomorrow-scheme = {
-      url = "github:chriskempson/base16-tomorrow-scheme";
-      flake = false;
-    };
     cosmic-theme-watcher = {
       url = "github:splintersuidman/cosmic-theme-watcher";
       flake = true;
@@ -136,7 +132,6 @@
               # NOTE: these modules must be imported here to prevent infinite
               # recursion. See
               # <https://github.com/nix-community/home-manager/issues/1642#issuecomment-739012921>.
-              nurNoPkgs.repos.rycee.hmModules.theme-base16
               "${inputs.private}/configuration/home/mail/accounts.nix"
               "${inputs.private}/configuration/home/mopidy.nix"
               inputs.cosmic-manager.homeManagerModules.cosmic-manager
