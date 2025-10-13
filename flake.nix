@@ -31,6 +31,13 @@
       url = "github:thomashoneyman/purescript-overlay";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    cosmic-manager = {
+      url = "github:HeitorAugustoLN/cosmic-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     base16-tomorrow-scheme = {
       url = "github:chriskempson/base16-tomorrow-scheme";
       flake = false;
@@ -110,6 +117,7 @@
               nurNoPkgs.repos.rycee.hmModules.theme-base16
               "${inputs.private}/configuration/home/mail/accounts.nix"
               "${inputs.private}/configuration/home/mopidy.nix"
+              inputs.cosmic-manager.homeManagerModules.cosmic-manager
             ];
             nixpkgs = {
               config.allowUnfree = true;
