@@ -184,7 +184,7 @@ liking."
   (cosmic-theme-watcher-dark-theme 'flexoki-dark)
   (cosmic-theme-watcher-load-theme-function 'splinter-load-theme)
   :config
-  (cosmic-theme-watcher-enable))
+  (cosmic-theme-watcher-mode))
 
 (use-package custom
   :demand t

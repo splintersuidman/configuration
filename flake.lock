@@ -34,11 +34,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760383974,
-        "narHash": "sha256-aCZXH94ODnQeA8lVArnvk+2+XypgMkOwOP7PBP5YwIw=",
+        "lastModified": 1760442613,
+        "narHash": "sha256-Cnmwnc/ws/nAyb8wRJkvEGiM1FjSDJ8vttjRs2iegUs=",
         "owner": "splintersuidman",
         "repo": "cosmic-theme-watcher",
-        "rev": "5def9db04bd477b2efd06b0cff2b7010537f544c",
+        "rev": "330fb8eae36f4451c48aedfa743ec885fe20b044",
         "type": "github"
       },
       "original": {
