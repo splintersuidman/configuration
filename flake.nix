@@ -52,6 +52,10 @@
         emacs-overlay.follows = "emacs-overlay";
       };
     };
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flexoki-themes = {
       url = "github:splintersuidman/flexoki-themes";
       flake = true;
@@ -95,10 +99,11 @@
   outputs = { self, ... }@inputs:
     let
       overlays = [
-        inputs.nur.overlays.default
         inputs.emacs-overlay.overlay
-        inputs.purescript-overlay.overlays.default
+        inputs.fenix.overlays.default
         inputs.kmonad.overlays.default
+        inputs.nur.overlays.default
+        inputs.purescript-overlay.overlays.default
         (final: prev: {
           unstable = import inputs.nixpkgs-unstable {
             system = "x86_64-linux";

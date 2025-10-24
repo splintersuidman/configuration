@@ -70,6 +70,27 @@
         "type": "github"
       }
     },
+    "fenix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-analyzer-src": "rust-analyzer-src"
+      },
+      "locked": {
+        "lastModified": 1761287960,
+        "narHash": "sha256-DbGYVbF0TgoKTFNQv/3jqaUWql8OYzewl4v2gw6jmQs=",
+        "owner": "nix-community",
+        "repo": "fenix",
+        "rev": "64cb168ed9ec61ef18e28f1e4ee9f44381d6ecd2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "fenix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -430,6 +451,7 @@
         "cosmic-manager": "cosmic-manager",
         "cosmic-theme-watcher": "cosmic-theme-watcher",
         "emacs-overlay": "emacs-overlay",
+        "fenix": "fenix",
         "flexoki-themes": "flexoki-themes",
         "home-manager": "home-manager",
         "kmonad": "kmonad",
@@ -446,6 +468,23 @@
         "purescript-overlay": "purescript-overlay",
         "rmirro": "rmirro",
         "xmonad-splintah": "xmonad-splintah"
+      }
+    },
+    "rust-analyzer-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761264793,
+        "narHash": "sha256-fq4YL+c5vrVt1aTSBNuAkCiy1NBxIGnMm50KC5APBGs=",
+        "owner": "rust-lang",
+        "repo": "rust-analyzer",
+        "rev": "9061bd3e8116f9e64bba4e55a3257a2a8b7d1aac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rust-lang",
+        "ref": "nightly",
+        "repo": "rust-analyzer",
+        "type": "github"
       }
     },
     "slimlock": {
