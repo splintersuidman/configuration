@@ -1,7 +1,8 @@
 { pkgs, ... }: {
   home.packages = [
-    pkgs.hledger
-    pkgs.hledger-web
+    pkgs.unstable.hledger
+    pkgs.unstable.hledger-web
+    pkgs.unstable.hledger-fmt
   ];
 
   programs.nushell.extraConfig = ''
