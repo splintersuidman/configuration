@@ -13,7 +13,7 @@
   (my-local-leader-def
     :keymaps 'nix-mode-map
     "c" '(nix-build :which-key "Build")
-    "f" '(nix-mode-format :which-key "Format buffer")
+    "f" '(nix-format-buffer :which-key "Format buffer")
     "r" '(nix-repl :which-key "REPL")))
 
 (provide 'init-nix)
