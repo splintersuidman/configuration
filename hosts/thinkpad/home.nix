@@ -19,6 +19,7 @@
     ../../configuration/home/hledger.nix
     ../../configuration/home/home-manager.nix
     ../../configuration/home/htop.nix
+    ../../configuration/home/just.nix
     ../../configuration/home/keyboard.nix
     ../../configuration/home/language.nix
     ../../configuration/home/lean.nix
