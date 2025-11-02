@@ -30,6 +30,7 @@
     ../../configuration/home/mpdscribble.nix
     ../../configuration/home/mpv.nix
     ../../configuration/home/nix.nix
+    ../../configuration/home/nushell.nix
     ../../configuration/home/ocaml.nix
     ../../configuration/home/onedrive.nix
     ../../configuration/home/org-mode.nix

@@ -1,8 +1,9 @@
 { pkgs, ... }: {
-  programs.bash.initExtra = ''
-    eval "$(${pkgs.direnv}/bin/direnv hook bash)"
-  '';
-  home.packages = [ pkgs.direnv ];
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+  };
 
   programs.emacs.init.modules."init/init-direnv.el" = {
     enable = true;

@@ -42,8 +42,8 @@ in {
     };
     profiles = [
       {
-        command = "bash";
-        hold = true;
+        command = "nu";
+        hold = false;
         is_default = true;
         name = "Default";
         syntax_theme_dark = "COSMIC Dark";
@@ -71,4 +71,10 @@ in {
 
   # See <https://wiki.nixos.org/wiki/COSMIC#Theming_and_Firefox>.
   programs.firefox.profiles.default.settings."widget.gtk.libadwaita-colors.enabled" = false;
+
+  xdg.portal = {
+    enable = true;
+    configPackages = [ pkgs.xdg-desktop-portal-cosmic ];
+    extraPortals = [ pkgs.xdg-desktop-portal-cosmic ];
+  };
 }
