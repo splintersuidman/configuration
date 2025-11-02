@@ -23,9 +23,9 @@
     :args '("format")
     :group 'purescript-mode
     :lighter " Purs-Tidy")
-  ;;;###autoload (autoload 'purescript-format-buffer "zig-mode" nil t)
-  ;;;###autoload (autoload 'purescript-format-region "zig-mode" nil t)
-  ;;;###autoload (autoload 'purescript-format-on-save-mode "zig-mode" nil t)
+  ;;;###autoload (autoload 'purescript-format-buffer "purescript-mode" nil t)
+  ;;;###autoload (autoload 'purescript-format-region "purescript-mode" nil t)
+  ;;;###autoload (autoload 'purescript-format-on-save-mode "purescript-mode" nil t)
   :general
   (my-local-leader-def
     :keymaps 'purescript-mode-map
