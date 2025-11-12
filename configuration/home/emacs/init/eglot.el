@@ -18,4 +18,9 @@
     "lQ" '(eglot-shutdown-all :which-key "Shutdown all LSP")
     "lr" '(eglot-rename :which-key "Rename")))
 
+(use-package eldoc-box
+  :ensure t
+  :after eglot
+  :hook (eglot-managed-mode . eldoc-box-hover-at-point-mode))
+
 (provide 'init-eglot)
