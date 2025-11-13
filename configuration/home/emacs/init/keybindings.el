@@ -91,6 +91,9 @@ current frame, Emacs."
 (defconst my-local-leader (concat my-leader " c")
   "Local leader key, used for mode-specific commands.")
 
+(use-package avy
+  :ensure t)
+
 (use-package general
   :ensure t
   :after evil
@@ -157,5 +160,10 @@ current frame, Emacs."
     ";" '(comment-dwim :which-key "Comment")
     "+" '(evil-numbers/inc-at-pt :which-key "Increase at point")
     "-" '(evil-numbers/dec-at-pt :which-key "Decrease at point")))
+
+(use-package xref
+  :general
+  ("<mouse-8>" '(xref-go-back :which-key "Go back"))
+  ("<mouse-9>" '(xref-go-forward :which-key "Go forward")))
 
 (provide 'init-keybindings)
