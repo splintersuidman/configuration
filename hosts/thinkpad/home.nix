@@ -27,8 +27,6 @@
     ../../configuration/home/mail.nix
     ../../configuration/home/markdown.nix
     ../../configuration/home/misc.nix
-    ../../configuration/home/mopidy.nix
-    ../../configuration/home/mpdscribble.nix
     ../../configuration/home/mpv.nix
     ../../configuration/home/nix.nix
     ../../configuration/home/nushell.nix
@@ -43,6 +41,7 @@
     ../../configuration/home/rust.nix
     ../../configuration/home/scheme.nix
     ../../configuration/home/shell.nix
+    ../../configuration/home/spotify.nix
     ../../configuration/home/ssh.nix
     ../../configuration/home/tex.nix
     ../../configuration/home/tmux.nix

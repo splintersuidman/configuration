@@ -3,7 +3,7 @@ let
   pass = "${config.programs.password-store.package}/bin/pass";
   passCommand = name: "${pass} ${name} | ${pkgs.coreutils}/bin/head -n 1";
 in {
-  home.packages = [ pkgs.mpc_cli pkgs.playerctl pkgs.spotify ];
+  home.packages = [ pkgs.mpc_cli pkgs.playerctl ];
 
   services.mopidy = {
     enable = false;
