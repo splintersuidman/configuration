@@ -8,7 +8,7 @@
     extraConfig = {
       pull.rebase = false;
       # For forge
-      github.username = "splintah";
+      github.user = "splintersuidman";
     };
 
     lfs.enable = true;
