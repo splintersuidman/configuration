@@ -52,9 +52,15 @@
   :after vertico
   :hook
   (minibuffer-setup . vertico-repeat-save)
+  :config
+  (defun splinter-vertico-repeat-history ()
+    "Repeat selected Vertico session."
+    (interactive)
+    (vertico-repeat t))
   :general
   (my-leader-def
-    "r" '(vertico-repeat :which-key "Repeat minibuffer")))
+    "r" '(vertico-repeat :which-key "Repeat minibuffer")
+    "R" '(splinter-vertico-repeat-history :which-key "Repeat minibuffer history")))
 
 (use-package orderless
   :ensure t
