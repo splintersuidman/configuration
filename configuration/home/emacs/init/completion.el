@@ -106,13 +106,21 @@ an exclamation point (!)."
   :ensure t
   :commands (consult-buffer consult-buffer-other-window consult-find consult-line consult-ripgrep)
   :after (general project)
+  :config
+  (defun splinter-consult-line ()
+    "Search for matching line with `consult-line', with contents of region as
+initial input if active."
+    (interactive)
+    (consult-line (if (region-active-p)
+                      (buffer-substring (region-beginning) (region-end))
+                    nil)))
   :custom
   (consult-project-root-function 'splinter-project-root)
   (consult-find-command "fd ARG . OPTS")
   (consult-ripgrep-command "rg --null --line-buffered --color=always --max-columns=500   --no-heading --line-number . -e ARG OPTS")
   :general
   (my-leader-def
-    "/" '(consult-line :which-key "Search line"))
+    "/" '(splinter-consult-line :which-key "Search line"))
   (my-local-leader-def
    :keymaps 'minibuffer-mode-map
    "r" 'consult-history))
