@@ -5,6 +5,7 @@ in {
 
   programs.nushell = {
     enable = true;
+    settings.show_banner = false;
     extraConfig = ''
       source ${script "custom-completions/bitwarden-cli/bitwarden-cli-completions.nu"}
       source ${script "custom-completions/cargo/cargo-completions.nu"}
