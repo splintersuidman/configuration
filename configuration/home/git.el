@@ -34,8 +34,12 @@
   (global-git-gutter-mode)
   :general
   (my-leader-def
+    "g RET" '(git-gutter:popup-hunk :which-key "Popup hunk")
+    "g_" '(git-gutter:revert-hunk :which-key "Revert hunk")
+    "gm" '(git-gutter:mark-hunk :which-key "Mark hunk")
     "gn" '(git-gutter:next-hunk :which-key "Next hunk")
-    "gp" '(git-gutter:previous-hunk :which-key "Previous hunk")))
+    "gp" '(git-gutter:previous-hunk :which-key "Previous hunk")
+    "gs" '(git-gutter:stage-hunk :which-key "Stage hunk")))
 
 (use-package git-gutter-fringe
   :ensure t
