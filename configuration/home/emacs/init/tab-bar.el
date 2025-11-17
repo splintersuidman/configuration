@@ -5,6 +5,14 @@
 (use-package tab-bar
   :config
   (tab-bar-mode t)
+  (defun splinter-tab-bar-move-tab-left (&optional arg)
+    "Move the current tab ARG positions to the left."
+    (interactive "p")
+    (tab-bar-move-tab (- arg)))
+  (defun splinter-tab-bar-move-tab-right (&optional arg)
+    "Move the current tab ARG positions to the right."
+    (interactive "p")
+    (tab-bar-move-tab arg))
   :custom
   (tab-bar-show 1)
   :general
@@ -12,6 +20,8 @@
     "t RET" '(tab-bar-switch-to-tab :which-key "Switch tab")
     "tF" '(toggle-frame-tab-bar :which-key "Toggle frame tab bar")
     "tN" '(tab-bar-new-tab :which-key "New tab")
+    "tH" '(splinter-tab-bar-move-tab-left :which-key "Move left")
+    "tL" '(splinter-tab-bar-move-tab-right :which-key "Move right")
     "tb" '(switch-to-buffer-other-tab :which-key "Switch to buffer other tab")
     "td" '(tab-bar-close-tab :which-key "Close tab")
     "tf" '(find-file-other-tab :which-key "Find file other tab")
