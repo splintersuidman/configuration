@@ -112,7 +112,9 @@ an exclamation point (!)."
 initial input if active."
     (interactive)
     (consult-line (if (region-active-p)
-                      (buffer-substring (region-beginning) (region-end))
+                      (let ((str (buffer-substring (region-beginning) (region-end))))
+                        (deactivate-mark)
+                        str)
                     nil)))
   :custom
   (consult-project-root-function 'splinter-project-root)
