@@ -28,20 +28,21 @@
       (window-height . 0.3))))
   :general
   (my-leader-def
-    "wh" '(evil-window-left :which-key "Left")
-    "wj" '(evil-window-down :which-key "Down")
-    "wk" '(evil-window-up :which-key "Up")
-    "wl" '(evil-window-right :which-key "Right")
+    "w0" '(delete-other-windows :which-key "Delete other windows")
+    "w=" '(balance-windows :which-key "Balance")
     "wH" '(windmove-swap-states-left :which-key "Swap left")
     "wJ" '(windmove-swap-states-down :which-key "Swap down")
     "wK" '(windmove-swap-states-up :which-key "Swap up")
     "wL" '(windmove-swap-states-right :which-key "Swap right")
-    "wo" '(other-window :which-key "Other window")
-    "wv" '(split-window-horizontally :which-key "Split horizontally")
-    "ws" '(split-window-vertically :which-key "Split vertically")
     "wd" '(delete-window :which-key "Delete")
-    "w0" '(delete-other-windows :which-key "Delete other windows")
-    "w=" '(balance-windows :which-key "Balance")))
+    "wh" '(evil-window-left :which-key "Left")
+    "wj" '(evil-window-down :which-key "Down")
+    "wk" '(evil-window-up :which-key "Up")
+    "wl" '(evil-window-right :which-key "Right")
+    "wo" '(other-window :which-key "Other window")
+    "ws" '(split-window-vertically :which-key "Split vertically")
+    "wv" '(split-window-horizontally :which-key "Split horizontally")
+    "ww" '(evil-window-mru :which-key "Previous window")))
 
 (use-package winner
   :disabled
