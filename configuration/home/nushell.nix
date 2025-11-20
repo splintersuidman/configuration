@@ -5,6 +5,7 @@ in {
 
   programs.nushell = {
     enable = true;
+    environmentVariables.PROMPT_COMMAND_RIGHT = "";
     settings.show_banner = false;
     extraConfig = ''
       source ${script "custom-completions/bitwarden-cli/bitwarden-cli-completions.nu"}
