@@ -28,6 +28,7 @@
       (window-height . 0.3))))
   :general
   (my-leader-def
+    "w'" '(evil-window-mru :which-key "Previous window")
     "w0" '(delete-other-windows :which-key "Delete other windows")
     "w=" '(balance-windows :which-key "Balance")
     "wH" '(windmove-swap-states-left :which-key "Swap left")

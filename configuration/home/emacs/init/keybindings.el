@@ -130,6 +130,7 @@ current frame, Emacs."
     "w" '(:ignore t :which-key "Window")
 
     ;; Buffer-related commands under `b'
+    "b'" '(evil-switch-to-windows-last-buffer :which-key "Last buffer")
     "bb" '(consult-buffer :which-key "Switch buffer")
     "bB" '(list-buffers :which-key "List buffers")
     "bd" '((lambda ()
@@ -139,7 +140,9 @@ current frame, Emacs."
            :which-key "Kill this buffer")
     "bD" '(kill-this-buffer :which-key "Force kill this buffer")
     "bk" '(kill-buffer :which-key "Kill buffer")
+    "bn" '(next-buffer :which-key "Next buffer")
     "bo" '(consult-buffer-other-window :which-key "Switch buffer in other window")
+    "bp" '(next-buffer :which-key "Previous buffer")
 
     ;; Editing-related commands under `e'
     "ef" '(evil-avy-goto-char :which-key "Goto character")
