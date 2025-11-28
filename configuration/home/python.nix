@@ -40,6 +40,8 @@ in {
     pkgs.python3Packages.flake8
     pkgs.python3Packages.black-macchiato
     pylsp
+    pkgs.basedpyright
+    pkgs.ruff
   ];
 
   programs.emacs.init.modules."init/init-python.el" = {

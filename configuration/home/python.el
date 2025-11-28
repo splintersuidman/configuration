@@ -2,12 +2,27 @@
 
 (require 'init-keybindings)
 
+(use-package reformatter
+  :ensure t)
+
 (use-package python
+  :after (general reformatter)
+  :config
+  (reformatter-define python-format
+    :program "ruff"
+    :args '("format" "-")
+    :group 'python-mode
+    :lighter " Ruff")
+  ;;;###autoload (autoload 'python-format-buffer "python-mode" nil t)
+  ;;;###autoload (autoload 'python-format-region "python-mode" nil t)
+  ;;;###autoload (autoload 'python-format-on-save-mode "python-mode" nil t)
   :general
   (my-local-leader-def
     :keymaps 'python-mode-map
+    "F" '(python-format-region :which-key "Format region")
     "c" '(python-shell-send-buffer :which-key "Send buffer")
     "e" '(python-shell-send-statement :which-key "Send statement")
+    "f" '(python-format-buffer :which-key "Format buffer")
     "l" '(python-shell-send-file :which-key "Send file")
     "p" '(run-python :which-key "Run Python")
     "r" '(python-shell-send-region :which-key "Send region")
@@ -23,6 +38,7 @@
 
 (use-package python-black
   :ensure t
+  :disabled
   :after python
   :config
   (defun splinter-python-black-partial-dwim (&optional display-errors)
@@ -42,7 +58,5 @@ fails."
   (my-local-leader-def
     :keymaps 'python-mode-map
     "f" '(splinter-python-black-partial-dwim :which-key "Format")))
-
-;; TODO: isortify
 
 (provide 'init-python)
