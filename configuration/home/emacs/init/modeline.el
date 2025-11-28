@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (require 'init-icons)
+(require 'init-tab-bar)
 
 (use-package simple
   :config
@@ -15,6 +16,7 @@
   (doom-modeline-height 22)
   (doom-modeline-bar-width 1)
   (doom-modeline-icon t)
+  (doom-modeline-workspace-name (not tab-bar-mode))
   :init
   (doom-modeline-mode))
 
