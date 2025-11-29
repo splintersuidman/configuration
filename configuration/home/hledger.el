@@ -40,7 +40,7 @@
 
 (use-package hledger-mode
   :ensure t
-  :after (ledger-mode general reformatter)
+  :after (general reformatter)
   :mode
   "\\.ledger\\'"
   "\\.journal\\'"
