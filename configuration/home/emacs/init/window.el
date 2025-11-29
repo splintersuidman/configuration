@@ -40,10 +40,19 @@
     "wj" '(evil-window-down :which-key "Down")
     "wk" '(evil-window-up :which-key "Up")
     "wl" '(evil-window-right :which-key "Right")
-    "wo" '(other-window :which-key "Other window")
+    ;; "wo" '(other-window :which-key "Other window")
     "ws" '(split-window-vertically :which-key "Split vertically")
     "wv" '(split-window-horizontally :which-key "Split horizontally")
     "ww" '(evil-window-mru :which-key "Previous window")))
+
+(use-package ace-window
+  :ensure t
+  :after (window general)
+  :custom
+  (aw-keys '(?f ?j ?d ?k ?s ?k ?a ?l ?g ?h ?\;))
+  :general
+  (my-leader-def
+    "wo" '(ace-window :which-key "Other window")))
 
 (use-package winner
   :disabled
