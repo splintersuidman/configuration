@@ -23,7 +23,6 @@
     ../../configuration/home/keyboard.nix
     ../../configuration/home/language.nix
     ../../configuration/home/lean.nix
-    ../../configuration/home/lorri.nix
     ../../configuration/home/mail.nix
     ../../configuration/home/markdown.nix
     ../../configuration/home/misc.nix

@@ -11,11 +11,11 @@ let
 in {
   home.packages = [
     pkgs.libreoffice
-    pkgs.anki
-    pkgs.wineWowPackages.stable
-    pkgs.musescore
-    digital
-    pkgs.arduino
+    # pkgs.anki
+    # pkgs.wineWowPackages.stable
+    # pkgs.musescore
+    # digital
+    # pkgs.arduino
     pkgs.zotero
   ];
 }
