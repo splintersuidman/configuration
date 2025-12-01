@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (require 'init-keybindings)
+(require 'init-treesitter)
 
 (use-package reformatter
   :ensure t)
@@ -27,13 +28,13 @@
     "p" '(run-python :which-key "Run Python")
     "r" '(python-shell-send-region :which-key "Send region")
     "s" '(python-shell-send-region :which-key "Send string")
-    "tc" '(python-skeleton-class :which-key "Class")
-    "td" '(python-skeleton-def :which-key "Function")
-    "tf" '(python-skeleton-for :which-key "For")
-    "ti" '(python-skeleton-if :which-key "If")
-    "tm" '(python-skeleton-import :which-key "Import")
-    "tt" '(python-skeleton-try :which-key "Try")
-    "tw" '(python-skeleton-while :which-key "While")
+    "Tc" '(python-skeleton-class :which-key "Class")
+    "Td" '(python-skeleton-def :which-key "Function")
+    "Tf" '(python-skeleton-for :which-key "For")
+    "Ti" '(python-skeleton-if :which-key "If")
+    "Tm" '(python-skeleton-import :which-key "Import")
+    "Tt" '(python-skeleton-try :which-key "Try")
+    "Tw" '(python-skeleton-while :which-key "While")
     "z" '(python-shell-switch-to-shell :which-key "Switch to shell")))
 
 (use-package python-black
@@ -58,5 +59,13 @@ fails."
   (my-local-leader-def
     :keymaps 'python-mode-map
     "f" '(splinter-python-black-partial-dwim :which-key "Format")))
+
+(use-package python-pytest
+  :ensure t
+  :after (python general)
+  :general
+  (my-local-leader-def
+    :keymaps 'python-mode-map
+    "t" '(python-pytest-dispatch :which-key "Pytest")))
 
 (provide 'init-python)
