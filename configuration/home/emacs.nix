@@ -65,6 +65,7 @@
           enable = true;
           config = ./emacs/init/eglot.el;
           feature = "init-eglot";
+          extraHomePackages = [ pkgs.emacs-lsp-booster ];
         };
 
         "init/init-eglot-languagetool-nix.el" = {

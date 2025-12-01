@@ -18,6 +18,12 @@
     "lQ" '(eglot-shutdown-all :which-key "Shutdown all LSP")
     "lr" '(eglot-rename :which-key "Rename")))
 
+(use-package eglot-booster
+  :ensure t
+  :after eglot
+  :config
+  (eglot-booster-mode))
+
 (use-package eldoc-box
   :ensure t
   :after eglot

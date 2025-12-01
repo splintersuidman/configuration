@@ -48,7 +48,18 @@ in {
           type = packagesType;
           default = _: [ ];
           description = ''
-            Extra packages to install.
+            Extra Emacs packages to install.
+          '';
+        };
+
+        extraHomePackages = mkOption {
+          type = types.listOf types.package;
+          default = [ ];
+          description = ''
+            Extra home packages to install. Specifying packages in
+            extraHomePackages is equivalent to adding them to
+            home.packages, but they are only added if the module is
+            enabled.
           '';
         };
 
@@ -192,10 +203,13 @@ in {
       "${emacs}/bin/emacs --quick --no-window-system --load ${emacsDirHome}/init.el -batch --funcall batch-${mode}-compile ${
         concatStringsSep " " files
       }";
+
+    homePackages = concatMap (module: module.extraHomePackages) (attrValues enabledModules);
   in {
     programs.emacs.extraPackages = epkgs:
-      concatMap (module: if module.enable then module.packages epkgs else [ ])
-      (attrValues cfg.modules);
+      concatMap (module: module.packages epkgs) (attrValues enabledModules);
+
+    home.packages = homePackages;
 
     home.file.${cfg.emacsDir} = {
       recursive = true;
