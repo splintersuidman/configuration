@@ -29,6 +29,6 @@
   :after eglot
   :custom
   (eldoc-box-only-multi-line t)
-  :hook (eglot-managed-mode . eldoc-box-hover-at-point-mode))
+  :hook (eglot-managed-mode . eldoc-box-hover-mode))
 
 (provide 'init-eglot)
