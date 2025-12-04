@@ -13,10 +13,16 @@
     "Move the current tab ARG positions to the right."
     (interactive "p")
     (tab-bar-move-tab arg))
+  (defun splinter-tab-bar-switch-to-last-tab ()
+    "Switch to the last selected tab."
+    (interactive)
+    (when-let* ((last-tab (car (tab-bar--tabs-recent))))
+      (tab-bar-select-tab (1+ (tab-bar--tab-index last-tab)))))
   :custom
   (tab-bar-show 1)
   :general
   (my-leader-def
+    "t'" '(splinter-tab-bar-switch-to-last-tab :which-key "Last tab")
     "t RET" '(tab-bar-switch-to-tab :which-key "Switch tab")
     "tF" '(toggle-frame-tab-bar :which-key "Toggle frame tab bar")
     "tN" '(tab-bar-new-tab :which-key "New tab")
