@@ -68,4 +68,14 @@ fails."
     :keymaps 'python-mode-map
     "t" '(python-pytest-dispatch :which-key "Pytest")))
 
+(use-package lsp-pyright
+  :ensure t
+  :after lsp-mode
+  :hook
+  (python-mode . lsp)
+  :custom
+  (lsp-pyright-langserver-command "basedpyright")
+  :config
+  (add-to-list 'lsp-disabled-clients 'pylsp))
+
 (provide 'init-python)

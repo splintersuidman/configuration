@@ -1,19 +1,21 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'init-eglot)
 (require 'init-keybindings)
 
 (use-package nix-mode
   :ensure t
-  :after (general eglot)
+  :after general
   :mode "\\.nix\\'"
-  :init
-  (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
   :general
   (my-local-leader-def
     :keymaps 'nix-mode-map
     "c" '(nix-build :which-key "Build")
     "f" '(nix-format-buffer :which-key "Format buffer")
     "r" '(nix-repl :which-key "REPL")))
+
+(use-package nix-mode
+  :after eglot
+  :init
+  (add-to-list 'eglot-server-programs '(nix-mode . ("nil"))))
 
 (provide 'init-nix)

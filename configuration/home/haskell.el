@@ -1,6 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'init-eglot)
 (require 'init-keybindings)
 
 (use-package cus-edit
@@ -10,7 +9,7 @@
 ;; haskell-interactive-mode.el, but the package is called haskell-mode.
 (use-package haskell
   :ensure haskell-mode
-  :after (general eglot cus-edit)
+  :after (general cus-edit)
   :mode
   ("\\.hs\\'" . haskell-mode)
   ("\\.hsc\\'" . haskell-mode)
@@ -35,7 +34,6 @@
            (process-type (intern choice)))
       (let ((haskell-process-type process-type))
         (haskell-process-load-file))))
-  (add-to-list 'eglot-server-programs '(haskell-mode . ("haskell-language-server-wrapper" "--lsp")))
   :config
   (require 'haskell-doc)
   :hook
@@ -66,5 +64,15 @@
     "n" 'haskell-interactive-mode-prompt-next
     "p" 'haskell-interactive-mode-prompt-previous
     "z" 'haskell-interactive-switch-back))
+
+(use-package haskell
+  :after eglot
+  :init
+  (add-to-list 'eglot-server-programs '(haskell-mode . ("haskell-language-server-wrapper" "--lsp"))))
+
+(use-package lsp-haskell
+  :ensure t
+  :after (lsp-mode haskell)
+  :hook (haskell-mode . lsp))
 
 (provide 'init-haskell)

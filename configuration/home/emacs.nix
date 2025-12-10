@@ -62,14 +62,20 @@
         };
 
         "init/init-eglot.el" = {
-          enable = true;
+          enable = false;
           config = ./emacs/init/eglot.el;
           feature = "init-eglot";
           extraHomePackages = [ pkgs.emacs-lsp-booster ];
         };
 
-        "init/init-eglot-languagetool-nix.el" = {
+        "init/init-debug.el" = {
           enable = true;
+          config = ./emacs/init/debug.el;
+          feature = "init-debug";
+        };
+
+        "init/init-eglot-languagetool-nix.el" = {
+          enable = false;
           feature = "init-eglot-languagetool-nix";
           config = ''
             ;;; -*- lexical-binding: t -*-
@@ -152,6 +158,12 @@
           enable = true;
           config = ./emacs/init/keybindings.el;
           feature = "init-keybindings";
+        };
+
+        "init/init-lsp.el" = {
+          enable = true;
+          config = ./emacs/init/lsp.el;
+          feature = "init-lsp";
         };
 
         "init/init-modeline.el" = {

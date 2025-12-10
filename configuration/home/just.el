@@ -1,15 +1,12 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'init-eglot)
 (require 'init-keybindings)
 
 (use-package just-mode
   :ensure t
   :mode ("justfile" . just-mode)
-  :after (general)
+  :after general
   :init
-  (add-to-list 'eglot-server-programs '(just-mode . ("just-lsp")))
-
   (defun just-run-command (command)
     "Run a `just' command."
     (interactive
@@ -23,5 +20,10 @@
     :keymaps 'just-mode-map
     "c" 'just-run-command
     "f" 'just-format-buffer))
+
+(use-package just-mode
+  :after eglot
+  :init
+  (add-to-list 'eglot-server-programs '(just-mode . ("just-lsp"))))
 
 (provide 'init-just)

@@ -165,8 +165,15 @@ current frame, Emacs."
     "-" '(evil-numbers/dec-at-pt :which-key "Decrease at point")))
 
 (use-package xref
+  :config
+  (defun splinter-xref-find-references ()
+    (interactive)
+    (let ((xref-prompt-for-identifier nil))
+      (call-interactively 'xref-find-references)))
   :general
-  ("<mouse-8>" '(xref-go-back :which-key "Go back"))
-  ("<mouse-9>" '(xref-go-forward :which-key "Go forward")))
+  ("<mouse-8>" '(xref-go-back :which-key "Go back")
+   "<mouse-9>" '(xref-go-forward :which-key "Go forward"))
+  (:states 'normal
+   "gr" '(splinter-xref-find-references :which-key "Find references")))
 
 (provide 'init-keybindings)

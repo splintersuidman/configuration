@@ -1,9 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'init-eglot)
-
 (use-package cc-mode
-  :after eglot
   :mode
   ("\\.c\\'" . c-mode)
   ("\\.h\\'" . c-mode)
@@ -13,8 +10,11 @@
   :custom
   (c-basic-offset 4)
   (c-default-style "k&r")
+
+(use-package cc-mode
+  :after eglot
   :init
   (add-to-list 'eglot-server-programs '(c-mode . ("ccls")))
-  (add-to-list 'eglot-server-programs '(c++-mode . ("ccls"))))
+  (add-to-list 'eglot-server-programs '(c++-mode . ("ccls")))))
 
 (provide 'init-c)

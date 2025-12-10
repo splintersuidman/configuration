@@ -1,6 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'init-eglot)
 (require 'init-keybindings)
 
 (use-package reformatter
