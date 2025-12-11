@@ -23,14 +23,11 @@
   :general
   (my-leader-def
     "la" '(lsp-execute-code-action :which-key "Code actions")
-    "leb" '(flymake-show-buffer-diagnostics :which-key "Diagnostics")
-    "len" '(flymake-goto-next-error :which-key "Next error")
-    "lep" '(flymake-goto-prev-error :which-key "Previous error")
-    "leq" '(lsp-workspace-shutdown :which-key "Shutdown")
     "lf" '(lsp-format-buffer :which-key "Format buffer")
     "lF" '(lsp-format-region :which-key "Format region")
     "ll" '(lsp :which-key "Start LSP")
-    "lq" '(splinter-lsp-workspace-shutdown-all :which-key "Shutdown all")
+    "lq" '(lsp-workspace-shutdown :which-key "Shutdown")
+    "lQ" '(splinter-lsp-workspace-shutdown-all :which-key "Shutdown all")
     "lr" '(lsp-rename :which-key "Rename")
     "lR" '(lsp-workspace-restart :which-key "Restart")
     "lt" '(lsp-goto-type-definition :which-key "Type definition")))
@@ -62,6 +59,14 @@
     "lpr" '(lsp-ui-peek-find-references :which-key "Find references")
     "lps" '(lsp-ui-peek-find-workspace-symbol :which-key "Find symbol")))
 
+(use-package flycheck
+  :ensure t
+  :after lsp-mode
+  :general
+  (my-leader-def
+    "len" '(flycheck-next-error :which-key "Next error")
+    "lep" '(flycheck-previous-error :which-key "Previous error")))
+
 ;; Install treemacs for the lsp-mode call hierarchy.
 (use-package treemacs
   :ensure t
@@ -78,9 +83,11 @@
   :after (lsp-mode treemacs nerd-icons)
   :general
   (my-leader-def
-    "lh" '(lsp-treemacs-call-hierarchy :which-key "Call hierarchy"))
+    "lh" '(lsp-treemacs-call-hierarchy :which-key "Call hierarchy")
+    "leb" '(lsp-treemacs-errors-list :which-key "Errors list"))
   :custom
   (lsp-treemacs-theme "lsp-nerd-icons")
+  (lsp-treemacs-errors-position-params '((side . left)))
   :config
   ;; See <https://github.com/emacs-lsp/lsp-treemacs/issues/180>.
   (treemacs-create-theme "lsp-nerd-icons"
