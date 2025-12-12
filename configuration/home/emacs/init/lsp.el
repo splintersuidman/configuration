@@ -15,6 +15,7 @@
   (lsp-idle-delay 0.05)
   (lsp-enable-suggest-server-download nil)
   (lsp-file-watch-threshold 2048)
+  (lsp-lens-place-position 'above-line)
   :config
   (defun splinter-lsp-workspace-shutdown-all ()
     (interactive)
