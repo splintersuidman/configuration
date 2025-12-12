@@ -18,10 +18,17 @@
       (if (and vterm-buffer (not current-prefix-arg))
           (pop-to-buffer vterm-buffer)
         (vterm t))))
-  (add-hook 'vterm-exit-functions
-            (lambda (_buffer _event)
-              (unless (one-window-p)
-                (delete-window))))
+  (defun splinter-vterm-maybe-delete-window (_buffer _event)
+    (unless (one-window-p)
+      (delete-window)))
+  (add-hook 'vterm-exit-functions 'splinter-vterm-maybe-delete-window)
+  (defun splinter-vterm-disable-hl-line-mode ()
+    (when (and (featurep 'hl-line) global-hl-line-mode)
+      ;; NOTE: hl-line-mode handles the argument 'toggle specially if
+      ;; global-hl-line-mode is enabled.
+      (hl-line-mode 'toggle)))
+  :hook
+  (vterm-mode . splinter-vterm-disable-hl-line-mode)
   :general
   (my-leader-def
     "v" '(splinter-project-vterm :which-key "Terminal"))
