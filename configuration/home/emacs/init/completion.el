@@ -4,6 +4,11 @@
 (require 'init-keybindings)
 (require 'init-project)
 
+(use-package text-mode
+  :custom
+  ;; Disable Ispell word completion.
+  (text-mode-ispell-word-completion nil))
+
 (use-package minibuffer
   :demand t
   :after general
