@@ -68,12 +68,6 @@
           extraHomePackages = [ pkgs.emacs-lsp-booster ];
         };
 
-        "init/init-debug.el" = {
-          enable = true;
-          config = ./emacs/init/debug.el;
-          feature = "init-debug";
-        };
-
         "init/init-eglot-languagetool-nix.el" = {
           enable = false;
           feature = "init-eglot-languagetool-nix";

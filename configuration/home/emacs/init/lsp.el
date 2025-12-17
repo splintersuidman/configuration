@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
+(require 'init-completion)
 (require 'init-icons)
 (require 'init-keybindings)
 
@@ -67,6 +68,13 @@
   (my-leader-def
     "len" '(flycheck-next-error :which-key "Next error")
     "lep" '(flycheck-previous-error :which-key "Previous error")))
+
+(use-package consult-flycheck
+  :ensure t
+  :after lsp-mode
+  :general
+  (my-leader-def
+    "lee" '(consult-flycheck :which-key "Jump to diagnostic")))
 
 ;; Install treemacs for the lsp-mode call hierarchy.
 (use-package treemacs
