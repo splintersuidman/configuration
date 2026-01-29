@@ -143,6 +143,7 @@ current frame, Emacs."
     "bn" '(next-buffer :which-key "Next buffer")
     "bo" '(consult-buffer-other-window :which-key "Switch buffer in other window")
     "bp" '(next-buffer :which-key "Previous buffer")
+    "br" '(rename-buffer :which-key "Rename buffer")
 
     ;; Editing-related commands under `e'
     "ef" '(evil-avy-goto-char :which-key "Goto character")
