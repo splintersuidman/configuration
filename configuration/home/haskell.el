@@ -75,4 +75,12 @@
   :after (lsp-mode haskell)
   :hook (haskell-mode . lsp))
 
+(use-package consult-hoogle
+  :ensure t
+  :after consult
+  :general
+  (my-local-leader-def
+    :keymaps 'interactive-haskell-mode-map
+    "h" 'consult-hoogle))
+
 (provide 'init-haskell)
